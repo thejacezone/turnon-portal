@@ -1,13 +1,7 @@
+import PageHeader from '../components/PageHeader.jsx'
 import Card from '../components/Card.jsx'
-import PageIntro from '../components/PageIntro.jsx'
-import { communityLinks, communityPrinciples } from '../data/community.js'
+import { communityLinks } from '../data/communityLinks.js'
 
 export default function Community() {
-  return (
-    <>
-      <PageIntro eyebrow="Comunidad" title="Crecer se vuelve más posible cuando no lo haces a solas" description="Conecta con espacios para compartir oportunidades, preguntas y aprendizajes con respeto y generosidad." />
-      <section className="card-grid section-block">{communityLinks.map((link) => <Card key={link.id} eyebrow={link.platform} title={link.name} action="Abrir comunidad" href={link.url}><p>{link.description}</p></Card>)}</section>
-      <section className="principles"><div><span className="eyebrow">Cómo convivimos</span><h2>Una comunidad que suma</h2></div><ul>{communityPrinciples.map((principle) => <li key={principle}>{principle}</li>)}</ul></section>
-    </>
-  )
+  return <><PageHeader eyebrow="Comunidad TurnOn" title="Conectate con personas que también se están preparando" description="Espacios para recibir oportunidades, practicar inglés y compartir información útil con respeto." /><section className="card-grid section-block">{communityLinks.map((link) => <Card key={link.id} eyebrow={link.type} title={link.name} action="Abrir enlace" href={link.url}><p>{link.description}</p></Card>)}</section></>
 }

@@ -1,6 +1,6 @@
 # turnon-portal
 
-Portal web estático de TurnOn — FASE 1. Presenta recursos, oportunidades, enlaces de comunidad y una guía laboral informativa sin permitir crear, editar o eliminar contenido desde la interfaz.
+Portal web estático de TurnOn — FASE 1. Reúne recursos laborales, preparación para empleos bilingües, inglés para trabajo, una calculadora de horas, ofertas/referidos y comunidad. No permite crear, editar ni eliminar contenido desde la interfaz.
 
 ## Ubicación
 
@@ -10,6 +10,7 @@ Portal web estático de TurnOn — FASE 1. Presenta recursos, oportunidades, enl
 
 - React
 - Vite
+- React Router con `HashRouter`
 - JavaScript (ES modules)
 - CSS responsive
 - Git
@@ -35,8 +36,9 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 
 - `resources.js`: recursos y guías;
 - `offers.js`: ofertas;
-- `community.js`: enlaces y principios de comunidad;
+- `communityLinks.js`: enlaces de comunidad;
 - `laborRules.js`: reglas de cálculo laboral;
+- `englishPractice.js`: estructura del futuro Work English Test;
 - `siteContent.js`: navegación y contenido general.
 
 ## Desarrollo local
@@ -67,6 +69,6 @@ El sitio listo para publicar se genera en `dist/`.
 
 ## Alcance de la FASE 1
 
-Esta fase no utiliza backend, Supabase, Firebase, `localStorage`, `sessionStorage` ni panel administrativo. Los datos viven en archivos reales versionados dentro de `src/data/`. La calculadora sólo mantiene entradas transitorias en memoria y no guarda información.
+Esta fase no utiliza backend, Supabase, Firebase, login, IA, `localStorage`, `sessionStorage` ni panel administrativo. Los datos viven en archivos reales versionados dentro de `src/data/`. La calculadora sólo mantiene entradas transitorias en memoria y no guarda información. El Work English Test presenta únicamente su estructura visual; su evaluación se implementará en otra fase.
 
 Si una fase futura permite crear, editar o eliminar contenido, debe incorporarse Supabase, un backend propio o un sistema formal de exportación/importación; el almacenamiento del navegador no será la fuente principal.

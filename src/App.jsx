@@ -1,40 +1,30 @@
-import { useEffect, useState } from 'react'
-import Header from './components/Header.jsx'
+import { Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
+import WorkEnglishTest from './pages/WorkEnglishTest.jsx'
 import Resources from './pages/Resources.jsx'
-import Offers from './pages/Offers.jsx'
+import Calculators from './pages/Calculators.jsx'
 import Community from './pages/Community.jsx'
-import LaborGuide from './pages/LaborGuide.jsx'
-
-const pages = {
-  inicio: Home,
-  recursos: Resources,
-  ofertas: Offers,
-  comunidad: Community,
-  laboral: LaborGuide,
-}
-
-function pageFromHash() {
-  const key = window.location.hash.replace('#/', '') || 'inicio'
-  return pages[key] ? key : 'inicio'
-}
+import Offers from './pages/Offers.jsx'
+import About from './pages/About.jsx'
 
 export default function App() {
-  const [page, setPage] = useState(pageFromHash)
-
-  useEffect(() => {
-    const navigate = () => setPage(pageFromHash())
-    window.addEventListener('hashchange', navigate)
-    return () => window.removeEventListener('hashchange', navigate)
-  }, [])
-
-  const CurrentPage = pages[page]
-
   return (
     <div className="app-shell">
-      <Header currentPage={page} />
-      <main><CurrentPage /></main>
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/work-english-test" element={<WorkEnglishTest />} />
+          <Route path="/recursos" element={<Resources />} />
+          <Route path="/calculadoras" element={<Calculators />} />
+          <Route path="/comunidad" element={<Community />} />
+          <Route path="/ofertas" element={<Offers />} />
+          <Route path="/sobre-turnon" element={<About />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   )

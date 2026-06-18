@@ -1,19 +1,17 @@
 export const navigation = [
-  { id: 'inicio', label: 'Inicio' },
-  { id: 'recursos', label: 'Recursos' },
-  { id: 'ofertas', label: 'Ofertas' },
-  { id: 'comunidad', label: 'Comunidad' },
-  { id: 'laboral', label: 'Guía laboral' },
+  { path: '/', label: 'Inicio' },
+  { path: '/work-english-test', label: 'Work English Test' },
+  { path: '/recursos', label: 'Recursos' },
+  { path: '/calculadoras', label: 'Calculadoras' },
+  { path: '/comunidad', label: 'Comunidad' },
+  { path: '/ofertas', label: 'Ofertas' },
+  { path: '/sobre-turnon', label: 'Sobre TurnOn' },
 ]
 
-export const siteStats = [
-  { value: '4', label: 'rutas prácticas' },
-  { value: '3', label: 'espacios de comunidad' },
-  { value: '1', label: 'lugar para avanzar' },
-]
-
-export const homeHighlights = [
-  { id: 'learn', eyebrow: 'Aprende', title: 'Recursos que puedes usar hoy', description: 'Material breve, útil y pensado para convertirse en acción.', action: 'Ver recursos', href: '#/recursos' },
-  { id: 'work', eyebrow: 'Conecta', title: 'Oportunidades a tu alcance', description: 'Un espacio claro para descubrir posibles siguientes pasos.', action: 'Explorar ofertas', href: '#/ofertas' },
-  { id: 'grow', eyebrow: 'Avanza', title: 'Decisiones con más contexto', description: 'Orientación y cálculos informativos para entender mejor tu camino.', action: 'Abrir guía laboral', href: '#/laboral' },
+export const portalSections = [
+  { eyebrow: 'Inglés laboral', title: 'Work English Test', description: 'Medí tu punto de partida y prepará el inglés que vas a usar en entrevistas y trabajo.', action: 'Conocer la sección', path: '/work-english-test' },
+  { eyebrow: 'Aplicación y empleo', title: 'Recursos laborales', description: 'Guías, cartas, plantillas y checklists para aplicar y moverte con más claridad.', action: 'Explorar recursos', path: '/recursos' },
+  { eyebrow: 'Números claros', title: 'Calculadoras laborales', description: 'Estimá el valor de tus horas y entendé los datos que conviene verificar.', action: 'Calcular horas', path: '/calculadoras' },
+  { eyebrow: 'Acompañamiento', title: 'Comunidad', description: 'Conectá con espacios para compartir oportunidades y practicar inglés.', action: 'Ver comunidades', path: '/comunidad' },
+  { eyebrow: 'Próximo paso', title: 'Ofertas / Referidos', description: 'Revisá oportunidades con salario, modalidad y nivel de inglés a la vista.', action: 'Ver ofertas', path: '/ofertas' },
 ]

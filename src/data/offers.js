@@ -1,5 +1,6 @@
 export const offers = [
-  { id: 'support-01', role: 'Especialista de soporte', company: 'Empresa aliada', location: 'Ciudad de Guatemala', modality: 'Híbrido', type: 'Tiempo completo', publishedLabel: 'recientemente', url: '#/ofertas' },
-  { id: 'design-01', role: 'Diseñador/a junior', company: 'Estudio creativo', location: 'Guatemala', modality: 'Remoto', type: 'Tiempo completo', publishedLabel: 'esta semana', url: '#/ofertas' },
-  { id: 'sales-01', role: 'Asesor/a comercial', company: 'Compañía regional', location: 'Mixco', modality: 'Presencial', type: 'Tiempo completo', publishedLabel: 'recientemente', url: '#/ofertas' },
+  { id: 'liberty-mutual-upl', company: 'Liberty Mutual UPL', englishLevel: 'B2+', baseSalary: 'Q 6,500', bonus: 'Hasta Q 1,500', modality: 'onsite', training: 'Pagado', highlight: 'Bonos por desempeño', description: 'Cuenta de servicio al cliente para personas con comunicación clara y disponibilidad de horario.', applyUrl: '#' },
+  { id: 'chat-account', company: 'Chat Account', englishLevel: 'B2', baseSalary: 'Q 5,750', bonus: 'Q 900', modality: 'hybrid', training: 'Presencial', highlight: 'Atención principalmente escrita', description: 'Soporte por chat para resolver consultas y documentar cada interacción.', applyUrl: '#' },
+  { id: 'customer-service-b2', company: 'Customer Service B2', englishLevel: 'B2', baseSalary: 'Q 6,000', bonus: 'Hasta Q 1,200', modality: 'onsite', training: 'Pagado', highlight: 'Dos días libres', description: 'Atención de consultas, seguimiento de casos y orientación a clientes.', applyUrl: '#' },
+  { id: 'wfh-training', company: 'Work From Home After Training', englishLevel: 'B2+', baseSalary: 'Q 6,800', bonus: 'Q 1,000', modality: 'WFH', training: '6 semanas onsite', highlight: 'Trabajo remoto después de training', description: 'Cuenta bilingüe con transición a modalidad remota al aprobar el entrenamiento.', applyUrl: '#' },
 ]
