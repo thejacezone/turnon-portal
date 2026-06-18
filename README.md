@@ -1,6 +1,6 @@
-# turnon-portal
+# turnon-portal — FASE 2
 
-Portal web estático de TurnOn — FASE 1. Reúne recursos laborales, preparación para empleos bilingües, inglés para trabajo, una calculadora de horas, ofertas/referidos y comunidad. No permite crear, editar ni eliminar contenido desde la interfaz.
+Portal web estático de TurnOn. La FASE 2 corrige la calculadora laboral a dólares estadounidenses e incorpora Work English Test v1, una evaluación local de 50 preguntas con resultado por skill y nivel.
 
 ## Ubicación
 
@@ -39,7 +39,10 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `communityLinks.js`: enlaces de comunidad;
 - `laborRules.js`: reglas de cálculo laboral;
 - `englishPractice.js`: estructura del futuro Work English Test;
+- `englishQuestions.js`: 50 preguntas locales de grammar, vocabulary y reading.
 - `siteContent.js`: navegación y contenido general.
+
+La lógica de puntuación está en `src/utils/englishScoring.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
 
 ## Desarrollo local
 
@@ -67,8 +70,8 @@ El sitio listo para publicar se genera en `dist/`.
 5. Comprueba que `index.html` esté directamente dentro de `public_html/`.
 6. Abre el dominio y verifica la navegación. Esta fase usa rutas con `#`, por lo que no requiere reglas especiales de redirección.
 
-## Alcance de la FASE 1
+## Alcance de la FASE 2
 
-Esta fase no utiliza backend, Supabase, Firebase, login, IA, `localStorage`, `sessionStorage` ni panel administrativo. Los datos viven en archivos reales versionados dentro de `src/data/`. La calculadora sólo mantiene entradas transitorias en memoria y no guarda información. El Work English Test presenta únicamente su estructura visual; su evaluación se implementará en otra fase.
+Esta fase no utiliza backend, Supabase, Firebase, login, IA, `localStorage`, `sessionStorage` ni panel administrativo. Los datos viven en archivos reales versionados dentro de `src/data/`. La calculadora usa USD y mantiene entradas transitorias sólo en memoria. Work English Test v1 funciona localmente y no guarda respuestas al cerrar o recargar el sitio.
 
 Si una fase futura permite crear, editar o eliminar contenido, debe incorporarse Supabase, un backend propio o un sistema formal de exportación/importación; el almacenamiento del navegador no será la fuente principal.

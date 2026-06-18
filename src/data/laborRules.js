@@ -1,5 +1,8 @@
 // Valores iniciales orientativos. Deben validarse con fuentes oficiales en una fase posterior.
 export const laborRules = {
+  country: 'El Salvador',
+  currency: 'USD',
+  currencySymbol: '$',
   monthlyBaseHours: 240,
   disclaimer: 'Este cálculo es orientativo y debe verificarse con información oficial del Ministerio de Trabajo o asesoría correspondiente.',
 }

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import WorkEnglishTest from './pages/WorkEnglishTest.jsx'
+import EnglishTest from './pages/EnglishTest.jsx'
 import Resources from './pages/Resources.jsx'
 import Calculators from './pages/Calculators.jsx'
 import Community from './pages/Community.jsx'
@@ -17,6 +18,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work-english-test" element={<WorkEnglishTest />} />
+          <Route path="/work-english-test/test" element={<EnglishTest />} />
           <Route path="/recursos" element={<Resources />} />
           <Route path="/calculadoras" element={<Calculators />} />
           <Route path="/comunidad" element={<Community />} />
