@@ -1,36 +1,19 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import CalculatorCard from '../components/CalculatorCard.jsx'
+import LaborCalculatorRows from '../components/LaborCalculatorRows.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { laborConditions, laborRules } from '../data/laborRules.js'
-import { calculateLaborHours, emptyLaborResult, formatUSD, validateLaborInputs } from '../utils/laborCalculator.js'
+import { calculateLaborLines, formatUSD, validateLaborLines } from '../utils/laborCalculator.js'
+
+const newLine = () => ({ id: crypto.randomUUID(), conditionId: laborConditions[0].id, hours: '' })
 
 export default function Calculators() {
   const [salary, setSalary] = useState('')
-  const [hours, setHours] = useState('')
-  const [conditionId, setConditionId] = useState(laborConditions[0].id)
-  const [errors, setErrors] = useState({})
-  const [result, setResult] = useState(emptyLaborResult(laborConditions[0].id))
-  const updateSalary = (value) => { setSalary(value); if (Number(value) > 0) setErrors((current) => ({ ...current, salary: undefined })) }
-  const updateHours = (value) => { setHours(value); if (Number(value) > 0) setErrors((current) => ({ ...current, hours: undefined })) }
-  const calculate = (event) => {
-    event.preventDefault()
-    const nextErrors = validateLaborInputs({ salary, hours })
-    setErrors(nextErrors)
-    if (Object.keys(nextErrors).length) return
-    setResult(calculateLaborHours({ salary, hours, conditionId }))
-  }
-  const clear = () => { setSalary(''); setHours(''); setConditionId(laborConditions[0].id); setErrors({}); setResult(emptyLaborResult(laborConditions[0].id)) }
-  return (
-    <>
-      <PageHeader eyebrow="Calculadoras laborales" title="Sacá cuentas antes de quedarte con la duda" description="Estimaciones claras para entender mejor tus horas y revisar tus números con información oficial." />
-      <CalculatorCard title="Calculadora de horas laborales" description="Ingresá tu salario mensual, seleccioná el tipo de hora trabajada y la cantidad de horas. La herramienta estimará cuánto valen esas horas según el multiplicador seleccionado.">
-        <form onSubmit={calculate} noValidate>
-          <div className="form-grid"><label>Salario base mensual en dólares<input type="number" min="0" value={salary} onChange={(event) => updateSalary(event.target.value)} placeholder="Ej. 365.00" aria-invalid={Boolean(errors.salary)} />{errors.salary && <span className="field-error">{errors.salary}</span>}</label><label>Cantidad de horas trabajadas<input type="number" min="0" value={hours} onChange={(event) => updateHours(event.target.value)} placeholder="Ej. 8" aria-invalid={Boolean(errors.hours)} />{errors.hours && <span className="field-error">{errors.hours}</span>}</label><label className="full-field">Condición de las horas<select value={conditionId} onChange={(event) => setConditionId(event.target.value)}>{laborConditions.map((condition) => <option key={condition.id} value={condition.id}>{condition.label}</option>)}</select></label></div>
-          <div className="calculator-actions"><button className="button" type="submit">Calcular</button><button className="button ghost dark-ghost" type="button" onClick={clear}>Limpiar</button></div>
-        </form>
-        <dl className="calculation-results"><div><dt>Salario mensual ingresado</dt><dd>{formatUSD(result.salary)}</dd></div><div><dt>Valor estimado de la hora base</dt><dd>{formatUSD(result.hourlyRate)}</dd></div><div><dt>Condición seleccionada</dt><dd>{result.condition}</dd></div><div><dt>Multiplicador aplicado</dt><dd>{result.multiplier}×</dd></div><div><dt>Cantidad de horas</dt><dd>{result.hours}</dd></div><div className="total"><dt>Total estimado por esas horas</dt><dd>{formatUSD(result.total)}</dd></div></dl>
-      </CalculatorCard>
-      <aside className="official-note"><strong>Importante</strong><p>{laborRules.disclaimer}</p></aside>
-    </>
-  )
+  const [lines, setLines] = useState([newLine()])
+  const [errors, setErrors] = useState({ salary: undefined, lines: {} })
+  const result = useMemo(() => calculateLaborLines(salary, lines), [salary, lines])
+  const updateLine = (id, field, value) => { setLines((current) => current.map((line) => line.id === id ? { ...line, [field]: value } : line)); if (field === 'hours' && Number(value) > 0) setErrors((current) => ({ ...current, lines: { ...current.lines, [id]: undefined } })) }
+  const validate = () => setErrors(validateLaborLines(salary, lines))
+  const clear = () => { setSalary(''); setLines([newLine()]); setErrors({ salary: undefined, lines: {} }) }
+  return <><PageHeader eyebrow="Calculadoras laborales" title="Sacá cuentas antes de quedarte con la duda" description="Sumá varias condiciones trabajadas y revisá cada cálculo por separado." /><CalculatorCard title="Calculadora de horas laborales" description="Ingresá tu salario mensual, agregá una o varias condiciones trabajadas y colocá la cantidad de horas. La herramienta estimará el valor de esas horas usando multiplicadores orientativos."><label className="salary-field">Salario base mensual en dólares<input type="number" min="0" value={salary} onChange={(event) => { setSalary(event.target.value); if (Number(event.target.value) > 0) setErrors((current) => ({ ...current, salary: undefined })) }} placeholder="Ej. 365.00" aria-invalid={Boolean(errors.salary)} />{errors.salary && <span className="field-error">{errors.salary}</span>}</label><div className="calculator-summary"><div><span>Salario base mensual</span><strong>{formatUSD(result.salary)}</strong></div><div><span>Valor estimado de hora base</span><strong>{formatUSD(result.hourlyRate)}</strong></div></div><LaborCalculatorRows lines={lines} calculatedLines={result.lines} errors={errors.lines || {}} onChange={updateLine} onRemove={(id) => setLines((current) => current.filter((line) => line.id !== id))} /><div className="calculator-total"><span>Total general</span><strong>{formatUSD(result.grandTotal)}</strong></div><div className="calculator-actions"><button className="button" type="button" onClick={() => setLines((current) => [...current, newLine()])}>Agregar otra condición</button><button className="button ghost dark-ghost" type="button" onClick={validate}>Revisar datos</button><button className="button ghost dark-ghost" type="button" onClick={clear}>Limpiar todo</button></div></CalculatorCard><aside className="official-note"><strong>Importante</strong><p>{laborRules.disclaimer}</p></aside></>
 }

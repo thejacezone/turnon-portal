@@ -1,6 +1,6 @@
-# turnon-portal — FASE 2
+# turnon-portal — FASE 3 beta
 
-Portal web estático de TurnOn. La FASE 2 corrige la calculadora laboral a dólares estadounidenses e incorpora Work English Test v1, una evaluación local de 50 preguntas con resultado por skill y nivel.
+Portal web estático de TurnOn. La FASE 3 agrega recursos desarrollados con rutas de detalle, calculadora laboral multilínea en USD, ofertas ampliadas, comunidad organizada y mejoras al Work English Test.
 
 ## Ubicación
 
@@ -70,7 +70,16 @@ El sitio listo para publicar se genera en `dist/`.
 5. Comprueba que `index.html` esté directamente dentro de `public_html/`.
 6. Abre el dominio y verifica la navegación. Esta fase usa rutas con `#`, por lo que no requiere reglas especiales de redirección.
 
-## Alcance de la FASE 2
+## Preparar beta para hosting
+
+1. Ejecutá `npm run build`.
+2. Entrá a la carpeta `dist/`.
+3. Subí **el contenido de `dist/`** a `public_html/` en Hostinger o BanaHosting.
+4. No subás `node_modules/`.
+5. No subás toda la carpeta del proyecto: sólo los archivos generados dentro de `dist/`.
+6. El portal usa `HashRouter`, por eso las rutas públicas incluyen `#/` y funcionan sin reglas especiales del servidor.
+
+## Alcance de la FASE 3
 
 Esta fase no utiliza backend, Supabase, Firebase, login, IA, `localStorage`, `sessionStorage` ni panel administrativo. Los datos viven en archivos reales versionados dentro de `src/data/`. La calculadora usa USD y mantiene entradas transitorias sólo en memoria. Work English Test v1 funciona localmente y no guarda respuestas al cerrar o recargar el sitio.
 

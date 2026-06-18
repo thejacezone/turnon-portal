@@ -1,4 +1,5 @@
 import Card from './Card.jsx'
+import { Link } from 'react-router-dom'
 
 export default function ResourceCard({ resource }) {
   const available = resource.status === 'disponible'
@@ -6,7 +7,7 @@ export default function ResourceCard({ resource }) {
     <Card eyebrow={resource.category} title={resource.title}>
       <p>{resource.description}</p>
       <div className="card-meta"><span>{resource.type}</span><span className={`status ${available ? 'available' : ''}`}>{available ? 'Disponible' : 'Próximamente'}</span></div>
-      <a className={`button card-button ${available ? '' : 'disabled'}`} href={available ? resource.url : undefined} aria-disabled={!available}>Ver recurso</a>
+      {available ? <Link className="button card-button" to={`/recursos/${resource.id}`}>Ver recurso</Link> : <span className="button card-button disabled" aria-disabled="true">Ver recurso</span>}
     </Card>
   )
 }

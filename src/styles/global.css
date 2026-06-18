@@ -67,6 +67,11 @@ p { line-height: 1.65; }
 .page-intro h1 { font-size: clamp(3rem, 7vw, 5.4rem); }
 .page-intro p { max-width: 720px; color: #53605b; font-size: 1.15rem; }
 .resource-tools { display: grid; gap: 20px; padding: 26px; background: #fffdf7; border: 1px solid var(--line); border-radius: 10px; }
+.filter-group { display: grid; gap: 9px; }
+.filter-group > span { font-weight: 700; }
+.compact-filters { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.compact-filters label { display: grid; gap: 7px; font-weight: 700; }
+.compact-filters select, .salary-field input, .labor-line input, .labor-line select { width: 100%; padding: 12px; color: var(--ink); background: white; border: 1px solid #aeb7ad; border-radius: 5px; }
 .search-label { display: grid; gap: 7px; font-weight: 700; }
 .search-label input, .form-grid input, .form-grid select { width: 100%; padding: 13px; color: var(--ink); background: white; border: 1px solid #aeb7ad; border-radius: 5px; }
 .filter-row { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -82,6 +87,7 @@ p { line-height: 1.65; }
 .offer-card { display: flex; flex-direction: column; padding: 28px; background: #fffdf7; border: 1px solid var(--line); border-radius: 10px; }
 .offer-card h2 { margin: 20px 0 8px; font-size: 2rem; }
 .offer-card > .button { align-self: flex-start; margin-top: 22px; }
+.offer-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 22px; }
 .english-level { padding: 6px 9px; color: var(--green); background: #e2f4df; border-radius: 999px; font-size: .78rem; font-weight: 700; }
 .offer-facts { display: grid; grid-template-columns: 1fr 1fr; margin: 18px 0 0; }
 .offer-facts div { padding: 13px 0; border-top: 1px solid var(--line); }
@@ -91,6 +97,18 @@ p { line-height: 1.65; }
 .principles .eyebrow, .calculator .eyebrow { color: var(--lime); }
 .principles li { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.25); }
 .calculator-panel { padding: 26px; color: var(--ink); background: var(--cream); border-radius: 8px; }
+.salary-field { display: grid; gap: 7px; margin-bottom: 18px; font-weight: 700; }
+.calculator-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+.calculator-summary div { display: grid; gap: 5px; padding: 16px; background: white; border: 1px solid var(--line); border-radius: 7px; }
+.calculator-summary span { color: #68736f; font-size: .82rem; }
+.labor-lines { margin: 22px 0; overflow-x: auto; }
+.labor-table-header, .labor-line { display: grid; grid-template-columns: minmax(230px, 2fr) minmax(100px, .7fr) minmax(90px, .6fr) minmax(100px, .7fr) 38px; gap: 10px; align-items: start; min-width: 720px; padding: 10px 0; }
+.labor-table-header { color: #68736f; border-bottom: 1px solid var(--line); font-size: .78rem; font-weight: 700; }
+.labor-line { border-bottom: 1px solid var(--line); }
+.mobile-label { display: none; }
+.remove-line { width: 34px; height: 34px; border: 0; border-radius: 50%; color: #8e2e29; background: #f5dedb; cursor: pointer; font-size: 1.2rem; }
+.remove-line:disabled { cursor: not-allowed; opacity: .35; }
+.calculator-total { display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; border-top: 2px solid var(--green); color: var(--green); font-size: 1.25rem; }
 .calculator-card { display: grid; grid-template-columns: .75fr 1.25fr; gap: 50px; margin: 40px 0; padding: 45px; color: white; background: var(--green); border-radius: 12px; }
 .calculator-card .eyebrow { color: var(--lime); }
 .calculator-copy h2 { font-size: 3rem; }
@@ -111,6 +129,27 @@ p { line-height: 1.65; }
 .about-grid > div { padding: 38px; border: 1px solid var(--line); border-radius: 10px; }
 .about-panel { color: white; background: var(--green); }
 .about-panel .eyebrow { color: var(--lime); }
+.detail-page { width: min(900px, 100%); margin: 0 auto; padding: 80px 0 110px; }
+.detail-page header { margin: 26px 0 40px; }
+.detail-page h1 { font-size: clamp(3rem, 7vw, 5.4rem); }
+.detail-page header p { max-width: 760px; color: #53605b; font-size: 1.15rem; }
+.back-link { color: var(--green); font-weight: 700; text-decoration: none; }
+.detail-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.detail-sections section, .common-errors, .recommendation { padding: 26px; background: #fffdf7; border: 1px solid var(--line); border-radius: 10px; }
+.detail-sections h2, .common-errors h2 { margin-top: 0; font-size: 1.65rem; }
+.detail-sections li, .common-errors li { margin: 9px 0; line-height: 1.5; }
+.common-errors { margin-top: 16px; border-left: 5px solid #b43d35; }
+.recommendation { margin-top: 16px; background: #e5ffc2; border-color: #bddc73; }
+.recommendation p { margin-bottom: 0; }
+.offer-detail-facts { display: grid; grid-template-columns: repeat(4, 1fr); margin: 30px 0; border-block: 1px solid var(--line); }
+.offer-detail-facts div { display: grid; gap: 6px; padding: 20px; border-right: 1px solid var(--line); }
+.offer-detail-facts div:last-child { border: 0; }
+.offer-detail-facts span, .detail-disclaimer { color: #68736f; }
+.community-section { margin: 70px 0; }
+.community-section .section-heading { margin-bottom: 22px; }
+.community-rules, .home-actions { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; margin: 100px 0; padding: 42px; color: white; background: var(--green); border-radius: 12px; }
+.community-rules .eyebrow, .home-actions .eyebrow { color: var(--lime); }
+.community-rules li, .home-actions li { margin: 12px 0; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.22); }
 .test-page { width: min(900px, 100%); margin: 0 auto; padding: 80px 0 110px; }
 .test-intro { padding: clamp(28px, 6vw, 64px); background: #fffdf7; border: 1px solid var(--line); border-radius: 12px; }
 .test-intro h1, .test-results h1 { font-size: clamp(3rem, 8vw, 5.6rem); margin: 20px 0; }
@@ -162,4 +201,4 @@ p { line-height: 1.65; }
 .footer-brand { font: 800 1.6rem Manrope; }
 .site-footer small { grid-column: 1 / -1; }
 @media (max-width: 900px) { .menu-toggle { display: block; margin-left: auto; } .site-header { flex-direction: row; } nav { position: absolute; inset: 79px 18px auto; display: none; padding: 14px; background: #fffdf7; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 16px 40px rgba(17,32,27,.14); } nav.open { display: grid; } nav a { padding: 11px 13px; } }
-@media (max-width: 780px) { main { width: min(100% - 32px, 1160px); } .hero { min-height: auto; grid-template-columns: 1fr; padding: 70px 0; } .hero-dashboard { min-height: 250px; transform: none; box-shadow: 9px 9px 0 var(--lime); } .hero-orbit { display: none; } .card-grid, .offer-grid { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr; } .stats div { border-right: 0; border-bottom: 1px solid var(--line); } .offer, .principles, .calculator, .calculator-card, .about-grid { grid-template-columns: 1fr; flex-direction: column; } .calculator-card { padding: 26px; } .form-grid { grid-template-columns: 1fr; } .form-grid .full-field { grid-column: auto; } .offer-side { align-items: flex-start; } .site-footer { grid-template-columns: 1fr; } .footer-links { justify-content: flex-start; } .result-hero, .score-sections, .topic-grid { grid-template-columns: 1fr; } .score-ring { width: 120px; } .review-heading { flex-direction: column; gap: 5px; } }
+@media (max-width: 780px) { main { width: min(100% - 32px, 1160px); } .hero { min-height: auto; grid-template-columns: 1fr; padding: 70px 0; } .hero-dashboard { min-height: 250px; transform: none; box-shadow: 9px 9px 0 var(--lime); } .hero-orbit { display: none; } .card-grid, .offer-grid { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr; } .stats div { border-right: 0; border-bottom: 1px solid var(--line); } .offer, .principles, .calculator, .calculator-card, .about-grid, .community-rules, .home-actions { grid-template-columns: 1fr; flex-direction: column; } .calculator-card { padding: 20px; } .calculator-summary, .compact-filters, .detail-sections, .offer-detail-facts { grid-template-columns: 1fr; } .offer-detail-facts div { border-right: 0; border-bottom: 1px solid var(--line); } .labor-table-header { display: none; } .labor-line { grid-template-columns: 1fr 1fr; min-width: 0; padding: 18px 0; } .labor-line > span, .labor-line > strong { align-self: center; } .labor-line .remove-line { justify-self: end; } .mobile-label { display: block; margin-bottom: 5px; color: #68736f; font-size: .75rem; } .form-grid { grid-template-columns: 1fr; } .form-grid .full-field { grid-column: auto; } .offer-side { align-items: flex-start; } .site-footer { grid-template-columns: 1fr; } .footer-links { justify-content: flex-start; } .result-hero, .score-sections, .topic-grid { grid-template-columns: 1fr; } .score-ring { width: 120px; } .review-heading { flex-direction: column; gap: 5px; } }

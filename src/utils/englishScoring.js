@@ -8,12 +8,12 @@ function band(score) {
 }
 
 function recommendation(level) {
-  if (level === 'Pre-A1') return 'Reforzá bases de gramática, vocabulario común y frases simples de entrevista.'
-  if (level === 'A1') return 'Reforzá bases de gramática, vocabulario común y frases simples de entrevista.'
-  if (level === 'A2') return 'Practicá pasado simple, preguntas comunes, vocabulario de trabajo y lectura de instrucciones.'
-  if (level === 'B1') return 'Reforzá present perfect, conditionals, vocabulario laboral y respuestas de entrevista.'
-  if (level === 'B2') return 'Practicá fluidez, listening, writing profesional y situaciones laborales más complejas.'
-  return 'Refiná precisión, vocabulario profesional, speaking avanzado y escritura formal.'
+  if (level === 'Pre-A1') return 'Necesitás reforzar las bases: verb to be, preguntas simples, vocabulario común y frases básicas de entrevista.'
+  if (level === 'A1') return 'Podés entender frases simples, pero necesitás practicar estructuras básicas antes de aplicar a un empleo bilingüe.'
+  if (level === 'A2') return 'Tenés una base útil. Podés comprender instrucciones simples y responder preguntas básicas, pero necesitás reforzar conversación, vocabulario laboral y lectura.'
+  if (level === 'B1') return 'Podés manejar situaciones laborales simples, responder preguntas básicas de entrevista y comprender textos cortos de trabajo. Reforzá present perfect, conditionals, vocabulary y listening.'
+  if (level === 'B2') return 'Tenés una base fuerte para ambientes bilingües. Ahora conviene practicar fluidez, listening, writing profesional y situaciones laborales más complejas.'
+  return 'Tu nivel es avanzado. Enfocate en precisión, vocabulario profesional, respuestas naturales, writing formal y speaking más fluido.'
 }
 
 function levelDescription(label) {
