@@ -63,6 +63,9 @@ p { line-height: 1.65; }
 .button.disabled { cursor: not-allowed; opacity: .52; pointer-events: none; }
 .featured-card { max-width: 680px; }
 .featured-card .card { min-height: 280px; background: var(--lime); }
+.test-choice-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+.test-choice-grid .card:first-child { background: var(--lime); }
+.highlight-copy { margin: 0 0 8px; color: var(--green); font-weight: 800; }
 .page-intro { max-width: 900px; padding: 100px 0 50px; }
 .page-intro h1 { font-size: clamp(3rem, 7vw, 5.4rem); }
 .page-intro p { max-width: 720px; color: #53605b; font-size: 1.15rem; }
@@ -229,4 +232,4 @@ p { line-height: 1.65; }
 .practice-result-grid span { color: #68736f; font-size: .82rem; }
 .practice-result-grid strong { line-height: 1.45; }
 .card-copy .button, .card-copy .button.disabled { display: inline-flex; align-self: flex-start; margin-top: 14px; }
-@media (max-width: 780px) { .practice-filters, .topic-pills, .practice-result-grid { grid-template-columns: 1fr; } }
+@media (max-width: 780px) { .practice-filters, .topic-pills, .practice-result-grid, .test-choice-grid { grid-template-columns: 1fr; } }

@@ -3,6 +3,7 @@ export function validateQuestionBank(questions, expected = {}) {
     total: questions.length,
     bySkill: {},
     byLevel: {},
+    byTopic: {},
     duplicateIds: [],
     missingCorrectAnswer: [],
     missingExplanation: [],
@@ -14,8 +15,9 @@ export function validateQuestionBank(questions, expected = {}) {
   const seenIds = new Set()
 
   questions.forEach((question) => {
-    summary.bySkill[question.skill] = (summary.bySkill[question.skill] || 0) + 1
-    summary.byLevel[question.level] = (summary.byLevel[question.level] || 0) + 1
+    if (question.skill) summary.bySkill[question.skill] = (summary.bySkill[question.skill] || 0) + 1
+    if (question.level) summary.byLevel[question.level] = (summary.byLevel[question.level] || 0) + 1
+    if (question.topic) summary.byTopic[question.topic] = (summary.byTopic[question.topic] || 0) + 1
 
     if (seenIds.has(question.id)) summary.duplicateIds.push(question.id)
     seenIds.add(question.id)
@@ -50,4 +52,9 @@ export const workEnglishTest3ExpectedShape = {
   total: 50,
   bySkill: { grammar: 20, vocabulary: 15, reading: 15 },
   byLevel: { A1: 10, A2: 10, B1: 10, B2: 10, C1: 10 },
+}
+
+export const generalEnglishTestExpectedShape = {
+  total: 50,
+  bySkill: { grammar: 20, vocabulary: 15, reading: 15 },
 }

@@ -1,10 +1,21 @@
 # turnon-portal — FASE 3.5 beta
 
-Portal web estático de TurnOn. La FASE 3.5 agrega Grammar Practice funcional dentro de Work English Test e integra el banco principal como “Test 3 balanceado revisado”, manteniendo recursos, calculadora, ofertas y comunidad como sitio estático compatible con Hostinger/BanaHosting.
+Portal web estático de TurnOn. Esta actualización de FASE 3.5 separa el test general principal, mantiene el test laboral como opción secundaria y carga Grammar Practice desde documentos Word reales.
 
 ## Ubicación
 
 `C:\Users\jason\Documents\Codex\turnon-portal`
+
+## Documentos fuente
+
+Ruta de documentos:
+
+`C:\Users\jason\OneDrive\Desktop\recursos para turn on`
+
+Documentos usados:
+
+- `work_english_test_3_general_balanced.docx`: fuente del test general principal.
+- `fase_3_5_grammar_practice_questions.docx`: fuente de Grammar Practice.
 
 ## Tecnologías
 
@@ -36,45 +47,47 @@ turnon-portal/
 
 Los contenidos reutilizables están separados de los componentes en `src/data/`:
 
-- `resources.js`: recursos y guías;
-- `offers.js`: ofertas;
-- `communityLinks.js`: enlaces de comunidad;
-- `laborRules.js`: reglas de cálculo laboral en USD;
-- `englishPractice.js`: estructura de Work English Test y prácticas;
-- `englishQuestions.js`: banco principal “Test 3 balanceado revisado” con 50 preguntas locales;
-- `grammarPracticeQuestions.js`: preguntas de Grammar Practice por nivel, tema y contexto;
+- `generalEnglishTestQuestions.js`: test general principal convertido desde `work_english_test_3_general_balanced.docx`.
+- `workEnglishTestQuestions.js`: export del test laboral secundario.
+- `englishQuestions.js`: banco del test laboral existente.
+- `grammarPracticeQuestions.js`: 150 preguntas de Grammar Practice convertidas desde `fase_3_5_grammar_practice_questions.docx`.
+- `englishPractice.js`: estructura de tests y prácticas dentro de Work English Test.
+- `resources.js`: recursos y guías.
+- `offers.js`: ofertas.
+- `communityLinks.js`: enlaces de comunidad.
+- `laborRules.js`: reglas de cálculo laboral en USD.
 - `siteContent.js`: navegación y contenido general.
 
 La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
 
-## FASE 3.5 — Grammar Practice
+## Actualización Fase 3.5 — Test general y Grammar Practice desde documentos Word
 
-Se agregó:
+Se agregó el test general como opción principal:
 
-- ruta `#/work-english-test/grammar-practice`;
-- botón de acceso desde `#/work-english-test`;
-- filtros por nivel, tema y contexto;
-- lista de temas disponibles;
-- práctica de una pregunta por pantalla;
-- revisión de respuesta con explicación;
-- contador de progreso;
-- resultado temporal con correctas, total, porcentaje, nivel, temas practicados y temas a reforzar.
+- Ruta: `#/work-english-test/general-test`
+- Nombre en interfaz: `General English Level Test`
+- Banco: `src/data/generalEnglishTestQuestions.js`
+- Fuente: `work_english_test_3_general_balanced.docx`
+- Total: 50 preguntas
+- Distribución: 20 grammar, 15 vocabulary, 15 reading
 
-Grammar Practice no guarda progreso todavía. Todo el estado de práctica vive sólo en memoria mientras la página está abierta.
+Se mantuvo el test laboral como opción secundaria:
 
-## Work English Test principal
+- Ruta: `#/work-english-test/work-test`
+- Nombre en interfaz: `Work English Test`
+- Banco: `src/data/workEnglishTestQuestions.js`, que reutiliza el banco laboral existente en `src/data/englishQuestions.js`
+- Total: 50 preguntas
+- Enfoque: entrevista, customer service, training y ambientes bilingües
 
-El banco principal está en `src/data/englishQuestions.js` y está identificado como `Test 3 balanceado revisado`.
+Se actualizó Grammar Practice:
 
-Distribución esperada:
+- Ruta: `#/work-english-test/grammar-practice`
+- Banco: `src/data/grammarPracticeQuestions.js`
+- Fuente: `fase_3_5_grammar_practice_questions.docx`
+- Total: 150 preguntas
+- Temas: Present Simple vs Present Continuous, Past Simple vs Present Perfect, Modals, Conditionals, Passive Voice, Prepositions, Relative Clauses, Reported Speech, Connectors y Advanced Grammar C1.
 
-- 50 preguntas total;
-- 20 grammar;
-- 15 vocabulary;
-- 15 reading;
-- 10 preguntas por nivel: A1, A2, B1, B2 y C1.
-
-El test principal mantiene resultado por skill, resultado por nivel, revisión de respuestas y recomendaciones.
+Grammar Practice permite filtrar por nivel y tema, responder preguntas, revisar respuesta, ver explicación, avanzar y ver resultado final. No guarda progreso todavía; todo el estado vive sólo en memoria mientras la página está abierta.
 
 ## Desarrollo local
 

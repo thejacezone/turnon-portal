@@ -5,6 +5,8 @@ import Home from './pages/Home.jsx'
 import WorkEnglishTest from './pages/WorkEnglishTest.jsx'
 import EnglishTest from './pages/EnglishTest.jsx'
 import GrammarPractice from './pages/GrammarPractice.jsx'
+import { generalEnglishTestQuestions } from './data/generalEnglishTestQuestions.js'
+import { workEnglishTestQuestions } from './data/workEnglishTestQuestions.js'
 import Resources from './pages/Resources.jsx'
 import Calculators from './pages/Calculators.jsx'
 import Community from './pages/Community.jsx'
@@ -14,6 +16,19 @@ import ResourceDetail from './pages/ResourceDetail.jsx'
 import OfferDetail from './pages/OfferDetail.jsx'
 
 export default function App() {
+  const generalIntro = {
+    title: 'General English Level Test',
+    description: 'Medí tu nivel aproximado de inglés general con preguntas balanceadas de grammar, vocabulary y reading.',
+    facts: ['20 Grammar', '15 Vocabulary', '15 Reading'],
+    buttonLabel: 'Comenzar test general',
+  }
+  const workIntro = {
+    title: 'Work English Test',
+    description: 'Ponete a prueba con situaciones de entrevista, customer service, training y ambientes bilingües.',
+    facts: ['20 Grammar', '15 Vocabulary', '15 Reading'],
+    buttonLabel: 'Hacer test de inglés para trabajo',
+  }
+
   return (
     <div className="app-shell">
       <Navbar />
@@ -21,7 +36,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work-english-test" element={<WorkEnglishTest />} />
-          <Route path="/work-english-test/test" element={<EnglishTest />} />
+          <Route path="/work-english-test/general-test" element={<EnglishTest questions={generalEnglishTestQuestions} intro={generalIntro} />} />
+          <Route path="/work-english-test/work-test" element={<EnglishTest questions={workEnglishTestQuestions} intro={workIntro} />} />
+          <Route path="/work-english-test/test" element={<EnglishTest questions={workEnglishTestQuestions} intro={workIntro} />} />
           <Route path="/work-english-test/grammar-practice" element={<GrammarPractice />} />
           <Route path="/recursos" element={<Resources />} />
           <Route path="/recursos/:id" element={<ResourceDetail />} />

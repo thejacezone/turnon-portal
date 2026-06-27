@@ -39,8 +39,8 @@ export default function GrammarPractice() {
   const [finished, setFinished] = useState(false)
 
   const topicsForFilter = useMemo(() => {
-    const matchingTopics = grammarPracticeTopics.filter((item) => filters.level === 'Todos' || item.level === filters.level).map((item) => item.topic)
-    return unique(matchingTopics)
+    const matchingQuestions = grammarPracticeQuestions.filter((question) => filters.level === 'Todos' || question.level === filters.level)
+    return unique(matchingQuestions.map((question) => question.topic))
   }, [filters.level])
 
   const filteredQuestions = useMemo(() => grammarPracticeQuestions.filter((question) => {
@@ -51,8 +51,8 @@ export default function GrammarPractice() {
   }), [filters])
 
   const availableTopicGroups = useMemo(() => grammarPracticeTopics.reduce((groups, item) => {
-    groups[item.level] ||= []
-    groups[item.level].push(item.topic)
+    groups[item.levelRange] ||= []
+    groups[item.levelRange].push(item.topic)
     return groups
   }, {}), [])
 
@@ -71,7 +71,7 @@ export default function GrammarPractice() {
     setFilters((current) => {
       const next = { ...current, [name]: value }
       if (name === 'level' && value !== 'Todos') {
-        const levelTopics = grammarPracticeTopics.filter((item) => item.level === value).map((item) => item.topic)
+        const levelTopics = unique(grammarPracticeQuestions.filter((question) => question.level === value).map((question) => question.topic))
         if (!levelTopics.includes(next.topic)) next.topic = 'Todos'
       }
       return next

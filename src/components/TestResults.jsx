@@ -10,7 +10,7 @@ export default function TestResults({ result, onRestart }) {
         <section><h2>Puntaje por nivel</h2>{Object.entries(result.byLevel).map(([level, value]) => <div className="score-line" key={level}><span>{level}</span><strong>{value.correct}/{value.total}</strong></div>)}</section>
       </div>
       <div className="topic-grid"><section><h2>Temas fuertes</h2>{result.strongTopics.length ? <ul>{result.strongTopics.map((item) => <li key={item.topic}>{item.topic}</li>)}</ul> : <p>Seguí practicando para consolidar tus primeras fortalezas.</p>}</section><section><h2>Temas a mejorar</h2>{result.improvementTopics.length ? <ul>{result.improvementTopics.map((item) => <li key={item.topic}>{item.topic}</li>)}</ul> : <p>Buen equilibrio general. Mantené la práctica constante.</p>}</section></div>
-      <section className="work-recommendation"><span className="eyebrow">Recomendación laboral</span><p>{result.recommendation}</p></section>
+      <section className="work-recommendation"><span className="eyebrow">Recomendación</span><p>{result.recommendation}</p></section>
       <button className="button ghost dark-ghost" type="button" onClick={onRestart}>Realizar el test de nuevo</button>
     </section>
   )
