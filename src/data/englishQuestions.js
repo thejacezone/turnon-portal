@@ -1,5 +1,12 @@
 const q = (id, skill, level, topic, question, options, correctAnswer, explanation, workContext) => ({ id, skill, level, topic, question, options, correctAnswer, explanation, workContext })
 
+export const englishQuestionBankMetadata = {
+  id: 'test-3-balanced-revised',
+  name: 'Test 3 balanceado revisado',
+  totalQuestions: 50,
+  distribution: { skill: { grammar: 20, vocabulary: 15, reading: 15 }, level: { A1: 10, A2: 10, B1: 10, B2: 10, C1: 10 } },
+}
+
 export const englishQuestions = [
   q(1, 'grammar', 'A1', 'verb to be', 'She ___ from El Salvador.', ['are', 'is', 'am', 'be'], 'is', "Use 'is' with she, he and it.", 'interview'),
   q(2, 'grammar', 'A1', 'present simple', 'I ___ calls every morning.', ['answer', 'answers', 'answering', 'answered'], 'answer', "Use the base verb with 'I' in present simple.", 'customer service'),

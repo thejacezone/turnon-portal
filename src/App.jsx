@@ -4,6 +4,7 @@ import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import WorkEnglishTest from './pages/WorkEnglishTest.jsx'
 import EnglishTest from './pages/EnglishTest.jsx'
+import GrammarPractice from './pages/GrammarPractice.jsx'
 import Resources from './pages/Resources.jsx'
 import Calculators from './pages/Calculators.jsx'
 import Community from './pages/Community.jsx'
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/work-english-test" element={<WorkEnglishTest />} />
           <Route path="/work-english-test/test" element={<EnglishTest />} />
+          <Route path="/work-english-test/grammar-practice" element={<GrammarPractice />} />
           <Route path="/recursos" element={<Resources />} />
           <Route path="/recursos/:id" element={<ResourceDetail />} />
           <Route path="/calculadoras" element={<Calculators />} />

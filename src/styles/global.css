@@ -202,3 +202,31 @@ p { line-height: 1.65; }
 .site-footer small { grid-column: 1 / -1; }
 @media (max-width: 900px) { .menu-toggle { display: block; margin-left: auto; } .site-header { flex-direction: row; } nav { position: absolute; inset: 79px 18px auto; display: none; padding: 14px; background: #fffdf7; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 16px 40px rgba(17,32,27,.14); } nav.open { display: grid; } nav a { padding: 11px 13px; } }
 @media (max-width: 780px) { main { width: min(100% - 32px, 1160px); } .hero { min-height: auto; grid-template-columns: 1fr; padding: 70px 0; } .hero-dashboard { min-height: 250px; transform: none; box-shadow: 9px 9px 0 var(--lime); } .hero-orbit { display: none; } .card-grid, .offer-grid { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr; } .stats div { border-right: 0; border-bottom: 1px solid var(--line); } .offer, .principles, .calculator, .calculator-card, .about-grid, .community-rules, .home-actions { grid-template-columns: 1fr; flex-direction: column; } .calculator-card { padding: 20px; } .calculator-summary, .compact-filters, .detail-sections, .offer-detail-facts { grid-template-columns: 1fr; } .offer-detail-facts div { border-right: 0; border-bottom: 1px solid var(--line); } .labor-table-header { display: none; } .labor-line { grid-template-columns: 1fr 1fr; min-width: 0; padding: 18px 0; } .labor-line > span, .labor-line > strong { align-self: center; } .labor-line .remove-line { justify-self: end; } .mobile-label { display: block; margin-bottom: 5px; color: #68736f; font-size: .75rem; } .form-grid { grid-template-columns: 1fr; } .form-grid .full-field { grid-column: auto; } .offer-side { align-items: flex-start; } .site-footer { grid-template-columns: 1fr; } .footer-links { justify-content: flex-start; } .result-hero, .score-sections, .topic-grid { grid-template-columns: 1fr; } .score-ring { width: 120px; } .review-heading { flex-direction: column; gap: 5px; } }
+
+/* FASE 3.5 — Grammar Practice */
+.grammar-practice-page .page-intro { padding-top: 38px; }
+.practice-filters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 24px; background: #fffdf7; border: 1px solid var(--line); border-radius: 10px; }
+.practice-filters label { display: grid; gap: 7px; font-weight: 700; text-transform: capitalize; }
+.practice-filters select { width: 100%; padding: 12px; color: var(--ink); background: white; border: 1px solid #aeb7ad; border-radius: 5px; }
+.topic-list { margin: 42px 0; }
+.topic-pills { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 18px; }
+.topic-pills div { display: flex; flex-direction: column; gap: 8px; padding: 18px; background: #fffdf7; border: 1px solid var(--line); border-radius: 10px; }
+.topic-pills strong { color: var(--green); font-family: Manrope, sans-serif; }
+.topic-pills span { padding: 7px 9px; background: #eef2e8; border-radius: 999px; font-size: .82rem; }
+.practice-runner, .practice-results { margin: 42px 0 110px; padding: clamp(20px, 5vw, 48px); background: #fffdf7; border: 1px solid var(--line); border-radius: 12px; }
+.practice-card { margin-top: 34px; }
+.practice-card h2 { max-width: 760px; font: 700 clamp(1.5rem, 4vw, 2.35rem)/1.25 Manrope; letter-spacing: -.035em; }
+.answer-options button.correct { border-color: #267a3d; background: #dcf6df; }
+.answer-options button.incorrect { border-color: #b43d35; background: #f8e5df; }
+.answer-options button:disabled { cursor: default; }
+.practice-feedback { margin-top: 22px; }
+.practice-feedback p { margin-bottom: 0; }
+.feedback-correct, .feedback-incorrect { padding: 18px; border-radius: 8px; }
+.feedback-correct { background: #dcf6df; border-left: 5px solid #267a3d; }
+.feedback-incorrect { background: #f8e5df; border-left: 5px solid #b43d35; }
+.practice-result-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 12px; margin: 24px 0; }
+.practice-result-grid div { display: grid; gap: 6px; padding: 18px; background: white; border: 1px solid var(--line); border-radius: 8px; }
+.practice-result-grid span { color: #68736f; font-size: .82rem; }
+.practice-result-grid strong { line-height: 1.45; }
+.card-copy .button, .card-copy .button.disabled { display: inline-flex; align-self: flex-start; margin-top: 14px; }
+@media (max-width: 780px) { .practice-filters, .topic-pills, .practice-result-grid { grid-template-columns: 1fr; } }
