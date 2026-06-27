@@ -29,7 +29,7 @@ export default function WorkEnglishTest() {
           {practice.map((item) => (
             <Card key={item.id} eyebrow={item.category} title={item.title} badge={item.status === 'disponible' ? 'Disponible' : 'Próximamente'}>
               <p>{item.description}</p>
-              {item.status === 'disponible' ? <Button to={item.path}>Practicar ahora</Button> : <span className="button disabled card-button" aria-disabled="true">Próximamente</span>}
+              {item.status === 'disponible' ? <Button to={item.path}>{item.action || 'Practicar ahora'}</Button> : <span className="button disabled card-button" aria-disabled="true">Próximamente</span>}
             </Card>
           ))}
         </div>

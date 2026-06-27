@@ -51,6 +51,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `workEnglishTestQuestions.js`: export del test laboral secundario.
 - `englishQuestions.js`: banco del test laboral existente.
 - `grammarPracticeQuestions.js`: 150 preguntas de Grammar Practice convertidas desde `fase_3_5_grammar_practice_questions.docx`.
+- `workVocabularyModules.js`: módulos locales de Vocabulary Practice para customer service, tech support, seguros, call center, métricas, ventas, roles, training y entrevistas.
 - `englishPractice.js`: estructura de tests y prácticas dentro de Work English Test.
 - `resources.js`: recursos y guías.
 - `offers.js`: ofertas.
@@ -58,7 +59,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `laborRules.js`: reglas de cálculo laboral en USD.
 - `siteContent.js`: navegación y contenido general.
 
-La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
+La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
 
 ## Actualización Fase 3.5 — Test general y Grammar Practice desde documentos Word
 
@@ -88,6 +89,41 @@ Se actualizó Grammar Practice:
 - Temas: Present Simple vs Present Continuous, Past Simple vs Present Perfect, Modals, Conditionals, Passive Voice, Prepositions, Relative Clauses, Reported Speech, Connectors y Advanced Grammar C1.
 
 Grammar Practice permite filtrar por nivel y tema, responder preguntas, revisar respuesta, ver explicación, avanzar y ver resultado final. No guarda progreso todavía; todo el estado vive sólo en memoria mientras la página está abierta.
+
+## FASE 3.5 — Vocabulary Practice: Work Vocabulary Modules
+
+Se agregó una sección funcional de práctica de vocabulario laboral:
+
+- Ruta principal: `#/work-english-test/vocabulary-practice`
+- Ruta de módulo: `#/work-english-test/vocabulary-practice/:moduleSlug`
+- Banco local: `src/data/workVocabularyModules.js`
+- Utilidades del mini examen: `src/utils/vocabularyQuiz.js`
+
+Vocabulary Practice permite:
+
+- buscar módulos o términos;
+- filtrar por categoría y nivel;
+- abrir un módulo;
+- estudiar lista con término, traducción, definición, ejemplo, traducción del ejemplo, dificultad y contexto;
+- mostrar u ocultar traducciones;
+- practicar con flashcards;
+- hacer mini exámenes de 5, 10 o 15 preguntas;
+- repetir el mini examen con preguntas mezcladas;
+- ver resultado, términos correctos, términos fallados y recomendación breve.
+
+Módulos disponibles:
+
+- Customer Service Core
+- Tech Support
+- Auto and Home Insurance
+- Health Insurance
+- Call Center Operations
+- Metrics and QA
+- Roles and Departments
+- Sales Account Vocabulary
+- Interview and Training Vocabulary
+
+Vocabulary Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
 
 ## Desarrollo local
 
