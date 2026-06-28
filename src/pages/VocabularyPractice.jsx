@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
+import SectionGeneralTest from '../components/SectionGeneralTest.jsx'
 import { workVocabularyCategories, workVocabularyLevels, workVocabularyModules } from '../data/workVocabularyModules.js'
 import { calculateVocabularyResult, generateVocabularyQuiz } from '../utils/vocabularyQuiz.js'
+import { generateVocabularyGeneralTest, scoreVocabularyGeneralTest } from '../utils/sectionGeneralTests.js'
 
 const quizSizes = [5, 10, 15]
 
@@ -184,6 +186,8 @@ export default function VocabularyPractice() {
     <div className="vocabulary-practice-page">
       <Link className="back-link" to="/work-english-test">← Volver a Work English Test</Link>
       <PageHeader eyebrow="Work English Test" title="Vocabulary Practice" description="Estudiá vocabulario real para customer service, tech support, insurance, call center, ventas, training y entrevistas." />
+      <SectionGeneralTest title="Work Vocabulary Check" description="Medí qué tan preparado estás con vocabulario laboral. Este test toma palabras aleatorias de customer service, call center, tech support, insurance, sales, training y entrevistas." helperCopy="Primero podés hacer un test general de vocabulario laboral. Después estudiá módulos, usá flashcards y hacé mini exámenes por área." buttonText="Iniciar test de vocabulary" duration="25 preguntas · 10 min aprox." generateTest={() => generateVocabularyGeneralTest(workVocabularyModules)} scoreTest={scoreVocabularyGeneralTest} />
+      <section className="practice-section-heading"><span className="eyebrow">Práctica por módulos</span><h2>Estudiá, usá flashcards y hacé mini exámenes</h2></section>
       <section className="practice-filters" aria-label="Filtros de Vocabulary Practice">
         <label>Buscar módulos o términos<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Ej. claim, tech support, sales..." /></label>
         <label>Categoría<select value={category} onChange={(event) => setCategory(event.target.value)}><option>Todos</option>{workVocabularyCategories.map((item) => <option key={item}>{item}</option>)}</select></label>

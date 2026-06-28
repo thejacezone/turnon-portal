@@ -170,6 +170,33 @@ Tipos de preguntas disponibles:
 
 Reading Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
 
+## FASE 3.5 — General Tests for Practice Sections
+
+Se agregaron tests generales al inicio de tres secciones de práctica:
+
+- `Grammar Level Check` en `#/work-english-test/grammar-practice`
+- `Work Vocabulary Check` en `#/work-english-test/vocabulary-practice`
+- `Reading Level Check` en `#/work-english-test/reading-practice`
+
+Cada test aparece arriba de la práctica específica y no reemplaza el contenido existente. Debajo se mantienen:
+
+- Grammar Practice por tema y filtros;
+- Vocabulary Practice por módulos, flashcards y mini examen;
+- Reading Practice por escenarios, filtros y revisión de respuestas.
+
+Datos usados:
+
+- Grammar: `src/data/grammarPracticeQuestions.js`
+- Vocabulary: `src/data/workVocabularyModules.js`
+- Reading: `src/data/readingPracticeScenarios.js`
+
+Archivos agregados:
+
+- `src/components/SectionGeneralTest.jsx`
+- `src/utils/sectionGeneralTests.js`
+
+Los tests son aleatorios, no guardan progreso y no usan `localStorage` ni `sessionStorage`. Tampoco usan backend, Supabase, Firebase, login, panel admin ni IA. Los resultados son orientativos y no constituyen certificación oficial.
+
 ## Desarrollo local
 
 ```bash
