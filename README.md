@@ -51,6 +51,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `workEnglishTestQuestions.js`: export del test laboral secundario.
 - `englishQuestions.js`: banco del test laboral existente.
 - `grammarPracticeQuestions.js`: 150 preguntas de Grammar Practice convertidas desde `fase_3_5_grammar_practice_questions.docx`.
+- `readingPracticeScenarios.js`: escenarios de Reading Practice convertidos desde `fase_3_5_reading_practice_scenarios.docx`.
 - `workVocabularyModules.js`: módulos locales de Vocabulary Practice para customer service, tech support, seguros, call center, métricas, ventas, roles, training y entrevistas.
 - `englishPractice.js`: estructura de tests y prácticas dentro de Work English Test.
 - `resources.js`: recursos y guías.
@@ -59,7 +60,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `laborRules.js`: reglas de cálculo laboral en USD.
 - `siteContent.js`: navegación y contenido general.
 
-La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
+La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La lógica de resultados y filtros de Reading Practice está en `src/utils/readingPractice.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
 
 ## Actualización Fase 3.5 — Test general y Grammar Practice desde documentos Word
 
@@ -124,6 +125,50 @@ Módulos disponibles:
 - Interview and Training Vocabulary
 
 Vocabulary Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
+
+## FASE 3.5 — Reading Practice
+
+Se agregó una sección funcional de práctica de lectura laboral:
+
+- Ruta principal: `#/work-english-test/reading-practice`
+- Ruta de escenario: `#/work-english-test/reading-practice/:scenarioSlug`
+- Documento fuente: `C:\Users\jason\OneDrive\Desktop\recursos para turn on\fase_3_5_reading_practice_scenarios.docx`
+- Banco local: `src/data/readingPracticeScenarios.js`
+- Utilidades: `src/utils/readingPractice.js`
+
+Reading Practice permite:
+
+- ver escenarios de lectura laboral;
+- buscar por texto;
+- filtrar por nivel, categoría, contexto y tipo de texto;
+- abrir un escenario;
+- leer el texto completo;
+- revisar vocabulario clave cuando existe;
+- responder preguntas de comprensión;
+- ver resultado con correctas, porcentaje, tipos a reforzar y recomendación;
+- revisar cada respuesta con explicación;
+- repetir el escenario.
+
+Tipos de escenarios disponibles:
+
+- emails;
+- chats o mensajes;
+- anuncios;
+- instrucciones;
+- conversaciones de servicio;
+- artículos informativos;
+- resúmenes de políticas.
+
+Tipos de preguntas disponibles:
+
+- main idea;
+- detail;
+- inference;
+- vocabulary in context;
+- purpose;
+- best response.
+
+Reading Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
 
 ## Desarrollo local
 

@@ -6,6 +6,7 @@ import WorkEnglishTest from './pages/WorkEnglishTest.jsx'
 import EnglishTest from './pages/EnglishTest.jsx'
 import GrammarPractice from './pages/GrammarPractice.jsx'
 import VocabularyPractice from './pages/VocabularyPractice.jsx'
+import ReadingPractice from './pages/ReadingPractice.jsx'
 import { generalEnglishTestQuestions } from './data/generalEnglishTestQuestions.js'
 import { workEnglishTestQuestions } from './data/workEnglishTestQuestions.js'
 import Resources from './pages/Resources.jsx'
@@ -43,6 +44,8 @@ export default function App() {
           <Route path="/work-english-test/grammar-practice" element={<GrammarPractice />} />
           <Route path="/work-english-test/vocabulary-practice" element={<VocabularyPractice />} />
           <Route path="/work-english-test/vocabulary-practice/:moduleSlug" element={<VocabularyPractice />} />
+          <Route path="/work-english-test/reading-practice" element={<ReadingPractice />} />
+          <Route path="/work-english-test/reading-practice/:scenarioSlug" element={<ReadingPractice />} />
           <Route path="/recursos" element={<Resources />} />
           <Route path="/recursos/:id" element={<ResourceDetail />} />
           <Route path="/calculadoras" element={<Calculators />} />
