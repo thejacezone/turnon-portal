@@ -1,6 +1,6 @@
-# turnon-portal — FASE 3.5 beta
+# turnon-portal — FASE 3.5
 
-Portal web estático de TurnOn. Esta actualización de FASE 3.5 separa el test general principal, mantiene el test laboral como opción secundaria y carga Grammar Practice desde documentos Word reales.
+Portal web estático de TurnOn. Esta actualización de FASE 3.5 incorpora Listening Practice con audios reales y transcripciones tomadas de documentos Word, mantiene las prácticas anteriores y retira Speaking Practice de la interfaz.
 
 ## Ubicación
 
@@ -16,6 +16,14 @@ Documentos usados:
 
 - `work_english_test_3_general_balanced.docx`: fuente del test general principal.
 - `fase_3_5_grammar_practice_questions.docx`: fuente de Grammar Practice.
+- `fase_3_5_reading_practice_scenarios.docx`: fuente de Reading Practice.
+- `Audio 1- Flowers order taking.docx` y `Audio 1- Flowers order taking.mp3`: fuente de Listening Practice.
+- `Audio 2- sales map nissan car.docx` y `Audio 2- sales map nissan car.mp3`: fuente de Listening Practice.
+- `Audio 3 vacuum case.docx` y `Audio 3 vaccum case.m4a`: fuente de Listening Practice.
+- `Audio 4-Bad-Call-vs-Good-Call.docx` y `Audio 4-Bad-Call-vs-Good-Call.mp3`: fuente de Listening Practice.
+- `Audio 5- ATT customer service.docx` y `Audio 5- ATT customer service.mp3`: fuente de Listening Practice.
+
+Nota: el archivo de audio 3 existe en la carpeta fuente como `.m4a`; por eso se conserva y se referencia como audio MP4/M4A dentro del proyecto.
 
 ## Tecnologías
 
@@ -38,6 +46,9 @@ turnon-portal/
 │   ├── styles/        Estilos globales
 │   ├── App.jsx
 │   └── main.jsx
+├── public/
+│   └── audio/
+│       └── listening/  Audios reales usados por Listening Practice
 ├── index.html
 ├── package.json
 └── vite.config.js
@@ -52,6 +63,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `englishQuestions.js`: banco del test laboral existente.
 - `grammarPracticeQuestions.js`: 150 preguntas de Grammar Practice convertidas desde `fase_3_5_grammar_practice_questions.docx`.
 - `readingPracticeScenarios.js`: escenarios de Reading Practice convertidos desde `fase_3_5_reading_practice_scenarios.docx`.
+- `listeningPracticeItems.js`: audios, transcripciones, vocabulario y preguntas de Listening Practice convertidas desde documentos Word y archivos de audio reales.
 - `workVocabularyModules.js`: módulos locales de Vocabulary Practice para customer service, tech support, seguros, call center, métricas, ventas, roles, training y entrevistas.
 - `englishPractice.js`: estructura de tests y prácticas dentro de Work English Test.
 - `resources.js`: recursos y guías.
@@ -60,7 +72,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `laborRules.js`: reglas de cálculo laboral en USD.
 - `siteContent.js`: navegación y contenido general.
 
-La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La lógica de resultados y filtros de Reading Practice está en `src/utils/readingPractice.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
+La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La lógica de resultados y filtros de Reading Practice está en `src/utils/readingPractice.js`. La lógica de resultados, filtros y test general de Listening Practice está en `src/utils/listeningPractice.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
 
 ## Actualización Fase 3.5 — Test general y Grammar Practice desde documentos Word
 
@@ -170,6 +182,40 @@ Tipos de preguntas disponibles:
 
 Reading Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
 
+## FASE 3.5 — Listening Practice
+
+Se agregó una sección funcional de práctica auditiva laboral:
+
+- Ruta principal: `#/work-english-test/listening-practice`
+- Ruta de audio: `#/work-english-test/listening-practice/:listeningSlug`
+- Carpeta de audios: `public/audio/listening/`
+- Banco local: `src/data/listeningPracticeItems.js`
+- Utilidades: `src/utils/listeningPractice.js`
+
+Listening Practice permite:
+
+- ver audios reales de contextos laborales;
+- filtrar por nivel, categoría y contexto;
+- abrir una práctica específica;
+- reproducir el audio desde el navegador;
+- responder preguntas de comprensión auditiva;
+- ver resultado con correctas, porcentaje, habilidades a reforzar y recomendación;
+- revisar cada respuesta con explicación;
+- consultar vocabulario clave;
+- ver la transcripción después de responder.
+
+Audios disponibles:
+
+- Flowers order taking
+- Nissan map update sales call
+- Vacuum support case
+- Bad Call vs Good Call
+- AT&T customer service bill
+
+También se agregó `Listening Level Check` al inicio de la sección para una evaluación general rápida basada en los audios disponibles.
+
+Listening Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`. La transcripción y las preguntas viven en archivos reales dentro de `src/data/`; los audios viven en `public/audio/listening/`.
+
 ## FASE 3.5 — General Tests for Practice Sections
 
 Se agregaron tests generales al inicio de tres secciones de práctica:
@@ -177,18 +223,21 @@ Se agregaron tests generales al inicio de tres secciones de práctica:
 - `Grammar Level Check` en `#/work-english-test/grammar-practice`
 - `Work Vocabulary Check` en `#/work-english-test/vocabulary-practice`
 - `Reading Level Check` en `#/work-english-test/reading-practice`
+- `Listening Level Check` en `#/work-english-test/listening-practice`
 
 Cada test aparece arriba de la práctica específica y no reemplaza el contenido existente. Debajo se mantienen:
 
 - Grammar Practice por tema y filtros;
 - Vocabulary Practice por módulos, flashcards y mini examen;
 - Reading Practice por escenarios, filtros y revisión de respuestas.
+- Listening Practice por audios, filtros, preguntas, revisión y transcripción.
 
 Datos usados:
 
 - Grammar: `src/data/grammarPracticeQuestions.js`
 - Vocabulary: `src/data/workVocabularyModules.js`
 - Reading: `src/data/readingPracticeScenarios.js`
+- Listening: `src/data/listeningPracticeItems.js`
 
 Archivos agregados:
 
@@ -196,6 +245,10 @@ Archivos agregados:
 - `src/utils/sectionGeneralTests.js`
 
 Los tests son aleatorios, no guardan progreso y no usan `localStorage` ni `sessionStorage`. Tampoco usan backend, Supabase, Firebase, login, panel admin ni IA. Los resultados son orientativos y no constituyen certificación oficial.
+
+## Speaking Practice
+
+Speaking Practice fue retirado de esta fase. No existe ruta activa, tarjeta visible ni panel de práctica para Speaking. Si en una fase futura se implementa práctica oral con grabación, evaluación o persistencia, deberá plantearse con backend, Supabase o un sistema formal de exportación/importación; no se debe usar almacenamiento del navegador como fuente principal.
 
 ## Desarrollo local
 

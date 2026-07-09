@@ -38,6 +38,7 @@ export default function SectionGeneralTest({ title, description, helperCopy, but
       {phase === 'questions' && current && (
         <div className="general-test-runner">
           <div className="test-progress"><div><strong>Pregunta {currentIndex + 1} de {items.length}</strong><span>{Math.round(((currentIndex + 1) / items.length) * 100)}%</span></div><div className="progress-track"><span style={{ width: `${((currentIndex + 1) / items.length) * 100}%` }} /></div></div>
+          {current.audioUrl && <section className="general-test-audio"><span className="eyebrow">{current.audioTitle || 'Audio'}</span><audio controls><source src={current.audioUrl} type={current.audioType || 'audio/mpeg'} />Tu navegador no puede reproducir este audio.</audio></section>}
           {current.passage && <section className="general-test-passage"><span className="eyebrow">Texto</span><p>{current.passage}</p></section>}
           <article className="practice-card">
             {current.tags?.length > 0 && <div className="question-tags">{current.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}

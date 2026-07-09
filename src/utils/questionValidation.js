@@ -106,3 +106,53 @@ export function validateReadingPracticeScenarios(scenarios) {
   summary.valid = summary.errors.length === 0
   return summary
 }
+
+export function validateListeningPracticeItems(items) {
+  const summary = {
+    total: items.length,
+    questionTotal: items.reduce((total, item) => total + (item.questions?.length || 0), 0),
+    duplicateIds: [],
+    duplicateSlugs: [],
+    missingSlug: [],
+    missingAudioUrl: [],
+    invalidAudioUrl: [],
+    missingQuestions: [],
+    missingLevel: [],
+    missingCategory: [],
+    questionsWithoutOptions: [],
+    questionsWithoutCorrectAnswer: [],
+    questionsWithoutExplanation: [],
+    correctAnswerOutsideOptions: [],
+    errors: [],
+  }
+
+  const ids = new Set()
+  const slugs = new Set()
+
+  items.forEach((item) => {
+    if (ids.has(item.id)) summary.duplicateIds.push(item.id)
+    ids.add(item.id)
+    if (!item.slug) summary.missingSlug.push(item.id)
+    else if (slugs.has(item.slug)) summary.duplicateSlugs.push(item.slug)
+    slugs.add(item.slug)
+    if (!item.audioUrl) summary.missingAudioUrl.push(item.id)
+    if (item.audioUrl && !item.audioUrl.startsWith('/audio/listening/')) summary.invalidAudioUrl.push(item.id)
+    if (!item.questions?.length) summary.missingQuestions.push(item.id)
+    if (!item.level) summary.missingLevel.push(item.id)
+    if (!item.category) summary.missingCategory.push(item.id)
+
+    item.questions?.forEach((question) => {
+      if (!Array.isArray(question.options) || question.options.length < 2) summary.questionsWithoutOptions.push(question.id)
+      if (!question.correctAnswer) summary.questionsWithoutCorrectAnswer.push(question.id)
+      if (!question.explanation) summary.questionsWithoutExplanation.push(question.id)
+      if (Array.isArray(question.options) && question.correctAnswer && !question.options.includes(question.correctAnswer)) summary.correctAnswerOutsideOptions.push(question.id)
+    })
+  })
+
+  Object.entries(summary).forEach(([key, value]) => {
+    if (Array.isArray(value) && value.length) summary.errors.push(`${key}: ${value.join(', ')}`)
+  })
+
+  summary.valid = summary.errors.length === 0
+  return summary
+}

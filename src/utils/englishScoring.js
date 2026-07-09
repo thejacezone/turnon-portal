@@ -14,7 +14,7 @@ function recommendation(level) {
   if (level.startsWith('A2')) return 'Tenés una base útil. Podés comprender instrucciones simples y responder preguntas básicas, pero necesitás reforzar conversación, vocabulario laboral y lectura.'
   if (level.startsWith('B1')) return 'Podés manejar situaciones laborales simples, responder preguntas básicas de entrevista y comprender textos cortos de trabajo. Reforzá present perfect, conditionals, vocabulary y listening.'
   if (level.startsWith('B2')) return 'Tenés una base fuerte para ambientes bilingües. Ahora conviene practicar fluidez, listening, writing profesional y situaciones laborales más complejas.'
-  return 'Tu nivel es avanzado. Enfocate en precisión, vocabulario profesional, respuestas naturales, writing formal y speaking más fluido.'
+  return 'Tu nivel es avanzado. Enfocate en precisión, vocabulario profesional, respuestas naturales y writing formal.'
 }
 
 function levelDescription(label) {
