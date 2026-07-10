@@ -214,6 +214,14 @@ Audios disponibles:
 
 También se agregó `Listening Level Check` al inicio de la sección para una evaluación general rápida basada en los audios disponibles.
 
+Corrección de flujo:
+
+- Listening Practice funciona por bloques de audio.
+- Cada audio conserva sus propias preguntas y el reproductor usa el `audioUrl` del bloque actual.
+- El test general de listening selecciona audios completos, no preguntas sueltas.
+- Al avanzar con `Siguiente audio`, cambian juntos el título, el reproductor y las preguntas.
+- La revisión final se agrupa por audio.
+
 Listening Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`. La transcripción y las preguntas viven en archivos reales dentro de `src/data/`; los audios viven en `public/audio/listening/`.
 
 ## FASE 3.5 — General Tests for Practice Sections

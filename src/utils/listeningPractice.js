@@ -81,28 +81,46 @@ function estimatedLevel(byLevel) {
 export function generateListeningGeneralTest(items) {
   const validItems = items.filter((item) => item.audioUrl && item.questions?.length)
   const selectedItems = shuffleArray(validItems).slice(0, Math.min(5, Math.max(3, validItems.length)))
-  return selectedItems.flatMap((item) => item.questions.map((question) => ({
-    ...question,
-    id: `listening-general-${item.id}-${question.id}`,
-    sourceQuestionId: question.id,
-    audioTitle: item.title,
-    audioUrl: item.audioUrl,
-    audioType: item.audioType || 'audio/mpeg',
-    level: item.level,
-    context: item.context,
-    category: item.category,
-    tags: [item.level, item.context, question.type.replaceAll('_', ' ')],
-  }))).slice(0, 20)
+  return selectedItems.map((item) => ({
+    ...item,
+    questions: item.questions.map((question) => ({
+      ...question,
+      id: `listening-general-${item.id}-${question.id}`,
+      sourceQuestionId: question.id,
+      listeningItemId: item.id,
+      listeningSlug: item.slug,
+      listeningTitle: item.title,
+      audioTitle: item.title,
+      audioUrl: item.audioUrl,
+      audioType: item.audioType || 'audio/mpeg',
+      level: item.level,
+      context: item.context,
+      category: item.category,
+      tags: [item.level, item.context, question.type.replaceAll('_', ' ')],
+    })),
+  }))
 }
 
 export function scoreListeningGeneralTest(items, answers) {
-  const review = items.map((question) => ({
-    ...question,
-    selectedAnswer: answers[question.id],
-    isCorrect: answers[question.id] === question.correctAnswer,
-  }))
+  const groupedReview = items.map((item) => {
+    const questions = item.questions.map((question) => ({
+      ...question,
+      selectedAnswer: answers[question.id],
+      isCorrect: answers[question.id] === question.correctAnswer,
+    }))
+    const correct = questions.filter((question) => question.isCorrect).length
+    const total = questions.length
+    return {
+      item,
+      questions,
+      correct,
+      total,
+      percentage: total ? Math.round((correct / total) * 100) : 0,
+    }
+  })
+  const review = groupedReview.flatMap((group) => group.questions)
   const correct = review.filter((question) => question.isCorrect).length
-  const percentage = items.length ? Math.round((correct / items.length) * 100) : 0
+  const percentage = review.length ? Math.round((correct / review.length) * 100) : 0
   const byLevel = {}
   const byType = {}
   const byContext = {}
@@ -122,9 +140,10 @@ export function scoreListeningGeneralTest(items, answers) {
   return {
     estimatedLevel: estimatedLevel(byLevel),
     correct,
-    total: items.length,
+    total: review.length,
     percentage,
     scoreBlocks: [
+      { title: 'Puntaje por audio', rows: scoreRows(byAudio) },
       { title: 'Puntaje por nivel', rows: scoreRows(byLevel) },
       { title: 'Puntaje por tipo de pregunta', rows: scoreRows(byType) },
       { title: 'Puntaje por contexto', rows: scoreRows(byContext) },
@@ -136,6 +155,7 @@ export function scoreListeningGeneralTest(items, answers) {
     missedItemsTitle: 'Tipos de pregunta a reforzar',
     missedItems: weakTypes,
     recommendation: `Resultado estimado, no certificación oficial. ${getListeningRecommendation(percentage)}`,
+    groupedReview,
     review,
   }
 }

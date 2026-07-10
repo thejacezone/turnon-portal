@@ -325,5 +325,12 @@ p { line-height: 1.65; }
 .listening-transcript { margin-top: 20px; padding: 18px; background: #f3f6ed; border: 1px solid var(--line); border-radius: 10px; }
 .listening-transcript summary { cursor: pointer; font-weight: 800; color: var(--green); }
 .listening-transcript p { white-space: pre-line; }
+.listening-block-runner .listening-player { margin-top: 18px; }
+.listening-block-header { margin: 30px 0 10px; }
+.listening-block-header h2 { margin: 10px 0; font-size: clamp(2rem, 4vw, 3rem); }
+.listening-block-header p { max-width: 760px; color: #53605b; }
+.listening-review-groups { display: grid; gap: 18px; margin-top: 18px; }
+.listening-review-group { padding: 22px; background: #fffdf7; border: 1px solid var(--line); border-radius: 10px; }
+.listening-review-group h3 { margin: 10px 0 0; }
 @media (max-width: 900px) { .listening-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 780px) { .listening-grid { grid-template-columns: 1fr; } }
