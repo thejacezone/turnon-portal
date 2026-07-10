@@ -334,3 +334,36 @@ p { line-height: 1.65; }
 .listening-review-group h3 { margin: 10px 0 0; }
 @media (max-width: 900px) { .listening-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 780px) { .listening-grid { grid-template-columns: 1fr; } }
+
+/* FASE 3.5 — Writing Practice */
+.writing-practice-page, .writing-detail-page { padding-bottom: 110px; }
+.writing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 100px; }
+.writing-card { display: flex; flex-direction: column; min-height: 350px; padding: 26px; background: #fffdf7; border: 1px solid var(--line); border-radius: 10px; }
+.writing-card h2 { margin: 16px 0 8px; font-size: 2rem; }
+.writing-card .button { align-self: flex-start; margin-top: auto; }
+.writing-hero { margin: 36px 0 22px; padding: clamp(26px, 6vw, 54px); color: white; background: var(--green); border-radius: 12px; }
+.writing-hero .eyebrow { color: var(--lime); }
+.writing-hero h1 { font-size: clamp(3rem, 7vw, 5.4rem); }
+.writing-hero p { max-width: 740px; color: #d8e5dd; }
+.writing-tips, .writing-workspace, .writing-results { margin-top: 22px; padding: clamp(22px, 5vw, 38px); background: #fffdf7; border: 1px solid var(--line); border-radius: 12px; }
+.writing-tips ul { margin-bottom: 0; }
+.writing-tips li { margin: 8px 0; }
+.writing-workspace h2 { max-width: 850px; margin: 10px 0; font-size: clamp(1.8rem, 4vw, 3rem); }
+.writing-focus-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.writing-focus-list span { padding: 7px 10px; color: var(--green); background: #e5f0e1; border-radius: 999px; font-size: .78rem; font-weight: 700; text-transform: capitalize; }
+.writing-workspace textarea { width: 100%; min-height: 300px; margin-top: 12px; padding: 18px; color: var(--ink); background: #fffdf7; border: 1px solid #aeb7ad; border-radius: 10px; resize: vertical; line-height: 1.6; }
+.writing-workspace textarea:focus { outline: 3px solid rgba(200,255,70,.7); border-color: var(--green); }
+.writing-stats, .writing-summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0; }
+.writing-stats div, .writing-summary-grid div { display: grid; gap: 6px; padding: 18px; background: #fffdf7; border: 1px solid var(--line); border-radius: 10px; }
+.writing-stats span, .writing-summary-grid span { color: #68736f; font-size: .82rem; }
+.writing-stats strong, .writing-summary-grid strong { font: 800 1.5rem Manrope; color: var(--green); }
+.writing-progress { grid-column: span 2; }
+.writing-note { margin: 14px 0 90px; color: #53605b; }
+.writing-sample { margin: 20px 0; padding: 18px; background: #f3f6ed; border: 1px solid var(--line); border-radius: 10px; }
+.writing-sample summary { cursor: pointer; font-weight: 800; color: var(--green); }
+.writing-block-header { margin: 30px 0 10px; }
+.writing-block-header h2 { margin: 10px 0; font-size: clamp(2rem, 4vw, 3rem); }
+.writing-block-header p { max-width: 820px; color: #53605b; font-size: 1.1rem; }
+.writing-general-runner .writing-note { margin-bottom: 90px; }
+@media (max-width: 1000px) { .writing-grid { grid-template-columns: repeat(2, 1fr); } .writing-stats, .writing-summary-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 780px) { .writing-grid, .writing-stats, .writing-summary-grid { grid-template-columns: 1fr; } .writing-progress { grid-column: auto; } .writing-workspace textarea { min-height: 240px; } }

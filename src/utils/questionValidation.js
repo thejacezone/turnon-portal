@@ -156,3 +156,43 @@ export function validateListeningPracticeItems(items) {
   summary.valid = summary.errors.length === 0
   return summary
 }
+
+export function validateWritingPracticePrompts(prompts) {
+  const summary = {
+    total: prompts.length,
+    duplicateIds: [],
+    duplicateSlugs: [],
+    missingSlug: [],
+    emptyPrompt: [],
+    missingLevel: [],
+    missingCategory: [],
+    missingTimeLimitMinutes: [],
+    missingMinimumWords: [],
+    missingTargetWords: [],
+    errors: [],
+  }
+
+  const ids = new Set()
+  const slugs = new Set()
+
+  prompts.forEach((prompt) => {
+    if (ids.has(prompt.id)) summary.duplicateIds.push(prompt.id)
+    ids.add(prompt.id)
+    if (!prompt.slug) summary.missingSlug.push(prompt.id)
+    else if (slugs.has(prompt.slug)) summary.duplicateSlugs.push(prompt.slug)
+    slugs.add(prompt.slug)
+    if (!prompt.prompt) summary.emptyPrompt.push(prompt.id)
+    if (!prompt.level) summary.missingLevel.push(prompt.id)
+    if (!prompt.category) summary.missingCategory.push(prompt.id)
+    if (!prompt.timeLimitMinutes) summary.missingTimeLimitMinutes.push(prompt.id)
+    if (!prompt.minimumWords) summary.missingMinimumWords.push(prompt.id)
+    if (!prompt.targetWords) summary.missingTargetWords.push(prompt.id)
+  })
+
+  Object.entries(summary).forEach(([key, value]) => {
+    if (Array.isArray(value) && value.length) summary.errors.push(`${key}: ${value.join(', ')}`)
+  })
+
+  summary.valid = summary.errors.length === 0
+  return summary
+}

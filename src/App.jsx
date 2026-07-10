@@ -8,6 +8,7 @@ import GrammarPractice from './pages/GrammarPractice.jsx'
 import VocabularyPractice from './pages/VocabularyPractice.jsx'
 import ReadingPractice from './pages/ReadingPractice.jsx'
 import ListeningPractice from './pages/ListeningPractice.jsx'
+import WritingPractice from './pages/WritingPractice.jsx'
 import { generalEnglishTestQuestions } from './data/generalEnglishTestQuestions.js'
 import { workEnglishTestQuestions } from './data/workEnglishTestQuestions.js'
 import Resources from './pages/Resources.jsx'
@@ -49,6 +50,8 @@ export default function App() {
           <Route path="/work-english-test/reading-practice/:scenarioSlug" element={<ReadingPractice />} />
           <Route path="/work-english-test/listening-practice" element={<ListeningPractice />} />
           <Route path="/work-english-test/listening-practice/:listeningSlug" element={<ListeningPractice />} />
+          <Route path="/work-english-test/writing-practice" element={<WritingPractice />} />
+          <Route path="/work-english-test/writing-practice/:promptSlug" element={<WritingPractice />} />
           <Route path="/recursos" element={<Resources />} />
           <Route path="/recursos/:id" element={<ResourceDetail />} />
           <Route path="/calculadoras" element={<Calculators />} />

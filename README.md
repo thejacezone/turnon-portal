@@ -1,6 +1,6 @@
 # turnon-portal — FASE 3.5
 
-Portal web estático de TurnOn. Esta actualización de FASE 3.5 incorpora Listening Practice con audios reales y transcripciones tomadas de documentos Word, mantiene las prácticas anteriores y retira Speaking Practice de la interfaz.
+Portal web estático de TurnOn. Esta actualización de FASE 3.5 incorpora Listening Practice con audios reales, Writing Practice con temporizador y medición de WPM, mantiene las prácticas anteriores y retira Speaking Practice de la interfaz.
 
 ## Ubicación
 
@@ -64,6 +64,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `grammarPracticeQuestions.js`: 150 preguntas de Grammar Practice convertidas desde `fase_3_5_grammar_practice_questions.docx`.
 - `readingPracticeScenarios.js`: escenarios de Reading Practice convertidos desde `fase_3_5_reading_practice_scenarios.docx`.
 - `listeningPracticeItems.js`: audios, transcripciones, vocabulario y preguntas de Listening Practice convertidas desde documentos Word y archivos de audio reales.
+- `writingPracticePrompts.js`: prompts locales de Writing Practice para entrevistas, customer service, correos profesionales, experiencia laboral y training.
 - `workVocabularyModules.js`: módulos locales de Vocabulary Practice para customer service, tech support, seguros, call center, métricas, ventas, roles, training y entrevistas.
 - `englishPractice.js`: estructura de tests y prácticas dentro de Work English Test.
 - `resources.js`: recursos y guías.
@@ -72,7 +73,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `laborRules.js`: reglas de cálculo laboral en USD.
 - `siteContent.js`: navegación y contenido general.
 
-La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La lógica de resultados y filtros de Reading Practice está en `src/utils/readingPractice.js`. La lógica de resultados, filtros y test general de Listening Practice está en `src/utils/listeningPractice.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
+La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La lógica de resultados y filtros de Reading Practice está en `src/utils/readingPractice.js`. La lógica de resultados, filtros y test general de Listening Practice está en `src/utils/listeningPractice.js`. La lógica de conteo, WPM y evaluación orientativa de Writing Practice está en `src/utils/writingPractice.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
 
 ## Actualización Fase 3.5 — Test general y Grammar Practice desde documentos Word
 
@@ -224,6 +225,48 @@ Corrección de flujo:
 
 Listening Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`. La transcripción y las preguntas viven en archivos reales dentro de `src/data/`; los audios viven en `public/audio/listening/`.
 
+## FASE 3.5 — Writing Practice
+
+Se agregó una sección funcional de práctica de escritura laboral:
+
+- Ruta principal: `#/work-english-test/writing-practice`
+- Ruta de prompt: `#/work-english-test/writing-practice/:promptSlug`
+- Banco local: `src/data/writingPracticePrompts.js`
+- Utilidades: `src/utils/writingPractice.js`
+
+Writing Practice permite:
+
+- buscar prompts;
+- filtrar por nivel y categoría;
+- abrir ejercicios por escenario;
+- escribir respuestas de entrevista, customer service, correos profesionales, experiencia laboral y training;
+- usar temporizador;
+- ver conteo de palabras y caracteres;
+- medir palabras por minuto;
+- comparar contra una meta sugerida de 30 WPM;
+- terminar una práctica y ver resultado orientativo.
+
+El cálculo de WPM usa:
+
+`palabras totales / minutos usados`
+
+Si el usuario todavía no empieza a escribir, el WPM es 0. Si el tiempo usado es menor a un minuto, se usan minutos reales en decimales para no inflar ni bloquear el cálculo.
+
+La evaluación es básica y sin IA. Revisa heurísticas simples:
+
+- cantidad de palabras;
+- velocidad WPM;
+- mínimo y objetivo de palabras;
+- cantidad aproximada de oraciones;
+- conectores simples como `because`, `also`, `but`, `however`, `first` y `finally`;
+- vocabulario laboral según categoría.
+
+También se agregó `Writing Level Check`, que selecciona 3 prompts aleatorios, preferiblemente de categorías diferentes. El resultado general muestra palabras totales, tiempo total, WPM promedio, resultados por prompt, estimación general, categorías fuertes, categorías a reforzar y recomendación final.
+
+La estimación de nivel es orientativa. No evalúa pronunciación, gramática avanzada ni calidad profesional definitiva porque no usa IA ni revisión humana.
+
+Writing Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`. Speaking Practice sigue fuera del alcance de esta fase.
+
 ## FASE 3.5 — General Tests for Practice Sections
 
 Se agregaron tests generales al inicio de tres secciones de práctica:
@@ -232,6 +275,7 @@ Se agregaron tests generales al inicio de tres secciones de práctica:
 - `Work Vocabulary Check` en `#/work-english-test/vocabulary-practice`
 - `Reading Level Check` en `#/work-english-test/reading-practice`
 - `Listening Level Check` en `#/work-english-test/listening-practice`
+- `Writing Level Check` en `#/work-english-test/writing-practice`
 
 Cada test aparece arriba de la práctica específica y no reemplaza el contenido existente. Debajo se mantienen:
 
@@ -239,6 +283,7 @@ Cada test aparece arriba de la práctica específica y no reemplaza el contenido
 - Vocabulary Practice por módulos, flashcards y mini examen;
 - Reading Practice por escenarios, filtros y revisión de respuestas.
 - Listening Practice por audios, filtros, preguntas, revisión y transcripción.
+- Writing Practice por prompts, filtros, temporizador, WPM y revisión orientativa.
 
 Datos usados:
 
@@ -246,6 +291,7 @@ Datos usados:
 - Vocabulary: `src/data/workVocabularyModules.js`
 - Reading: `src/data/readingPracticeScenarios.js`
 - Listening: `src/data/listeningPracticeItems.js`
+- Writing: `src/data/writingPracticePrompts.js`
 
 Archivos agregados:
 
