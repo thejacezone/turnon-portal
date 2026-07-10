@@ -1,6 +1,6 @@
 # turnon-portal — FASE 3.5
 
-Portal web estático de TurnOn. Esta actualización de FASE 3.5 incorpora Listening Practice con audios reales, Writing Practice con temporizador y medición de WPM, mantiene las prácticas anteriores y retira Speaking Practice de la interfaz.
+Portal web estático de TurnOn. Esta actualización de FASE 3.5 incorpora Listening Practice con audios reales, Writing Practice con temporizador y Typing Test con métricas de velocidad/precisión, mantiene las prácticas anteriores y retira Speaking Practice de la interfaz.
 
 ## Ubicación
 
@@ -65,6 +65,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `readingPracticeScenarios.js`: escenarios de Reading Practice convertidos desde `fase_3_5_reading_practice_scenarios.docx`.
 - `listeningPracticeItems.js`: audios, transcripciones, vocabulario y preguntas de Listening Practice convertidas desde documentos Word y archivos de audio reales.
 - `writingPracticePrompts.js`: prompts locales de Writing Practice para entrevistas, customer service, correos profesionales, experiencia laboral y training.
+- `typingTestPassages.js`: textos laborales locales para Typing Test en customer service, chat, email, tech support, entrevistas y notas de trabajo.
 - `workVocabularyModules.js`: módulos locales de Vocabulary Practice para customer service, tech support, seguros, call center, métricas, ventas, roles, training y entrevistas.
 - `englishPractice.js`: estructura de tests y prácticas dentro de Work English Test.
 - `resources.js`: recursos y guías.
@@ -73,7 +74,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `laborRules.js`: reglas de cálculo laboral en USD.
 - `siteContent.js`: navegación y contenido general.
 
-La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La lógica de resultados y filtros de Reading Practice está en `src/utils/readingPractice.js`. La lógica de resultados, filtros y test general de Listening Practice está en `src/utils/listeningPractice.js`. La lógica de conteo, WPM y evaluación orientativa de Writing Practice está en `src/utils/writingPractice.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
+La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La lógica de resultados y filtros de Reading Practice está en `src/utils/readingPractice.js`. La lógica de resultados, filtros y test general de Listening Practice está en `src/utils/listeningPractice.js`. La lógica de conteo, WPM y evaluación orientativa de Writing Practice está en `src/utils/writingPractice.js`. Las métricas de Typing Test están en `src/utils/typingTest.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
 
 ## Actualización Fase 3.5 — Test general y Grammar Practice desde documentos Word
 
@@ -267,6 +268,36 @@ La estimación de nivel es orientativa. No evalúa pronunciación, gramática av
 
 Writing Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`. Speaking Practice sigue fuera del alcance de esta fase.
 
+## FASE 3.5 — Typing Test
+
+Se agregó un módulo funcional de typing para práctica laboral:
+
+- Ruta: `#/work-english-test/typing-test`
+- Banco local: `src/data/typingTestPassages.js`
+- Utilidades: `src/utils/typingTest.js`
+
+Typing Test permite:
+
+- elegir duración de 1, 2, 3 o 5 minutos;
+- elegir categoría o usar todas;
+- seleccionar un texto laboral aleatorio;
+- copiar el texto en un área de escritura;
+- ver caracteres correctos e incorrectos;
+- medir tiempo restante, palabras, caracteres, errores, progreso, WPM y CPM;
+- terminar el test antes de tiempo;
+- repetir o elegir otro texto.
+
+Métricas usadas:
+
+- Gross WPM: `(caracteres escritos / 5) / minutos usados`
+- Net WPM: `Gross WPM - (errores / minutos usados)`, con mínimo 0
+- Accuracy: `(caracteres correctos / caracteres escritos) * 100`
+- CPM: `caracteres escritos / minutos usados`
+
+30 WPM o más es una meta práctica sugerida para este ejercicio, pero cada empresa puede tener requisitos diferentes. El resultado es orientativo y mide velocidad/precisión de escritura, no certifica nivel de inglés.
+
+Typing Test no guarda progreso. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
+
 ## FASE 3.5 — General Tests for Practice Sections
 
 Se agregaron tests generales al inicio de tres secciones de práctica:
@@ -276,6 +307,7 @@ Se agregaron tests generales al inicio de tres secciones de práctica:
 - `Reading Level Check` en `#/work-english-test/reading-practice`
 - `Listening Level Check` en `#/work-english-test/listening-practice`
 - `Writing Level Check` en `#/work-english-test/writing-practice`
+- `Typing Speed Check` en `#/work-english-test/typing-test`
 
 Cada test aparece arriba de la práctica específica y no reemplaza el contenido existente. Debajo se mantienen:
 
@@ -284,6 +316,7 @@ Cada test aparece arriba de la práctica específica y no reemplaza el contenido
 - Reading Practice por escenarios, filtros y revisión de respuestas.
 - Listening Practice por audios, filtros, preguntas, revisión y transcripción.
 - Writing Practice por prompts, filtros, temporizador, WPM y revisión orientativa.
+- Typing Test por textos laborales, duración, categoría, WPM, accuracy, CPM y errores.
 
 Datos usados:
 
@@ -292,6 +325,7 @@ Datos usados:
 - Reading: `src/data/readingPracticeScenarios.js`
 - Listening: `src/data/listeningPracticeItems.js`
 - Writing: `src/data/writingPracticePrompts.js`
+- Typing: `src/data/typingTestPassages.js`
 
 Archivos agregados:
 
