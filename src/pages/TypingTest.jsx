@@ -9,8 +9,11 @@ const durations = [
   { label: '5 minutos', value: 300 },
 ]
 
+const referenceScrollDurationMs = 600
+
 function TypingTextDisplay({ passage, typedText }) {
   const referenceBoxRef = useRef(null)
+  const scrollAnimationRef = useRef(null)
   const characterStates = getCharacterStates(passage.text, typedText)
   const completedWords = (typedText.match(/\S+\s+/g) || []).length
   const currentWord = passage.text.trim().split(/\s+/)[completedWords] || 'Texto completado'
@@ -18,9 +21,31 @@ function TypingTextDisplay({ passage, typedText }) {
   useEffect(() => {
     const referenceBox = referenceBoxRef.current
     if (!referenceBox) return
+    if (scrollAnimationRef.current) window.cancelAnimationFrame(scrollAnimationRef.current)
+
     const progress = passage.text.length ? Math.min(1, typedText.length / passage.text.length) : 0
     const maxScroll = referenceBox.scrollHeight - referenceBox.clientHeight
-    referenceBox.scrollTo({ top: progress * maxScroll, behavior: 'smooth' })
+    const targetScrollTop = progress * maxScroll
+
+    if (!typedText.length) {
+      referenceBox.scrollTop = 0
+      return undefined
+    }
+
+    const initialScrollTop = referenceBox.scrollTop
+    const startedAt = window.performance.now()
+    const animateScroll = (timestamp) => {
+      const elapsed = timestamp - startedAt
+      const animationProgress = Math.min(1, elapsed / referenceScrollDurationMs)
+      const easedProgress = 1 - ((1 - animationProgress) ** 3)
+      referenceBox.scrollTop = initialScrollTop + ((targetScrollTop - initialScrollTop) * easedProgress)
+      if (animationProgress < 1) scrollAnimationRef.current = window.requestAnimationFrame(animateScroll)
+    }
+
+    scrollAnimationRef.current = window.requestAnimationFrame(animateScroll)
+    return () => {
+      if (scrollAnimationRef.current) window.cancelAnimationFrame(scrollAnimationRef.current)
+    }
   }, [passage.text, typedText])
 
   return (
