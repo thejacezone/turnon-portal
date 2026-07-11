@@ -97,9 +97,25 @@ Se mantuvo el test laboral como opción secundaria:
 
 - Ruta: `#/work-english-test/work-test`
 - Nombre en interfaz: `Work English Test`
-- Banco: `src/data/workEnglishTestQuestions.js`, que reutiliza el banco laboral existente en `src/data/englishQuestions.js`
-- Total: 50 preguntas
+- Banco: `src/data/workEnglishTestQuestions.js`
+- Fuente: `work_specialized_full_test.docx`
+- Banco total: 100 preguntas
+- Intento: 50 preguntas, con 30 grammar, 10 vocabulary y 10 reading
 - Enfoque: entrevista, customer service, training y ambientes bilingües
+
+## Work English Test question bank
+
+El documento `work_specialized_full_test.docx` se procesa únicamente durante desarrollo mediante `scripts/import_work_english_test.ps1`. React utiliza los datos estáticos generados en `src/data/workEnglishTestQuestions.js`; el navegador no lee el Word ni necesita una ruta local de Windows.
+
+Cada intento del Work English Test selecciona aleatoriamente 50 preguntas desde el banco completo:
+
+- 30 Grammar: 10 B1, 12 B2 y 8 C1;
+- 10 Vocabulary: 3 B1, 4 B2 y 3 C1;
+- 10 Reading: dos pasajes completos de cinco preguntas, una lectura B1 y una lectura avanzada B2 o C1.
+
+La selección usa Fisher-Yates por sección, conserva Grammar, Vocabulary y Reading en ese orden, no mezcla las opciones de respuesta y evita repetir exactamente el mismo conjunto de pasajes de Reading en intentos consecutivos cuando existen alternativas. El intento anterior vive únicamente en estado de React durante la sesión: no se usa `localStorage`, `sessionStorage`, backend, Supabase ni Firebase.
+
+Esta actualización es exclusiva del Work English Test. El General English Level Test conserva su banco, selección y lógica independientes.
 
 Se actualizó Grammar Practice:
 

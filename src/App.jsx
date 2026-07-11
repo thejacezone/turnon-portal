@@ -3,15 +3,14 @@ import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import WorkEnglishTest from './pages/WorkEnglishTest.jsx'
-import EnglishTest from './pages/EnglishTest.jsx'
 import GeneralEnglishTest from './pages/GeneralEnglishTest.jsx'
+import WorkEnglishTestExam from './pages/WorkEnglishTestExam.jsx'
 import GrammarPractice from './pages/GrammarPractice.jsx'
 import VocabularyPractice from './pages/VocabularyPractice.jsx'
 import ReadingPractice from './pages/ReadingPractice.jsx'
 import ListeningPractice from './pages/ListeningPractice.jsx'
 import WritingPractice from './pages/WritingPractice.jsx'
 import TypingTestPage from './pages/TypingTestPage.jsx'
-import { workEnglishTestQuestions } from './data/workEnglishTestQuestions.js'
 import Resources from './pages/Resources.jsx'
 import Calculators from './pages/Calculators.jsx'
 import Community from './pages/Community.jsx'
@@ -30,7 +29,7 @@ export default function App() {
   const workIntro = {
     title: 'Work English Test',
     description: 'Ponete a prueba con situaciones de entrevista, customer service, training y ambientes bilingües.',
-    facts: ['20 Grammar', '15 Vocabulary', '15 Reading'],
+    facts: ['30 Grammar', '10 Vocabulary', '10 Reading'],
     buttonLabel: 'Hacer test de inglés para trabajo',
   }
 
@@ -42,7 +41,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/work-english-test" element={<WorkEnglishTest />} />
           <Route path="/work-english-test/general-test" element={<GeneralEnglishTest intro={generalIntro} />} />
-          <Route path="/work-english-test/work-test" element={<EnglishTest questions={workEnglishTestQuestions} intro={workIntro} />} />
+          <Route path="/work-english-test/work-test" element={<WorkEnglishTestExam intro={workIntro} />} />
           <Route path="/work-english-test/grammar-practice" element={<GrammarPractice />} />
           <Route path="/work-english-test/vocabulary-practice" element={<VocabularyPractice />} />
           <Route path="/work-english-test/vocabulary-practice/:moduleSlug" element={<VocabularyPractice />} />
