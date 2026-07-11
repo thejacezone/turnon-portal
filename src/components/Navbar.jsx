@@ -12,7 +12,7 @@ export default function Navbar() {
         <span className="brand-mark">T</span><span>TURN<span>ON</span></span>
       </NavLink>
       <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen((value) => !value)}>
-        <span className="sr-only">Abrir navegación</span><span></span><span></span><span></span>
+        <span className="sr-only">{open ? 'Cerrar navegación' : 'Abrir navegación'}</span><span></span><span></span><span></span>
       </button>
       <nav id="main-navigation" className={open ? 'open' : ''} aria-label="Navegación principal">
         {navigation.map((item) => (

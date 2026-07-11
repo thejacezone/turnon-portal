@@ -328,6 +328,20 @@ Archivos agregados:
 
 Los tests son aleatorios, no guardan progreso y no usan `localStorage` ni `sessionStorage`. Tampoco usan backend, Supabase, Firebase, login, panel admin ni IA. Los resultados son orientativos y no constituyen certificación oficial.
 
+## Sistema visual global
+
+El portal usa un sistema visual centralizado en `src/styles/design-system.css`, aplicado sobre todas las páginas sin cambiar la lógica, las rutas ni los bancos de datos.
+
+- Paleta principal: verde oscuro `#0D211B`, lima `#BEFF35`, fondo marfil `#F5F2E9` y superficies blancas.
+- Tipografía: Manrope para títulos e Inter para lectura e interfaz.
+- Componentes reutilizables: cards, botones, filtros, formularios, estados vacíos, iconos de habilidad, cabeceras, resultados, navegación y footer.
+- Iconografía: `lucide-react`, usada como apoyo semántico y nunca como reemplazo único de una etiqueta.
+- Responsive: navegación compacta y cuadrículas adaptadas para móvil, tablet, laptop y escritorio; verificado desde 360 px hasta 1440 px.
+- Accesibilidad: jerarquía semántica, estados activos, etiquetas accesibles en el menú, foco visible, controles con tamaño táctil y soporte para `prefers-reduced-motion`.
+- SEO básico: título, descripción, color de tema y metadatos Open Graph en `index.html`.
+
+Los componentes visuales compartidos viven en `src/components/` y `src/components/ui/`. Los estilos específicos del Typing Test permanecen aislados en `src/features/typing-test/styles/typingTest.css`.
+
 ## Estado de la limpieza técnica
 
 La auditoría completa y sus limitaciones están documentadas en `CLEANUP_REPORT.md`. La ruta fuente confirmada es `C:\Users\jason\OneDrive\Desktop\recursos para turn on`. El documento separado `fase_3_5_listening_practice_questions.docx` no está en esa carpeta, por lo que Listening conserva sus 25 preguntas existentes basadas en los cinco audios y transcripciones reales.

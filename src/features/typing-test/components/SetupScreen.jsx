@@ -22,6 +22,10 @@ export default function SetupScreen({
           This test measures typing speed and accuracy in English. It does not measure your
           general English level.
         </p>
+        <p className="typing-wpm-copy">
+          <strong>WPM means Words Per Minute.</strong> It shows how quickly you type while accuracy
+          shows how precisely you copy the reference text.
+        </p>
       </div>
 
       <form
