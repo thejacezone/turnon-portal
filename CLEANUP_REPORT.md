@@ -44,11 +44,11 @@ El proyecto conserva `HashRouter`. No se encontró `BrowserRouter`.
 - General English Test: 50 preguntas válidas en `src/data/generalEnglishTestQuestions.js`.
 - Work English Test: 50 preguntas válidas expuestas por `src/data/workEnglishTestQuestions.js`.
 - Grammar: 150 preguntas, 15 por cada uno de 10 temas.
-- Vocabulary: 9 módulos y 135 términos.
+- Vocabulary: 8 módulos y 200 términos importados del Word fuente.
 - Reading: 30 escenarios y 150 preguntas.
 - Listening: 5 audios y 25 preguntas.
 - Writing: 22 prompts.
-- Typing: 18 textos clasificados en Easy, Intermediate y Hard.
+- Typing: 3 textos largos importados del Word fuente, uno por dificultad.
 
 Todos los bancos pasaron las validaciones de IDs, opciones/respuestas, explicaciones y estructura aplicables.
 
@@ -57,6 +57,7 @@ Todos los bancos pasaron las validaciones de IDs, opciones/respuestas, explicaci
 Archivos creados:
 
 - `CLEANUP_REPORT.md`
+- `scripts/import_phase35_sources.py`
 
 Archivos modificados:
 
@@ -65,6 +66,8 @@ Archivos modificados:
 - `src/data/generalEnglishTestQuestions.js`
 - `src/data/grammarPracticeQuestions.js`
 - `src/data/readingPracticeScenarios.js`
+- `src/data/typingTestPassages.js`
+- `src/data/workVocabularyModules.js`
 - `src/pages/EnglishTest.jsx`
 - `src/pages/GrammarPractice.jsx`
 - `src/pages/ListeningPractice.jsx`
@@ -75,6 +78,7 @@ Archivos modificados:
 - `src/utils/questionValidation.js`
 - `src/utils/vocabularyQuiz.js`
 - `src/utils/writingPractice.js`
+- `src/styles/global.css`
 
 Archivos eliminados:
 
@@ -82,17 +86,19 @@ Archivos eliminados:
 
 ## Recursos fuente y contenido no reconstruido
 
-La carpeta solicitada `C:\Users\jason\OneDrive\Desktop\recursos` no existe en el entorno durante esta auditoría. Por ello:
+La ruta correcta fue confirmada posteriormente como `C:\Users\jason\OneDrive\Desktop\recursos para turn on`.
 
-- documentos Word leídos en esta ejecución: 0;
-- preguntas importadas desde Word en esta ejecución: 0;
-- audios copiados en esta ejecución: 0;
-- se conservaron los cinco audios ya versionados en `public/audio/listening/`;
-- se conservaron los bancos locales existentes en `src/data/`;
-- Listening permanece con 25 preguntas, no con las 42 esperadas;
-- Typing conserva 18 textos existentes y no puede confirmarse como reconstruido exclusivamente desde `fase_3_5_typing_test_reference_texts.docx`.
+- documentos Word leídos: 10;
+- General confirmado contra el Word: 50 preguntas;
+- Grammar confirmado contra el Word: 150 preguntas;
+- Vocabulary importado desde el Word: 8 módulos y 200 términos;
+- Reading confirmado contra el Word: 30 escenarios y 150 preguntas;
+- Typing importado desde el Word: 3 textos largos de 655, 696 y 1013 palabras según el contador del portal;
+- transcripciones Word de Listening leídas: 5;
+- audios nuevos copiados: 0, porque los cinco publicados ya tienen el mismo SHA-256 que las fuentes;
+- Listening permanece con 25 preguntas, no con las 42 esperadas, porque el Word separado de preguntas no está en la carpeta.
 
-No se inventó contenido para cubrir archivos fuente ausentes.
+No se inventó contenido para cubrir el documento de preguntas ausente.
 
 ## Persistencia y compatibilidad
 
@@ -114,6 +120,9 @@ No se inventó contenido para cubrir archivos fuente ausentes.
 
 ## Problemas pendientes
 
-- Para completar la importación documental exigida deben volver a estar disponibles los seis `.docx` y las fuentes de Listening en `C:\Users\jason\OneDrive\Desktop\recursos`.
-- Sin `fase_3_5_listening_practice_questions.docx` no es posible reconstruir las 42 preguntas esperadas de Listening.
-- Sin `fase_3_5_typing_test_reference_texts.docx` no es posible reemplazar ni certificar los textos actuales como contenido completo del documento fuente; algunos son demasiado cortos para provocar scroll visible aunque el contenedor y la lógica de auto-scroll estén implementados.
+- No está disponible `fase_3_5_listening_practice_questions.docx`; sin ese archivo no es posible reconstruir las 42 preguntas esperadas de Listening.
+- Los Word fuente pudieron leerse estructuralmente. El render visual con LibreOffice no estuvo disponible porque `soffice` no está instalado en el entorno.
+
+## Importador reproducible
+
+Se añadió `scripts/import_phase35_sources.py`. Es una herramienta de desarrollo que usa `python-docx` desde el entorno de Codex y no forma parte de las dependencias de producción de React. Convierte Vocabulary y Typing a archivos JavaScript estáticos y verifica los conteos declarados por los Word antes de sobrescribir los bancos.

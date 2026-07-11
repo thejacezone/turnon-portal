@@ -10,15 +10,17 @@ Portal web estático de TurnOn. La FASE 3.5 incluye General English Level Test, 
 
 Ruta actual de documentos y recursos:
 
-`C:\Users\jason\OneDrive\Desktop\recursos`
+`C:\Users\jason\OneDrive\Desktop\recursos para turn on`
 
-Nota de esta actualización: en esta verificación local la carpeta nueva `C:\Users\jason\OneDrive\Desktop\recursos` no estaba disponible, por lo que no se pudo leer `fase_3_5_typing_test_reference_texts.docx` ni copiar audios nuevos desde esa ubicación. El proyecto conserva los bancos locales versionados en `src/data/`. Si ese documento se agrega después, conviene convertirlo a `.txt`, `.json` o `.js` para integrarlo de forma controlada.
+La carpeta fue verificada el 11 de julio de 2026. Vocabulary y Typing se importaron nuevamente desde sus Word mediante `scripts/import_phase35_sources.py`. Los cinco audios publicados coinciden byte por byte con los archivos fuente.
 
 Documentos usados:
 
 - `work_english_test_3_general_balanced.docx`: fuente del test general principal.
 - `fase_3_5_grammar_practice_questions.docx`: fuente de Grammar Practice.
+- `fase_3_5_vocabulary_practice_work_vocabulary.docx`: fuente de los 8 módulos y 200 términos de Vocabulary Practice.
 - `fase_3_5_reading_practice_scenarios.docx`: fuente de Reading Practice.
+- `fase_3_5_typing_test_reference_texts.docx`: fuente de los 3 textos largos de Typing Test.
 - `Audio 1- Flowers order taking.docx` y `Audio 1- Flowers order taking.mp3`: fuente de Listening Practice.
 - `Audio 2- sales map nissan car.docx` y `Audio 2- sales map nissan car.mp3`: fuente de Listening Practice.
 - `Audio 3 vacuum case.docx` y `Audio 3 vaccum case.m4a`: fuente de Listening Practice.
@@ -26,6 +28,8 @@ Documentos usados:
 - `Audio 5- ATT customer service.docx` y `Audio 5- ATT customer service.mp3`: fuente de Listening Practice.
 
 Nota: el archivo de audio 3 existe en la carpeta fuente como `.m4a`; por eso se conserva y se referencia como audio MP4/M4A dentro del proyecto.
+
+La carpeta no contiene `fase_3_5_listening_practice_questions.docx`. Listening conserva temporalmente sus 25 preguntas existentes; no se generaron preguntas adicionales sin ese documento.
 
 ## Tecnologías
 
@@ -67,8 +71,8 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `readingPracticeScenarios.js`: escenarios de Reading Practice convertidos desde `fase_3_5_reading_practice_scenarios.docx`.
 - `listeningPracticeItems.js`: audios, transcripciones, vocabulario y preguntas de Listening Practice convertidas desde documentos Word y archivos de audio reales.
 - `writingPracticePrompts.js`: prompts locales de Writing Practice para entrevistas, customer service, correos profesionales, experiencia laboral y training.
-- `typingTestPassages.js`: textos laborales locales para Typing Test en customer service, chat, email, tech support, entrevistas y notas de trabajo.
-- `workVocabularyModules.js`: módulos locales de Vocabulary Practice para customer service, tech support, seguros, call center, métricas, ventas, roles, training y entrevistas.
+- `typingTestPassages.js`: tres textos largos importados del Word oficial para Easy, Intermediate y Hard.
+- `workVocabularyModules.js`: ocho módulos y 200 términos importados del Word oficial de Vocabulary Practice.
 - `englishPractice.js`: estructura de tests y prácticas dentro de Work English Test.
 - `resources.js`: recursos y guías.
 - `offers.js`: ofertas.
@@ -138,7 +142,6 @@ Módulos disponibles:
 - Metrics and QA
 - Roles and Departments
 - Sales Account Vocabulary
-- Interview and Training Vocabulary
 
 Vocabulary Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
 
@@ -297,9 +300,9 @@ WPM significa `Words Per Minute`, es decir, palabras por minuto. Sirve para medi
 ### Corrección Typing Test
 
 - El selector ya no muestra categorías laborales; ahora sólo usa `Easy`, `Intermediate` y `Hard`.
-- La estructura está preparada para importar textos desde `fase_3_5_typing_test_reference_texts.docx`.
-- En esta verificación local no se pudo leer ese documento porque la carpeta `C:\Users\jason\OneDrive\Desktop\recursos` no existe en el entorno disponible.
-- Los textos actuales siguen guardados en `src/data/typingTestPassages.js`.
+- Los tres textos se importaron desde `fase_3_5_typing_test_reference_texts.docx`.
+- El banco contiene un texto completo para cada dificultad: Easy, Intermediate y Hard.
+- Los textos actuales siguen guardados como datos reales en `src/data/typingTestPassages.js`.
 - El texto de referencia usa una caja con scroll automático proporcional al avance del usuario.
 - Typing Test se enfoca en WPM, precisión y errores. No mide nivel de inglés.
 
@@ -352,7 +355,7 @@ Los tests son aleatorios, no guardan progreso y no usan `localStorage` ni `sessi
 
 ## Estado de la limpieza técnica
 
-La auditoría completa y sus limitaciones están documentadas en `CLEANUP_REPORT.md`. En esta ejecución la ruta fuente `C:\Users\jason\OneDrive\Desktop\recursos` no estaba disponible: no se reimportaron documentos Word ni se copiaron audios nuevos. Se conservaron los bancos reales ya versionados para evitar sustituirlos por contenido inventado.
+La auditoría completa y sus limitaciones están documentadas en `CLEANUP_REPORT.md`. La ruta fuente confirmada es `C:\Users\jason\OneDrive\Desktop\recursos para turn on`. El documento separado `fase_3_5_listening_practice_questions.docx` no está en esa carpeta, por lo que Listening conserva sus 25 preguntas existentes basadas en los cinco audios y transcripciones reales.
 
 ## Desarrollo local
 
