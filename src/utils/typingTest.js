@@ -6,6 +6,12 @@ export function countTypingErrors(targetText, typedText) {
   return [...typedText].reduce((errors, character, index) => errors + (character === targetText[index] ? 0 : 1), 0)
 }
 
+export function countIncorrectWords(targetText, typedText) {
+  const targetWords = targetText.trim().split(/\s+/)
+  const typedWords = typedText.trim().split(/\s+/).filter(Boolean)
+  return typedWords.reduce((incorrect, word, index) => incorrect + (word === targetWords[index] ? 0 : 1), 0)
+}
+
 export function countCorrectCharacters(targetText, typedText) {
   return [...typedText].reduce((correct, character, index) => correct + (character === targetText[index] ? 1 : 0), 0)
 }
@@ -69,6 +75,7 @@ export function calculateTypingMetrics(targetText, typedText, secondsUsed) {
   const typedCharacters = typedText.length
   const correctCharacters = countCorrectCharacters(targetText, typedText)
   const errors = countTypingErrors(targetText, typedText)
+  const incorrectWords = countIncorrectWords(targetText, typedText)
   const minutesUsed = secondsUsed / 60
   const grossWpm = calculateGrossWpm(typedCharacters, minutesUsed)
   const netWpm = calculateNetWpm(typedCharacters, errors, minutesUsed)
@@ -79,7 +86,9 @@ export function calculateTypingMetrics(targetText, typedText, secondsUsed) {
     typedWords: countTypedWords(typedText),
     typedCharacters,
     correctCharacters,
+    incorrectCharacters: errors,
     errors,
+    incorrectWords,
     grossWpm,
     netWpm,
     accuracy,

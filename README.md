@@ -1,6 +1,6 @@
 # turnon-portal — FASE 3.5
 
-Portal web estático de TurnOn. Esta actualización de FASE 3.5 incorpora Listening Practice con audios reales, Writing Practice con temporizador y Typing Test con métricas de velocidad/precisión, mantiene las prácticas anteriores y retira Speaking Practice de la interfaz.
+Portal web estático de TurnOn. Esta actualización de FASE 3.5 incorpora Listening Practice con audios reales, Writing Practice con temporizador y Typing Test con métricas de velocidad/precisión, mantiene las prácticas anteriores y retira la práctica oral de la interfaz.
 
 ## Ubicación
 
@@ -8,9 +8,15 @@ Portal web estático de TurnOn. Esta actualización de FASE 3.5 incorpora Listen
 
 ## Documentos fuente
 
-Ruta de documentos:
+Ruta actual de documentos y recursos:
+
+`C:\Users\jason\OneDrive\Desktop\recursos`
+
+Ruta usada en fases anteriores:
 
 `C:\Users\jason\OneDrive\Desktop\recursos para turn on`
+
+Nota de esta actualización: en esta verificación local la carpeta nueva `C:\Users\jason\OneDrive\Desktop\recursos` no estaba disponible, por lo que no se pudo leer `fase_3_5_typing_test_reference_texts.docx` ni copiar audios nuevos desde esa ubicación. El proyecto conserva los bancos locales versionados en `src/data/`. Si ese documento se agrega después, conviene convertirlo a `.txt`, `.json` o `.js` para integrarlo de forma controlada.
 
 Documentos usados:
 
@@ -266,11 +272,11 @@ También se agregó `Writing Level Check`, que selecciona 3 prompts aleatorios, 
 
 La estimación de nivel es orientativa. No evalúa pronunciación, gramática avanzada ni calidad profesional definitiva porque no usa IA ni revisión humana.
 
-Writing Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`. Speaking Practice sigue fuera del alcance de esta fase.
+Writing Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`. La práctica oral sigue fuera del alcance de esta fase.
 
 ## FASE 3.5 — Typing Test
 
-Se agregó un módulo funcional de typing para práctica laboral:
+Se agregó y reestructuró un módulo funcional de typing para práctica laboral:
 
 - Ruta: `#/work-english-test/typing-test`
 - Banco local: `src/data/typingTestPassages.js`
@@ -278,14 +284,18 @@ Se agregó un módulo funcional de typing para práctica laboral:
 
 Typing Test permite:
 
-- elegir duración de 1, 2, 3 o 5 minutos;
+- elegir duración de 1, 3 o 5 minutos;
 - elegir categoría o usar todas;
 - seleccionar un texto laboral aleatorio;
 - copiar el texto en un área de escritura;
 - ver caracteres correctos e incorrectos;
-- medir tiempo restante, palabras, caracteres, errores, progreso, WPM y CPM;
+- medir tiempo restante, palabras, caracteres, errores, progreso, WPM y precisión básica;
 - terminar el test antes de tiempo;
 - repetir o elegir otro texto.
+
+La pantalla inicial de Typing Test ahora inicia directamente con la card verde principal `Typing test laboral`. Ya no muestra un header superior separado y se enfoca primero en WPM, errores y precisión básica.
+
+WPM significa `Words Per Minute`, es decir, palabras por minuto. Sirve para medir qué tan rápido escribís. Como meta práctica inicial, 30 WPM o más puede considerarse aceptable para practicar, aunque cada empresa puede pedir requisitos diferentes.
 
 Métricas usadas:
 
@@ -294,7 +304,7 @@ Métricas usadas:
 - Accuracy: `(caracteres correctos / caracteres escritos) * 100`
 - CPM: `caracteres escritos / minutos usados`
 
-30 WPM o más es una meta práctica sugerida para este ejercicio, pero cada empresa puede tener requisitos diferentes. El resultado es orientativo y mide velocidad/precisión de escritura, no certifica nivel de inglés.
+30 WPM o más es una meta práctica sugerida para este ejercicio, pero cada empresa puede tener requisitos diferentes. El resultado es orientativo y mide velocidad/precisión de escritura. No mide por sí solo el nivel de inglés ni funciona como certificación.
 
 Typing Test no guarda progreso. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
 
@@ -334,9 +344,9 @@ Archivos agregados:
 
 Los tests son aleatorios, no guardan progreso y no usan `localStorage` ni `sessionStorage`. Tampoco usan backend, Supabase, Firebase, login, panel admin ni IA. Los resultados son orientativos y no constituyen certificación oficial.
 
-## Speaking Practice
+## Práctica oral
 
-Speaking Practice fue retirado de esta fase. No existe ruta activa, tarjeta visible ni panel de práctica para Speaking. Si en una fase futura se implementa práctica oral con grabación, evaluación o persistencia, deberá plantearse con backend, Supabase o un sistema formal de exportación/importación; no se debe usar almacenamiento del navegador como fuente principal.
+La práctica oral fue retirada de esta fase. No existe ruta activa, tarjeta visible ni panel de práctica oral. Si en una fase futura se implementa práctica oral con grabación, evaluación o persistencia, deberá plantearse con backend, Supabase o un sistema formal de exportación/importación; no se debe usar almacenamiento del navegador como fuente principal.
 
 ## Desarrollo local
 

@@ -370,6 +370,10 @@ p { line-height: 1.65; }
 
 /* FASE 3.5 — Typing Test */
 .typing-test-page { padding-bottom: 110px; }
+.typing-test-page > .section-general-test:first-child { margin-top: 0; }
+.typing-wpm-explainer { margin: 24px 0; padding: 22px; background: rgba(255,255,255,.48); border: 1px solid rgba(17,32,27,.16); border-radius: 10px; }
+.typing-wpm-explainer h3 { margin: 0 0 8px; font-size: 1.5rem; }
+.typing-wpm-explainer p { margin: 0; }
 .typing-setup { display: grid; grid-template-columns: 1fr 1fr auto; gap: 14px; align-items: end; margin: 26px 0; padding: 24px; background: #fffdf7; border: 1px solid var(--line); border-radius: 10px; }
 .typing-setup label { display: grid; gap: 7px; font-weight: 700; }
 .typing-setup select { width: 100%; padding: 12px; color: var(--ink); background: white; border: 1px solid #aeb7ad; border-radius: 5px; }

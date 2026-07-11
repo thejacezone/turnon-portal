@@ -1,13 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
-import PageHeader from '../components/PageHeader.jsx'
 import { typingTestCategories, typingTestPassages } from '../data/typingTestPassages.js'
 import { calculateTypingMetrics, calculateTypingResult, formatTypingTime, getCharacterStates, pickTypingPassage } from '../utils/typingTest.js'
 import { validateTypingTestPassages } from '../utils/questionValidation.js'
 
 const durations = [
   { label: '1 minuto', value: 60 },
-  { label: '2 minutos', value: 120 },
   { label: '3 minutos', value: 180 },
   { label: '5 minutos', value: 300 },
 ]
@@ -35,9 +32,8 @@ function TypingLiveStats({ metrics, remainingSeconds }) {
       <div><span>Palabras</span><strong>{metrics.typedWords}</strong></div>
       <div><span>Caracteres</span><strong>{metrics.typedCharacters}</strong></div>
       <div><span>Errores</span><strong>{metrics.errors}</strong></div>
-      <div><span>Accuracy</span><strong>{metrics.accuracy}%</strong></div>
-      <div><span>WPM neto</span><strong>{metrics.netWpm}</strong></div>
-      <div><span>CPM</span><strong>{metrics.cpm}</strong></div>
+      <div><span>Precisión</span><strong>{metrics.accuracy}%</strong></div>
+      <div><span>WPM</span><strong>{metrics.netWpm}</strong></div>
       <div className="typing-progress"><span>Progreso</span><strong>{metrics.progress}%</strong><div className="progress-track"><span style={{ width: `${metrics.progress}%` }} /></div></div>
     </section>
   )
@@ -48,20 +44,22 @@ function TypingResults({ result, onRepeat, onNewText }) {
     <section className="typing-results">
       <span className="eyebrow">Resultado final</span>
       <h2>{result.rating}</h2>
-      <p>30 WPM o más es una meta práctica para este ejercicio, pero cada empresa puede tener requisitos diferentes.</p>
+      <p>Este resultado mide velocidad y precisión de escritura. No mide por sí solo tu nivel de inglés.</p>
       <div className="typing-result-grid">
-        <div><span>Gross WPM</span><strong>{result.grossWpm}</strong></div>
-        <div><span>Net WPM</span><strong>{result.netWpm}</strong></div>
-        <div><span>Accuracy</span><strong>{result.accuracy}%</strong><small>{result.accuracyRating}</small></div>
-        <div><span>CPM</span><strong>{result.cpm}</strong></div>
+        <div><span>WPM</span><strong>{result.netWpm}</strong></div>
+        <div><span>Precisión</span><strong>{result.accuracy}%</strong><small>{result.accuracyRating}</small></div>
         <div><span>Caracteres correctos</span><strong>{result.correctCharacters}</strong></div>
+        <div><span>Caracteres incorrectos</span><strong>{result.incorrectCharacters}</strong></div>
         <div><span>Errores</span><strong>{result.errors}</strong></div>
+        <div><span>Palabras incorrectas</span><strong>{result.incorrectWords}</strong></div>
         <div><span>Tiempo usado</span><strong>{result.formattedTimeUsed}</strong></div>
-        <div><span>Categoría</span><strong>{result.passage.category}</strong></div>
+        <div><span>Texto</span><strong>{result.passage.title}</strong></div>
+        <div><span>Dificultad</span><strong>{result.passage.estimatedDifficulty}</strong></div>
       </div>
       <aside className="work-recommendation">
-        <strong>{result.passage.title}</strong>
+        <strong>{result.passage.category}</strong>
         <p>{result.recommendation}</p>
+        <p>30 WPM o más es una meta práctica para este ejercicio, pero cada empresa puede tener requisitos diferentes.</p>
       </aside>
       <div className="vocab-actions"><button className="button" type="button" onClick={onRepeat}>Repetir</button><button className="button ghost dark-ghost" type="button" onClick={onNewText}>Elegir otro texto</button></div>
     </section>
@@ -146,16 +144,17 @@ export default function TypingTest() {
 
   return (
     <div className="typing-test-page">
-      <Link className="back-link" to="/work-english-test">← Volver a Work English Test</Link>
-      <PageHeader eyebrow="Work English Test" title="Typing Test" description="Medí tu velocidad y precisión escribiendo textos laborales en inglés. Este resultado es orientativo y te ayuda a practicar para trabajos donde necesitás escribir rápido y claro." />
       <section className="section-general-test">
         <div className="general-test-intro">
           <span className="eyebrow">Typing Speed Check</span>
           <h2>Typing test laboral</h2>
-          <p>Poné a prueba tu velocidad y precisión escribiendo en inglés. Este test usa textos laborales aleatorios y te da un resultado orientativo de WPM, precisión y errores.</p>
+          <p>Poné a prueba tu velocidad escribiendo en inglés con textos laborales. Este resultado es orientativo y te ayuda a practicar para trabajos donde se usa chat, email, notas de caso, soporte o documentación.</p>
+          <section className="typing-wpm-explainer">
+            <h3>¿Qué significa WPM?</h3>
+            <p>WPM significa Words Per Minute, es decir, palabras por minuto. Sirve para medir qué tan rápido escribís. Es una métrica útil en trabajos donde se usa chat, email, notas de caso, soporte técnico o documentación. Como meta práctica inicial, 30 WPM o más puede considerarse aceptable para practicar, aunque cada empresa puede pedir requisitos diferentes.</p>
+          </section>
           <p className="general-test-helper">No guarda progreso, no usa IA y no funciona como certificación oficial.</p>
-          <div className="test-facts"><span>Gross WPM</span><span>Net WPM</span><span>Accuracy</span><span>CPM</span></div>
-          <button className="button" type="button" onClick={startTest} disabled={status === 'running'}>{status === 'running' ? 'Test en curso' : 'Iniciar typing test'}</button>
+          <button className="button" type="button" onClick={startTest} disabled={status === 'running'}>{status === 'running' ? 'Test en curso' : 'Iniciar test'}</button>
         </div>
       </section>
       <section className="typing-setup">

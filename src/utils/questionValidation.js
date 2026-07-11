@@ -200,6 +200,7 @@ export function validateWritingPracticePrompts(prompts) {
 export function validateTypingTestPassages(passages) {
   const summary = {
     total: passages.length,
+    missingId: [],
     duplicateIds: [],
     duplicateSlugs: [],
     missingSlug: [],
@@ -214,8 +215,9 @@ export function validateTypingTestPassages(passages) {
   const slugs = new Set()
 
   passages.forEach((passage) => {
-    if (ids.has(passage.id)) summary.duplicateIds.push(passage.id)
-    ids.add(passage.id)
+    if (!passage.id) summary.missingId.push(passage.slug || 'unknown-passage')
+    else if (ids.has(passage.id)) summary.duplicateIds.push(passage.id)
+    if (passage.id) ids.add(passage.id)
     if (!passage.slug) summary.missingSlug.push(passage.id)
     else if (slugs.has(passage.slug)) summary.duplicateSlugs.push(passage.slug)
     slugs.add(passage.slug)
