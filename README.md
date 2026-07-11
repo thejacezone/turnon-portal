@@ -285,10 +285,11 @@ Se agregó y reestructuró un módulo funcional de typing para práctica laboral
 Typing Test permite:
 
 - elegir duración de 1, 3 o 5 minutos;
-- elegir categoría o usar todas;
-- seleccionar un texto laboral aleatorio;
+- elegir dificultad: `Easy`, `Intermediate` o `Hard`;
+- seleccionar un texto laboral aleatorio según la dificultad elegida;
 - copiar el texto en un área de escritura;
 - ver caracteres correctos e incorrectos;
+- usar una caja de referencia con scroll vertical automático mientras el usuario escribe;
 - medir tiempo restante, palabras, caracteres, errores, progreso, WPM y precisión básica;
 - terminar el test antes de tiempo;
 - repetir o elegir otro texto.
@@ -296,6 +297,15 @@ Typing Test permite:
 La pantalla inicial de Typing Test ahora inicia directamente con la card verde principal `Typing test laboral`. Ya no muestra un header superior separado y se enfoca primero en WPM, errores y precisión básica.
 
 WPM significa `Words Per Minute`, es decir, palabras por minuto. Sirve para medir qué tan rápido escribís. Como meta práctica inicial, 30 WPM o más puede considerarse aceptable para practicar, aunque cada empresa puede pedir requisitos diferentes.
+
+### Corrección Typing Test
+
+- El selector ya no muestra categorías laborales; ahora sólo usa `Easy`, `Intermediate` y `Hard`.
+- La estructura está preparada para importar textos desde `fase_3_5_typing_test_reference_texts.docx`.
+- En esta verificación local no se pudo leer ese documento porque la carpeta `C:\Users\jason\OneDrive\Desktop\recursos` no existe en el entorno disponible.
+- Los textos actuales siguen guardados en `src/data/typingTestPassages.js`.
+- El texto de referencia usa una caja con scroll automático proporcional al avance del usuario.
+- Typing Test se enfoca en WPM, precisión y errores. No mide nivel de inglés.
 
 Métricas usadas:
 

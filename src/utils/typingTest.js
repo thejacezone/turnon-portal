@@ -117,8 +117,8 @@ export function calculateTypingResult(passage, typedText, secondsUsed, selectedD
   }
 }
 
-export function pickTypingPassage(passages, category = 'Todas') {
-  const pool = category === 'Todas' ? passages : passages.filter((passage) => passage.category === category)
+export function pickTypingPassage(passages, difficulty = 'Easy') {
+  const pool = passages.filter((passage) => (passage.difficulty || passage.estimatedDifficulty) === difficulty)
   const safePool = pool.length ? pool : passages
   return safePool[Math.floor(Math.random() * safePool.length)]
 }

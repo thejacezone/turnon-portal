@@ -7,7 +7,7 @@ export const typingTestPassages = [
     level: 'B1 aproximado',
     context: 'chat support',
     text: 'Thank you for contacting us. I will review your account and check the status of your request. Please allow me a moment while I verify the information.',
-    estimatedDifficulty: 'Easy',
+    difficulty: 'Easy',
   },
   {
     id: 'typing-002',
@@ -17,7 +17,7 @@ export const typingTestPassages = [
     level: 'B1 aproximado',
     context: 'order update',
     text: 'Your order is currently being processed. We will send you a confirmation message as soon as the package is ready for shipment.',
-    estimatedDifficulty: 'Easy',
+    difficulty: 'Easy',
   },
   {
     id: 'typing-003',
@@ -27,7 +27,7 @@ export const typingTestPassages = [
     level: 'B1 aproximado',
     context: 'live chat',
     text: 'Hello, my name is Alex. I will be happy to assist you today. Please share a few details so I can understand the issue better.',
-    estimatedDifficulty: 'Easy',
+    difficulty: 'Easy',
   },
   {
     id: 'typing-004',
@@ -37,7 +37,7 @@ export const typingTestPassages = [
     level: 'B1 aproximado',
     context: 'professional email',
     text: 'Thank you for your message. I confirm that I am available for the meeting on Friday at ten in the morning.',
-    estimatedDifficulty: 'Easy',
+    difficulty: 'Easy',
   },
   {
     id: 'typing-005',
@@ -47,7 +47,7 @@ export const typingTestPassages = [
     level: 'B1 aproximado',
     context: 'technical guidance',
     text: 'Please restart the device and check your internet connection. If the issue continues, let us know and we will review the next steps.',
-    estimatedDifficulty: 'Easy',
+    difficulty: 'Easy',
   },
   {
     id: 'typing-006',
@@ -57,7 +57,7 @@ export const typingTestPassages = [
     level: 'B1 aproximado',
     context: 'job interview',
     text: 'I am available for an interview this week. I can speak about my experience, my schedule, and my interest in the position.',
-    estimatedDifficulty: 'Easy',
+    difficulty: 'Easy',
   },
   {
     id: 'typing-007',
@@ -67,7 +67,7 @@ export const typingTestPassages = [
     level: 'B1-B2 aproximado',
     context: 'case notes',
     text: 'The customer requested an update about the open case. I reviewed the account, confirmed the contact information, and explained that the support team will follow up by email.',
-    estimatedDifficulty: 'Intermediate',
+    difficulty: 'Intermediate',
   },
   {
     id: 'typing-008',
@@ -77,7 +77,7 @@ export const typingTestPassages = [
     level: 'B1-B2 aproximado',
     context: 'billing support',
     text: 'I understand that you have a question about the recent charge. I will check the billing details and explain each item on the account summary.',
-    estimatedDifficulty: 'Intermediate',
+    difficulty: 'Intermediate',
   },
   {
     id: 'typing-009',
@@ -87,7 +87,7 @@ export const typingTestPassages = [
     level: 'B1-B2 aproximado',
     context: 'professional email',
     text: 'Could you please send the missing information before the end of the day? Once we receive the details, we can complete the review and confirm the next step.',
-    estimatedDifficulty: 'Intermediate',
+    difficulty: 'Intermediate',
   },
   {
     id: 'typing-010',
@@ -97,7 +97,7 @@ export const typingTestPassages = [
     level: 'B1-B2 aproximado',
     context: 'account access',
     text: 'To reset your password, open the login page, select the password recovery option, and follow the instructions sent to your registered email address.',
-    estimatedDifficulty: 'Intermediate',
+    difficulty: 'Intermediate',
   },
   {
     id: 'typing-011',
@@ -107,7 +107,7 @@ export const typingTestPassages = [
     level: 'B1-B2 aproximado',
     context: 'job interview',
     text: 'In my previous role, I handled customer questions, updated records, and worked with my team to solve problems quickly and professionally.',
-    estimatedDifficulty: 'Intermediate',
+    difficulty: 'Intermediate',
   },
   {
     id: 'typing-012',
@@ -117,7 +117,7 @@ export const typingTestPassages = [
     level: 'B1-B2 aproximado',
     context: 'training notes',
     text: 'During training, the team reviewed call flow, documentation standards, and quality expectations. New agents practiced sample conversations and received feedback from the supervisor.',
-    estimatedDifficulty: 'Intermediate',
+    difficulty: 'Intermediate',
   },
   {
     id: 'typing-013',
@@ -127,7 +127,7 @@ export const typingTestPassages = [
     level: 'C1 preliminar aproximado',
     context: 'case resolution',
     text: 'After reviewing the customer profile and recent interactions, I confirmed that the request was completed successfully and documented the resolution notes for future reference.',
-    estimatedDifficulty: 'Hard',
+    difficulty: 'Hard',
   },
   {
     id: 'typing-014',
@@ -137,7 +137,7 @@ export const typingTestPassages = [
     level: 'C1 preliminar aproximado',
     context: 'escalation update',
     text: 'I appreciate your patience while we coordinate with the specialized team. Your case has been escalated, and we will provide an update as soon as the review is complete.',
-    estimatedDifficulty: 'Hard',
+    difficulty: 'Hard',
   },
   {
     id: 'typing-015',
@@ -147,7 +147,7 @@ export const typingTestPassages = [
     level: 'C1 preliminar aproximado',
     context: 'follow-up email',
     text: 'I am following up regarding the information we discussed earlier. Please review the attached summary and let me know if any additional clarification is needed.',
-    estimatedDifficulty: 'Hard',
+    difficulty: 'Hard',
   },
   {
     id: 'typing-016',
@@ -157,7 +157,7 @@ export const typingTestPassages = [
     level: 'C1 preliminar aproximado',
     context: 'technical troubleshooting',
     text: 'The diagnostic results show that the device is connected to the network, but the application needs to be updated before the synchronization process can continue.',
-    estimatedDifficulty: 'Hard',
+    difficulty: 'Hard',
   },
   {
     id: 'typing-017',
@@ -167,7 +167,7 @@ export const typingTestPassages = [
     level: 'C1 preliminar aproximado',
     context: 'job interview',
     text: 'I am looking for a position where I can apply my communication skills, continue improving my English, and contribute to a team that values reliability and service.',
-    estimatedDifficulty: 'Hard',
+    difficulty: 'Hard',
   },
   {
     id: 'typing-018',
@@ -177,8 +177,8 @@ export const typingTestPassages = [
     level: 'C1 preliminar aproximado',
     context: 'case documentation',
     text: 'The account was reviewed after the customer reported a delayed response. Contact details were verified, the previous notes were updated, and the case was assigned for final review.',
-    estimatedDifficulty: 'Hard',
+    difficulty: 'Hard',
   },
 ]
 
-export const typingTestCategories = ['Todas', ...new Set(typingTestPassages.map((passage) => passage.category))]
+export const typingTestDifficulties = ['Easy', 'Intermediate', 'Hard']

@@ -224,7 +224,7 @@ export function validateTypingTestPassages(passages) {
     if (!passage.text) summary.emptyText.push(passage.id)
     if (!passage.category) summary.missingCategory.push(passage.id)
     if (!passage.level) summary.missingLevel.push(passage.id)
-    if (!passage.estimatedDifficulty) summary.missingDifficulty.push(passage.id)
+    if (!passage.difficulty && !passage.estimatedDifficulty) summary.missingDifficulty.push(passage.id)
   })
 
   Object.entries(summary).forEach(([key, value]) => {

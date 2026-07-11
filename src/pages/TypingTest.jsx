@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { typingTestCategories, typingTestPassages } from '../data/typingTestPassages.js'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { typingTestDifficulties, typingTestPassages } from '../data/typingTestPassages.js'
 import { calculateTypingMetrics, calculateTypingResult, formatTypingTime, getCharacterStates, pickTypingPassage } from '../utils/typingTest.js'
 import { validateTypingTestPassages } from '../utils/questionValidation.js'
 
@@ -10,13 +10,23 @@ const durations = [
 ]
 
 function TypingTextDisplay({ passage, typedText }) {
+  const referenceBoxRef = useRef(null)
   const characterStates = getCharacterStates(passage.text, typedText)
+
+  useEffect(() => {
+    const referenceBox = referenceBoxRef.current
+    if (!referenceBox) return
+    const progress = passage.text.length ? Math.min(1, typedText.length / passage.text.length) : 0
+    const maxScroll = referenceBox.scrollHeight - referenceBox.clientHeight
+    referenceBox.scrollTo({ top: progress * maxScroll, behavior: 'smooth' })
+  }, [passage.text, typedText])
+
   return (
     <section className="typing-target">
-      <div className="card-top"><span className="eyebrow">{passage.category}</span><span className="status available">{passage.estimatedDifficulty}</span></div>
+      <div className="card-top"><span className="eyebrow">Texto de referencia</span><span className="status available">{passage.difficulty}</span></div>
       <h2>{passage.title}</h2>
-      <p className="typing-context">{passage.context} · {passage.level}</p>
-      <div className="typing-copy-text" aria-label="Texto objetivo">
+      <p className="typing-context">{passage.level}</p>
+      <div className="typing-copy-text" aria-label="Texto de referencia" ref={referenceBoxRef}>
         {characterStates.map((item, index) => (
           <span key={`${item.character}-${index}`} className={item.state}>{item.character}</span>
         ))}
@@ -54,10 +64,10 @@ function TypingResults({ result, onRepeat, onNewText }) {
         <div><span>Palabras incorrectas</span><strong>{result.incorrectWords}</strong></div>
         <div><span>Tiempo usado</span><strong>{result.formattedTimeUsed}</strong></div>
         <div><span>Texto</span><strong>{result.passage.title}</strong></div>
-        <div><span>Dificultad</span><strong>{result.passage.estimatedDifficulty}</strong></div>
+        <div><span>Dificultad</span><strong>{result.passage.difficulty}</strong></div>
       </div>
       <aside className="work-recommendation">
-        <strong>{result.passage.category}</strong>
+        <strong>{result.passage.title}</strong>
         <p>{result.recommendation}</p>
         <p>30 WPM o más es una meta práctica para este ejercicio, pero cada empresa puede tener requisitos diferentes.</p>
       </aside>
@@ -68,7 +78,7 @@ function TypingResults({ result, onRepeat, onNewText }) {
 
 export default function TypingTest() {
   const [selectedDuration, setSelectedDuration] = useState(60)
-  const [selectedCategory, setSelectedCategory] = useState('Todas')
+  const [selectedDifficulty, setSelectedDifficulty] = useState('Easy')
   const [currentPassage, setCurrentPassage] = useState(null)
   const [typedText, setTypedText] = useState('')
   const [status, setStatus] = useState('idle')
@@ -101,7 +111,7 @@ export default function TypingTest() {
   const canConfigure = status === 'idle' || status === 'finished'
 
   const startTest = () => {
-    const nextPassage = pickTypingPassage(typingTestPassages, selectedCategory)
+    const nextPassage = pickTypingPassage(typingTestPassages, selectedDifficulty)
     setCurrentPassage(nextPassage)
     setTypedText('')
     setResult(null)
@@ -159,7 +169,7 @@ export default function TypingTest() {
       </section>
       <section className="typing-setup">
         <label>Duración<select value={selectedDuration} disabled={!canConfigure} onChange={(event) => setSelectedDuration(Number(event.target.value))}>{durations.map((duration) => <option key={duration.value} value={duration.value}>{duration.label}</option>)}</select></label>
-        <label>Categoría<select value={selectedCategory} disabled={!canConfigure} onChange={(event) => setSelectedCategory(event.target.value)}>{typingTestCategories.map((category) => <option key={category}>{category}</option>)}</select></label>
+        <label>Dificultad<select value={selectedDifficulty} disabled={!canConfigure} onChange={(event) => setSelectedDifficulty(event.target.value)}>{typingTestDifficulties.map((difficulty) => <option key={difficulty}>{difficulty}</option>)}</select></label>
         <button className="button" type="button" onClick={startTest} disabled={status === 'running'}>{status === 'running' ? 'Test en curso' : 'Elegir texto e iniciar'}</button>
       </section>
       {currentPassage && (

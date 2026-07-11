@@ -381,7 +381,7 @@ p { line-height: 1.65; }
 .typing-target, .typing-input-area, .typing-results, .typing-tips { margin-top: 22px; padding: clamp(22px, 5vw, 38px); background: #fffdf7; border: 1px solid var(--line); border-radius: 12px; }
 .typing-target h2 { margin: 16px 0 4px; font-size: clamp(2rem, 4vw, 3rem); }
 .typing-context { margin-top: 0; color: #68736f; text-transform: capitalize; }
-.typing-copy-text { margin-top: 22px; padding: 22px; background: #f3f6ed; border: 1px solid var(--line); border-radius: 10px; font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.85; }
+.typing-copy-text { max-height: 280px; overflow-y: auto; scroll-behavior: smooth; margin-top: 22px; padding: 22px; background: #f3f6ed; border: 1px solid var(--line); border-radius: 10px; font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.85; }
 .typing-copy-text span { white-space: pre-wrap; border-radius: 3px; }
 .typing-copy-text span.correct { background: #dcf6df; color: #12472e; }
 .typing-copy-text span.incorrect { background: #f8d9d2; color: #8e2e29; }
