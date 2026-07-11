@@ -4,13 +4,13 @@ import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import WorkEnglishTest from './pages/WorkEnglishTest.jsx'
 import EnglishTest from './pages/EnglishTest.jsx'
+import GeneralEnglishTest from './pages/GeneralEnglishTest.jsx'
 import GrammarPractice from './pages/GrammarPractice.jsx'
 import VocabularyPractice from './pages/VocabularyPractice.jsx'
 import ReadingPractice from './pages/ReadingPractice.jsx'
 import ListeningPractice from './pages/ListeningPractice.jsx'
 import WritingPractice from './pages/WritingPractice.jsx'
 import TypingTestPage from './pages/TypingTestPage.jsx'
-import { generalEnglishTestQuestions } from './data/generalEnglishTestQuestions.js'
 import { workEnglishTestQuestions } from './data/workEnglishTestQuestions.js'
 import Resources from './pages/Resources.jsx'
 import Calculators from './pages/Calculators.jsx'
@@ -41,7 +41,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work-english-test" element={<WorkEnglishTest />} />
-          <Route path="/work-english-test/general-test" element={<EnglishTest questions={generalEnglishTestQuestions} intro={generalIntro} />} />
+          <Route path="/work-english-test/general-test" element={<GeneralEnglishTest intro={generalIntro} />} />
           <Route path="/work-english-test/work-test" element={<EnglishTest questions={workEnglishTestQuestions} intro={workIntro} />} />
           <Route path="/work-english-test/grammar-practice" element={<GrammarPractice />} />
           <Route path="/work-english-test/vocabulary-practice" element={<VocabularyPractice />} />
