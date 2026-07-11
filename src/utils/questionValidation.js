@@ -5,6 +5,7 @@ export function validateQuestionBank(questions, expected = {}) {
     byLevel: {},
     byTopic: {},
     duplicateIds: [],
+    missingIds: [],
     missingCorrectAnswer: [],
     missingExplanation: [],
     missingOptions: [],
@@ -19,8 +20,9 @@ export function validateQuestionBank(questions, expected = {}) {
     if (question.level) summary.byLevel[question.level] = (summary.byLevel[question.level] || 0) + 1
     if (question.topic) summary.byTopic[question.topic] = (summary.byTopic[question.topic] || 0) + 1
 
-    if (seenIds.has(question.id)) summary.duplicateIds.push(question.id)
-    seenIds.add(question.id)
+    if (!question.id) summary.missingIds.push(question.question || 'unknown-question')
+    else if (seenIds.has(question.id)) summary.duplicateIds.push(question.id)
+    if (question.id) seenIds.add(question.id)
 
     if (!question.correctAnswer) summary.missingCorrectAnswer.push(question.id)
     if (!question.explanation) summary.missingExplanation.push(question.id)
@@ -39,6 +41,7 @@ export function validateQuestionBank(questions, expected = {}) {
   })
 
   if (summary.duplicateIds.length) summary.errors.push(`Duplicate question IDs: ${summary.duplicateIds.join(', ')}.`)
+  if (summary.missingIds.length) summary.errors.push(`Questions without IDs: ${summary.missingIds.join(', ')}.`)
   if (summary.missingCorrectAnswer.length) summary.errors.push(`Missing correct answers: ${summary.missingCorrectAnswer.join(', ')}.`)
   if (summary.missingExplanation.length) summary.errors.push(`Missing explanations: ${summary.missingExplanation.join(', ')}.`)
   if (summary.missingOptions.length) summary.errors.push(`Missing or invalid options: ${summary.missingOptions.join(', ')}.`)
@@ -116,6 +119,8 @@ export function validateListeningPracticeItems(items) {
     missingSlug: [],
     missingAudioUrl: [],
     invalidAudioUrl: [],
+    missingTranscript: [],
+    duplicateQuestionIds: [],
     missingQuestions: [],
     missingLevel: [],
     missingCategory: [],
@@ -128,6 +133,7 @@ export function validateListeningPracticeItems(items) {
 
   const ids = new Set()
   const slugs = new Set()
+  const questionIds = new Set()
 
   items.forEach((item) => {
     if (ids.has(item.id)) summary.duplicateIds.push(item.id)
@@ -137,11 +143,14 @@ export function validateListeningPracticeItems(items) {
     slugs.add(item.slug)
     if (!item.audioUrl) summary.missingAudioUrl.push(item.id)
     if (item.audioUrl && !item.audioUrl.startsWith('/audio/listening/')) summary.invalidAudioUrl.push(item.id)
+    if (!item.transcript) summary.missingTranscript.push(item.id)
     if (!item.questions?.length) summary.missingQuestions.push(item.id)
     if (!item.level) summary.missingLevel.push(item.id)
     if (!item.category) summary.missingCategory.push(item.id)
 
     item.questions?.forEach((question) => {
+      if (questionIds.has(question.id)) summary.duplicateQuestionIds.push(question.id)
+      questionIds.add(question.id)
       if (!Array.isArray(question.options) || question.options.length < 2) summary.questionsWithoutOptions.push(question.id)
       if (!question.correctAnswer) summary.questionsWithoutCorrectAnswer.push(question.id)
       if (!question.explanation) summary.questionsWithoutExplanation.push(question.id)
@@ -153,6 +162,42 @@ export function validateListeningPracticeItems(items) {
     if (Array.isArray(value) && value.length) summary.errors.push(`${key}: ${value.join(', ')}`)
   })
 
+  summary.valid = summary.errors.length === 0
+  return summary
+}
+
+export function validateWorkVocabularyModules(modules) {
+  const summary = {
+    total: modules.length,
+    duplicateIds: [],
+    duplicateSlugs: [],
+    missingSlug: [],
+    missingTerms: [],
+    duplicateTermIds: [],
+    incompleteTerms: [],
+    errors: [],
+  }
+  const ids = new Set()
+  const slugs = new Set()
+  const termIds = new Set()
+
+  modules.forEach((module) => {
+    if (ids.has(module.id)) summary.duplicateIds.push(module.id)
+    ids.add(module.id)
+    if (!module.slug) summary.missingSlug.push(module.id)
+    else if (slugs.has(module.slug)) summary.duplicateSlugs.push(module.slug)
+    if (module.slug) slugs.add(module.slug)
+    if (!module.terms?.length) summary.missingTerms.push(module.id)
+    module.terms?.forEach((term) => {
+      if (termIds.has(term.id)) summary.duplicateTermIds.push(term.id)
+      termIds.add(term.id)
+      if (!term.id || !term.term || !term.translation || !term.definition || !term.example) summary.incompleteTerms.push(term.id || `${module.id}-unknown-term`)
+    })
+  })
+
+  Object.entries(summary).forEach(([key, value]) => {
+    if (Array.isArray(value) && value.length) summary.errors.push(`${key}: ${value.join(', ')}`)
+  })
   summary.valid = summary.errors.length === 0
   return summary
 }

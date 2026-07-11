@@ -189,7 +189,7 @@ export function calculateWritingGeneralResult(prompts, responses) {
     overallLevel,
     strongCategories,
     reinforceCategories,
-    recommendation: `${recommendation} Esta estimación no evalúa pronunciación ni gramática avanzada porque no usa IA ni revisión humana.`,
+    recommendation: `${recommendation} Esta estimación usa heurísticas básicas y no equivale a corrección gramatical real porque no usa IA ni revisión humana.`,
   }
 }
 

@@ -1,7 +1,7 @@
 export const grammarPracticeMetadata = {
   "id": "grammar-practice-phase-3-5-word-source",
   "name": "Grammar Practice",
-  "sourceDocument": "C:\\Users\\jason\\OneDrive\\Desktop\\recursos para turn on\\fase_3_5_grammar_practice_questions.docx",
+  "sourceDocument": "fase_3_5_grammar_practice_questions.docx",
   "description": "Banco de preguntas para refuerzo gramatical por tema."
 }
 

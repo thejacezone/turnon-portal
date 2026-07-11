@@ -12,6 +12,8 @@ const durations = [
 function TypingTextDisplay({ passage, typedText }) {
   const referenceBoxRef = useRef(null)
   const characterStates = getCharacterStates(passage.text, typedText)
+  const completedWords = (typedText.match(/\S+\s+/g) || []).length
+  const currentWord = passage.text.trim().split(/\s+/)[completedWords] || 'Texto completado'
 
   useEffect(() => {
     const referenceBox = referenceBoxRef.current
@@ -26,6 +28,7 @@ function TypingTextDisplay({ passage, typedText }) {
       <div className="card-top"><span className="eyebrow">Texto de referencia</span><span className="status available">{passage.difficulty}</span></div>
       <h2>{passage.title}</h2>
       <p className="typing-context">{passage.level}</p>
+      <p className="typing-current-word" aria-live="polite"><strong>Palabra actual:</strong> {currentWord}</p>
       <div className="typing-copy-text" aria-label="Texto de referencia" ref={referenceBoxRef}>
         {characterStates.map((item, index) => (
           <span key={`${item.character}-${index}`} className={item.state}>{item.character}</span>
@@ -161,7 +164,7 @@ export default function TypingTest() {
           <p>Poné a prueba tu velocidad escribiendo en inglés con textos laborales. Este resultado es orientativo y te ayuda a practicar para trabajos donde se usa chat, email, notas de caso, soporte o documentación.</p>
           <section className="typing-wpm-explainer">
             <h3>¿Qué significa WPM?</h3>
-            <p>WPM significa Words Per Minute, es decir, palabras por minuto. Sirve para medir qué tan rápido escribís. Es una métrica útil en trabajos donde se usa chat, email, notas de caso, soporte técnico o documentación. Como meta práctica inicial, 30 WPM o más puede considerarse aceptable para practicar, aunque cada empresa puede pedir requisitos diferentes.</p>
+            <p>WPM significa Words Per Minute, es decir, palabras por minuto. Sirve para medir qué tan rápido escribís. Es útil en trabajos donde se usa chat, email, notas de caso, soporte técnico o documentación. Como meta práctica inicial, 30 WPM o más puede considerarse aceptable, aunque cada empresa puede tener requisitos diferentes.</p>
           </section>
           <p className="general-test-helper">No guarda progreso, no usa IA y no funciona como certificación oficial.</p>
           <button className="button" type="button" onClick={startTest} disabled={status === 'running'}>{status === 'running' ? 'Test en curso' : 'Iniciar test'}</button>
@@ -169,7 +172,7 @@ export default function TypingTest() {
       </section>
       <section className="typing-setup">
         <label>Duración<select value={selectedDuration} disabled={!canConfigure} onChange={(event) => setSelectedDuration(Number(event.target.value))}>{durations.map((duration) => <option key={duration.value} value={duration.value}>{duration.label}</option>)}</select></label>
-        <label>Dificultad<select value={selectedDifficulty} disabled={!canConfigure} onChange={(event) => setSelectedDifficulty(event.target.value)}>{typingTestDifficulties.map((difficulty) => <option key={difficulty}>{difficulty}</option>)}</select></label>
+        <label>Difficulty<select value={selectedDifficulty} disabled={!canConfigure} onChange={(event) => setSelectedDifficulty(event.target.value)}>{typingTestDifficulties.map((difficulty) => <option key={difficulty}>{difficulty}</option>)}</select></label>
         <button className="button" type="button" onClick={startTest} disabled={status === 'running'}>{status === 'running' ? 'Test en curso' : 'Elegir texto e iniciar'}</button>
       </section>
       {currentPassage && (

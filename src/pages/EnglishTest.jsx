@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import AnswerReview from '../components/AnswerReview.jsx'
 import TestIntro from '../components/TestIntro.jsx'
 import TestProgress from '../components/TestProgress.jsx'
 import TestQuestion from '../components/TestQuestion.jsx'
 import TestResults from '../components/TestResults.jsx'
 import { scoreEnglishTest } from '../utils/englishScoring.js'
+import { validateQuestionBank } from '../utils/questionValidation.js'
 
 export default function EnglishTest({ questions, intro }) {
   const [phase, setPhase] = useState('intro')
@@ -12,6 +13,11 @@ export default function EnglishTest({ questions, intro }) {
   const [answers, setAnswers] = useState({})
   const result = useMemo(() => phase === 'results' ? scoreEnglishTest(questions, answers) : null, [phase, answers, questions])
   const question = questions[currentIndex]
+  useEffect(() => {
+    if (!import.meta.env.DEV) return
+    const validation = validateQuestionBank(questions)
+    if (!validation.valid) console.warn(`${intro.title} validation warnings:`, validation.errors)
+  }, [intro.title, questions])
   const start = () => { setAnswers({}); setCurrentIndex(0); setPhase('questions') }
   const selectAnswer = (answer) => setAnswers((current) => ({ ...current, [question.id]: answer }))
   const next = () => { if (currentIndex === questions.length - 1) setPhase('results'); else setCurrentIndex((index) => index + 1) }

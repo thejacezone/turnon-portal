@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
 import SectionGeneralTest from '../components/SectionGeneralTest.jsx'
 import { readingPracticeCategories, readingPracticeContexts, readingPracticeScenarios, readingPracticeTypes } from '../data/readingPracticeScenarios.js'
 import { calculateReadingResult, filterReadingScenarios } from '../utils/readingPractice.js'
 import { generateReadingGeneralTest, scoreReadingGeneralTest } from '../utils/sectionGeneralTests.js'
+import { validateReadingPracticeScenarios } from '../utils/questionValidation.js'
 
 const initialFilters = { query: '', level: 'Todos', category: 'Todos', context: 'Todos', type: 'Todos' }
 
@@ -125,6 +126,12 @@ export default function ReadingPractice() {
   const levels = useMemo(() => [...new Set(readingPracticeScenarios.map((scenario) => scenario.level))], [])
   const scenario = readingPracticeScenarios.find((item) => item.slug === scenarioSlug)
   const filteredScenarios = useMemo(() => filterReadingScenarios(readingPracticeScenarios, filters), [filters])
+
+  useEffect(() => {
+    if (!import.meta.env.DEV) return
+    const validation = validateReadingPracticeScenarios(readingPracticeScenarios)
+    if (!validation.valid) console.warn('Reading Practice validation warnings:', validation.errors)
+  }, [])
 
   const updateFilter = (name, value) => setFilters((current) => ({ ...current, [name]: value }))
 

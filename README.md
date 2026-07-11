@@ -1,6 +1,6 @@
 # turnon-portal — FASE 3.5
 
-Portal web estático de TurnOn. Esta actualización de FASE 3.5 incorpora Listening Practice con audios reales, Writing Practice con temporizador y Typing Test con métricas de velocidad/precisión, mantiene las prácticas anteriores y retira la práctica oral de la interfaz.
+Portal web estático de TurnOn. La FASE 3.5 incluye General English Level Test, Work English Test, Grammar, Vocabulary, Reading, Listening, Writing y Typing como módulos separados.
 
 ## Ubicación
 
@@ -11,10 +11,6 @@ Portal web estático de TurnOn. Esta actualización de FASE 3.5 incorpora Listen
 Ruta actual de documentos y recursos:
 
 `C:\Users\jason\OneDrive\Desktop\recursos`
-
-Ruta usada en fases anteriores:
-
-`C:\Users\jason\OneDrive\Desktop\recursos para turn on`
 
 Nota de esta actualización: en esta verificación local la carpeta nueva `C:\Users\jason\OneDrive\Desktop\recursos` no estaba disponible, por lo que no se pudo leer `fase_3_5_typing_test_reference_texts.docx` ni copiar audios nuevos desde esa ubicación. El proyecto conserva los bancos locales versionados en `src/data/`. Si ese documento se agrega después, conviene convertirlo a `.txt`, `.json` o `.js` para integrarlo de forma controlada.
 
@@ -152,7 +148,7 @@ Se agregó una sección funcional de práctica de lectura laboral:
 
 - Ruta principal: `#/work-english-test/reading-practice`
 - Ruta de escenario: `#/work-english-test/reading-practice/:scenarioSlug`
-- Documento fuente: `C:\Users\jason\OneDrive\Desktop\recursos para turn on\fase_3_5_reading_practice_scenarios.docx`
+- Documento fuente registrado: `fase_3_5_reading_practice_scenarios.docx`
 - Banco local: `src/data/readingPracticeScenarios.js`
 - Utilidades: `src/utils/readingPractice.js`
 
@@ -270,9 +266,9 @@ La evaluación es básica y sin IA. Revisa heurísticas simples:
 
 También se agregó `Writing Level Check`, que selecciona 3 prompts aleatorios, preferiblemente de categorías diferentes. El resultado general muestra palabras totales, tiempo total, WPM promedio, resultados por prompt, estimación general, categorías fuertes, categorías a reforzar y recomendación final.
 
-La estimación de nivel es orientativa. No evalúa pronunciación, gramática avanzada ni calidad profesional definitiva porque no usa IA ni revisión humana.
+La estimación es orientativa y usa heurísticas básicas; no equivale a corrección gramatical real porque no usa IA ni revisión humana.
 
-Writing Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`. La práctica oral sigue fuera del alcance de esta fase.
+Writing Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
 
 ## FASE 3.5 — Typing Test
 
@@ -336,7 +332,7 @@ Cada test aparece arriba de la práctica específica y no reemplaza el contenido
 - Reading Practice por escenarios, filtros y revisión de respuestas.
 - Listening Practice por audios, filtros, preguntas, revisión y transcripción.
 - Writing Practice por prompts, filtros, temporizador, WPM y revisión orientativa.
-- Typing Test por textos laborales, duración, categoría, WPM, accuracy, CPM y errores.
+- Typing Test por textos laborales, duración, dificultad, WPM, precisión y errores.
 
 Datos usados:
 
@@ -354,9 +350,9 @@ Archivos agregados:
 
 Los tests son aleatorios, no guardan progreso y no usan `localStorage` ni `sessionStorage`. Tampoco usan backend, Supabase, Firebase, login, panel admin ni IA. Los resultados son orientativos y no constituyen certificación oficial.
 
-## Práctica oral
+## Estado de la limpieza técnica
 
-La práctica oral fue retirada de esta fase. No existe ruta activa, tarjeta visible ni panel de práctica oral. Si en una fase futura se implementa práctica oral con grabación, evaluación o persistencia, deberá plantearse con backend, Supabase o un sistema formal de exportación/importación; no se debe usar almacenamiento del navegador como fuente principal.
+La auditoría completa y sus limitaciones están documentadas en `CLEANUP_REPORT.md`. En esta ejecución la ruta fuente `C:\Users\jason\OneDrive\Desktop\recursos` no estaba disponible: no se reimportaron documentos Word ni se copiaron audios nuevos. Se conservaron los bancos reales ya versionados para evitar sustituirlos por contenido inventado.
 
 ## Desarrollo local
 

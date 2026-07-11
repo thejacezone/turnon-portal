@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
 import { listeningPracticeCategories, listeningPracticeContexts, listeningPracticeItems } from '../data/listeningPracticeItems.js'
 import { calculateListeningResult, filterListeningItems, generateListeningGeneralTest, scoreListeningGeneralTest } from '../utils/listeningPractice.js'
+import { validateListeningPracticeItems } from '../utils/questionValidation.js'
 
 const initialFilters = { query: '', level: 'Todos', category: 'Todos', context: 'Todos' }
 
@@ -143,10 +144,12 @@ function ListeningGeneralTest({ items }) {
   const [testItems, setTestItems] = useState([])
   const [currentAudioIndex, setCurrentAudioIndex] = useState(0)
   const [answers, setAnswers] = useState({})
+  const [submittedAudioIds, setSubmittedAudioIds] = useState([])
   const [result, setResult] = useState(null)
 
   const currentItem = testItems[currentAudioIndex]
   const currentAnswered = currentItem ? currentItem.questions.every((question) => answers[question.id]) : false
+  const currentSubmitted = currentItem ? submittedAudioIds.includes(currentItem.id) : false
   const progress = testItems.length ? Math.round(((currentAudioIndex + 1) / testItems.length) * 100) : 0
 
   const startTest = () => {
@@ -154,6 +157,7 @@ function ListeningGeneralTest({ items }) {
     setTestItems(generatedItems)
     setCurrentAudioIndex(0)
     setAnswers({})
+    setSubmittedAudioIds([])
     setResult(null)
     setMode('running')
   }
@@ -165,6 +169,17 @@ function ListeningGeneralTest({ items }) {
   const finishTest = () => {
     setResult(scoreListeningGeneralTest(testItems, answers))
     setMode('results')
+  }
+
+  const submitCurrentAudio = () => {
+    if (!currentItem || !currentAnswered) return
+    setSubmittedAudioIds((current) => current.includes(currentItem.id) ? current : [...current, currentItem.id])
+  }
+
+  const goToNextAudio = () => {
+    if (!currentSubmitted) return
+    if (currentAudioIndex === testItems.length - 1) finishTest()
+    else setCurrentAudioIndex((index) => index + 1)
   }
 
   if (mode === 'intro') {
@@ -212,13 +227,14 @@ function ListeningGeneralTest({ items }) {
         </section>
         <section className="reading-question-list">
           <span className="eyebrow">Preguntas de este audio</span>
-          {currentItem.questions.map((question) => <ListeningQuestion key={question.id} question={question} selectedAnswer={answers[question.id]} submitted={false} onSelect={selectAnswer} />)}
+          {currentItem.questions.map((question) => <ListeningQuestion key={question.id} question={question} selectedAnswer={answers[question.id]} submitted={currentSubmitted} onSelect={selectAnswer} />)}
         </section>
+        {currentSubmitted && <ListeningTranscriptBox transcript={currentItem.transcript} />}
         <div className="test-navigation">
           <button className="button ghost dark-ghost" type="button" disabled={currentAudioIndex === 0} onClick={() => setCurrentAudioIndex((index) => Math.max(0, index - 1))}>Anterior audio</button>
-          {currentAudioIndex === testItems.length - 1
-            ? <button className="button" type="button" disabled={!currentAnswered} onClick={finishTest}>Ver resultado</button>
-            : <button className="button" type="button" disabled={!currentAnswered} onClick={() => setCurrentAudioIndex((index) => index + 1)}>Siguiente audio</button>}
+          {!currentSubmitted
+            ? <button className="button" type="button" disabled={!currentAnswered} onClick={submitCurrentAudio}>Enviar respuestas</button>
+            : <button className="button" type="button" onClick={goToNextAudio}>{currentAudioIndex === testItems.length - 1 ? 'Ver resultado' : 'Siguiente audio'}</button>}
         </div>
       </div>
     </section>
@@ -269,6 +285,12 @@ export default function ListeningPractice() {
   const levels = useMemo(() => [...new Set(listeningPracticeItems.map((item) => item.level))], [])
   const item = listeningPracticeItems.find((entry) => entry.slug === listeningSlug)
   const filteredItems = useMemo(() => filterListeningItems(listeningPracticeItems, filters), [filters])
+
+  useEffect(() => {
+    if (!import.meta.env.DEV) return
+    const validation = validateListeningPracticeItems(listeningPracticeItems)
+    if (!validation.valid) console.warn('Listening Practice validation warnings:', validation.errors)
+  }, [])
 
   const updateFilter = (name, value) => setFilters((current) => ({ ...current, [name]: value }))
 

@@ -43,7 +43,6 @@ export default function App() {
           <Route path="/work-english-test" element={<WorkEnglishTest />} />
           <Route path="/work-english-test/general-test" element={<EnglishTest questions={generalEnglishTestQuestions} intro={generalIntro} />} />
           <Route path="/work-english-test/work-test" element={<EnglishTest questions={workEnglishTestQuestions} intro={workIntro} />} />
-          <Route path="/work-english-test/test" element={<EnglishTest questions={workEnglishTestQuestions} intro={workIntro} />} />
           <Route path="/work-english-test/grammar-practice" element={<GrammarPractice />} />
           <Route path="/work-english-test/vocabulary-practice" element={<VocabularyPractice />} />
           <Route path="/work-english-test/vocabulary-practice/:moduleSlug" element={<VocabularyPractice />} />

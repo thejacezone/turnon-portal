@@ -1,7 +1,7 @@
 export const generalEnglishTestMetadata = {
   "id": "general-english-test-3-balanced",
   "name": "General English Level Test",
-  "sourceDocument": "C:\\Users\\jason\\OneDrive\\Desktop\\recursos para turn on\\work_english_test_3_general_balanced.docx",
+  "sourceDocument": "work_english_test_3_general_balanced.docx",
   "description": "Medí tu nivel aproximado de inglés general con preguntas balanceadas de grammar, vocabulary y reading.",
   "distribution": {
     "skill": {

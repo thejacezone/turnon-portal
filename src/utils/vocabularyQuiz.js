@@ -16,7 +16,8 @@ function fallbackDistractors(allTerms, currentTerm, field) {
 
 export function generateVocabularyQuiz(module, allModules, count = 10) {
   const allTerms = allModules.flatMap((item) => item.terms)
-  const selectedTerms = getRandomTerms(module.terms, count)
+  const supplementalTerms = allTerms.filter((term) => !module.terms.some((moduleTerm) => moduleTerm.id === term.id))
+  const selectedTerms = getRandomTerms([...module.terms, ...supplementalTerms], count)
 
   return selectedTerms.map((term, index) => {
     const questionType = index % 3
@@ -77,6 +78,11 @@ export function calculateVocabularyResult(quiz, answers, module) {
     moduleTitle: module.title,
     correctTerms,
     missedTerms,
+    review: quiz.map((question) => ({
+      ...question,
+      selectedAnswer: answers[question.id],
+      isCorrect: answers[question.id] === question.correctAnswer,
+    })),
     recommendation,
   }
 }

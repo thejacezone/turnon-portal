@@ -1,7 +1,7 @@
 export const readingPracticeMetadata = {
   "id": "reading-practice-phase-3-5",
   "name": "Reading Practice Scenarios",
-  "sourceDocument": "C:\\Users\\jason\\OneDrive\\Desktop\\recursos para turn on\\fase_3_5_reading_practice_scenarios.docx",
+  "sourceDocument": "fase_3_5_reading_practice_scenarios.docx",
   "description": "Work English Test reading modules for applicants.",
   "scenarioCount": 30,
   "questionCount": 150

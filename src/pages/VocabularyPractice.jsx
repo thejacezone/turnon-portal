@@ -1,12 +1,13 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
 import SectionGeneralTest from '../components/SectionGeneralTest.jsx'
 import { workVocabularyCategories, workVocabularyLevels, workVocabularyModules } from '../data/workVocabularyModules.js'
 import { calculateVocabularyResult, generateVocabularyQuiz } from '../utils/vocabularyQuiz.js'
 import { generateVocabularyGeneralTest, scoreVocabularyGeneralTest } from '../utils/sectionGeneralTests.js'
+import { validateWorkVocabularyModules } from '../utils/questionValidation.js'
 
-const quizSizes = [5, 10, 15]
+const quizSizes = [10, 15, 20]
 
 function VocabularyModuleCard({ module }) {
   return (
@@ -109,6 +110,10 @@ function VocabularyQuiz({ module, allModules, onBack }) {
           <section><h3>Términos correctos</h3>{result.correctTerms.length ? <ul>{result.correctTerms.map((term) => <li key={term}>{term}</li>)}</ul> : <p>Sin términos correctos todavía.</p>}</section>
           <section><h3>Términos a repasar</h3>{result.missedTerms.length ? <ul>{result.missedTerms.map((term) => <li key={term}>{term}</li>)}</ul> : <p>No hubo términos fallados en esta ronda.</p>}</section>
         </div>
+        <section className="answer-review">
+          <h2>Revisión de respuestas</h2>
+          <div className="review-list">{result.review.map((item) => <article key={item.id} className={item.isCorrect ? '' : 'incorrect'}><div className="review-heading"><span>{item.term}</span><strong>{item.isCorrect ? 'Correcta' : 'A repasar'}</strong></div><p>{item.question}</p><p><strong>Tu respuesta:</strong> {item.selectedAnswer || 'Sin respuesta'}</p>{!item.isCorrect && <p><strong>Respuesta correcta:</strong> {item.correctAnswer}</p>}</article>)}</div>
+        </section>
         <aside className="work-recommendation"><strong>Recomendación</strong><p>{result.recommendation}</p></aside>
         <div className="vocab-actions"><button className="button" type="button" onClick={restart}>Repetir examen</button><button className="button ghost dark-ghost" type="button" onClick={onBack}>Volver al módulo</button><Link className="button ghost dark-ghost" to="/work-english-test/vocabulary-practice">Volver a Vocabulary Practice</Link></div>
       </section>
@@ -175,6 +180,12 @@ export default function VocabularyPractice() {
     const matchesLevel = level === 'Todos' || item.level === level
     return matchesQuery && matchesCategory && matchesLevel
   }), [query, category, level])
+
+  useEffect(() => {
+    if (!import.meta.env.DEV) return
+    const validation = validateWorkVocabularyModules(workVocabularyModules)
+    if (!validation.valid) console.warn('Vocabulary Practice validation warnings:', validation.errors)
+  }, [])
 
   if (moduleSlug && !module) {
     return <section className="detail-page"><h1>Módulo no encontrado</h1><Link className="button" to="/work-english-test/vocabulary-practice">Volver a Vocabulary Practice</Link></section>

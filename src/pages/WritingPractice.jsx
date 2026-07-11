@@ -90,7 +90,7 @@ function WritingResult({ result, prompt, onReset }) {
         <div><span>Estructura básica</span><strong>{result.sentenceCount >= 3 ? '3+ oraciones' : `${result.sentenceCount} oración(es)`}</strong><small>Conectores: {result.connectorsFound.length ? result.connectorsFound.join(', ') : 'sin conectores detectados'}</small></div>
         <div><span>Vocabulario laboral</span><strong>{result.workVocabularyFound.length ? result.workVocabularyFound.join(', ') : 'A reforzar'}</strong><small>{prompt.category}</small></div>
       </div>
-      <aside className="work-recommendation"><strong>Recomendación</strong><p>{result.recommendation}</p><p>Esta estimación no evalúa pronunciación ni gramática avanzada porque no usa IA ni revisión humana.</p></aside>
+      <aside className="work-recommendation"><strong>Recomendación</strong><p>{result.recommendation}</p><p>Esta estimación usa heurísticas básicas y no equivale a corrección gramatical real porque no usa IA ni revisión humana.</p></aside>
       {prompt.sampleAnswer && <details className="writing-sample"><summary>Ver respuesta de ejemplo</summary><p>{prompt.sampleAnswer}</p></details>}
       <div className="vocab-actions"><button className="button" type="button" onClick={onReset}>Repetir práctica</button><Link className="button ghost dark-ghost" to="/work-english-test/writing-practice">Volver a Writing Practice</Link></div>
     </section>

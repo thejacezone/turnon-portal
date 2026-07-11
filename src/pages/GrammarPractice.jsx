@@ -7,6 +7,7 @@ import PracticeResults from '../components/PracticeResults.jsx'
 import SectionGeneralTest from '../components/SectionGeneralTest.jsx'
 import { grammarPracticeQuestions, grammarPracticeTopics } from '../data/grammarPracticeQuestions.js'
 import { generateGrammarGeneralTest, scoreGrammarGeneralTest } from '../utils/sectionGeneralTests.js'
+import { validateQuestionBank } from '../utils/questionValidation.js'
 
 const initialFilters = { level: 'Todos', topic: 'Todos', context: 'Todos' }
 
@@ -68,6 +69,12 @@ export default function GrammarPractice() {
     setAnswers({})
     setFinished(false)
   }, [filters])
+
+  useEffect(() => {
+    if (!import.meta.env.DEV) return
+    const validation = validateQuestionBank(grammarPracticeQuestions)
+    if (!validation.valid) console.warn('Grammar Practice validation warnings:', validation.errors)
+  }, [])
 
   const updateFilter = (name, value) => {
     setFilters((current) => {
