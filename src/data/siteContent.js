@@ -14,4 +14,5 @@ export const portalSections = [
   { eyebrow: 'Números claros', title: 'Calculadoras laborales', description: 'Estimá el valor de tus horas y entendé los datos que conviene verificar.', action: 'Calcular horas', path: '/calculadoras' },
   { eyebrow: 'Acompañamiento', title: 'Comunidad', description: 'Conectá con espacios para compartir oportunidades y practicar inglés.', action: 'Ver comunidades', path: '/comunidad' },
   { eyebrow: 'Próximo paso', title: 'Ofertas / Referidos', description: 'Revisá oportunidades con salario, modalidad y nivel de inglés a la vista.', action: 'Ver ofertas', path: '/ofertas' },
+  { eyebrow: 'Velocidad y precisión', title: 'Typing Test', description: 'Practicá escritura profesional en inglés con textos oficiales, métricas en vivo y resultados claros.', action: 'Hacer Typing Test', path: '/typing-test' },
 ]

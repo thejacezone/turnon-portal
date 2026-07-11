@@ -34,7 +34,7 @@ Rutas canónicas funcionales:
 - `/work-english-test/reading-practice`
 - `/work-english-test/listening-practice`
 - `/work-english-test/writing-practice`
-- `/work-english-test/typing-test`
+- `/typing-test`
 - `/recursos`, `/calculadoras`, `/comunidad`, `/ofertas` y `/sobre-turnon`
 
 El proyecto conserva `HashRouter`. No se encontró `BrowserRouter`.

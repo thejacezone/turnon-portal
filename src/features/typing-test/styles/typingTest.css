@@ -1,0 +1,616 @@
+.turnon-typing-test {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #20201d;
+  --muted: #686158;
+  --paper: #f8f3ea;
+  --paper-strong: #fffaf1;
+  --line: #ded4c6;
+  --charcoal: #272727;
+  --green: #197a53;
+  --green-soft: #dff2e8;
+  --red: #b93131;
+  --red-soft: #ffe1dd;
+  --yellow: #f2c14e;
+  --yellow-soft: #fff3c4;
+  --blue: #2f5eaa;
+  --blue-soft: #e0ebff;
+  --shadow: 0 18px 60px rgba(32, 32, 29, 0.14);
+}
+
+.turnon-typing-test, .turnon-typing-test * {
+  box-sizing: border-box;
+}
+
+.turnon-typing-test {
+  min-width: 320px;
+  background: var(--paper);
+}
+
+.turnon-typing-test {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.93), rgba(248, 243, 234, 0.94)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(39, 39, 39, 0.025) 0,
+      rgba(39, 39, 39, 0.025) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+}
+
+.turnon-typing-test button,
+.turnon-typing-test input,
+.turnon-typing-test textarea {
+  font: inherit;
+}
+
+.turnon-typing-test button {
+  border: 0;
+}
+
+.turnon-typing-test button:not(:disabled) {
+  cursor: pointer;
+}
+
+.turnon-typing-test button:focus-visible,
+.turnon-typing-test input:focus-visible,
+.turnon-typing-test textarea:focus-visible,
+.turnon-typing-test a:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 4px;
+}
+
+.turnon-typing-test .app-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.turnon-typing-test .site-header,
+.turnon-typing-test .site-footer,
+.turnon-typing-test main {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.turnon-typing-test .site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0 18px;
+}
+
+.turnon-typing-test .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.turnon-typing-test .brand-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 2px solid var(--charcoal);
+  background: var(--yellow);
+  color: var(--charcoal);
+  font-weight: 900;
+  letter-spacing: 0;
+  box-shadow: 5px 5px 0 var(--charcoal);
+}
+
+.turnon-typing-test .brand-name {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.turnon-typing-test .brand-tagline,
+.turnon-typing-test .site-footer,
+.turnon-typing-test .choice-description,
+.turnon-typing-test .input-help,
+.turnon-typing-test .paste-message,
+.turnon-typing-test .panel-heading p,
+.turnon-typing-test .metric-label {
+  color: var(--muted);
+}
+
+.turnon-typing-test .brand-tagline {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.9rem;
+}
+
+.turnon-typing-test main {
+  flex: 1;
+}
+
+.turnon-typing-test .setup-screen,
+.turnon-typing-test .test-screen,
+.turnon-typing-test .results-screen {
+  padding: 28px 0 44px;
+}
+
+.turnon-typing-test .setup-screen {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.turnon-typing-test .intro-panel,
+.turnon-typing-test .setup-form,
+.turnon-typing-test .reference-panel,
+.turnon-typing-test .typing-input-wrap,
+.turnon-typing-test .results-screen {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.86);
+  box-shadow: var(--shadow);
+}
+
+.turnon-typing-test .intro-panel {
+  padding: clamp(28px, 5vw, 54px);
+  position: sticky;
+  top: 20px;
+}
+
+.turnon-typing-test .eyebrow {
+  margin: 0 0 10px;
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.turnon-typing-test h1,
+.turnon-typing-test h2,
+.turnon-typing-test p {
+  margin-top: 0;
+}
+
+.turnon-typing-test h1 {
+  max-width: 760px;
+  margin-bottom: 16px;
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.turnon-typing-test h2 {
+  margin-bottom: 4px;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.turnon-typing-test .lead {
+  color: #3c3934;
+  font-size: clamp(1.04rem, 2vw, 1.22rem);
+  line-height: 1.6;
+}
+
+.turnon-typing-test .notice {
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border-left: 5px solid var(--blue);
+  background: var(--blue-soft);
+  color: #24375b;
+  line-height: 1.5;
+}
+
+.turnon-typing-test .setup-form {
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.turnon-typing-test fieldset {
+  min-width: 0;
+  margin: 0 0 26px;
+  padding: 0;
+  border: 0;
+}
+
+.turnon-typing-test legend {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.turnon-typing-test .choice-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.turnon-typing-test .difficulty-grid {
+  grid-template-columns: 1fr;
+}
+
+.turnon-typing-test .duration-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.turnon-typing-test .choice-card {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+  padding: 16px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.turnon-typing-test .choice-card:hover,
+.turnon-typing-test .choice-card:focus-within,
+.turnon-typing-test .choice-card.is-selected {
+  border-color: var(--charcoal);
+  box-shadow: 4px 4px 0 var(--charcoal);
+  transform: translate(-2px, -2px);
+}
+
+.turnon-typing-test .choice-card input {
+  position: absolute;
+  opacity: 0;
+}
+
+.turnon-typing-test .choice-title {
+  font-weight: 900;
+}
+
+.turnon-typing-test .choice-description {
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.turnon-typing-test .primary-action,
+.turnon-typing-test .secondary-action,
+.turnon-typing-test .ghost-action {
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-weight: 900;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background-color 140ms ease;
+}
+
+.turnon-typing-test .primary-action {
+  width: 100%;
+  background: var(--charcoal);
+  color: #fff;
+  box-shadow: 5px 5px 0 var(--yellow);
+}
+
+.turnon-typing-test .secondary-action {
+  border: 2px solid var(--charcoal);
+  background: var(--yellow);
+  color: var(--charcoal);
+}
+
+.turnon-typing-test .ghost-action {
+  border: 2px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+
+.turnon-typing-test .primary-action:not(:disabled):hover,
+.turnon-typing-test .secondary-action:hover,
+.turnon-typing-test .ghost-action:hover {
+  transform: translateY(-2px);
+}
+
+.turnon-typing-test .primary-action:active,
+.turnon-typing-test .secondary-action:active,
+.turnon-typing-test .ghost-action:active {
+  transform: translateY(1px);
+}
+
+.turnon-typing-test .primary-action:disabled {
+  background: #9c968c;
+  color: #f1ece2;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.turnon-typing-test .test-topbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.turnon-typing-test .test-topbar h1,
+.turnon-typing-test .results-screen h1 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.turnon-typing-test .test-actions,
+.turnon-typing-test .result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.turnon-typing-test .metrics-panel {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.turnon-typing-test .metric-card,
+.turnon-typing-test .result-card {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+}
+
+.turnon-typing-test .metric-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.turnon-typing-test .metric-value,
+.turnon-typing-test .result-card strong {
+  display: block;
+  color: var(--ink);
+  font-size: clamp(1.35rem, 3vw, 2.1rem);
+  line-height: 1;
+}
+
+.turnon-typing-test .typing-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.85fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.turnon-typing-test .reference-panel,
+.turnon-typing-test .typing-input-wrap {
+  min-width: 0;
+  padding: 18px;
+}
+
+.turnon-typing-test .panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.turnon-typing-test .panel-heading p {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.turnon-typing-test .reference-scroll {
+  height: clamp(340px, 54vh, 560px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 18px;
+  border: 2px solid #eee3d3;
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(242, 193, 78, 0.09), transparent 30%),
+    #fffdf7;
+}
+
+.turnon-typing-test .reference-text {
+  font-family: "Iosevka", "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: clamp(1rem, 1.5vw, 1.13rem);
+  line-height: 1.95;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.turnon-typing-test .reference-char {
+  border-radius: 3px;
+}
+
+.turnon-typing-test .reference-char.is-correct {
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.turnon-typing-test .reference-char.is-incorrect {
+  color: var(--red);
+  background: var(--red-soft);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.turnon-typing-test .reference-char.is-current {
+  background: var(--yellow-soft);
+  box-shadow: inset 0 -3px 0 var(--yellow);
+}
+
+.turnon-typing-test .reference-char.is-active-word {
+  outline: 1px solid rgba(47, 94, 170, 0.22);
+}
+
+.turnon-typing-test .typing-input-wrap label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.turnon-typing-test textarea {
+  width: 100%;
+  min-height: 260px;
+  resize: vertical;
+  padding: 16px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf7;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.turnon-typing-test textarea:disabled {
+  background: #f1ece2;
+}
+
+.turnon-typing-test .input-help {
+  margin: 10px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.turnon-typing-test .paste-message {
+  min-height: 1.4em;
+  margin: 8px 0 0;
+  color: var(--red);
+  font-weight: 800;
+}
+
+.turnon-typing-test .results-screen {
+  width: min(920px, 100%);
+  margin-inline: auto;
+  padding: clamp(22px, 4vw, 40px);
+}
+
+.turnon-typing-test .results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.turnon-typing-test .result-card.featured {
+  grid-column: span 2;
+  background: var(--yellow-soft);
+  border-color: #d7a634;
+}
+
+.turnon-typing-test .result-actions .primary-action {
+  width: auto;
+}
+
+.turnon-typing-test .site-footer {
+  padding: 26px 0;
+  font-size: 0.92rem;
+}
+
+.turnon-typing-test .site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .turnon-typing-test .setup-screen,
+  .turnon-typing-test .typing-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .turnon-typing-test .intro-panel {
+    position: static;
+  }
+
+  .turnon-typing-test .metrics-panel {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .turnon-typing-test .site-header,
+  .turnon-typing-test .site-footer,
+  .turnon-typing-test main {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .turnon-typing-test .test-topbar,
+  .turnon-typing-test .panel-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .turnon-typing-test .panel-heading p {
+    text-align: left;
+  }
+
+  .turnon-typing-test .test-actions,
+  .turnon-typing-test .result-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .turnon-typing-test .duration-grid,
+  .turnon-typing-test .metrics-panel,
+  .turnon-typing-test .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .turnon-typing-test .result-card.featured {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 430px) {
+  .turnon-typing-test .brand {
+    align-items: flex-start;
+  }
+
+  .turnon-typing-test .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .turnon-typing-test .brand-tagline {
+    font-size: 0.82rem;
+  }
+
+  .turnon-typing-test .intro-panel,
+  .turnon-typing-test .setup-form,
+  .turnon-typing-test .reference-panel,
+  .turnon-typing-test .typing-input-wrap,
+  .turnon-typing-test .results-screen {
+    padding: 16px;
+  }
+
+  .turnon-typing-test h1 {
+    font-size: clamp(2.1rem, 14vw, 3.2rem);
+  }
+
+  .turnon-typing-test .reference-scroll {
+    height: 320px;
+    padding: 12px;
+  }
+
+  .turnon-typing-test textarea {
+    min-height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .turnon-typing-test,
+  .turnon-typing-test *,
+  .turnon-typing-test *::before,
+  .turnon-typing-test *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

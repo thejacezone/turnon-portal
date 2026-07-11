@@ -16,7 +16,7 @@ export default function Home() {
         <div className="hero-dashboard" aria-hidden="true"><div className="dashboard-label">TURNON / PORTAL</div><strong>Todo lo útil.<br />Sin tanta vuelta.</strong><div className="dashboard-lines"><span></span><span></span><span></span></div></div>
       </section>
       <section className="section-block">
-        <SectionTitle eyebrow="Explorá el portal" title="Cinco formas de llegar mejor preparado" description="Cada sección resuelve una necesidad concreta. Entrá por donde más te sirva hoy." />
+        <SectionTitle eyebrow="Explorá el portal" title="Seis formas de llegar mejor preparado" description="Cada sección resuelve una necesidad concreta. Entrá por donde más te sirva hoy." />
         <div className="card-grid portal-grid">{portalSections.map((item) => <Card key={item.title} eyebrow={item.eyebrow} title={item.title} action={item.action} href={`#${item.path}`}><p>{item.description}</p></Card>)}</div>
       </section>
       <section className="home-actions"><div><span className="eyebrow">Qué podés hacer aquí</span><h2>Herramientas para momentos concretos</h2></div><ul><li>Medir tu inglés laboral.</li><li>Practicar para entrevistas.</li><li>Usar recursos para CV y renuncia.</li><li>Calcular horas laborales.</li><li>Revisar ofertas y referidos.</li><li>Unirte a la comunidad.</li></ul></section>

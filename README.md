@@ -71,7 +71,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `readingPracticeScenarios.js`: escenarios de Reading Practice convertidos desde `fase_3_5_reading_practice_scenarios.docx`.
 - `listeningPracticeItems.js`: audios, transcripciones, vocabulario y preguntas de Listening Practice convertidas desde documentos Word y archivos de audio reales.
 - `writingPracticePrompts.js`: prompts locales de Writing Practice para entrevistas, customer service, correos profesionales, experiencia laboral y training.
-- `typingTestPassages.js`: tres textos largos importados del Word oficial para Easy, Intermediate y Hard.
+- `features/typing-test/data/typingTexts.js`: textos oficiales Easy, Intermediate y Hard reutilizados del proyecto independiente terminado.
 - `workVocabularyModules.js`: ocho módulos y 200 términos importados del Word oficial de Vocabulary Practice.
 - `englishPractice.js`: estructura de tests y prácticas dentro de Work English Test.
 - `resources.js`: recursos y guías.
@@ -80,7 +80,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `laborRules.js`: reglas de cálculo laboral en USD.
 - `siteContent.js`: navegación y contenido general.
 
-La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La lógica de resultados y filtros de Reading Practice está en `src/utils/readingPractice.js`. La lógica de resultados, filtros y test general de Listening Practice está en `src/utils/listeningPractice.js`. La lógica de conteo, WPM y evaluación orientativa de Writing Practice está en `src/utils/writingPractice.js`. Las métricas de Typing Test están en `src/utils/typingTest.js`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
+La lógica de puntuación está en `src/utils/englishScoring.js`. La validación interna de bancos de preguntas está en `src/utils/questionValidation.js`. La lógica del mini examen de vocabulario está en `src/utils/vocabularyQuiz.js`. La lógica de resultados y filtros de Reading Practice está en `src/utils/readingPractice.js`. La lógica de resultados, filtros y test general de Listening Practice está en `src/utils/listeningPractice.js`. La lógica de conteo, WPM y evaluación orientativa de Writing Practice está en `src/utils/writingPractice.js`. Typing Test está aislado completamente en `src/features/typing-test/`. La calculadora laboral y sus validaciones están en `src/utils/laborCalculator.js`; sus multiplicadores orientativos permanecen centralizados en `src/data/laborRules.js`.
 
 ## Actualización Fase 3.5 — Test general y Grammar Practice desde documentos Word
 
@@ -273,49 +273,24 @@ La estimación es orientativa y usa heurísticas básicas; no equivale a correcc
 
 Writing Practice no guarda progreso todavía. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
 
-## FASE 3.5 — Typing Test
+## Typing Test integrado
 
-Se agregó y reestructuró un módulo funcional de typing para práctica laboral:
+El proyecto independiente terminado fue integrado como una funcionalidad nativa y aislada de TurnOn:
 
-- Ruta: `#/work-english-test/typing-test`
-- Banco local: `src/data/typingTestPassages.js`
-- Utilidades: `src/utils/typingTest.js`
+- Ruta React Router: `/typing-test`
+- URL pública con HashRouter: `#/typing-test`
+- Página del portal: `src/pages/TypingTestPage.jsx`
+- Componentes: `src/features/typing-test/components/`
+- Hook del cronómetro: `src/features/typing-test/hooks/useTypingTest.js`
+- Métricas: `src/features/typing-test/utils/calculateMetrics.js`
+- Textos oficiales: `src/features/typing-test/data/typingTexts.js`
+- CSS aislado: `src/features/typing-test/styles/typingTest.css`
 
-Typing Test permite:
+La integración conserva el comportamiento del proyecto original: selector Easy/Intermediate/Hard, duraciones 1/3/5 minutos, inicio del cronómetro con el primer carácter, timestamps reales, WPM/Accuracy/Errors/Incorrect Words en vivo, comparación carácter por carácter, palabra y carácter activos, Backspace, pegado bloqueado, scroll automático, final por tiempo o texto completo y acciones de resultados.
 
-- elegir duración de 1, 3 o 5 minutos;
-- elegir dificultad: `Easy`, `Intermediate` o `Hard`;
-- seleccionar un texto laboral aleatorio según la dificultad elegida;
-- copiar el texto en un área de escritura;
-- ver caracteres correctos e incorrectos;
-- usar una caja de referencia con scroll vertical automático mientras el usuario escribe;
-- medir tiempo restante, palabras, caracteres, errores, progreso, WPM y precisión básica;
-- terminar el test antes de tiempo;
-- repetir o elegir otro texto.
+Home y Work English Test enlazan a la misma ruta `/typing-test`. La implementación anterior fue retirada para evitar duplicados. El módulo usa el Header y Footer generales de TurnOn; no copia el `package.json`, Vite, `index.html`, `node_modules`, `dist`, Header ni Footer del proyecto independiente.
 
-La pantalla inicial de Typing Test ahora inicia directamente con la card verde principal `Typing test laboral`. Ya no muestra un header superior separado y se enfoca primero en WPM, errores y precisión básica.
-
-WPM significa `Words Per Minute`, es decir, palabras por minuto. Sirve para medir qué tan rápido escribís. Como meta práctica inicial, 30 WPM o más puede considerarse aceptable para practicar, aunque cada empresa puede pedir requisitos diferentes.
-
-### Corrección Typing Test
-
-- El selector ya no muestra categorías laborales; ahora sólo usa `Easy`, `Intermediate` y `Hard`.
-- Los tres textos se importaron desde `fase_3_5_typing_test_reference_texts.docx`.
-- El banco contiene un texto completo para cada dificultad: Easy, Intermediate y Hard.
-- Los textos actuales siguen guardados como datos reales en `src/data/typingTestPassages.js`.
-- El texto de referencia usa una caja con scroll automático proporcional al avance del usuario.
-- Typing Test se enfoca en WPM, precisión y errores. No mide nivel de inglés.
-
-Métricas usadas:
-
-- Gross WPM: `(caracteres escritos / 5) / minutos usados`
-- Net WPM: `Gross WPM - (errores / minutos usados)`, con mínimo 0
-- Accuracy: `(caracteres correctos / caracteres escritos) * 100`
-- CPM: `caracteres escritos / minutos usados`
-
-30 WPM o más es una meta práctica sugerida para este ejercicio, pero cada empresa puede tener requisitos diferentes. El resultado es orientativo y mide velocidad/precisión de escritura. No mide por sí solo el nivel de inglés ni funciona como certificación.
-
-Typing Test no guarda progreso. No usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
+WPM conserva la fórmula original: `caracteres correctos / 5 / minutos transcurridos`. Typing Test no guarda progreso y no usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
 
 ## FASE 3.5 — General Tests for Practice Sections
 
@@ -326,7 +301,7 @@ Se agregaron tests generales al inicio de tres secciones de práctica:
 - `Reading Level Check` en `#/work-english-test/reading-practice`
 - `Listening Level Check` en `#/work-english-test/listening-practice`
 - `Writing Level Check` en `#/work-english-test/writing-practice`
-- `Typing Speed Check` en `#/work-english-test/typing-test`
+- `Typing Test` en `#/typing-test`
 
 Cada test aparece arriba de la práctica específica y no reemplaza el contenido existente. Debajo se mantienen:
 
@@ -344,7 +319,7 @@ Datos usados:
 - Reading: `src/data/readingPracticeScenarios.js`
 - Listening: `src/data/listeningPracticeItems.js`
 - Writing: `src/data/writingPracticePrompts.js`
-- Typing: `src/data/typingTestPassages.js`
+- Typing: `src/features/typing-test/data/typingTexts.js`
 
 Archivos agregados:
 
