@@ -1,74 +1,70 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import AnswerReview from '../components/AnswerReview.jsx'
 import GrammarPracticeCard from '../components/GrammarPracticeCard.jsx'
 import PageHeader from '../components/PageHeader.jsx'
-import PracticeFilters from '../components/PracticeFilters.jsx'
-import PracticeResults from '../components/PracticeResults.jsx'
 import SectionGeneralTest from '../components/SectionGeneralTest.jsx'
-import { grammarPracticeQuestions, grammarPracticeTopics } from '../data/grammarPracticeQuestions.js'
+import { grammarPracticeQuestions } from '../data/grammarPracticeQuestions.js'
 import { generateGrammarGeneralTest, scoreGrammarGeneralTest } from '../utils/sectionGeneralTests.js'
 import { validateQuestionBank } from '../utils/questionValidation.js'
 
-const initialFilters = { level: 'Todos', topic: 'Todos', context: 'Todos' }
-
-function unique(values) {
-  return [...new Set(values)].sort((a, b) => a.localeCompare(b))
+function normalizeTopic(value = '') {
+  return value.trim().replace(/\s+/g, ' ').toLocaleLowerCase()
 }
 
-function buildResult(questions, answers, filters) {
-  const answered = questions.map((question) => ({ ...question, selectedAnswer: answers[question.id] })).filter((question) => question.selectedAnswer)
-  const correct = answered.filter((question) => question.selectedAnswer === question.correctAnswer).length
-  const missedTopics = answered.reduce((topics, question) => {
-    if (question.selectedAnswer !== question.correctAnswer) topics[question.topic] = (topics[question.topic] || 0) + 1
-    return topics
-  }, {})
+function shuffleQuestions(questions) {
+  const shuffled = [...questions]
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1))
+    ;[shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]]
+  }
+
+  return shuffled
+}
+
+function buildResult(questions, answers, topic) {
+  const correct = questions.filter((question) => answers[question.id] === question.correctAnswer).length
 
   return {
+    topic,
     correct,
-    total: answered.length,
-    percentage: answered.length ? Math.round((correct / answered.length) * 100) : 0,
-    level: filters.level === 'Todos' ? 'Todos los niveles filtrados' : filters.level,
-    topics: unique(answered.map((question) => question.topic)),
-    reinforcementTopics: Object.entries(missedTopics).sort((a, b) => b[1] - a[1]).map(([topic]) => topic).slice(0, 4),
+    incorrect: questions.length - correct,
+    total: questions.length,
+    percentage: questions.length ? Math.round((correct / questions.length) * 100) : 0,
   }
 }
 
 export default function GrammarPractice() {
-  const [filters, setFilters] = useState(initialFilters)
+  const [selectedTopic, setSelectedTopic] = useState('')
+  const [attemptQuestions, setAttemptQuestions] = useState([])
+  const [practiceError, setPracticeError] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState('')
   const [checked, setChecked] = useState(false)
   const [answers, setAnswers] = useState({})
   const [finished, setFinished] = useState(false)
 
-  const topicsForFilter = useMemo(() => {
-    const matchingQuestions = grammarPracticeQuestions.filter((question) => filters.level === 'Todos' || question.level === filters.level)
-    return unique(matchingQuestions.map((question) => question.topic))
-  }, [filters.level])
+  const topics = useMemo(() => {
+    const topicsByKey = new Map()
+    grammarPracticeQuestions.forEach((question) => {
+      const key = normalizeTopic(question.topic)
+      if (key && !topicsByKey.has(key)) topicsByKey.set(key, question.topic.trim().replace(/\s+/g, ' '))
+    })
+    return [...topicsByKey].map(([value, label]) => ({ value, label }))
+  }, [])
 
-  const filteredQuestions = useMemo(() => grammarPracticeQuestions.filter((question) => {
-    const matchesLevel = filters.level === 'Todos' || question.level === filters.level
-    const matchesTopic = filters.topic === 'Todos' || question.topic === filters.topic
-    const matchesContext = filters.context === 'Todos' || question.workContext === filters.context
-    return matchesLevel && matchesTopic && matchesContext
-  }), [filters])
+  const selectedTopicLabel = topics.find((topic) => topic.value === selectedTopic)?.label || ''
+  const result = useMemo(() => buildResult(attemptQuestions, answers, selectedTopicLabel), [answers, attemptQuestions, selectedTopicLabel])
+  const question = attemptQuestions[currentIndex]
 
-  const availableTopicGroups = useMemo(() => grammarPracticeTopics.reduce((groups, item) => {
-    groups[item.levelRange] ||= []
-    groups[item.levelRange].push(item.topic)
-    return groups
-  }, {}), [])
-
-  const result = useMemo(() => buildResult(filteredQuestions, answers, filters), [answers, filteredQuestions, filters])
-  const question = filteredQuestions[currentIndex]
-
-  useEffect(() => {
+  const resetAttemptState = () => {
     setCurrentIndex(0)
     setSelectedAnswer('')
     setChecked(false)
     setAnswers({})
     setFinished(false)
-  }, [filters])
+  }
 
   useEffect(() => {
     if (!import.meta.env.DEV) return
@@ -76,15 +72,36 @@ export default function GrammarPractice() {
     if (!validation.valid) console.warn('Grammar Practice validation warnings:', validation.errors)
   }, [])
 
-  const updateFilter = (name, value) => {
-    setFilters((current) => {
-      const next = { ...current, [name]: value }
-      if (name === 'level' && value !== 'Todos') {
-        const levelTopics = unique(grammarPracticeQuestions.filter((question) => question.level === value).map((question) => question.topic))
-        if (!levelTopics.includes(next.topic)) next.topic = 'Todos'
-      }
-      return next
-    })
+  const prepareTopicAttempt = (topicKey) => {
+    resetAttemptState()
+    setPracticeError('')
+
+    if (!topicKey) {
+      setAttemptQuestions([])
+      return
+    }
+
+    const topicQuestions = grammarPracticeQuestions.filter((question) => normalizeTopic(question.topic) === topicKey)
+    if (!topicQuestions.length) {
+      setAttemptQuestions([])
+      setPracticeError('No hay preguntas disponibles para este tema.')
+      return
+    }
+
+    const validation = validateQuestionBank(topicQuestions)
+    if (!validation.valid) {
+      setAttemptQuestions([])
+      setPracticeError('No pudimos iniciar esta práctica porque sus preguntas necesitan revisión.')
+      if (import.meta.env.DEV) console.warn(`Topic practice validation warnings for ${topicKey}:`, validation.errors)
+      return
+    }
+
+    setAttemptQuestions(shuffleQuestions(topicQuestions))
+  }
+
+  const changeTopic = (topicKey) => {
+    setSelectedTopic(topicKey)
+    prepareTopicAttempt(topicKey)
   }
 
   const checkAnswer = () => {
@@ -94,7 +111,7 @@ export default function GrammarPractice() {
   }
 
   const nextQuestion = () => {
-    if (currentIndex === filteredQuestions.length - 1) {
+    if (currentIndex === attemptQuestions.length - 1) {
       setFinished(true)
       return
     }
@@ -104,11 +121,12 @@ export default function GrammarPractice() {
   }
 
   const restart = () => {
-    setCurrentIndex(0)
-    setSelectedAnswer('')
-    setChecked(false)
-    setAnswers({})
-    setFinished(false)
+    prepareTopicAttempt(selectedTopic)
+  }
+
+  const clearTopic = () => {
+    setSelectedTopic('')
+    prepareTopicAttempt('')
   }
 
   return (
@@ -116,23 +134,45 @@ export default function GrammarPractice() {
       <Link className="back-link" to="/work-english-test">← Volver a Work English Test</Link>
       <PageHeader eyebrow="Work English Test" title="Grammar Practice" description="Practicá estructuras gramaticales útiles para entrevistas, training, customer service y ambientes de trabajo bilingües." />
       <SectionGeneralTest title="Grammar Level Check" description="Poné a prueba tu gramática con preguntas aleatorias tomadas de los temas disponibles. El resultado es una estimación para ayudarte a saber qué estructuras dominás y cuáles necesitás reforzar." helperCopy="Primero podés hacer un test general para medir tu gramática. Después practicá por tema con filtros específicos." buttonText="Iniciar test de grammar" duration="20 preguntas · 8 min aprox." generateTest={() => generateGrammarGeneralTest(grammarPracticeQuestions)} scoreTest={scoreGrammarGeneralTest} />
-      <section className="practice-section-heading"><span className="eyebrow">Práctica por tema</span><h2>Filtros y ejercicios específicos</h2></section>
-      <PracticeFilters filters={filters} topics={topicsForFilter} onChange={updateFilter} />
-      <section className="topic-list section-block">
-        <span className="eyebrow">Temas disponibles</span>
-        <div className="topic-pills">
-          {Object.entries(availableTopicGroups).map(([level, topics]) => <div key={level}><strong>{level}</strong>{topics.map((topic) => <span key={topic}>{topic}</span>)}</div>)}
-        </div>
+      <section className="practice-section-heading">
+        <span className="eyebrow">Práctica por tema</span>
+        <h2>Prueba los temas</h2>
+        <p>Elegí un tema y completá una práctica enfocada únicamente en ese contenido.</p>
       </section>
-      {!filteredQuestions.length && <section className="test-runner"><h2>No hay preguntas para esos filtros.</h2><p>Probá con otro nivel, tema o contexto.</p></section>}
-      {filteredQuestions.length > 0 && !finished && question && (
+      <section className="practice-filters topic-only-filter" aria-label="Elegir tema de práctica">
+        <label>
+          Tema
+          <select value={selectedTopic} onChange={(event) => changeTopic(event.target.value)}>
+            <option value="">Seleccioná un tema</option>
+            {topics.map((topic) => <option key={topic.value} value={topic.value}>{topic.label}</option>)}
+          </select>
+        </label>
+      </section>
+      {!selectedTopic && !practiceError && <section className="empty-state topic-practice-empty"><h2>Elegí un tema para comenzar la práctica.</h2></section>}
+      {practiceError && <section className="empty-state topic-practice-empty" role="alert"><h2>{practiceError}</h2></section>}
+      {attemptQuestions.length > 0 && !finished && question && (
         <section className="practice-runner">
-          <div className="test-progress"><div><strong>Pregunta {currentIndex + 1} de {filteredQuestions.length}</strong><span>{Math.round(((currentIndex + 1) / filteredQuestions.length) * 100)}%</span></div><div className="progress-track"><span style={{ width: `${((currentIndex + 1) / filteredQuestions.length) * 100}%` }} /></div></div>
+          <div className="topic-practice-summary"><span className="eyebrow">Tema seleccionado</span><h2>{selectedTopicLabel}</h2><p>{attemptQuestions.length} preguntas</p></div>
+          <div className="test-progress"><div><strong>Pregunta {currentIndex + 1} de {attemptQuestions.length}</strong><span>{Math.round(((currentIndex + 1) / attemptQuestions.length) * 100)}%</span></div><div className="progress-track"><span style={{ width: `${((currentIndex + 1) / attemptQuestions.length) * 100}%` }} /></div></div>
           <GrammarPracticeCard question={question} selectedAnswer={selectedAnswer} checked={checked} onSelect={setSelectedAnswer} onCheck={checkAnswer} />
-          <div className="test-navigation"><button className="button ghost dark-ghost" type="button" disabled={currentIndex === 0} onClick={() => { setCurrentIndex((index) => index - 1); setSelectedAnswer(answers[filteredQuestions[currentIndex - 1]?.id] || ''); setChecked(Boolean(answers[filteredQuestions[currentIndex - 1]?.id])) }}>Anterior</button><button className="button" type="button" disabled={!checked} onClick={nextQuestion}>{currentIndex === filteredQuestions.length - 1 ? 'Ver resultado' : 'Siguiente'}</button></div>
+          <div className="test-navigation"><button className="button ghost dark-ghost" type="button" disabled={currentIndex === 0} onClick={() => { setCurrentIndex((index) => index - 1); setSelectedAnswer(answers[attemptQuestions[currentIndex - 1]?.id] || ''); setChecked(Boolean(answers[attemptQuestions[currentIndex - 1]?.id])) }}>Anterior</button><button className="button" type="button" disabled={!checked} onClick={nextQuestion}>{currentIndex === attemptQuestions.length - 1 ? 'Finalizar práctica' : 'Siguiente'}</button></div>
         </section>
       )}
-      {finished && <PracticeResults result={result} onRestart={restart} />}
+      {finished && (
+        <section className="practice-results">
+          <span className="eyebrow">Resultado de práctica</span>
+          <h2>{result.topic}</h2>
+          <p>{result.percentage}% de respuestas correctas.</p>
+          <div className="practice-result-grid topic-result-grid">
+            <div><span>Correctas</span><strong>{result.correct}</strong></div>
+            <div><span>Incorrectas</span><strong>{result.incorrect}</strong></div>
+            <div><span>Total</span><strong>{result.total}</strong></div>
+          </div>
+          <p>Este resultado corresponde únicamente a la práctica del tema seleccionado.</p>
+          <AnswerReview questions={attemptQuestions} answers={answers} />
+          <div className="topic-practice-actions"><button className="button" type="button" onClick={restart}>Repetir tema</button><button className="button ghost dark-ghost" type="button" onClick={clearTopic}>Elegir otro tema</button></div>
+        </section>
+      )}
     </div>
   )
 }
