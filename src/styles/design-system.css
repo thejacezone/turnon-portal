@@ -180,6 +180,48 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 .portal-grid .card:first-child { background: linear-gradient(135deg, var(--color-accent), #ddff91); }
 .portal-grid .card:last-child { background: var(--color-surface); }
 
+.practice-grid,
+.portal-grid { align-items: stretch; }
+
+.skill-practice-card,
+.home-tool-card {
+  --card-hover-bg: color-mix(in srgb, var(--skill-accent, var(--color-primary)) 8%, var(--color-surface));
+  height: 100%;
+  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.skill-practice-card .card-copy,
+.home-tool-card .card-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.skill-practice-card .card-copy > p,
+.home-tool-card .card-copy > p { margin-bottom: var(--space-4); }
+
+.skill-practice-card .card-copy .button,
+.skill-practice-card .card-copy .button.disabled,
+.home-tool-card .text-link { margin-top: auto; }
+
+.practice-grid .skill-practice-card:focus-within,
+.portal-grid .home-tool-card:focus-within {
+  background: var(--card-hover-bg);
+  border-top-color: var(--skill-accent, var(--color-primary));
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+@media (hover: hover) {
+  .practice-grid .skill-practice-card:hover,
+  .portal-grid .home-tool-card:hover {
+    background: var(--card-hover-bg);
+    border-top-color: var(--skill-accent, var(--color-primary));
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+}
+
 .test-choice-grid { gap: var(--space-3); }
 .test-choice-grid .card:first-child { background: linear-gradient(135deg, var(--color-accent), #d9ff83); border-color: #8fbd29; }
 .test-choice-grid .card:not(:first-child) { background: var(--color-surface); }
@@ -335,4 +377,10 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .skill-practice-card,
+  .home-tool-card { transition: none; }
+  .skill-practice-card:hover,
+  .skill-practice-card:focus-within,
+  .home-tool-card:hover,
+  .home-tool-card:focus-within { transform: none; }
 }

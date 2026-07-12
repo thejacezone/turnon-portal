@@ -28,7 +28,7 @@ export default function WorkEnglishTest() {
         <SectionTitle eyebrow="B. Practicar inglés para trabajo" title="Entrená por habilidad" />
         <div className="card-grid practice-grid">
           {practice.map((item) => (
-            <Card key={item.id} eyebrow={item.category} title={item.title} badge={item.status === 'disponible' ? 'Disponible' : 'Próximamente'} accent={item.id} icon={<SkillIcon skill={item.id} />}>
+            <Card className="skill-practice-card" key={item.id} eyebrow={item.category} title={item.title} badge={item.status === 'disponible' ? 'Disponible' : 'Próximamente'} accent={item.id} icon={<SkillIcon skill={item.id} />}>
               <p>{item.description}</p>
               {item.status === 'disponible' ? <Button to={item.path}>{item.action || 'Practicar ahora'}</Button> : <span className="button disabled card-button" aria-disabled="true">Próximamente</span>}
             </Card>
