@@ -1,0 +1,424 @@
+# Grammar Practice Update Report
+
+## Fuente y archivos
+
+- Documento procesado: `C:\Users\jason\OneDrive\Desktop\recursos para turn on\fase_3_5_grammar_practice_questions.docx`
+- Fecha de modificación: 2026-07-11T22:12:59-06:00
+- Banco activo actualizado: `src\data\grammarPracticeQuestions.js`
+- Documento usado únicamente durante desarrollo; React consume el archivo JavaScript generado.
+
+## Resumen de actualización
+
+- Banco anterior: 150 preguntas, 10 temas.
+- Documento actualizado: 400 preguntas detectadas, 10 temas.
+- Banco final: 400 preguntas, 10 temas.
+- Preguntas nuevas añadidas: 250.
+- Preguntas con contenido modificado: 0.
+- IDs de origen actualizados por la nueva numeración del Word: 135.
+- Registros anteriores ausentes en el Word: 0.
+- Duplicados omitidos o detectados: 0.
+- Preguntas rechazadas o pendientes de revisión: 0.
+- IDs únicos: 400.
+
+## Banco anterior por tema
+
+- Advanced Grammar C1: 15
+- Conditionals: 15
+- Connectors: 15
+- Modals: 15
+- Passive Voice: 15
+- Past Simple vs Present Perfect: 15
+- Prepositions: 15
+- Present Simple vs Present Continuous: 15
+- Relative Clauses: 15
+- Reported Speech: 15
+
+## Banco final por tema
+
+- Advanced Grammar C1: 40
+- Conditionals: 40
+- Connectors: 40
+- Modals: 40
+- Passive Voice: 40
+- Past Simple vs Present Perfect: 40
+- Prepositions: 40
+- Present Simple vs Present Continuous: 40
+- Relative Clauses: 40
+- Reported Speech: 40
+
+## Banco final por nivel
+
+- A1: 10
+- A2: 67
+- B1: 156
+- B2: 103
+- C1: 64
+
+## Banco final por subtema
+
+- ability: 1
+- accuse of: 1
+- action happening now: 1
+- action in progress: 1
+- actions happening now: 1
+- actions in progress: 1
+- addition: 1
+- addition formal: 1
+- adjective + preposition: 2
+- adjective plus preposition: 2
+- admit gerund: 1
+- advice: 1
+- advice hypothetical: 1
+- agent: 1
+- agent in passive: 1
+- agent omission: 1
+- ago: 1
+- already: 1
+- already + present relevance: 1
+- alternative action: 1
+- alternative otherwise: 1
+- alternatives: 1
+- always for criticism: 1
+- apologize for: 1
+- as if past perfect: 1
+- as if unreal present: 1
+- as long as: 1
+- at risk of: 1
+- been as completed visit: 1
+- but for: 2
+- by agent: 1
+- can to could: 1
+- causative get: 1
+- causative have: 1
+- cause: 1
+- cause given that: 1
+- cause noun phrase: 1
+- change over time: 1
+- changing trends: 2
+- choice and permission: 1
+- clarification in other words: 1
+- cleft emphasis: 1
+- cleft sentence: 1
+- cleft what clause: 1
+- company policy: 1
+- comparative correlative: 1
+- comparative inversion formal: 1
+- concession: 1
+- concession although: 1
+- concession despite: 1
+- concession much as: 1
+- concession phrase: 1
+- condition provided that: 1
+- congratulate on: 1
+- continuation until time: 1
+- contrast: 1
+- contrast comparison: 1
+- contrast notwithstanding: 1
+- contrast prepositional phrase: 1
+- contrast/result balance: 1
+- current development: 1
+- current tendency: 1
+- daily routines: 1
+- days and dates: 1
+- deadline: 1
+- deduction: 1
+- deduction from evidence: 1
+- defining clause: 1
+- defining relative clause/person: 1
+- defining relative clause/thing: 1
+- defining versus non-defining: 1
+- definite time question: 1
+- deny gerund: 1
+- despite + noun/gerund: 1
+- difference: 1
+- duration: 1
+- duration until now: 1
+- during event: 1
+- dynamic meaning of think: 1
+- dynamic use of taste: 1
+- ellipsis auxiliary: 1
+- emphatic do: 1
+- even if: 1
+- ever experience: 1
+- ever questions: 1
+- example: 1
+- expected outcome: 1
+- external obligation: 1
+- finished life period: 1
+- finished past event: 1
+- finished past time: 3
+- first conditional: 3
+- first conditional negative: 1
+- first time experience: 1
+- for and duration: 1
+- formal contrast: 1
+- formal prohibition inversion: 1
+- formal request: 1
+- formal whom: 1
+- frequency adverbs: 1
+- furthermore: 1
+- future ability: 1
+- future arrangement: 1
+- future passive: 3
+- future perfect passive: 1
+- general facts: 2
+- general passive: 1
+- get passive: 1
+- gone versus been: 1
+- habits: 1
+- hardly inversion: 1
+- here to there: 1
+- historical event: 1
+- if it were not for: 1
+- if versus when: 1
+- impersonal passive: 2
+- impossibility deduction: 1
+- in accordance with: 1
+- in case: 1
+- indefinite pronoun + who: 1
+- instrument with: 1
+- inversion after neither: 1
+- inversion with had: 1
+- inverted conditionals: 1
+- inverted first conditional: 1
+- inverted second conditional: 2
+- inverted third conditional: 1
+- it is time: 1
+- just: 1
+- lack of necessity: 1
+- lest subjunctive: 1
+- life experience: 1
+- logical conclusion: 1
+- may to might: 1
+- means of communication: 1
+- mixed conditional: 1
+- mixed conditional past to present: 1
+- mixed conditional present to past: 1
+- modal passive: 2
+- months and years: 1
+- movement: 2
+- movement into: 1
+- movement onto: 1
+- movement past: 1
+- must deduction unchanged: 1
+- must to had to: 1
+- necessity from circumstances: 1
+- necessity question: 1
+- negative command: 1
+- negative deduction: 1
+- negative habits: 1
+- negative inversion: 3
+- negative inversion with rarely: 1
+- negative passive: 1
+- negative yet: 1
+- nevertheless: 1
+- no backshift current truth: 1
+- no permission: 1
+- no sooner inversion: 1
+- nominal relative whoever: 1
+- non-defining clause: 1
+- non-defining idea: 1
+- non-defining person: 1
+- non-defining thing: 1
+- non-defining/person: 1
+- not only inversion: 1
+- not until inversion: 1
+- noun plus preposition: 2
+- object omission: 1
+- object relative pronoun: 2
+- obligation: 1
+- offer: 1
+- on behalf of: 1
+- only after inversion: 1
+- only if: 1
+- only then inversion: 1
+- opinion stative verb: 1
+- otherwise: 1
+- participle clause active: 1
+- participle clause passive: 1
+- passive gerund: 1
+- passive infinitive: 1
+- passive with prepositional verb: 1
+- past ability: 1
+- past continuous backshift: 1
+- past continuous passive: 2
+- past criticism: 1
+- past expectation not met: 1
+- past impossibility: 1
+- past missed opportunity: 1
+- past obligation: 1
+- past passive: 4
+- past perfect passive: 2
+- past possibility: 1
+- past simple after present perfect context: 1
+- past simple backshift: 1
+- past simple negative: 1
+- past simple questions: 1
+- past simple to past perfect: 1
+- past strong deduction: 1
+- perfect infinitive passive reporting: 1
+- permanent situations: 1
+- person subject: 1
+- place: 4
+- place relative: 1
+- place/time: 1
+- polite permission: 1
+- polite request: 1
+- position among: 1
+- position between: 1
+- possession: 2
+- possession abstract: 1
+- possession person: 1
+- possibility: 1
+- preference: 1
+- preposition at end: 1
+- preposition plus which: 1
+- present continuous backshift: 1
+- present continuous passive: 2
+- present continuous questions: 2
+- present deduction negative: 1
+- present passive: 2
+- present perfect continuous contrast: 1
+- present perfect continuous to past perfect continuous: 1
+- present perfect passive: 3
+- present perfect to past perfect: 1
+- present result: 2
+- present simple backshift: 1
+- present simple passive question: 1
+- prohibition: 2
+- promise infinitive: 1
+- pronoun and demonstrative change: 1
+- provided that: 2
+- purpose: 2
+- purpose in order to: 1
+- purpose so that: 1
+- qualification albeit: 1
+- quantifier plus which: 1
+- quantifier plus whom: 1
+- question passive: 1
+- question reporting: 1
+- reason: 1
+- reason and cause: 1
+- reason phrase: 1
+- reason relative: 1
+- recent completion: 1
+- recent finished time: 1
+- recent loss with present result: 1
+- recent news: 1
+- recent repeated activity: 1
+- recommendation: 1
+- reduced active relative: 1
+- reduced passive relative: 1
+- reduced perfect participle: 1
+- reduced time clause: 1
+- remind infinitive: 1
+- repeated annoying behavior: 1
+- reported advice: 1
+- reported command: 1
+- reported request: 1
+- reporting passive: 1
+- reporting question with wonder: 1
+- request: 1
+- responsibility: 1
+- result: 1
+- result formal: 1
+- result hence: 1
+- result so: 1
+- routine questions: 1
+- scarcely inversion: 1
+- scheduled events: 1
+- second conditional: 2
+- second conditional advice: 1
+- second conditional negative: 1
+- sentence relative which: 1
+- sequence meanwhile: 1
+- sequence then: 1
+- simple contrast: 1
+- since + starting point: 1
+- since and duration: 1
+- so adjective inversion: 1
+- specific past event: 2
+- state verbs: 1
+- stative possession: 1
+- stative sense verb: 1
+- stative verbs: 3
+- strong recommendation: 1
+- subject complement agreement: 1
+- subjunctive: 1
+- subjunctive adjective: 1
+- subjunctive recommendation: 1
+- substitution one: 1
+- such inversion: 1
+- suggestion gerund: 1
+- supposing: 1
+- temporary actions: 1
+- temporary exception to routine: 1
+- temporary living arrangement: 1
+- temporary projects: 2
+- temporary schedule: 1
+- temporary situations: 1
+- tense backshift: 1
+- tentative suggestion: 1
+- that after all: 1
+- that after superlative: 1
+- thing subject: 1
+- third conditional: 2
+- third conditional form: 1
+- third conditional negative: 1
+- third conditional question: 1
+- time: 1
+- time duration starting point: 1
+- time expression change: 1
+- time relative: 1
+- timetables: 1
+- today to that day: 1
+- tomorrow to next day: 1
+- two-object passive: 1
+- uncertainty: 1
+- unfinished career: 1
+- unfinished time period: 2
+- unless: 2
+- unnecessary past action: 2
+- verb + preposition: 2
+- verb plus preposition: 3
+- warn against: 1
+- warning consequence: 1
+- weak possibility: 1
+- weekly routines: 1
+- wh question: 1
+- when versus which: 1
+- where versus which: 1
+- whereas: 1
+- while contrast: 1
+- whom formal object: 1
+- whose for organization: 1
+- will to would: 2
+- wish about past: 1
+- wish about present: 1
+- wish formal: 1
+- wish/regret: 1
+- with regard to: 1
+- word order in reported questions: 1
+- would rather: 1
+- would rather past: 1
+- yes no question: 1
+- yes/no questions: 1
+- yet in questions: 1
+- zero conditional: 2
+
+## Comparación
+
+- IDs internos existentes conservados al emparejar tema y texto normalizados: 150.
+- IDs internos nuevos asignados: 250.
+- Fragmentos modificados: Ninguno.
+- Registros anteriores ausentes: Ninguno.
+- Problemas: Ninguno.
+
+## Validaciones realizadas
+
+- Cada pregunta tiene ID, tema, nivel, subtema, texto, cuatro opciones, respuesta y explicación.
+- Cada respuesta correcta coincide exactamente con una opción.
+- Los IDs internos y el contenido normalizado no se duplican.
+- Las preguntas conservadas se identificaron por tema y texto normalizados, no solo por ID de origen.
+- Las preguntas nuevas quedan en el mismo banco que alimenta la práctica por tema y Grammar Level Check.
+- El documento Word no se consulta durante los intentos en el navegador.

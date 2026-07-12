@@ -67,7 +67,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `generalEnglishTestQuestions.js`: test general principal convertido desde `work_english_test_3_general_balanced.docx`.
 - `workEnglishTestQuestions.js`: export del test laboral secundario.
 - `englishQuestions.js`: banco del test laboral existente.
-- `grammarPracticeQuestions.js`: 150 preguntas de Grammar Practice convertidas desde `fase_3_5_grammar_practice_questions.docx`.
+- `grammarPracticeQuestions.js`: 400 preguntas de Grammar Practice convertidas desde `fase_3_5_grammar_practice_questions.docx`.
 - `readingPracticeScenarios.js`: escenarios de Reading Practice convertidos desde `fase_3_5_reading_practice_scenarios.docx`.
 - `listeningPracticeItems.js`: audios, transcripciones, vocabulario y preguntas de Listening Practice convertidas desde documentos Word y archivos de audio reales.
 - `writingPracticePrompts.js`: prompts locales de Writing Practice para entrevistas, customer service, correos profesionales, experiencia laboral y training.
@@ -117,15 +117,19 @@ La selección usa Fisher-Yates por sección, conserva Grammar, Vocabulary y Read
 
 Esta actualización es exclusiva del Work English Test. El General English Level Test conserva su banco, selección y lógica independientes.
 
-Se actualizó Grammar Practice:
+### Grammar Practice question bank
 
 - Ruta: `#/work-english-test/grammar-practice`
 - Banco: `src/data/grammarPracticeQuestions.js`
 - Fuente: `fase_3_5_grammar_practice_questions.docx`
-- Total: 150 preguntas
+- Total: 400 preguntas
+- Temas: 10
+- Preguntas por tema: 40
 - Temas: Present Simple vs Present Continuous, Past Simple vs Present Perfect, Modals, Conditionals, Passive Voice, Prepositions, Relative Clauses, Reported Speech, Connectors y Advanced Grammar C1.
 
-Grammar Practice permite filtrar por nivel y tema, responder preguntas, revisar respuesta, ver explicación, avanzar y ver resultado final. No guarda progreso todavía; todo el estado vive sólo en memoria mientras la página está abierta.
+El documento se procesa únicamente durante desarrollo con `scripts/import_grammar_practice_questions.py`. React utiliza el banco estático almacenado dentro del proyecto y no consulta el Word durante cada intento. La práctica permite elegir un tema, responder sus preguntas en orden aleatorio, revisar cada respuesta, ver explicaciones y consultar el resultado final. Grammar Level Check continúa generando intentos de 20 preguntas desde el banco ampliado.
+
+Grammar Practice no usa `localStorage`; todo el estado del intento vive únicamente en memoria de React. Esta actualización no modifica el banco ni el funcionamiento del General English Level Test.
 
 ## FASE 3.5 — Vocabulary Practice: Work Vocabulary Modules
 

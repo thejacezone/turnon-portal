@@ -4,6 +4,17 @@ export function shuffleArray(items) {
   return [...items].sort(() => Math.random() - 0.5)
 }
 
+function shuffleGrammarQuestions(items) {
+  const shuffled = [...items]
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1))
+    ;[shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]]
+  }
+
+  return shuffled
+}
+
 function uniqueById(items) {
   const seen = new Set()
   return items.filter((item) => {
@@ -76,10 +87,10 @@ export function generateGrammarGeneralTest(questions) {
   const selected = []
   const perLevelTarget = Math.max(1, Math.floor(Math.min(20, cleanQuestions.length) / levelOrder.length))
   levelOrder.forEach((level) => {
-    selected.push(...shuffleArray(cleanQuestions.filter((question) => question.level === level)).slice(0, perLevelTarget))
+    selected.push(...shuffleGrammarQuestions(cleanQuestions.filter((question) => question.level === level)).slice(0, perLevelTarget))
   })
 
-  const remaining = shuffleArray(cleanQuestions.filter((question) => !selected.some((item) => item.id === question.id)))
+  const remaining = shuffleGrammarQuestions(cleanQuestions.filter((question) => !selected.some((item) => item.id === question.id)))
   return uniqueById([...selected, ...remaining]).slice(0, Math.min(20, cleanQuestions.length)).map((question) => ({
     id: `grammar-general-${question.id}`,
     sourceId: question.id,
