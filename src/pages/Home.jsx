@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom'
 import Button from '../components/Button.jsx'
-import Card from '../components/Card.jsx'
-import SectionTitle from '../components/SectionTitle.jsx'
 import SkillIcon from '../components/ui/SkillIcon.jsx'
 import TurnOnHero from '../components/TurnOnHero.jsx'
-import { featuredTools, homeNeeds } from '../data/siteContent.js'
+import { featuredTests, homeNeeds } from '../data/siteContent.js'
 
 export default function Home() {
   return (
@@ -29,7 +27,25 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="section-block"><SectionTitle eyebrow="Herramientas destacadas" title="Todo lo útil, sin tanta vuelta" description="Tests, práctica y recursos organizados para que sepás qué hacer después." /><div className="card-grid portal-grid">{featuredTools.map((item) => <Card className="home-tool-card" key={item.title} eyebrow={item.eyebrow} title={item.title} badge={item.badge} action={item.action} to={item.path} accent={item.skill} icon={<SkillIcon skill={item.skill} />}><p>{item.description}</p></Card>)}</div></section>
+      <section className="skills-tests-section" aria-labelledby="skills-tests-title">
+        <header className="skills-tests-header">
+          <span className="skills-tests-eyebrow">Pruebas destacadas</span>
+          <h2 className="skills-tests-title" id="skills-tests-title">Prueba tus habilidades</h2>
+          <p className="skills-tests-subtitle">Medí tu inglés por habilidad y entrá directo a la práctica que necesitás reforzar.</p>
+        </header>
+        <div className="skills-tests-list">
+          {featuredTests.map((item, index) => (
+            <Link className={`skills-test-card${index === 0 ? ' skills-test-card-featured' : ''}`} to={item.path} key={item.title}>
+              <span className="skills-test-number">{item.number}</span>
+              <span className="skills-test-content">
+                <strong className="skills-test-title">{item.title}</strong>
+                <span className="skills-test-description">{item.description}</span>
+              </span>
+              <span className="skills-test-action" aria-hidden="true">→</span>
+            </Link>
+          ))}
+        </div>
+      </section>
       <section className="home-closing"><div><span className="eyebrow">No tenés que hacerlo solo</span><h2>Usá los recursos y conectate con la comunidad.</h2><p>Prepararte mejor también significa saber dónde preguntar, practicar y encontrar oportunidades.</p></div><Button to="/comunidad" className="accent">Ver comunidad</Button></section>
     </>
   )

@@ -14,11 +14,9 @@ export const homeNeeds = [
   { skill: 'resources', title: 'Recursos', description: 'Encontrá guías, práctica y herramientas para prepararte mejor.', path: '/recursos' },
 ]
 
-export const featuredTools = [
-  { skill: 'general', eyebrow: 'Test principal', title: 'General English Level Test', description: 'Medí grammar, vocabulary y reading con un banco balanceado.', action: 'Medir mi inglés', path: '/work-english-test/general-test', badge: 'Principal' },
-  { skill: 'work', eyebrow: 'Inglés laboral', title: 'Work English Test', description: 'Ponete a prueba con entrevistas, customer service y ambientes bilingües.', action: 'Hacer test laboral', path: '/work-english-test/work-test' },
-  { skill: 'typing', eyebrow: 'Velocidad y precisión', title: 'Typing Test', description: 'Practicá textos profesionales con WPM, precisión y errores en vivo.', action: 'Hacer Typing Test', path: '/typing-test' },
-  { skill: 'calculator', eyebrow: 'Números claros', title: 'Calculadora laboral', description: 'Estimá tus horas y revisá cada condición por separado.', action: 'Calcular horas', path: '/calculadoras' },
-  { skill: 'resources', eyebrow: 'Aplicación y empleo', title: 'Recursos', description: 'Guías, plantillas y checklists para momentos laborales concretos.', action: 'Explorar recursos', path: '/recursos' },
-  { skill: 'community', eyebrow: 'Acompañamiento', title: 'Comunidad', description: 'Conectá con oportunidades y personas que también se están preparando.', action: 'Ver comunidad', path: '/comunidad' },
+export const featuredTests = [
+  { number: '/001', title: 'Typing Test', description: 'Medí tu velocidad, precisión y errores escribiendo textos en inglés.', path: '/typing-test' },
+  { number: '/002', title: 'Listening Test', description: 'Practicá comprensión auditiva con situaciones laborales y conversaciones reales.', path: '/work-english-test/listening-practice' },
+  { number: '/003', title: 'Vocabulary Test', description: 'Reforzá vocabulario útil para entrevistas, call centers y trabajo bilingüe.', path: '/work-english-test/vocabulary-practice' },
+  { number: '/004', title: 'Todos los test', description: 'Explorá todas las pruebas disponibles y elegí por dónde empezar.', path: '/work-english-test' },
 ]
