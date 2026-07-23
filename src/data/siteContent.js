@@ -9,12 +9,9 @@ export const navigation = [
 ]
 
 export const homeNeeds = [
-  { skill: 'general', title: 'Medir mi inglés', description: 'Descubrí tu punto de partida con un resultado orientativo.', path: '/work-english-test/general-test' },
-  { skill: 'interview', title: 'Practicar para una entrevista', description: 'Entrená vocabulario, writing y situaciones laborales.', path: '/work-english-test' },
-  { skill: 'resources', title: 'Preparar mi CV', description: 'Usá guías y recursos concretos para aplicar mejor.', path: '/recursos' },
-  { skill: 'calculator', title: 'Calcular mis horas', description: 'Estimá valores laborales en USD con un desglose claro.', path: '/calculadoras' },
-  { skill: 'offers', title: 'Buscar oportunidades', description: 'Revisá ofertas con salario, modalidad e inglés visibles.', path: '/ofertas' },
-  { skill: 'community', title: 'Unirme a la comunidad', description: 'Encontrá grupos, canales y espacios para avanzar acompañado.', path: '/comunidad' },
+  { skill: 'general', title: 'Medir nivel de inglés', description: 'Descubrí tu punto de partida y recibí un resultado orientativo.', path: '/work-english-test/general-test' },
+  { skill: 'offers', title: 'Buscar oportunidades', description: 'Revisá ofertas, requisitos y rutas para aplicar mejor.', path: '/ofertas' },
+  { skill: 'resources', title: 'Recursos', description: 'Encontrá guías, práctica y herramientas para prepararte mejor.', path: '/recursos' },
 ]
 
 export const featuredTools = [
