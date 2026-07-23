@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import Card from '../components/Card.jsx'
-import SectionTitle from '../components/SectionTitle.jsx'
 import Button from '../components/Button.jsx'
 import SkillIcon from '../components/ui/SkillIcon.jsx'
 import { englishPractice } from '../data/englishPractice.js'
@@ -73,15 +72,23 @@ export default function WorkEnglishTest() {
         </div>
       </section>
 
-      <section className="section-block">
-        <SectionTitle eyebrow="B. Practicar inglés para trabajo" title="Entrená por habilidad" />
-        <div className="card-grid practice-grid">
-          {practice.map((item) => (
-            <Card className="skill-practice-card" key={item.id} eyebrow={item.category} title={item.title} badge={item.status === 'disponible' ? 'Disponible' : 'Próximamente'} accent={item.id} icon={<SkillIcon skill={item.id} />}>
-              <p>{item.description}</p>
-              {item.status === 'disponible' ? <Button to={item.path}>{item.action || 'Practicar ahora'}</Button> : <span className="button disabled card-button" aria-disabled="true">Próximamente</span>}
-            </Card>
-          ))}
+      <section className="skills-practice-section" aria-labelledby="skills-practice-title">
+        <div className="skills-practice-inner">
+          <header className="skills-practice-header">
+            <span className="skills-practice-eyebrow">B. Practicar inglés para trabajo</span>
+            <h2 className="skills-practice-title" id="skills-practice-title">Entrená por habilidad</h2>
+            <p className="skills-practice-subtitle">
+              Practicá grammar, vocabulary, reading, listening, writing y typing con ejercicios pensados para situaciones laborales.
+            </p>
+          </header>
+          <div className="skills-practice-grid">
+            {practice.map((item) => (
+              <Card className="skill-practice-card skills-practice-card" key={item.id} eyebrow={item.category} title={item.title} badge={item.status === 'disponible' ? 'Disponible' : 'Próximamente'} accent={item.id} icon={<SkillIcon skill={item.id} />}>
+                <p>{item.description}</p>
+                {item.status === 'disponible' ? <Button className="skills-practice-card-button" to={item.path}>{item.action || 'Practicar ahora'}</Button> : <span className="button disabled card-button skills-practice-card-button" aria-disabled="true">Próximamente</span>}
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
     </>
