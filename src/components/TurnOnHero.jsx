@@ -34,7 +34,17 @@ export default function TurnOnHero() {
 
   return (
     <section className="hero portal-hero madtogo-hero" ref={heroRef} aria-labelledby="home-hero-title">
-      <div className="hero-bg-text" aria-hidden="true">TEST ENGLISH LEVEL</div>
+      <div className="hero-bg-text" aria-hidden="true">
+        <span>TEST</span>
+        <span>ENGLISH</span>
+        <span>LEVEL</span>
+      </div>
+
+      {feathers.map((number) => (
+        <span className={`hero-feather feather-${number}`} aria-hidden="true" key={number}>
+          <img src={`/assets/feathers/feather${number}.png`} alt="" />
+        </span>
+      ))}
 
       <div className="hero-content">
         <span className="hero-kicker">TurnOn English Test</span>
@@ -54,12 +64,6 @@ export default function TurnOnHero() {
         <div className="hero-character-layer">
           <img className="hero-madtogo" src="/assets/characters/madtogo-joven.png" alt="MadTogo joven volando con energía" />
         </div>
-
-        {feathers.map((number) => (
-          <span className={`hero-feather feather-${number}`} aria-hidden="true" key={number}>
-            <img src={`/assets/feathers/feather${number}.png`} alt="" />
-          </span>
-        ))}
 
         <article className="hero-card">
           <div className="hero-card-heading">
