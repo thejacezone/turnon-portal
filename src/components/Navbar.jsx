@@ -18,6 +18,7 @@ export default function Navbar() {
         {navigation.map((item) => (
           <NavLink key={item.path} to={item.path} end={item.path === '/'} onClick={closeMenu}>{item.label}</NavLink>
         ))}
+        <NavLink className="nav-test-cta" to="/work-english-test/general-test" onClick={closeMenu}>Empezar test</NavLink>
       </nav>
     </header>
   )
