@@ -173,6 +173,15 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 .hero-dashboard { min-height: 320px; border-radius: var(--radius-lg); background: var(--color-primary); box-shadow: 14px 14px 0 var(--color-accent); }
 
 /* TurnOn + MadTogo home hero */
+.app-shell:has(.home-hero) { overflow-x: clip; }
+.home-hero {
+  width: 100vw;
+  max-width: none;
+  margin-inline: calc(50% - 50vw);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
 .madtogo-hero {
   --hero-blue: #155cff;
   --hero-navy: #07152f;
@@ -180,21 +189,18 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   --scroll-progress: 0;
   position: relative;
   isolation: isolate;
-  min-height: calc(100vh - 94px);
-  min-height: calc(100svh - 94px);
+  min-height: calc(100vh - 70px);
+  min-height: calc(100svh - 70px);
   grid-template-columns: minmax(0, .88fr) minmax(460px, 1.12fr);
   align-items: center;
   gap: clamp(20px, 3vw, 48px);
-  margin-top: 24px;
+  margin-top: 0;
   padding: clamp(36px, 5vh, 56px) clamp(44px, 6vw, 78px);
   overflow: hidden;
-  border: 1px solid rgba(21, 92, 255, .12);
-  border-radius: 32px;
   background:
     radial-gradient(circle at 76% 34%, rgba(21, 92, 255, .15), transparent 25rem),
     radial-gradient(circle at 18% 90%, rgba(29, 210, 187, .12), transparent 22rem),
     #f7f8fb;
-  box-shadow: 0 24px 70px rgba(7, 21, 47, .08);
 }
 .hero-bg-text {
   position: absolute;
@@ -217,6 +223,8 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   position: relative;
   z-index: 6;
   align-self: center;
+  width: 100%;
+  max-width: 560px;
   min-width: 0;
 }
 .hero-kicker {
@@ -291,8 +299,8 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 }
 .hero-feather img { display: block; width: 100%; animation: featherDrift 7s ease-in-out infinite; transform: rotate(var(--feather-rotate, 0deg)); }
 .feather-1 { --feather-size: 132px; --feather-rotate: -30deg; --feather-shift: -58px; --feather-z: 1; top: 11%; left: 1%; }
-.feather-2 { --feather-size: 104px; --feather-rotate: 25deg; --feather-shift: -82px; --feather-z: 7; bottom: 12%; left: 31%; }
-.feather-3 { --feather-size: 92px; --feather-rotate: 54deg; --feather-shift: -38px; --feather-z: 1; bottom: 14%; right: 5%; }
+.feather-2 { --feather-size: 104px; --feather-rotate: 25deg; --feather-shift: -82px; --feather-z: 7; bottom: 7%; left: 31%; }
+.feather-3 { --feather-size: 92px; --feather-rotate: 54deg; --feather-shift: -38px; --feather-z: 1; bottom: 14%; right: 16%; }
 .feather-4 { --feather-size: 80px; --feather-rotate: -72deg; --feather-shift: -70px; --feather-z: 5; top: 15%; right: 3%; }
 .feather-2 img { animation-delay: -1.8s; }
 .feather-3 img { animation-delay: -3.4s; }
@@ -300,8 +308,8 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 .hero-card {
   position: absolute;
   z-index: 7;
-  bottom: 7%;
-  left: -3%;
+  top: 16%;
+  left: -7%;
   width: min(245px, 48%);
   padding: 20px;
   border: 1px solid rgba(7, 21, 47, .09);
@@ -502,13 +510,13 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 .footer-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); grid-column: 1 / -1; padding-top: var(--space-3); border-top: 1px solid rgba(255,255,255,.14); }
 
 @media (max-width: 1024px) {
-  .madtogo-hero { min-height: calc(100vh - 94px); min-height: calc(100svh - 94px); grid-template-columns: minmax(0, .9fr) minmax(390px, 1.1fr); padding: 48px 42px; }
+  .madtogo-hero { min-height: calc(100vh - 70px); min-height: calc(100svh - 70px); grid-template-columns: minmax(0, .9fr) minmax(390px, 1.1fr); padding: 48px 42px; }
   .madtogo-hero .hero-title { font-size: clamp(4rem, 8vw, 5.4rem); }
   .hero-visual { min-height: clamp(500px, calc(100svh - 210px), 590px); }
   .hero-madtogo { right: -20%; width: min(650px, 130%); }
   .feather-1 { left: -4%; }
   .feather-2 { bottom: 8%; left: 34%; }
-  .feather-3 { right: 1%; }
+  .feather-3 { right: 18%; bottom: 20%; }
   .feather-4 { top: 10%; right: -2%; }
   .home-needs-grid { grid-template-columns: repeat(2, 1fr); }
   .calculator-card { grid-template-columns: 1fr; }
@@ -527,7 +535,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   nav a { min-height: 46px; }
   .portal-hero { min-height: auto; padding: var(--space-6) 0; }
   .portal-hero h1 { font-size: clamp(2.7rem, 13vw, 4.3rem); }
-  .madtogo-hero { min-height: max(100svh, 980px); grid-template-columns: 1fr; gap: 0; margin-top: 14px; padding: 40px 24px 24px; border-radius: 24px; }
+  .madtogo-hero { min-height: max(calc(100svh - 64px), 980px); grid-template-columns: 1fr; gap: 0; margin-top: 0; padding: 40px 24px 24px; }
   .hero-bg-text { top: 49%; width: 100%; color: rgba(48, 91, 157, .06); font-size: clamp(6.8rem, 31vw, 10rem); }
   .hero-content { align-self: start; }
   .madtogo-hero .hero-title { font-size: clamp(3.7rem, 17vw, 5.25rem); }
@@ -536,11 +544,11 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   .madtogo-hero .hero-btn { width: 100%; min-width: 0; }
   .hero-visual { min-height: 520px; }
   .hero-madtogo { right: auto; bottom: -5%; left: 50%; width: min(560px, 124vw); translate: -50% 0; }
-  .hero-card { bottom: 4%; left: 0; width: min(220px, 58%); }
+  .hero-card { top: auto; bottom: 4%; left: 0; width: min(220px, 58%); }
   .madtogo-signoff { right: 0; bottom: 1%; }
   .feather-1 { --feather-size: 88px; top: 45%; left: -10%; opacity: .72; }
   .feather-2 { --feather-size: 72px; top: 53%; bottom: auto; left: 6%; }
-  .feather-3 { --feather-size: 72px; right: -4%; bottom: 8%; }
+  .feather-3 { --feather-size: 72px; right: 3%; bottom: 16%; }
   .feather-4 { --feather-size: 68px; top: 54%; right: -5%; }
   .home-needs-grid, .home-closing, .test-choice-grid { grid-template-columns: 1fr; }
   .home-closing { align-items: start; }

@@ -33,7 +33,7 @@ export default function TurnOnHero() {
   }, [])
 
   return (
-    <section className="hero portal-hero madtogo-hero" ref={heroRef} aria-labelledby="home-hero-title">
+    <section className="hero portal-hero madtogo-hero home-hero" ref={heroRef} aria-labelledby="home-hero-title">
       <div className="hero-bg-text" aria-hidden="true">
         <span>TEST</span>
         <span>ENGLISH</span>
