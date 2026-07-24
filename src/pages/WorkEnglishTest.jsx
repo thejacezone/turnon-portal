@@ -1,7 +1,4 @@
 import { Link } from 'react-router-dom'
-import Card from '../components/Card.jsx'
-import Button from '../components/Button.jsx'
-import SkillIcon from '../components/ui/SkillIcon.jsx'
 import { englishPractice } from '../data/englishPractice.js'
 
 const feathers = [1, 2, 3, 4]
@@ -83,10 +80,9 @@ export default function WorkEnglishTest() {
           </header>
           <div className="skills-practice-grid">
             {practice.map((item) => (
-              <Card className="skill-practice-card skills-practice-card" key={item.id} eyebrow={item.category} title={item.title} badge={item.status === 'disponible' ? 'Disponible' : 'Próximamente'} accent={item.id} icon={<SkillIcon skill={item.id} />}>
-                <p>{item.description}</p>
-                {item.status === 'disponible' ? <Button className="skills-practice-card-button" to={item.path}>{item.action || 'Practicar ahora'}</Button> : <span className="button disabled card-button skills-practice-card-button" aria-disabled="true">Próximamente</span>}
-              </Card>
+              <Link className="skills-practice-card" to={item.path} aria-label={`Ir a ${item.title}`} key={item.id}>
+                <span className="skills-practice-card-title">{item.title.toUpperCase()}</span>
+              </Link>
             ))}
           </div>
         </div>
