@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import PageHeader from '../components/PageHeader.jsx'
+import PracticeTestHero from '../components/PracticeTestHero.jsx'
 import { listeningPracticeCategories, listeningPracticeContexts, listeningPracticeItems } from '../data/listeningPracticeItems.js'
+import { practicePageHeroes } from '../data/practicePageHeroes.js'
 import { calculateListeningResult, filterListeningItems, generateListeningGeneralTest, scoreListeningGeneralTest } from '../utils/listeningPractice.js'
 import { validateListeningPracticeItems } from '../utils/questionValidation.js'
 
@@ -184,15 +185,8 @@ function ListeningGeneralTest({ items }) {
 
   if (mode === 'intro') {
     return (
-      <section className="section-general-test">
-        <div className="general-test-intro">
-          <span className="eyebrow">Listening Level Check</span>
-          <h2>Test general por bloques de audio</h2>
-          <p>Evaluá tu comprensión auditiva con audios aleatorios de situaciones laborales. Cada pantalla muestra un audio completo y únicamente sus preguntas relacionadas.</p>
-          <p className="general-test-helper">El resultado es orientativo. No guarda progreso y no usa almacenamiento del navegador.</p>
-          <div className="test-facts"><span>Audio por audio</span><span>Preguntas agrupadas</span><span>12 min aprox.</span></div>
-          <button className="button" type="button" onClick={startTest}>Iniciar test de listening</button>
-        </div>
+      <section className="section-general-test internal-test-entry">
+        <PracticeTestHero {...practicePageHeroes.listening} onStart={startTest} />
       </section>
     )
   }
@@ -298,9 +292,7 @@ export default function ListeningPractice() {
   if (item) return <ListeningDetail item={item} />
 
   return (
-    <div className="listening-practice-page">
-      <Link className="back-link" to="/work-english-test">← Volver a Work English Test</Link>
-      <PageHeader eyebrow="Work English Test" title="Listening Practice" description="Escuchá conversaciones laborales en inglés y practicá comprensión con preguntas similares a situaciones de training, entrevistas, customer service y ambientes bilingües." />
+    <div className="listening-practice-page internal-test-page">
       <ListeningGeneralTest items={listeningPracticeItems} />
       <section className="practice-section-heading"><span className="eyebrow">Práctica por audio</span><h2>Filtros y audios específicos</h2></section>
       <section className="reading-filters" aria-label="Filtros de Listening Practice">

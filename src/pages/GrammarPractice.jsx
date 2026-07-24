@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
 import AnswerReview from '../components/AnswerReview.jsx'
 import GrammarPracticeCard from '../components/GrammarPracticeCard.jsx'
-import PageHeader from '../components/PageHeader.jsx'
 import SectionGeneralTest from '../components/SectionGeneralTest.jsx'
 import { grammarPracticeQuestions } from '../data/grammarPracticeQuestions.js'
+import { practicePageHeroes } from '../data/practicePageHeroes.js'
 import { generateGrammarGeneralTest, scoreGrammarGeneralTest } from '../utils/sectionGeneralTests.js'
 import { validateQuestionBank } from '../utils/questionValidation.js'
 
@@ -130,10 +129,8 @@ export default function GrammarPractice() {
   }
 
   return (
-    <div className="grammar-practice-page">
-      <Link className="back-link" to="/work-english-test">← Volver a Work English Test</Link>
-      <PageHeader eyebrow="Work English Test" title="Grammar Practice" description="Practicá estructuras gramaticales útiles para entrevistas, training, customer service y ambientes de trabajo bilingües." />
-      <SectionGeneralTest title="Grammar Level Check" description="Poné a prueba tu gramática con preguntas aleatorias tomadas de los temas disponibles. El resultado es una estimación para ayudarte a saber qué estructuras dominás y cuáles necesitás reforzar." helperCopy="Primero podés hacer un test general para medir tu gramática. Después practicá por tema con filtros específicos." buttonText="Iniciar test de grammar" duration="20 preguntas · 8 min aprox." generateTest={() => generateGrammarGeneralTest(grammarPracticeQuestions)} scoreTest={scoreGrammarGeneralTest} />
+    <div className="grammar-practice-page internal-test-page">
+      <SectionGeneralTest hero={practicePageHeroes.grammar} title="Grammar Level Check" description="Poné a prueba tu gramática con preguntas aleatorias tomadas de los temas disponibles. El resultado es una estimación para ayudarte a saber qué estructuras dominás y cuáles necesitás reforzar." helperCopy="Primero podés hacer un test general para medir tu gramática. Después practicá por tema con filtros específicos." buttonText="Iniciar test de grammar" duration="20 preguntas · 8 min aprox." generateTest={() => generateGrammarGeneralTest(grammarPracticeQuestions)} scoreTest={scoreGrammarGeneralTest} />
       <section className="practice-section-heading">
         <span className="eyebrow">Práctica por tema</span>
         <h2>Prueba los temas</h2>

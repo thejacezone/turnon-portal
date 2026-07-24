@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import PageHeader from '../components/PageHeader.jsx'
+import PracticeTestHero from '../components/PracticeTestHero.jsx'
 import { writingPracticeCategories, writingPracticePrompts } from '../data/writingPracticePrompts.js'
+import { practicePageHeroes } from '../data/practicePageHeroes.js'
 import { calculateWritingGeneralResult, evaluateWritingResponse, filterWritingPrompts, formatWritingTime, generateWritingGeneralTest, countWords, calculateWpm } from '../utils/writingPractice.js'
 import { validateWritingPracticePrompts } from '../utils/questionValidation.js'
 
@@ -185,15 +186,8 @@ function WritingGeneralTest({ prompts }) {
 
   if (mode === 'intro') {
     return (
-      <section className="section-general-test">
-        <div className="general-test-intro">
-          <span className="eyebrow">Writing Level Check</span>
-          <h2>Test general de writing</h2>
-          <p>Poné a prueba tu escritura con prompts aleatorios de entrevistas, correos y situaciones laborales. El resultado mide velocidad, extensión, estructura básica y claridad general de forma orientativa.</p>
-          <p className="general-test-helper">No guarda progreso, no usa IA y no reemplaza una evaluación profesional.</p>
-          <div className="test-facts"><span>3 prompts</span><span>categorías aleatorias</span><span>30+ WPM sugerido</span></div>
-          <button className="button" type="button" onClick={start}>Iniciar test de writing</button>
-        </div>
+      <section className="section-general-test internal-test-entry">
+        <PracticeTestHero {...practicePageHeroes.writing} onStart={start} />
       </section>
     )
   }
@@ -274,9 +268,7 @@ export default function WritingPractice() {
   if (prompt) return <WritingDetail prompt={prompt} />
 
   return (
-    <div className="writing-practice-page">
-      <Link className="back-link" to="/work-english-test">← Volver a Work English Test</Link>
-      <PageHeader eyebrow="Work English Test" title="Writing Practice" description="Practicá escritura laboral en inglés con preguntas de entrevista, correos profesionales y situaciones de trabajo. El resultado es orientativo y te ayuda a ver velocidad, estructura y claridad básica." />
+    <div className="writing-practice-page internal-test-page">
       <WritingGeneralTest prompts={writingPracticePrompts} />
       <section className="practice-section-heading"><span className="eyebrow">Práctica por escenarios</span><h2>Prompts para entrevistas, correos y trabajo</h2></section>
       <section className="reading-filters" aria-label="Filtros de Writing Practice">

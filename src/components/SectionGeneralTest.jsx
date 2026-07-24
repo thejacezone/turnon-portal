@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
+import PracticeTestHero from './PracticeTestHero.jsx'
 
-export default function SectionGeneralTest({ title, description, helperCopy, buttonText, duration, generateTest, scoreTest, backLabel = 'Volver a la práctica' }) {
+export default function SectionGeneralTest({ title, description, helperCopy, buttonText, duration, generateTest, scoreTest, hero, backLabel = 'Volver a la práctica' }) {
   const [phase, setPhase] = useState('intro')
   const [items, setItems] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -24,16 +25,17 @@ export default function SectionGeneralTest({ title, description, helperCopy, but
   }
 
   return (
-    <section className="section-general-test">
-      <div className="general-test-intro">
+    <section className={`section-general-test ${phase === 'intro' && hero ? 'internal-test-entry' : ''}`}>
+      {phase === 'intro' && hero && <PracticeTestHero {...hero} onStart={start} />}
+      {phase === 'intro' && !hero && <div className="general-test-intro">
         <span className="eyebrow">Test general</span>
         <h2>{title}</h2>
         <p>{description}</p>
         {helperCopy && <p className="general-test-helper">{helperCopy}</p>}
         <div className="test-facts"><span>{duration}</span><span>Resultado orientativo</span><span>No es certificación oficial</span></div>
-        {phase === 'intro' && <button className="button" type="button" onClick={start}>{buttonText}</button>}
-        {phase === 'empty' && <div className="test-note">No hay suficientes preguntas disponibles para generar este test.</div>}
-      </div>
+        <button className="button" type="button" onClick={start}>{buttonText}</button>
+      </div>}
+      {phase === 'empty' && <div className="general-test-intro"><div className="test-note">No hay suficientes preguntas disponibles para generar este test.</div><button className="button" type="button" onClick={() => setPhase('intro')}>Volver</button></div>}
 
       {phase === 'questions' && current && (
         <div className="general-test-runner">

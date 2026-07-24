@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import PageHeader from '../components/PageHeader.jsx'
 import SectionGeneralTest from '../components/SectionGeneralTest.jsx'
+import { practicePageHeroes } from '../data/practicePageHeroes.js'
 import { readingPracticeCategories, readingPracticeContexts, readingPracticeScenarios, readingPracticeTypes } from '../data/readingPracticeScenarios.js'
 import { calculateReadingResult, filterReadingScenarios } from '../utils/readingPractice.js'
 import { generateReadingGeneralTest, scoreReadingGeneralTest } from '../utils/sectionGeneralTests.js'
@@ -139,10 +139,8 @@ export default function ReadingPractice() {
   if (scenario) return <ScenarioDetail scenario={scenario} />
 
   return (
-    <div className="reading-practice-page">
-      <Link className="back-link" to="/work-english-test">← Volver a Work English Test</Link>
-      <PageHeader eyebrow="Work English Test" title="Reading Practice" description="Leé escenarios laborales en inglés y practicá comprensión con preguntas similares a las que podrías encontrar en training, entrevistas o ambientes bilingües." />
-      <SectionGeneralTest title="Reading Level Check" description="Evaluá tu comprensión lectora con escenarios laborales aleatorios. Vas a leer correos, instrucciones, mensajes y textos cortos similares a los que podrías encontrar en training, entrevistas o ambientes bilingües." helperCopy="Primero podés hacer un test general de comprensión lectora. Después practicá escenarios específicos por nivel, contexto y tipo de texto." buttonText="Iniciar test de reading" duration="12–20 preguntas · 12 min aprox." generateTest={() => generateReadingGeneralTest(readingPracticeScenarios)} scoreTest={scoreReadingGeneralTest} />
+    <div className="reading-practice-page internal-test-page">
+      <SectionGeneralTest hero={practicePageHeroes.reading} title="Reading Level Check" description="Evaluá tu comprensión lectora con escenarios laborales aleatorios. Vas a leer correos, instrucciones, mensajes y textos cortos similares a los que podrías encontrar en training, entrevistas o ambientes bilingües." helperCopy="Primero podés hacer un test general de comprensión lectora. Después practicá escenarios específicos por nivel, contexto y tipo de texto." buttonText="Iniciar test de reading" duration="12–20 preguntas · 12 min aprox." generateTest={() => generateReadingGeneralTest(readingPracticeScenarios)} scoreTest={scoreReadingGeneralTest} />
       <section className="practice-section-heading"><span className="eyebrow">Práctica por escenarios</span><h2>Filtros y escenarios específicos</h2></section>
       <section className="reading-filters" aria-label="Filtros de Reading Practice">
         <label>Buscar<input type="search" value={filters.query} onChange={(event) => updateFilter('query', event.target.value)} placeholder="Ej. HR, benefits, schedule, policy..." /></label>
