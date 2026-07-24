@@ -535,6 +535,127 @@
   margin: 0;
 }
 
+/* TurnOn shared practice-page palette */
+.turnon-typing-test {
+  --ink: #07152f;
+  --muted: #5d6678;
+  --paper: #ffffff;
+  --paper-strong: #ffffff;
+  --line: #dce3ed;
+  --charcoal: #07152f;
+  --green: #477400;
+  --green-soft: #c8ff3d;
+  --red: #9d3700;
+  --red-soft: #ffbf5e;
+  --yellow: #c8ff3d;
+  --yellow-soft: #efffc2;
+  --blue: #155cff;
+  --blue-soft: #e5edff;
+  --turnon-orange: #ff9f1c;
+  background: #fff;
+}
+.turnon-typing-test .intro-panel,
+.turnon-typing-test .setup-form,
+.turnon-typing-test .reference-panel,
+.turnon-typing-test .typing-input-wrap,
+.turnon-typing-test .results-screen {
+  border: 0;
+  border-radius: 28px;
+  box-shadow: 0 24px 54px rgba(21, 92, 255, .2);
+}
+.turnon-typing-test .intro-panel,
+.turnon-typing-test .setup-form,
+.turnon-typing-test .reference-panel,
+.turnon-typing-test .typing-input-wrap,
+.turnon-typing-test .results-screen {
+  color: #fff;
+  background: var(--blue);
+}
+.turnon-typing-test :where(.intro-panel, .test-topbar, .results-screen) h1 {
+  font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.turnon-typing-test .setup-form legend,
+.turnon-typing-test :where(.reference-panel, .typing-input-wrap, .results-screen) :where(h1, h2, label, .eyebrow) {
+  color: #fff;
+}
+.turnon-typing-test .choice-card {
+  color: var(--ink);
+  background: #fff;
+  border-color: rgba(255, 255, 255, .78);
+  border-radius: 16px;
+}
+.turnon-typing-test .choice-card:hover,
+.turnon-typing-test .choice-card:focus-within,
+.turnon-typing-test .choice-card.is-selected {
+  color: var(--ink);
+  background: var(--yellow);
+  border-color: var(--yellow);
+  box-shadow: 0 10px 24px rgba(7, 21, 47, .2);
+}
+.turnon-typing-test .primary-action {
+  color: var(--ink);
+  background: var(--yellow);
+  box-shadow: none;
+}
+.turnon-typing-test .primary-action:not(:disabled):hover {
+  color: var(--ink);
+  background: var(--turnon-orange);
+}
+.turnon-typing-test .secondary-action {
+  color: var(--ink);
+  background: #fff;
+  border-color: #fff;
+}
+.turnon-typing-test .ghost-action {
+  color: var(--ink);
+  border-color: #b9c5d7;
+}
+.turnon-typing-test :where(.results-screen, .reference-panel, .typing-input-wrap) .ghost-action {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .72);
+}
+.turnon-typing-test .primary-action:disabled {
+  color: rgba(7, 21, 47, .58);
+  background: rgba(200, 255, 61, .45);
+}
+.turnon-typing-test .panel-heading p,
+.turnon-typing-test .typing-input-wrap :where(.input-help, .paste-message),
+.turnon-typing-test .results-screen > .notice {
+  color: rgba(255, 255, 255, .82);
+}
+.turnon-typing-test .reference-scroll,
+.turnon-typing-test textarea {
+  color: var(--ink);
+  background: #fff;
+  border-color: transparent;
+  border-radius: 14px;
+}
+.turnon-typing-test textarea:focus-visible {
+  border-color: var(--yellow);
+}
+.turnon-typing-test .metric-card,
+.turnon-typing-test .result-card {
+  color: var(--ink);
+  background: #fff;
+  border-color: rgba(7, 21, 47, .08);
+  border-radius: 14px;
+}
+.turnon-typing-test .result-card.featured {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+.turnon-typing-test .results-screen .metric-label {
+  color: #44516a;
+}
+.turnon-typing-test .results-screen .notice {
+  color: #fff;
+  background: rgba(7, 21, 47, .22);
+  border-left-color: var(--yellow);
+}
+
 @media (max-width: 1024px) {
   .turnon-typing-test .setup-screen,
   .turnon-typing-test .typing-layout {

@@ -247,7 +247,7 @@ function ListeningDetail({ item }) {
   }
 
   return (
-    <div className="listening-detail-page">
+    <div className="listening-detail-page test-practice-detail">
       <Link className="back-link" to="/work-english-test/listening-practice">← Volver a Listening Practice</Link>
       <article className="reading-scenario-detail">
         <header className="reading-hero">
@@ -292,7 +292,7 @@ export default function ListeningPractice() {
   if (item) return <ListeningDetail item={item} />
 
   return (
-    <div className="listening-practice-page internal-test-page">
+    <div className="listening-practice-page internal-test-page test-practice-page">
       <ListeningGeneralTest items={listeningPracticeItems} />
       <section className="practice-section-heading"><span className="eyebrow">Práctica por audio</span><h2>Filtros y audios específicos</h2></section>
       <section className="reading-filters" aria-label="Filtros de Listening Practice">

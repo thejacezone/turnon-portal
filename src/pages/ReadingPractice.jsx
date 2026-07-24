@@ -98,7 +98,7 @@ function ScenarioDetail({ scenario }) {
   }
 
   return (
-    <div className="reading-detail-page">
+    <div className="reading-detail-page test-practice-detail">
       <Link className="back-link" to="/work-english-test/reading-practice">← Volver a Reading Practice</Link>
       <article className="reading-scenario-detail">
         <header className="reading-hero">
@@ -139,7 +139,7 @@ export default function ReadingPractice() {
   if (scenario) return <ScenarioDetail scenario={scenario} />
 
   return (
-    <div className="reading-practice-page internal-test-page">
+    <div className="reading-practice-page internal-test-page test-practice-page">
       <SectionGeneralTest hero={practicePageHeroes.reading} title="Reading Level Check" description="Evaluá tu comprensión lectora con escenarios laborales aleatorios. Vas a leer correos, instrucciones, mensajes y textos cortos similares a los que podrías encontrar en training, entrevistas o ambientes bilingües." helperCopy="Primero podés hacer un test general de comprensión lectora. Después practicá escenarios específicos por nivel, contexto y tipo de texto." buttonText="Iniciar test de reading" duration="12–20 preguntas · 12 min aprox." generateTest={() => generateReadingGeneralTest(readingPracticeScenarios)} scoreTest={scoreReadingGeneralTest} />
       <section className="practice-section-heading"><span className="eyebrow">Práctica por escenarios</span><h2>Filtros y escenarios específicos</h2></section>
       <section className="reading-filters" aria-label="Filtros de Reading Practice">

@@ -146,7 +146,7 @@ function ModuleDetail({ module }) {
   const [mode, setMode] = useState('study')
 
   return (
-    <div className="vocab-detail-page">
+    <div className="vocab-detail-page test-practice-detail">
       <Link className="back-link" to="/work-english-test/vocabulary-practice">← Volver a Vocabulary Practice</Link>
       <header className="vocab-module-hero">
         <span className="eyebrow">{module.category}</span>
@@ -194,7 +194,7 @@ export default function VocabularyPractice() {
   if (module) return <ModuleDetail module={module} />
 
   return (
-    <div className="vocabulary-practice-page internal-test-page">
+    <div className="vocabulary-practice-page internal-test-page test-practice-page">
       <SectionGeneralTest hero={practicePageHeroes.vocabulary} title="Work Vocabulary Check" description="Medí qué tan preparado estás con vocabulario laboral. Este test toma palabras aleatorias de customer service, call center, tech support, insurance, sales, training y entrevistas." helperCopy="Primero podés hacer un test general de vocabulario laboral. Después estudiá módulos, usá flashcards y hacé mini exámenes por área." buttonText="Iniciar test de vocabulary" duration="25 preguntas · 10 min aprox." generateTest={() => generateVocabularyGeneralTest(workVocabularyModules)} scoreTest={scoreVocabularyGeneralTest} />
       <section className="practice-section-heading"><span className="eyebrow">Práctica por módulos</span><h2>Estudiá, usá flashcards y hacé mini exámenes</h2></section>
       <section className="practice-filters" aria-label="Filtros de Vocabulary Practice">

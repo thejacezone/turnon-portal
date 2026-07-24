@@ -125,7 +125,7 @@ function WritingDetail({ prompt }) {
   }
 
   return (
-    <div className="writing-detail-page">
+    <div className="writing-detail-page test-practice-detail">
       <Link className="back-link" to="/work-english-test/writing-practice">← Volver a Writing Practice</Link>
       <header className="writing-hero">
         <span className="eyebrow">{prompt.category}</span>
@@ -268,7 +268,7 @@ export default function WritingPractice() {
   if (prompt) return <WritingDetail prompt={prompt} />
 
   return (
-    <div className="writing-practice-page internal-test-page">
+    <div className="writing-practice-page internal-test-page test-practice-page">
       <WritingGeneralTest prompts={writingPracticePrompts} />
       <section className="practice-section-heading"><span className="eyebrow">Práctica por escenarios</span><h2>Prompts para entrevistas, correos y trabajo</h2></section>
       <section className="reading-filters" aria-label="Filtros de Writing Practice">

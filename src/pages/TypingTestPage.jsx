@@ -6,7 +6,7 @@ import '../features/typing-test/styles/typingTest.css'
 
 export default function TypingTestPage() {
   return (
-    <div className="typing-test-portal-page internal-test-page">
+    <div className="typing-test-portal-page internal-test-page test-practice-page">
       <PracticeTestHero {...practicePageHeroes.typing} targetId="typing-test-setup" />
       <div className="typing-test-portal-links" role="navigation" aria-label="Typing Test navigation">
         <Link className="back-link" to="/work-english-test">← Back to Tests</Link>
