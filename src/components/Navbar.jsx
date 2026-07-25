@@ -1,10 +1,24 @@
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 import { navigation } from '../data/siteContent.js'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const location = useLocation()
   const closeMenu = () => setOpen(false)
+
+  useEffect(() => {
+    closeMenu()
+  }, [location.pathname])
+
+  useEffect(() => {
+    if (!open) return undefined
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') closeMenu()
+    }
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [open])
 
   return (
     <header className="site-header">

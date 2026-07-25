@@ -114,9 +114,19 @@ export default function GrammarPractice() {
       setFinished(true)
       return
     }
-    setCurrentIndex((index) => index + 1)
-    setSelectedAnswer('')
-    setChecked(false)
+    const nextIndex = currentIndex + 1
+    const savedAnswer = answers[attemptQuestions[nextIndex]?.id] || ''
+    setCurrentIndex(nextIndex)
+    setSelectedAnswer(savedAnswer)
+    setChecked(Boolean(savedAnswer))
+  }
+
+  const previousQuestion = () => {
+    const previousIndex = Math.max(0, currentIndex - 1)
+    const savedAnswer = answers[attemptQuestions[previousIndex]?.id] || ''
+    setCurrentIndex(previousIndex)
+    setSelectedAnswer(savedAnswer)
+    setChecked(Boolean(savedAnswer))
   }
 
   const restart = () => {
@@ -152,7 +162,7 @@ export default function GrammarPractice() {
           <div className="topic-practice-summary"><span className="eyebrow">Tema seleccionado</span><h2>{selectedTopicLabel}</h2><p>{attemptQuestions.length} preguntas</p></div>
           <div className="test-progress"><div><strong>Pregunta {currentIndex + 1} de {attemptQuestions.length}</strong><span>{Math.round(((currentIndex + 1) / attemptQuestions.length) * 100)}%</span></div><div className="progress-track"><span style={{ width: `${((currentIndex + 1) / attemptQuestions.length) * 100}%` }} /></div></div>
           <GrammarPracticeCard question={question} selectedAnswer={selectedAnswer} checked={checked} onSelect={setSelectedAnswer} onCheck={checkAnswer} />
-          <div className="test-navigation"><button className="button ghost dark-ghost" type="button" disabled={currentIndex === 0} onClick={() => { setCurrentIndex((index) => index - 1); setSelectedAnswer(answers[attemptQuestions[currentIndex - 1]?.id] || ''); setChecked(Boolean(answers[attemptQuestions[currentIndex - 1]?.id])) }}>Anterior</button><button className="button" type="button" disabled={!checked} onClick={nextQuestion}>{currentIndex === attemptQuestions.length - 1 ? 'Finalizar práctica' : 'Siguiente'}</button></div>
+          <div className="test-navigation"><button className="button ghost dark-ghost" type="button" disabled={currentIndex === 0} onClick={previousQuestion}>Anterior</button><button className="button" type="button" disabled={!checked} onClick={nextQuestion}>{currentIndex === attemptQuestions.length - 1 ? 'Finalizar práctica' : 'Siguiente'}</button></div>
         </section>
       )}
       {finished && (

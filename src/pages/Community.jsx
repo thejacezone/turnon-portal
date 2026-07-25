@@ -18,8 +18,18 @@ export default function Community() {
           <SectionTitle eyebrow="Comunidad" title={group} />
           <div className="card-grid page-grid community-grid">
             {communityLinks.filter((link) => link.group === group).map((link) => (
-              <Card className="community-card" key={link.id} eyebrow={link.type} title={link.name} action="Abrir enlace" href={link.url} icon={<SkillIcon skill="community" />}>
+              <Card
+                className="community-card"
+                key={link.id}
+                eyebrow={link.type}
+                title={link.name}
+                action={link.url ? 'Abrir enlace' : undefined}
+                href={link.url}
+                badge={link.url ? 'Disponible' : 'Próximamente'}
+                icon={<SkillIcon skill="community" />}
+              >
                 <p>{link.description}</p>
+                {!link.url && <span className="card-availability" aria-disabled="true">Enlace disponible pronto</span>}
               </Card>
             ))}
           </div>

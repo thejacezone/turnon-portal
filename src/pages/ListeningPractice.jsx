@@ -12,6 +12,25 @@ function formatType(type) {
   return type.replaceAll('_', ' ')
 }
 
+function ListeningAudioPlayer({ item }) {
+  const [failed, setFailed] = useState(false)
+
+  useEffect(() => {
+    setFailed(false)
+  }, [item.audioUrl])
+
+  if (failed) {
+    return <p className="audio-error" role="alert">Este audio no está disponible en este momento. Volvé al listado y probá otro.</p>
+  }
+
+  return (
+    <audio controls preload="metadata" onError={() => setFailed(true)}>
+      <source src={item.audioUrl} type={item.audioType || 'audio/mpeg'} />
+      Tu navegador no puede reproducir este audio.
+    </audio>
+  )
+}
+
 function ListeningItemCard({ item }) {
   return (
     <article className="listening-card">
@@ -217,7 +236,7 @@ function ListeningGeneralTest({ items }) {
         <section className="listening-player">
           <span className="eyebrow">Audio actual</span>
           <p>Respondé sólo las preguntas de este audio. Al avanzar, el reproductor cambia al siguiente audio.</p>
-          <audio key={currentItem.audioUrl} controls><source src={currentItem.audioUrl} type={currentItem.audioType || 'audio/mpeg'} />Tu navegador no puede reproducir este audio.</audio>
+          <ListeningAudioPlayer key={currentItem.audioUrl} item={currentItem} />
         </section>
         <section className="reading-question-list">
           <span className="eyebrow">Preguntas de este audio</span>
@@ -259,7 +278,7 @@ function ListeningDetail({ item }) {
         <section className="listening-player">
           <span className="eyebrow">Audio</span>
           <p>Escuchá el audio y respondé las preguntas. La transcripción se muestra después de enviar respuestas.</p>
-          <audio key={item.audioUrl} controls><source src={item.audioUrl} type={item.audioType || 'audio/mpeg'} />Tu navegador no puede reproducir este audio.</audio>
+          <ListeningAudioPlayer key={item.audioUrl} item={item} />
         </section>
         <ListeningVocabularyBox vocabulary={item.vocabulary} />
         <section className="reading-question-list">

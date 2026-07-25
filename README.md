@@ -297,8 +297,9 @@ Writing Practice no guarda progreso todavía. No usa Supabase, backend, login, I
 
 El proyecto independiente terminado fue integrado como una funcionalidad nativa y aislada de TurnOn:
 
-- Ruta React Router: `/typing-test`
-- URL pública con HashRouter: `#/typing-test`
+- Ruta canónica React Router: `/work-english-test/typing-test`
+- URL pública canónica con HashRouter: `#/work-english-test/typing-test`
+- Alias conservado por compatibilidad: `#/typing-test`
 - Página del portal: `src/pages/TypingTestPage.jsx`
 - Componentes: `src/features/typing-test/components/`
 - Hook del cronómetro: `src/features/typing-test/hooks/useTypingTest.js`
@@ -308,7 +309,7 @@ El proyecto independiente terminado fue integrado como una funcionalidad nativa 
 
 La integración conserva el comportamiento del proyecto original: selector Easy/Intermediate/Hard, duraciones 1/3/5 minutos, inicio del cronómetro con el primer carácter, timestamps reales, WPM/Accuracy/Errors/Incorrect Words en vivo, comparación carácter por carácter, palabra y carácter activos, Backspace, pegado bloqueado, scroll automático, final por tiempo o texto completo y acciones de resultados.
 
-Home y Work English Test enlazan a la misma ruta `/typing-test`. La implementación anterior fue retirada para evitar duplicados. El módulo usa el Header y Footer generales de TurnOn; no copia el `package.json`, Vite, `index.html`, `node_modules`, `dist`, Header ni Footer del proyecto independiente.
+Home y Work English Test enlazan a la ruta canónica `/work-english-test/typing-test`. El alias `/typing-test` permanece activo para no romper enlaces anteriores. La implementación anterior fue retirada para evitar duplicados. El módulo usa el Header y Footer generales de TurnOn; no copia el `package.json`, Vite, `index.html`, `node_modules`, `dist`, Header ni Footer del proyecto independiente.
 
 WPM conserva la fórmula original: `caracteres correctos / 5 / minutos transcurridos`. Typing Test no guarda progreso y no usa Supabase, backend, login, IA, `localStorage` ni `sessionStorage`.
 
@@ -321,7 +322,7 @@ Se agregaron tests generales al inicio de tres secciones de práctica:
 - `Reading Level Check` en `#/work-english-test/reading-practice`
 - `Listening Level Check` en `#/work-english-test/listening-practice`
 - `Writing Level Check` en `#/work-english-test/writing-practice`
-- `Typing Test` en `#/typing-test`
+- `Typing Test` en `#/work-english-test/typing-test`
 
 Cada test aparece arriba de la práctica específica y no reemplaza el contenido existente. Debajo se mantienen:
 
@@ -382,6 +383,12 @@ npm run build
 ```
 
 El sitio listo para publicar se genera en `dist/`.
+
+Para validar bancos, audios, rutas de datos y simulaciones funcionales:
+
+```bash
+npm run validate:data
+```
 
 ## Publicar en Hostinger o BanaHosting
 

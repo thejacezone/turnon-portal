@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useId, useMemo, useState } from 'react'
 import CalculatorCard from '../components/CalculatorCard.jsx'
 import LaborCalculatorRows from '../components/LaborCalculatorRows.jsx'
 import PageHeader from '../components/PageHeader.jsx'
@@ -8,6 +8,7 @@ import { calculateLaborLines, formatUSD, validateLaborLines } from '../utils/lab
 const newLine = () => ({ id: crypto.randomUUID(), conditionId: laborConditions[0].id, hours: '' })
 
 export default function Calculators() {
+  const salaryErrorId = useId()
   const [salary, setSalary] = useState('')
   const [lines, setLines] = useState([newLine()])
   const [errors, setErrors] = useState({ salary: undefined, lines: {} })
@@ -26,8 +27,8 @@ export default function Calculators() {
         <CalculatorCard title="Calculadora de horas laborales" description="Ingresá tu salario mensual, agregá una o varias condiciones trabajadas y colocá la cantidad de horas. La herramienta estimará el valor de esas horas usando multiplicadores orientativos.">
           <label className="salary-field">
             Salario base mensual en dólares
-            <input type="number" min="0" value={salary} onChange={(event) => { setSalary(event.target.value); if (Number(event.target.value) > 0) setErrors((current) => ({ ...current, salary: undefined })) }} placeholder="Ej. 365.00" aria-invalid={Boolean(errors.salary)} />
-            {errors.salary && <span className="field-error">{errors.salary}</span>}
+            <input type="number" min="0" value={salary} onChange={(event) => { setSalary(event.target.value); if (Number(event.target.value) > 0) setErrors((current) => ({ ...current, salary: undefined })) }} placeholder="Ej. 365.00" aria-invalid={Boolean(errors.salary)} aria-describedby={errors.salary ? salaryErrorId : undefined} />
+            {errors.salary && <span className="field-error" id={salaryErrorId}>{errors.salary}</span>}
           </label>
           <div className="calculator-summary">
             <div><span>Salario base mensual</span><strong>{formatUSD(result.salary)}</strong></div>

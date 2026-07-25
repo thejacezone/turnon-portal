@@ -1,6 +1,6 @@
 export const resourceCategories = ['CV y aplicación', 'Cartas laborales', 'Entrevistas', 'Vida laboral']
 
-const make = (id, title, category, description, type = 'guía', status = 'disponible') => ({ id, title, category, description, type, status, url: '#' })
+const make = (id, title, category, description, type = 'guía', status = 'disponible') => ({ id, title, category, description, type, status })
 
 const baseResources = [
   make('cv-guia', 'Guía para hacer CV', 'CV y aplicación', 'Organizá tu experiencia y presentá la información que una persona reclutadora necesita encontrar.'),
