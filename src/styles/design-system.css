@@ -1883,6 +1883,23 @@ body:has(.test-practice-detail),
   background: var(--turnon-lime);
   border-color: var(--turnon-lime);
 }
+.resources-page .resource-card--coming-soon {
+  cursor: default;
+  opacity: .76;
+}
+.resources-page .resource-card--coming-soon:is(:hover, :focus-within) {
+  color: var(--turnon-navy);
+  background: #fff;
+  border-color: rgba(21, 92, 255, .14);
+  transform: none;
+  box-shadow: 0 18px 42px rgba(7, 21, 47, .09);
+}
+.resources-page .resource-card--coming-soon .card-button.disabled {
+  color: var(--turnon-muted);
+  background: #eef1f7;
+  border-color: #eef1f7;
+  opacity: 1;
+}
 .portal-page :is(.resource-grid .card, .community-card):is(:hover, :focus-within) :where(.card-button, .text-link) {
   color: var(--turnon-navy);
 }
