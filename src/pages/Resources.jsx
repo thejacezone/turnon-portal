@@ -13,11 +13,17 @@ export default function Resources() {
   const types = [...new Set(resources.map((resource) => resource.type))]
   const filtered = useMemo(() => resources.filter((resource) => (category === 'Todos' || resource.category === category) && (type === 'Todos' || resource.type === type) && (status === 'Todos' || resource.status === status) && `${resource.title} ${resource.description} ${resource.content}`.toLowerCase().includes(query.toLowerCase())), [query, category, type, status])
   return (
-    <>
-      <PageHeader eyebrow="Repositorio laboral" title="Recursos para aplicar con más claridad" description="Guías, plantillas y checklists para resolver momentos concretos de tu búsqueda y vida laboral." />
-      <ResourceFilters query={query} onQuery={setQuery} category={category} onCategory={setCategory} type={type} onType={setType} status={status} onStatus={setStatus} categories={resourceCategories} types={types} />
-      <p className="results-count">{filtered.length} recursos encontrados</p>
-      {filtered.length ? <section className="card-grid resource-grid">{filtered.map((resource) => <ResourceCard key={resource.id} resource={resource} />)}</section> : <EmptyState title="No encontramos recursos con estos filtros" description="Probá con otra categoría, tipo, estado o palabra de búsqueda." />}
-    </>
+    <div className="portal-page resources-page">
+      <PageHeader
+        eyebrow="TurnOn / Recursos"
+        title="Recursos para aplicar mejor"
+        description="Guías, plantillas y herramientas prácticas para preparar tu CV, entrevistas y camino laboral sin tanta vuelta."
+      />
+      <section className="page-section resources-content" aria-label="Buscar recursos">
+        <ResourceFilters query={query} onQuery={setQuery} category={category} onCategory={setCategory} type={type} onType={setType} status={status} onStatus={setStatus} categories={resourceCategories} types={types} />
+        <p className="results-count">{filtered.length} recursos encontrados</p>
+        {filtered.length ? <div className="card-grid page-grid resource-grid">{filtered.map((resource) => <ResourceCard key={resource.id} resource={resource} />)}</div> : <EmptyState title="No encontramos recursos con estos filtros" description="Probá con otra categoría, tipo, estado o palabra de búsqueda." />}
+      </section>
+    </div>
   )
 }
