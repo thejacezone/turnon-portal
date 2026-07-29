@@ -20,6 +20,7 @@
   --color-warning: #d78b2b;
   --font-heading: 'Manrope', sans-serif;
   --font-body: 'Inter', sans-serif;
+  --font-display: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -60,7 +61,7 @@ p { color: var(--color-text-muted); }
 .site-header {
   min-height: 70px;
   padding: 12px max(20px, calc((100vw - var(--container-width)) / 2));
-  background: rgba(245, 242, 233, .94);
+  background: rgba(255, 255, 255, .94);
   border-color: rgba(13, 33, 27, .1);
   box-shadow: 0 4px 18px rgba(13, 33, 27, .04);
 }
@@ -185,8 +186,8 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 }
 .madtogo-hero {
   --hero-blue: #155cff;
-  --hero-navy: #07152f;
-  --hero-muted: #5d6678;
+  --hero-navy: var(--color-primary);
+  --hero-muted: var(--color-text-muted);
   --scroll-progress: 0;
   position: relative;
   isolation: isolate;
@@ -199,27 +200,29 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   padding: clamp(36px, 5vh, 56px) clamp(44px, 6vw, 78px);
   overflow: hidden;
   background:
-    radial-gradient(circle at 76% 34%, rgba(21, 92, 255, .15), transparent 25rem),
-    radial-gradient(circle at 18% 90%, rgba(29, 210, 187, .12), transparent 22rem),
-    #f7f8fb;
+    radial-gradient(circle at 76% 34%, rgba(190, 255, 53, .18), transparent 25rem),
+    radial-gradient(circle at 18% 90%, rgba(13, 33, 27, .07), transparent 22rem),
+    var(--color-surface);
 }
 .hero-bg-text {
   position: absolute;
   z-index: 0;
   top: 50%;
   left: 50%;
-  width: min(92%, 1020px);
-  color: rgba(48, 91, 157, .075);
-  font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: clamp(7rem, 14.5vw, 13rem);
+  display: grid;
+  gap: clamp(.2rem, .6vw, .75rem);
+  width: min(88%, 960px);
+  color: rgba(13, 33, 27, .06);
+  font-family: var(--font-display);
+  font-size: clamp(6.5rem, 12vw, 11rem);
   font-weight: 400;
-  line-height: .74;
-  letter-spacing: -.035em;
+  line-height: .86;
+  letter-spacing: .01em;
   text-align: center;
   transform: translate3d(-50%, calc(-50% + var(--scroll-progress) * -22px), 0);
   user-select: none;
 }
-.hero-bg-text span { display: block; }
+.hero-bg-text span { display: block; white-space: nowrap; }
 .hero-content {
   position: relative;
   z-index: 6;
@@ -245,9 +248,11 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   max-width: none;
   margin: 0;
   color: var(--hero-navy);
+  font-family: var(--font-display);
   font-size: clamp(4.4rem, 7.2vw, 6.7rem);
-  line-height: .8;
-  letter-spacing: -.075em;
+  font-weight: 400;
+  line-height: .86;
+  letter-spacing: -.025em;
 }
 .hero-title-accent { color: var(--hero-blue); }
 .madtogo-hero .hero-tagline {
@@ -349,8 +354,8 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   margin-inline: calc(50% - 50vw);
   padding: clamp(80px, 9vw, 128px) max(24px, calc((100vw - var(--container-width)) / 2));
   background:
-    radial-gradient(circle at 12% 18%, rgba(85, 201, 107, .12), transparent 24rem),
-    #f7f8f3;
+    radial-gradient(circle at 12% 18%, rgba(190, 255, 53, .18), transparent 24rem),
+    var(--color-background);
 }
 .objectives-header {
   max-width: 850px;
@@ -368,7 +373,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 .objectives-title {
   margin: 16px 0 18px;
   color: var(--hero-navy, #07152f);
-  font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(3.8rem, 7vw, 6.8rem);
   font-weight: 400;
   line-height: .95;
@@ -481,7 +486,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 .skills-tests-title {
   margin: 16px 0 18px;
   color: #07152f;
-  font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(3.8rem, 7vw, 6.8rem);
   font-weight: 400;
   line-height: .95;
@@ -2238,6 +2243,7 @@ body:has(.test-practice-detail),
 @media (max-width: 1024px) {
   .madtogo-hero { min-height: calc(100vh - 70px); min-height: calc(100svh - 70px); grid-template-columns: minmax(0, .9fr) minmax(390px, 1.1fr); padding: 48px 42px; }
   .madtogo-hero .hero-title { font-size: clamp(4rem, 8vw, 5.4rem); }
+  .hero-bg-text { width: min(90%, 860px); font-size: clamp(6rem, 12vw, 9rem); }
   .hero-visual { min-height: clamp(500px, calc(100svh - 210px), 590px); }
   .hero-madtogo { right: -20%; width: min(650px, 130%); }
   .feather-1 { left: -4%; }
@@ -2330,7 +2336,7 @@ body:has(.test-practice-detail),
   .portal-hero { min-height: auto; padding: var(--space-6) 0; }
   .portal-hero h1 { font-size: clamp(2.7rem, 13vw, 4.3rem); }
   .madtogo-hero { min-height: max(calc(100svh - 64px), 980px); grid-template-columns: 1fr; gap: 0; margin-top: 0; padding: 40px 24px 24px; }
-  .hero-bg-text { top: 49%; width: 100%; color: rgba(48, 91, 157, .06); font-size: clamp(6.8rem, 31vw, 10rem); }
+  .hero-bg-text { top: 52%; gap: .12em; width: calc(100% - 24px); color: rgba(13, 33, 27, .05); font-size: clamp(5.2rem, 24vw, 7.8rem); line-height: .9; letter-spacing: 0; }
   .hero-content { align-self: start; }
   .madtogo-hero .hero-title { font-size: clamp(3.7rem, 17vw, 5.25rem); }
   .madtogo-hero .hero-tagline { margin-top: 24px; }
@@ -2388,6 +2394,7 @@ body:has(.test-practice-detail),
   .card, .resource-tools, .practice-filters, .reading-filters { padding: 18px; }
   .madtogo-hero { min-height: max(100svh, 960px); padding-inline: 18px; }
   .madtogo-hero .hero-title { font-size: clamp(3.35rem, 17vw, 4.2rem); }
+  .hero-bg-text { font-size: clamp(4.8rem, 23vw, 5.6rem); line-height: .92; }
   .hero-actions { grid-template-columns: 1fr; }
   .hero-visual { min-height: 480px; }
   .hero-card { width: 205px; padding: 17px; }
