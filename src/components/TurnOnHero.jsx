@@ -65,15 +65,9 @@ export default function TurnOnHero() {
           <img className="hero-madtogo" src="/assets/characters/madtogo-joven.png" alt="MadTogo joven volando con energía" />
         </div>
 
-        <article className="hero-card">
-          <div className="hero-card-heading">
-            <span className="hero-card-icon" aria-hidden="true">✦</span>
-            <span>TurnOn / test</span>
-          </div>
-          <h2>Tests adaptativos</h2>
-          <p>A tu nivel, en tiempo real.</p>
-          <div className="hero-card-progress" aria-hidden="true"><span /></div>
-        </article>
+        <span className="hero-feature-feather" aria-hidden="true">
+          <img src="/assets/feathers/feather2.png" alt="" />
+        </span>
 
         <div className="madtogo-signoff">
           <span>Con la energía de</span>

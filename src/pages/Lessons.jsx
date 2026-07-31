@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import PageHeader from '../components/PageHeader.jsx'
 import LessonGroupAccordion from '../components/lessons/LessonGroupAccordion.jsx'
 import { grammarLessons } from '../data/grammarLessons.js'
 import '../styles/grammar-lessons.css'
@@ -47,18 +48,18 @@ export default function Lessons() {
   }
 
   return (
-    <div className="lessons-page lessons-map-page">
-      <section className="lessons-map-hero" aria-labelledby="lessons-map-title">
-        <div className="lessons-map-hero-inner">
-          <span className="lessons-eyebrow">TURNON LESSONS</span>
-          <h1 id="lessons-map-title">Lesson map</h1>
-          <p>Elegí tu nivel, revisá las lecciones disponibles y estudiá cada tema antes de ponerlo en práctica.</p>
-          <div className="lessons-map-facts" aria-label="Información del Lesson map">
-            <span>38 lessons</span>
-            <span>A2 to C1</span>
-          </div>
+    <div className="portal-page lessons-page lessons-map-page">
+      <PageHeader
+        className="lessons-page-hero"
+        eyebrow="TURNON LESSONS"
+        title="Lesson map"
+        description="Elegí tu nivel, revisá las lecciones disponibles y estudiá cada tema antes de ponerlo en práctica."
+      >
+        <div className="lessons-map-facts" aria-label="Información del Lesson map">
+          <span>38 lessons</span>
+          <span>A2 to C1</span>
         </div>
-      </section>
+      </PageHeader>
 
       <section className="lessons-map-section" aria-labelledby="lessons-levels-title">
         <h2 className="sr-only" id="lessons-levels-title">Niveles del Lesson map</h2>

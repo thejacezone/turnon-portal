@@ -323,26 +323,22 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 .feather-2 img { animation-delay: -1.8s; }
 .feather-3 img { animation-delay: -3.4s; }
 .feather-4 img { animation-delay: -5.1s; }
-.hero-card {
+.hero-feature-feather {
   position: absolute;
   z-index: 7;
   top: 16%;
   left: -7%;
-  width: min(245px, 48%);
-  padding: 20px;
-  border: 1px solid rgba(7, 21, 47, .09);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, .94);
-  box-shadow: 0 20px 45px rgba(7, 21, 47, .14);
-  backdrop-filter: blur(10px);
-  animation: cardFloat 5.5s ease-in-out infinite;
+  width: clamp(130px, 15vw, 190px);
+  transform: translate3d(0, calc(var(--scroll-progress) * -54px), 0);
+  pointer-events: none;
 }
-.hero-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--hero-muted); font-size: .67rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.hero-card-icon { display: grid; place-items: center; width: 34px; height: 34px; color: #fff; background: var(--hero-blue); border-radius: 50%; font-size: 1rem; }
-.hero-card h2 { margin: 18px 0 6px; color: var(--hero-navy); font-size: 1.25rem; letter-spacing: -.04em; }
-.hero-card p { margin: 0; color: var(--hero-muted); font-size: .88rem; }
-.hero-card-progress { height: 7px; margin-top: 18px; overflow: hidden; border-radius: 999px; background: #e8ecf5; }
-.hero-card-progress span { display: block; width: 74%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--hero-blue), #29cdbb); }
+.hero-feature-feather img {
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 18px 22px rgba(7, 21, 47, .13));
+  transform: rotate(-22deg);
+  animation: featureFeatherFloat 6.5s ease-in-out infinite;
+}
 .madtogo-signoff {
   position: absolute;
   z-index: 7;
@@ -359,7 +355,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 
 @keyframes madtogoFloat { 50% { transform: translate3d(0, -13px, 0) rotate(1.5deg); } }
 @keyframes featherDrift { 50% { transform: translate3d(0, -12px, 0) rotate(calc(var(--feather-rotate, 0deg) + 7deg)); } }
-@keyframes cardFloat { 50% { transform: translate3d(0, -9px, 0) rotate(-1deg); } }
+@keyframes featureFeatherFloat { 50% { transform: translate3d(0, -11px, 0) rotate(-15deg); } }
 @keyframes heroButtonFloat { 50% { transform: translate3d(0, -3px, 0); } }
 .objectives-section {
   width: 100vw;
@@ -384,7 +380,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 }
 .objectives-title {
   margin: 16px 0 18px;
-  color: var(--hero-navy, #07152f);
+  color: #155cff;
   font-family: var(--font-display);
   font-size: clamp(3.8rem, 7vw, 6.8rem);
   font-weight: 400;
@@ -414,9 +410,9 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   gap: 36px;
   padding: clamp(30px, 3.2vw, 44px);
   overflow: hidden;
-  color: #07152f;
-  background: #55c96b;
-  border: 1px solid rgba(7, 21, 47, .1);
+  color: #fff;
+  background: #237241;
+  border: 1px solid rgba(255, 255, 255, .2);
   border-radius: 30px;
   box-shadow: 0 18px 40px rgba(35, 114, 65, .14);
   text-decoration: none;
@@ -439,8 +435,8 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   height: 58px;
   display: grid;
   place-items: center;
-  color: #07152f;
-  background: rgba(255, 255, 255, .58);
+  color: #fff;
+  background: rgba(255, 255, 255, .16);
   border-radius: 18px;
 }
 .objective-card-icon .skill-icon { color: inherit; background: transparent; }
@@ -452,6 +448,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 }
 .objective-card-title {
   max-width: 300px;
+  color: inherit;
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 2.4vw, 2.45rem);
   line-height: 1.02;
@@ -459,7 +456,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 }
 .objective-card-description {
   max-width: 310px;
-  color: rgba(7, 21, 47, .76);
+  color: rgba(255, 255, 255, .88);
   font-size: 1.04rem;
   line-height: 1.55;
 }
@@ -470,11 +467,18 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   right: clamp(30px, 3.2vw, 44px);
   font-size: 1.55rem;
   font-weight: 800;
+  color: inherit;
 }
-.objective-card:hover {
+.objective-card:hover,
+.objective-card:focus-visible {
   transform: translateY(-6px);
-  background: #60d176;
-  box-shadow: 0 28px 56px rgba(35, 114, 65, .22);
+  color: #fff;
+  background: #195b33;
+  box-shadow: 0 28px 56px rgba(7, 21, 47, .22);
+}
+.objective-card:focus-visible {
+  outline: 4px solid #155cff;
+  outline-offset: 4px;
 }
 .skills-tests-section {
   width: 100vw;
@@ -2347,6 +2351,7 @@ body:has(.test-practice-detail),
   .hero-bg-text { width: min(90%, 860px); font-size: clamp(6rem, 12vw, 9rem); }
   .hero-visual { min-height: clamp(500px, calc(100svh - 210px), 590px); }
   .hero-madtogo { right: -20%; width: min(650px, 130%); }
+  .hero-feature-feather { left: -40%; width: 120px; }
   .feather-1 { left: -4%; }
   .feather-2 { bottom: 8%; left: 34%; }
   .feather-3 { right: 18%; bottom: 20%; }
@@ -2445,7 +2450,7 @@ body:has(.test-practice-detail),
   .madtogo-hero .hero-btn { width: 100%; min-width: 0; }
   .hero-visual { min-height: 520px; }
   .hero-madtogo { right: auto; bottom: -5%; left: 50%; width: min(560px, 124vw); translate: -50% 0; }
-  .hero-card { top: auto; bottom: 4%; left: 0; width: min(220px, 58%); }
+  .hero-feature-feather { display: none; }
   .madtogo-signoff { right: 0; bottom: 1%; }
   .feather-1 { --feather-size: 88px; top: 45%; left: -10%; opacity: .72; }
   .feather-2 { --feather-size: 72px; top: 53%; bottom: auto; left: 6%; }
@@ -2498,7 +2503,7 @@ body:has(.test-practice-detail),
   .hero-bg-text { font-size: clamp(4.8rem, 23vw, 5.6rem); line-height: .92; }
   .hero-actions { grid-template-columns: 1fr; }
   .hero-visual { min-height: 480px; }
-  .hero-card { width: 205px; padding: 17px; }
+  .hero-feature-feather { display: none; }
   .feather-4 { display: none; }
 }
 
@@ -2681,11 +2686,12 @@ body:has(.test-practice-detail),
   .home-tool-card:hover,
   .home-tool-card:focus-within { transform: none; }
   .hero-character-layer,
-  .hero-feather { transform: none; }
+  .hero-feather,
+  .hero-feature-feather { transform: none; }
   .hero-bg-text { transform: translate3d(-50%, -50%, 0); }
   .hero-madtogo,
   .hero-feather img,
-  .hero-card,
+  .hero-feature-feather img,
   .madtogo-hero .hero-btn,
   .page-hero-feather { animation: none; }
 }

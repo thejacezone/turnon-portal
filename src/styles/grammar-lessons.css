@@ -19,38 +19,6 @@
   text-transform: uppercase;
 }
 
-.lessons-map-hero {
-  display: grid;
-  min-height: 440px;
-  place-items: center;
-  padding: clamp(64px, 8vw, 96px) 20px;
-  text-align: center;
-  background: #fff;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.lessons-map-hero-inner {
-  width: min(100%, 940px);
-}
-
-.lessons-map-hero h1 {
-  margin: 14px 0 18px;
-  color: var(--lessons-navy);
-  font-family: var(--font-display);
-  font-size: clamp(4.4rem, 10vw, 8rem);
-  font-weight: 400;
-  line-height: .9;
-  letter-spacing: -.025em;
-}
-
-.lessons-map-hero p {
-  max-width: 720px;
-  margin: 0 auto;
-  color: var(--color-text-muted);
-  font-size: clamp(1rem, 1.7vw, 1.22rem);
-  line-height: 1.7;
-}
-
 .lessons-map-facts {
   display: flex;
   flex-wrap: wrap;
@@ -892,15 +860,6 @@
 }
 
 @media (max-width: 720px) {
-  .lessons-map-hero {
-    min-height: 330px;
-    padding-block: 48px;
-  }
-
-  .lessons-map-hero h1 {
-    font-size: clamp(4rem, 22vw, 6rem);
-  }
-
   .lessons-map-section {
     padding-inline: 14px;
   }

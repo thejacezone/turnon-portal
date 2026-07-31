@@ -1,8 +1,8 @@
 const feathers = [1, 2, 3, 4]
 
-export default function PageHeader({ eyebrow, title, description }) {
+export default function PageHeader({ children, className = '', eyebrow, title, description }) {
   return (
-    <header className="page-hero" aria-labelledby="page-hero-title">
+    <header className={className ? `page-hero ${className}` : 'page-hero'} aria-labelledby="page-hero-title">
       {feathers.map((number) => (
         <img
           className={`page-hero-feather page-hero-feather--${number}`}
@@ -16,6 +16,7 @@ export default function PageHeader({ eyebrow, title, description }) {
         <span className="page-hero-eyebrow">{eyebrow}</span>
         <h1 className="page-hero-title" id="page-hero-title">{title}</h1>
         <p className="page-hero-subtitle">{description}</p>
+        {children}
       </div>
     </header>
   )
