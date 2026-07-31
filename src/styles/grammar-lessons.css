@@ -1,11 +1,11 @@
 .lessons-page {
   --lessons-blue: #155cff;
   --lessons-blue-hover: #0d48d4;
-  --lessons-orange: #f4a044;
+  --lessons-orange: #ee7c32;
   min-width: 0;
   overflow-x: clip;
   color: var(--color-primary);
-  background: var(--color-surface);
+  background: var(--page-background);
 }
 
 .lessons-eyebrow {
@@ -23,10 +23,7 @@
   place-items: center;
   padding: clamp(56px, 7vw, 88px) 20px;
   text-align: center;
-  background:
-    radial-gradient(circle at 14% 25%, rgba(190, 255, 53, .3), transparent 25rem),
-    radial-gradient(circle at 88% 12%, rgba(21, 92, 255, .1), transparent 26rem),
-    linear-gradient(180deg, #fff, #f8faf4);
+  background: var(--page-background);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -74,7 +71,7 @@
 
 .lessons-map-section {
   padding: clamp(54px, 7vw, 96px) 20px clamp(72px, 9vw, 124px);
-  background: var(--color-background);
+  background: var(--page-background);
 }
 
 .lesson-group-stack {
@@ -278,14 +275,12 @@
 }
 
 .lesson-detail-page {
-  background: #fff;
+  background: var(--page-background);
 }
 
 .lesson-detail-header {
   padding: clamp(38px, 6vw, 72px) 20px clamp(42px, 6vw, 72px);
-  background:
-    radial-gradient(circle at 88% 20%, rgba(190, 255, 53, .26), transparent 25rem),
-    linear-gradient(180deg, #fff, #f8faf4);
+  background: var(--page-background);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -350,17 +345,20 @@
   position: sticky;
   top: 92px;
   padding: 20px;
-  background: var(--color-surface-soft);
-  border: 1px solid var(--color-border);
+  color: #fff;
+  background: var(--lessons-blue);
+  border: 1px solid rgba(255, 255, 255, .22);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 18px 42px rgba(21, 92, 255, .2);
 }
 
 .lesson-detail-sidebar > strong {
   display: block;
   margin: 2px 4px 16px;
+  color: #fff;
   font-family: var(--font-heading);
   font-size: 1.08rem;
+  font-weight: 850;
 }
 
 .lesson-index-links {
@@ -372,7 +370,7 @@
   width: 100%;
   min-height: 42px;
   padding: 10px 12px;
-  color: var(--color-text-muted);
+  color: #fff;
   font: 750 .88rem/1.25 var(--font-body);
   text-align: left;
   background: transparent;
@@ -384,19 +382,21 @@
 
 .lesson-index-links button:hover {
   color: var(--color-primary);
-  border-color: var(--color-border);
+  background: var(--lessons-orange);
+  border-color: var(--lessons-orange);
 }
 
 .lesson-index-links button.is-active {
-  color: #fff;
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  font-weight: 850;
 }
 
 .lesson-index-links button.is-active::before {
   content: '●';
   margin-right: 7px;
-  color: var(--color-accent);
+  color: var(--lessons-blue);
   font-size: .68rem;
 }
 
@@ -676,16 +676,17 @@
   .lesson-mobile-index {
     display: block;
     margin-bottom: 42px;
-    background: var(--color-surface-soft);
-    border: 1px solid var(--color-border);
+    color: #fff;
+    background: var(--lessons-blue);
+    border: 1px solid rgba(255, 255, 255, .22);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 18px 42px rgba(21, 92, 255, .2);
   }
 
   .lesson-mobile-index summary {
     min-height: 56px;
     padding: 17px 20px;
-    color: var(--color-primary);
+    color: #fff;
     font-weight: 850;
     cursor: pointer;
   }

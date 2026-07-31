@@ -4,7 +4,8 @@
   --color-primary: #0d211b;
   --color-primary-soft: #18382f;
   --color-accent: #beff35;
-  --color-background: #f5f2e9;
+  --page-background: #ffffff;
+  --color-background: var(--page-background);
   --color-surface: #ffffff;
   --color-surface-soft: #faf8f1;
   --color-text: #0d211b;
@@ -40,9 +41,7 @@
 html { scroll-padding-top: 88px; }
 body {
   color: var(--color-text);
-  background:
-    radial-gradient(circle at 8% 4%, rgba(190, 255, 53, .14), transparent 25rem),
-    var(--color-background);
+  background: var(--page-background);
   font-family: var(--font-body);
 }
 button, input, select, textarea { font: inherit; }
@@ -53,6 +52,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 main { width: calc(100% - 40px); max-width: var(--container-width); min-width: 0; }
+:where(
+  .portal-page,
+  .test-page,
+  .internal-test-page,
+  .test-practice-detail,
+  .detail-page,
+  .not-found-page,
+  .lesson-not-found
+) {
+  background: var(--page-background);
+}
 h1, h2, h3 { color: var(--color-primary); font-family: var(--font-heading); }
 h1 { font-size: clamp(2.7rem, 7vw, 5.7rem); }
 h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
@@ -199,10 +209,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   margin-top: 0;
   padding: clamp(36px, 5vh, 56px) clamp(44px, 6vw, 78px);
   overflow: hidden;
-  background:
-    radial-gradient(circle at 76% 34%, rgba(190, 255, 53, .18), transparent 25rem),
-    radial-gradient(circle at 18% 90%, rgba(13, 33, 27, .07), transparent 22rem),
-    var(--color-surface);
+  background: var(--page-background);
 }
 .hero-bg-text {
   position: absolute;
@@ -353,9 +360,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   padding: clamp(80px, 9vw, 128px) max(24px, calc((100vw - var(--container-width)) / 2));
-  background:
-    radial-gradient(circle at 12% 18%, rgba(190, 255, 53, .18), transparent 24rem),
-    var(--color-background);
+  background: var(--page-background);
 }
 .objectives-header {
   max-width: 850px;
@@ -468,7 +473,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   padding: clamp(88px, 9vw, 132px) max(24px, calc((100vw - var(--container-width)) / 2));
-  background: #fff;
+  background: var(--page-background);
 }
 .skills-tests-header {
   max-width: 900px;
@@ -634,9 +639,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   margin-inline: calc(50% - 50vw);
   padding: 72px max(24px, calc((100vw - var(--container-width)) / 2)) 56px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 110%, rgba(21, 92, 255, .08), transparent 34rem),
-    #fff;
+  background: var(--page-background);
 }
 .work-test-page-hero-inner {
   position: relative;
@@ -687,7 +690,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   padding: clamp(76px, 8vw, 116px) max(24px, calc((100vw - var(--container-width)) / 2));
-  background: #eef3ff;
+  background: var(--page-background);
 }
 .work-test-cards-grid {
   display: grid;
@@ -819,7 +822,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   color: #07152f;
-  background: var(--color-accent);
+  background: var(--page-background);
 }
 .skills-practice-inner {
   width: 100%;
@@ -952,11 +955,11 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 .section-general-test { margin: var(--space-4) 0 var(--space-6); overflow: hidden; }
 
 body:has(.internal-test-page),
-.app-shell:has(.internal-test-page) { background: #fff; }
+.app-shell:has(.internal-test-page) { background: var(--page-background); }
 .app-shell:has(.internal-test-page) { overflow-x: clip; }
 .internal-test-page { --turnon-orange: #ff9f1c; }
 .typing-test-portal-page.internal-test-page { padding-top: 0; }
-.typing-test-portal-page.internal-test-page .turnon-typing-test { background: #fff; }
+.typing-test-portal-page.internal-test-page .turnon-typing-test { background: var(--page-background); }
 .typing-test-portal-page .typing-test-portal-links { margin-top: 32px; }
 #typing-test-setup { scroll-margin-top: 88px; }
 
@@ -973,7 +976,7 @@ body:has(.internal-test-page),
   margin-inline: calc(50% - 50vw);
   padding: 88px max(24px, calc((100vw - 1180px) / 2)) 64px;
   color: #07152f;
-  background: #fff;
+  background: var(--page-background);
   text-align: center;
 }
 .test-hero-inner {
@@ -1073,7 +1076,7 @@ body:has(.internal-test-page),
 }
 body:has(.test-practice-detail),
 .app-shell:has(.test-practice-detail) {
-  background: #fff;
+  background: var(--page-background);
 }
 .app-shell:has(.test-practice-detail) {
   overflow-x: clip;
@@ -1680,7 +1683,7 @@ body:has(.test-practice-detail),
 }
 .app-shell:has(.portal-page) {
   overflow-x: clip;
-  background: #fff;
+  background: var(--page-background);
 }
 .page-hero {
   position: relative;
@@ -1693,9 +1696,7 @@ body:has(.test-practice-detail),
   padding: 72px max(24px, calc((100vw - var(--container-width)) / 2)) 56px;
   overflow: hidden;
   text-align: center;
-  background:
-    radial-gradient(circle at 50% 110%, rgba(21, 92, 255, .08), transparent 34rem),
-    #fff;
+  background: var(--page-background);
 }
 .page-hero-inner {
   position: relative;
