@@ -13,7 +13,7 @@ export default function SetupScreen({
     <section className="setup-screen" aria-labelledby="page-title">
       <div className="intro-panel">
         <p className="eyebrow">English typing practice</p>
-        <h1 id="page-title">English Typing Test</h1>
+        <h1 id="page-title">Typing test laboral</h1>
         <p className="lead">
           Practice typing professional English with official TurnOn reference texts. Choose a
           difficulty, choose a duration, and begin when you type the first character.

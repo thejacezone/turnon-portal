@@ -571,6 +571,25 @@
   color: #fff;
   background: var(--blue);
 }
+.turnon-typing-test .intro-panel {
+  color: var(--ink);
+  background: var(--yellow);
+  box-shadow: 0 24px 54px rgba(71, 116, 0, .2);
+}
+.turnon-typing-test .intro-panel h1,
+.turnon-typing-test .intro-panel .lead,
+.turnon-typing-test .intro-panel .eyebrow,
+.turnon-typing-test .intro-panel .typing-wpm-copy {
+  color: var(--ink);
+}
+.turnon-typing-test .intro-panel .eyebrow {
+  color: var(--blue);
+}
+.turnon-typing-test .intro-panel .notice {
+  color: var(--ink);
+  background: rgba(255, 255, 255, .58);
+  border-left-color: var(--blue);
+}
 .turnon-typing-test :where(.intro-panel, .test-topbar, .results-screen) h1 {
   font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight: 400;

@@ -4,6 +4,8 @@
   --color-primary: #0d211b;
   --color-primary-soft: #18382f;
   --color-accent: #beff35;
+  --turnon-blue: #155cff;
+  --turnon-orange: #ee7c32;
   --page-background: #ffffff;
   --color-background: var(--page-background);
   --color-surface: #ffffff;
@@ -209,7 +211,10 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   margin-top: 0;
   padding: clamp(36px, 5vh, 56px) clamp(44px, 6vw, 78px);
   overflow: hidden;
-  background: var(--page-background);
+  background:
+    radial-gradient(circle at 76% 34%, rgba(190, 255, 53, .18), transparent 25rem),
+    radial-gradient(circle at 18% 90%, rgba(13, 33, 27, .07), transparent 22rem),
+    var(--page-background);
 }
 .hero-bg-text {
   position: absolute;
@@ -360,7 +365,9 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   padding: clamp(80px, 9vw, 128px) max(24px, calc((100vw - var(--container-width)) / 2));
-  background: var(--page-background);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(190, 255, 53, .18), transparent 24rem),
+    var(--page-background);
 }
 .objectives-header {
   max-width: 850px;
@@ -639,7 +646,9 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   margin-inline: calc(50% - 50vw);
   padding: 72px max(24px, calc((100vw - var(--container-width)) / 2)) 56px;
   overflow: hidden;
-  background: var(--page-background);
+  background:
+    radial-gradient(circle at 50% 110%, rgba(21, 92, 255, .08), transparent 34rem),
+    var(--page-background);
 }
 .work-test-page-hero-inner {
   position: relative;
@@ -822,7 +831,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   color: #07152f;
-  background: var(--page-background);
+  background: var(--color-accent);
 }
 .skills-practice-inner {
   width: 100%;
@@ -1696,7 +1705,9 @@ body:has(.test-practice-detail),
   padding: 72px max(24px, calc((100vw - var(--container-width)) / 2)) 56px;
   overflow: hidden;
   text-align: center;
-  background: var(--page-background);
+  background:
+    radial-gradient(circle at 50% 110%, rgba(21, 92, 255, .08), transparent 34rem),
+    var(--page-background);
 }
 .page-hero-inner {
   position: relative;

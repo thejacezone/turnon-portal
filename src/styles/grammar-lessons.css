@@ -23,7 +23,10 @@
   place-items: center;
   padding: clamp(56px, 7vw, 88px) 20px;
   text-align: center;
-  background: var(--page-background);
+  background:
+    radial-gradient(circle at 14% 25%, rgba(190, 255, 53, .3), transparent 25rem),
+    radial-gradient(circle at 88% 12%, rgba(21, 92, 255, .1), transparent 26rem),
+    var(--page-background);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -280,7 +283,9 @@
 
 .lesson-detail-header {
   padding: clamp(38px, 6vw, 72px) 20px clamp(42px, 6vw, 72px);
-  background: var(--page-background);
+  background:
+    radial-gradient(circle at 88% 20%, rgba(190, 255, 53, .26), transparent 25rem),
+    var(--page-background);
   border-bottom: 1px solid var(--color-border);
 }
 
