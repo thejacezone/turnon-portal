@@ -76,11 +76,14 @@ Todas las lecciones contienen `The key idea`, introducción, cinco secciones (`H
 
 - Datos creados: `src/data/grammarLessons.js`
 - Utilidad creada: `src/utils/grammarTopics.js`
-- Componentes reutilizados en la página independiente:
-  - `src/components/grammar/GrammarLessons.jsx`
-  - `src/components/grammar/GrammarLessonContent.jsx`
-- Página independiente: `src/pages/Lessons.jsx`
-- Ruta principal: `#/lessons`
+- Componentes reutilizables:
+  - `src/components/lessons/LessonGroupAccordion.jsx`
+  - `src/components/lessons/LessonSidebar.jsx`
+  - `src/components/lessons/LessonContent.jsx`
+  - `src/components/lessons/LessonNavigation.jsx`
+- Lesson Map: `src/pages/Lessons.jsx`
+- Plantilla dinámica: `src/pages/LessonDetail.jsx`
+- Rutas: `#/lessons` y `#/lessons/:lessonSlug`
 - Estilos aislados: `src/styles/grammar-lessons.css`
 
 Grammar Practice fue restaurado a su versión anterior a la integración de Lessons. `SectionGeneralTest` también recuperó su interfaz original y no conserva props exclusivas de la implementación con tabs.

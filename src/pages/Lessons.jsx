@@ -1,71 +1,77 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import GrammarLessons from '../components/grammar/GrammarLessons.jsx'
-import PageHeader from '../components/PageHeader.jsx'
+import { useMemo, useState } from 'react'
+import LessonGroupAccordion from '../components/lessons/LessonGroupAccordion.jsx'
 import { grammarLessons } from '../data/grammarLessons.js'
-import { grammarPracticeQuestions } from '../data/grammarPracticeQuestions.js'
-import { createGrammarTopicId } from '../utils/grammarTopics.js'
 import '../styles/grammar-lessons.css'
 
+const groupDefinitions = [
+  {
+    id: 'foundation',
+    number: '/001',
+    category: 'Foundation',
+    level: 'A2–B1',
+    description: 'Construí las bases para formar oraciones y usar los tiempos esenciales.',
+  },
+  {
+    id: 'intermediate',
+    number: '/002',
+    category: 'Intermediate',
+    level: 'B1–B2',
+    description: 'Conectá ideas y dominá estructuras para comunicarte con más precisión.',
+  },
+  {
+    id: 'advanced',
+    number: '/003',
+    category: 'Advanced',
+    level: 'B2–C1',
+    description: 'Refiná estructuras complejas para escribir y expresarte con mayor control.',
+  },
+]
+
 export default function Lessons() {
-  const navigate = useNavigate()
-  const [selectedLessonId, setSelectedLessonId] = useState(grammarLessons[0]?.id || '')
-  const availableTopicIds = useMemo(
-    () => [...new Set(grammarPracticeQuestions.map((question) => createGrammarTopicId(question.topic)))],
+  const [openGroups, setOpenGroups] = useState(['foundation'])
+  const lessonGroups = useMemo(
+    () => groupDefinitions.map((group) => ({
+      ...group,
+      lessons: grammarLessons.filter((lesson) => lesson.category.toLowerCase() === group.id),
+    })),
     [],
   )
 
-  useEffect(() => {
-    if (!import.meta.env.DEV) return
-
-    const ids = grammarLessons.map((lesson) => lesson.id)
-    const slugs = grammarLessons.map((lesson) => lesson.slug)
-    const validTopicIds = new Set(availableTopicIds)
-    const errors = []
-
-    if (new Set(ids).size !== ids.length) errors.push('Lesson IDs must be unique.')
-    if (new Set(slugs).size !== slugs.length) errors.push('Lesson slugs must be unique.')
-
-    grammarLessons.forEach((lesson) => {
-      if (!lesson.title || !lesson.shortDescription || !lesson.sections.length) {
-        errors.push(`Incomplete lesson: ${lesson.id}`)
-      }
-      if (lesson.primaryPracticeTopicId && !validTopicIds.has(lesson.primaryPracticeTopicId)) {
-        errors.push(`Unknown practice topic: ${lesson.primaryPracticeTopicId}`)
-      }
-    })
-
-    if (errors.length) console.error('Lessons data validation:', errors)
-  }, [availableTopicIds])
-
-  const selectLesson = (lessonId) => {
-    setSelectedLessonId(lessonId)
-    window.requestAnimationFrame(() => {
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      document.querySelector('#grammar-lesson-content')?.scrollIntoView({
-        behavior: reduceMotion ? 'auto' : 'smooth',
-        block: 'start',
-      })
-    })
+  const toggleGroup = (groupId) => {
+    setOpenGroups((current) => (
+      current.includes(groupId)
+        ? current.filter((id) => id !== groupId)
+        : [...current, groupId]
+    ))
   }
 
   return (
-    <div className="portal-page lessons-page">
-      <div className="lessons-back-row">
-        <Link className="back-link" to="/">← Volver al inicio</Link>
-      </div>
-      <PageHeader
-        eyebrow="TURNON LESSONS"
-        title="Lessons"
-        description="Estudiá la teoría, revisá ejemplos y entendé cada tema antes de ponerlo en práctica."
-      />
-      <GrammarLessons
-        availableTopicIds={availableTopicIds}
-        lessons={grammarLessons}
-        onPractice={() => navigate('/work-english-test/grammar-practice')}
-        onSelect={selectLesson}
-        selectedLessonId={selectedLessonId}
-      />
+    <div className="lessons-page lessons-map-page">
+      <section className="lessons-map-hero" aria-labelledby="lessons-map-title">
+        <div className="lessons-map-hero-inner">
+          <span className="lessons-eyebrow">TURNON LESSONS</span>
+          <h1 id="lessons-map-title">Lesson map</h1>
+          <p>Elegí tu nivel, revisá las lecciones disponibles y estudiá cada tema antes de ponerlo en práctica.</p>
+          <div className="lessons-map-facts" aria-label="Información del Lesson map">
+            <span>38 lessons</span>
+            <span>A2 to C1</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="lessons-map-section" aria-labelledby="lessons-levels-title">
+        <h2 className="sr-only" id="lessons-levels-title">Niveles del Lesson map</h2>
+        <div className="lesson-group-stack">
+          {lessonGroups.map((group) => (
+            <LessonGroupAccordion
+              group={group}
+              isOpen={openGroups.includes(group.id)}
+              key={group.id}
+              onToggle={() => toggleGroup(group.id)}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

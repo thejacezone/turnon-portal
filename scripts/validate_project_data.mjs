@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { communityLinks } from '../src/data/communityLinks.js'
 import { englishPractice } from '../src/data/englishPractice.js'
 import { generalEnglishTestQuestions } from '../src/data/generalEnglishTestQuestions.js'
+import { grammarLessons } from '../src/data/grammarLessons.js'
 import { grammarPracticeQuestions } from '../src/data/grammarPracticeQuestions.js'
 import { listeningPracticeItems } from '../src/data/listeningPracticeItems.js'
 import { offers } from '../src/data/offers.js'
@@ -115,6 +116,21 @@ check(Object.keys(grammarTopics).length === 10, 'Grammar Practice contains 10 to
 check(Object.values(grammarTopics).every((count) => count === 40), 'Every Grammar Practice topic contains 40 questions')
 check(unique(grammarPracticeQuestions.map((question) => question.id)), 'Grammar Practice IDs are unique')
 check(grammarPracticeQuestions.every(validQuestion), 'Grammar Practice questions have valid options, answers and explanations')
+
+const lessonsByCategory = grammarLessons.reduce((counts, lesson) => {
+  counts[lesson.category] = (counts[lesson.category] || 0) + 1
+  return counts
+}, {})
+check(grammarLessons.length === 38, 'Lessons contains 38 lessons')
+check(lessonsByCategory.Foundation === 12, 'Lessons contains 12 Foundation lessons')
+check(lessonsByCategory.Intermediate === 14, 'Lessons contains 14 Intermediate lessons')
+check(lessonsByCategory.Advanced === 12, 'Lessons contains 12 Advanced lessons')
+check(unique(grammarLessons.map((lesson) => lesson.id)), 'Lesson IDs are unique')
+check(unique(grammarLessons.map((lesson) => lesson.slug)), 'Lesson slugs are unique')
+check(
+  grammarLessons.every((lesson) => lesson.title && lesson.shortDescription && lesson.introduction.length && lesson.sections.length && lesson.quickRecap.length),
+  'Every lesson contains its required theory sections',
+)
 
 const vocabularyValidation = validateWorkVocabularyModules(workVocabularyModules)
 const vocabularyTerms = workVocabularyModules.flatMap((module) => module.terms)

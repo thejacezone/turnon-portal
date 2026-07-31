@@ -136,20 +136,24 @@ Grammar Practice no usa `localStorage`; todo el estado del intento vive únicame
 
 Lessons es una página principal independiente del portal y aparece en el navbar entre Work English Test y Recursos:
 
-- Ruta: `#/lessons`
+- Lesson Map: `#/lessons`
+- Ruta individual: `#/lessons/:lessonSlug`
 - Fuente: `fase_3_5_grammar_lessons_theory.docx`
 - Datos locales: `src/data/grammarLessons.js`
-- Lecciones: 38, organizadas en Foundation, Intermediate y Advanced
+- Foundation: 12 lecciones, A2–B1
+- Intermediate: 14 lecciones, B1–B2
+- Advanced: 12 lecciones, B2–C1
+- Total: 38 lecciones
 
 El documento Word se procesa únicamente durante desarrollo. La aplicación publicada no consulta el DOCX ni contiene su ruta local; React utiliza el archivo estático `src/data/grammarLessons.js`.
 
 Cada lección conserva la explicación, estructuras, listas, ejemplos, comparaciones, errores comunes y recapitulación del documento. Las relaciones con Grammar Practice usan IDs normalizados derivados de los diez temas activos, no textos visuales sueltos.
 
-La página permite elegir una lección, consultar su índice interno y navegar a la lección anterior o siguiente. El botón `Practicar este tema` dirige a `#/work-english-test/grammar-practice`, donde el usuario elige el tema sin insertar Lessons dentro de la práctica.
+El Lesson Map presenta tres accordions accesibles con enlaces a cada slug. Una sola plantilla dinámica renderiza la lección abierta, su índice lateral, el índice móvil desplegable, las secciones reales del documento y la navegación anterior/siguiente. Al final también permite regresar al Lesson Map o ir a `#/work-english-test`.
 
 Grammar Practice volvió a su estructura original sin tabs ni teoría integrada. Vocabulary Practice conserva sus módulos, lista de estudio, flashcards y mini examen, y no incluye Lessons.
 
-El estado de la lección seleccionada vive únicamente en memoria de React. Lessons no usa `localStorage`, `sessionStorage`, cookies, backend, Supabase ni Firebase.
+El estado abierto de los accordions y la sección activa vive únicamente en memoria de React. Lessons no usa `localStorage`, `sessionStorage`, cookies, backend, Supabase ni Firebase.
 
 ## FASE 3.5 — Vocabulary Practice: Work Vocabulary Modules
 
