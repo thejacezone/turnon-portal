@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import LessonGroupAccordion from '../components/lessons/LessonGroupAccordion.jsx'
 import { grammarLessons } from '../data/grammarLessons.js'
 import '../styles/grammar-lessons.css'
@@ -70,6 +71,16 @@ export default function Lessons() {
               onToggle={() => toggleGroup(group.id)}
             />
           ))}
+        </div>
+      </section>
+
+      <section className="lessons-map-cta" aria-labelledby="lessons-map-cta-title">
+        <span className="lessons-eyebrow">PONÉLO EN PRÁCTICA</span>
+        <h2 id="lessons-map-cta-title">¿Ya repasaste la teoría? Ahora probá tu inglés.</h2>
+        <p>Usá los tests para identificar qué dominás y qué temas necesitás seguir reforzando.</p>
+        <div>
+          <Link className="button" to="/work-english-test">Ir a los tests</Link>
+          <Link className="button ghost" to="/work-english-test/general-test">General English Level Test</Link>
         </div>
       </section>
     </div>

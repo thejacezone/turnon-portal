@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+
 function LessonIndexButtons({ activeSection, items, onNavigate }) {
   return (
     <div className="lesson-index-links">
@@ -17,16 +19,27 @@ function LessonIndexButtons({ activeSection, items, onNavigate }) {
 }
 
 export default function LessonSidebar({ activeSection, items, onNavigate }) {
+  const mobileIndexRef = useRef(null)
+  const activeLabel = items.find((item) => item.id === activeSection)?.title || items[0]?.title
+  const handleNavigate = (sectionId) => {
+    mobileIndexRef.current?.removeAttribute('open')
+    onNavigate(sectionId)
+  }
+
   return (
     <>
       <aside className="lesson-detail-sidebar" aria-label="Lesson index">
+        <span>EN ESTA LECCIÓN</span>
         <strong>Lesson index</strong>
-        <LessonIndexButtons activeSection={activeSection} items={items} onNavigate={onNavigate} />
+        <LessonIndexButtons activeSection={activeSection} items={items} onNavigate={handleNavigate} />
       </aside>
 
-      <details className="lesson-mobile-index">
-        <summary>Contenido de la lección</summary>
-        <LessonIndexButtons activeSection={activeSection} items={items} onNavigate={onNavigate} />
+      <details className="lesson-mobile-index" ref={mobileIndexRef}>
+        <summary>
+          <span>Contenido de la lección</span>
+          <strong>{activeLabel}</strong>
+        </summary>
+        <LessonIndexButtons activeSection={activeSection} items={items} onNavigate={handleNavigate} />
       </details>
     </>
   )

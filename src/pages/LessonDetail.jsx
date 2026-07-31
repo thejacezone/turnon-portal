@@ -75,7 +75,7 @@ export default function LessonDetail() {
             <span aria-hidden="true">›</span>
             <span>{lesson.category}</span>
             <span aria-hidden="true">›</span>
-            <span>Lesson {String(lesson.number).padStart(2, '0')}</span>
+            <span>{lesson.title}</span>
           </div>
           <span className="lessons-eyebrow">LESSON {String(lesson.number).padStart(2, '0')} · {lesson.category.toUpperCase()}</span>
           <h1>{lesson.title}</h1>
