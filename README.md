@@ -134,9 +134,9 @@ Grammar Practice no usa `localStorage`; todo el estado del intento vive únicame
 
 ### Grammar Lessons
 
-Grammar Practice ahora incorpora las pestañas `Lessons` y `Practice` dentro de la misma ruta:
+Lessons es una página principal independiente del portal y aparece en el navbar entre Work English Test y Recursos:
 
-- Ruta: `#/work-english-test/grammar-practice`
+- Ruta: `#/lessons`
 - Fuente: `fase_3_5_grammar_lessons_theory.docx`
 - Datos locales: `src/data/grammarLessons.js`
 - Lecciones: 38, organizadas en Foundation, Intermediate y Advanced
@@ -145,9 +145,11 @@ El documento Word se procesa únicamente durante desarrollo. La aplicación publ
 
 Cada lección conserva la explicación, estructuras, listas, ejemplos, comparaciones, errores comunes y recapitulación del documento. Las relaciones con Grammar Practice usan IDs normalizados derivados de los diez temas activos, no textos visuales sueltos.
 
-El botón `Practicar este tema` cambia a la pestaña `Practice`, selecciona el tema relacionado, limpia el intento anterior y genera una nueva práctica sin recargar la página. La pestaña inicial es `Lessons`.
+La página permite elegir una lección, consultar su índice interno y navegar a la lección anterior o siguiente. El botón `Practicar este tema` dirige a `#/work-english-test/grammar-practice`, donde el usuario elige el tema sin insertar Lessons dentro de la práctica.
 
-El estado de pestaña, lección y práctica vive únicamente en memoria de React. Grammar Lessons no usa `localStorage`, `sessionStorage`, cookies, backend, Supabase ni Firebase.
+Grammar Practice volvió a su estructura original sin tabs ni teoría integrada. Vocabulary Practice conserva sus módulos, lista de estudio, flashcards y mini examen, y no incluye Lessons.
+
+El estado de la lección seleccionada vive únicamente en memoria de React. Lessons no usa `localStorage`, `sessionStorage`, cookies, backend, Supabase ni Firebase.
 
 ## FASE 3.5 — Vocabulary Practice: Work Vocabulary Modules
 

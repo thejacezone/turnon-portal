@@ -17,9 +17,12 @@ export default function GrammarLessons({
   }
 
   const canPractice = availableTopicIds.includes(selectedLesson.primaryPracticeTopicId)
+  const selectedIndex = lessons.findIndex((lesson) => lesson.id === selectedLessonId)
+  const previousLesson = selectedIndex > 0 ? lessons[selectedIndex - 1] : null
+  const nextLesson = selectedIndex < lessons.length - 1 ? lessons[selectedIndex + 1] : null
 
   return (
-    <section className="grammar-lessons-section" aria-labelledby="grammar-lessons-title">
+    <section className="grammar-lessons-section" aria-labelledby="grammar-lessons-title" id="lessons-index">
       <div className="grammar-lessons-inner">
         <header className="grammar-lessons-intro">
           <span className="eyebrow">Grammar Lessons</span>
@@ -39,7 +42,7 @@ export default function GrammarLessons({
         </label>
 
         <div className="grammar-lessons-layout">
-          <aside className="grammar-lesson-sidebar" aria-label="Available grammar lessons">
+          <aside className="grammar-lesson-sidebar" aria-label="Lecciones disponibles">
             <div className="grammar-lesson-sidebar-heading">
               <strong>{lessons.length} lessons</strong>
               <span>A2 to C1</span>
@@ -67,7 +70,14 @@ export default function GrammarLessons({
             </div>
           </aside>
 
-          <GrammarLessonContent canPractice={canPractice} lesson={selectedLesson} onPractice={onPractice} />
+          <GrammarLessonContent
+            canPractice={canPractice}
+            lesson={selectedLesson}
+            nextLesson={nextLesson}
+            onPractice={onPractice}
+            onSelect={onSelect}
+            previousLesson={previousLesson}
+          />
         </div>
       </div>
     </section>

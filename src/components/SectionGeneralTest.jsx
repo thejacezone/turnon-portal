@@ -1,12 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo, useState } from 'react'
 import PracticeTestHero from './PracticeTestHero.jsx'
 
-export default function SectionGeneralTest({ title, description, helperCopy, buttonText, duration, generateTest, scoreTest, hero, backLabel = 'Volver a la práctica', startRequest = 0 }) {
+export default function SectionGeneralTest({ title, description, helperCopy, buttonText, duration, generateTest, scoreTest, hero, backLabel = 'Volver a la práctica' }) {
   const [phase, setPhase] = useState('intro')
   const [items, setItems] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState({})
-  const previousStartRequest = useRef(startRequest)
   const result = useMemo(() => phase === 'results' ? scoreTest(items, answers) : null, [phase, items, answers, scoreTest])
   const current = items[currentIndex]
 
@@ -17,12 +16,6 @@ export default function SectionGeneralTest({ title, description, helperCopy, but
     setAnswers({})
     setPhase(nextItems.length ? 'questions' : 'empty')
   }
-
-  useEffect(() => {
-    if (startRequest <= previousStartRequest.current) return
-    previousStartRequest.current = startRequest
-    start()
-  }, [startRequest])
 
   const restart = () => start()
   const selectAnswer = (answer) => setAnswers((currentAnswers) => ({ ...currentAnswers, [current.id]: answer }))

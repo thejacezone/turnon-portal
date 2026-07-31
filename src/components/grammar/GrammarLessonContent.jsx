@@ -99,7 +99,22 @@ function LessonIndex({ lesson, mobile = false }) {
   )
 }
 
-export default function GrammarLessonContent({ lesson, canPractice, onPractice }) {
+export default function GrammarLessonContent({
+  lesson,
+  canPractice,
+  nextLesson,
+  onPractice,
+  onSelect,
+  previousLesson,
+}) {
+  const returnToList = () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    document.querySelector('#lessons-index')?.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start',
+    })
+  }
+
   return (
     <article className="grammar-lesson-article" id="grammar-lesson-content">
       <header className="grammar-lesson-header">
@@ -151,6 +166,28 @@ export default function GrammarLessonContent({ lesson, canPractice, onPractice }
               Practicar este tema
             </button>
           </footer>
+
+          <div className="grammar-lesson-navigation" aria-label="Navegación entre lecciones" role="navigation">
+            <button className="button ghost dark-ghost" onClick={returnToList} type="button">Volver al listado</button>
+            <div className="grammar-lesson-navigation-pager">
+              <button
+                className="button ghost dark-ghost"
+                disabled={!previousLesson}
+                onClick={() => previousLesson && onSelect(previousLesson.id)}
+                type="button"
+              >
+                ← Anterior
+              </button>
+              <button
+                className="button"
+                disabled={!nextLesson}
+                onClick={() => nextLesson && onSelect(nextLesson.id)}
+                type="button"
+              >
+                Siguiente →
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </article>

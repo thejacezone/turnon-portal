@@ -1,58 +1,22 @@
-.grammar-learning-tabs-section {
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
-  padding: 22px max(20px, calc((100vw - var(--container-width)) / 2));
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+.lessons-page {
+  overflow-x: clip;
 }
 
-.grammar-learning-tabs {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-  width: min(100%, 560px);
+.lessons-back-row {
+  width: min(100%, var(--container-width));
   margin: 0 auto;
-  padding: 7px;
-  background: var(--color-surface-soft);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
+  padding: 16px 20px 0;
 }
 
-.grammar-learning-tab {
-  min-height: 48px;
-  padding: 10px 22px;
-  color: var(--color-primary);
-  font: 800 1rem/1 var(--font-body);
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: color var(--transition), background var(--transition), border-color var(--transition), transform var(--transition);
-}
-
-.grammar-learning-tab:hover {
-  border-color: rgba(47, 158, 104, .35);
-}
-
-.grammar-learning-tab[aria-selected='true'] {
-  color: #fff;
-  background: var(--color-grammar);
-  border-color: var(--color-grammar);
-  box-shadow: 0 10px 24px rgba(47, 158, 104, .2);
-}
-
-.grammar-tab-panel[hidden] {
-  display: none;
-}
-
-.grammar-tab-panel:focus {
-  outline: none;
+.lessons-back-row .back-link {
+  margin-top: 0;
 }
 
 .grammar-lessons-section {
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   padding: clamp(64px, 8vw, 112px) max(20px, calc((100vw - var(--container-width)) / 2));
+  scroll-margin-top: 76px;
   background:
     radial-gradient(circle at 88% 5%, rgba(190, 255, 53, .18), transparent 28rem),
     var(--color-background);
@@ -194,6 +158,7 @@
 .grammar-lesson-article {
   min-width: 0;
   overflow: hidden;
+  scroll-margin-top: 90px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: clamp(22px, 3vw, 32px);
@@ -487,6 +452,33 @@
   opacity: .55;
 }
 
+.grammar-lesson-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.grammar-lesson-navigation-pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.grammar-lesson-navigation .button {
+  min-width: 146px;
+  text-decoration: none;
+}
+
+.grammar-lesson-navigation .button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
 .grammar-lessons-empty {
   margin-block: var(--space-6);
 }
@@ -524,19 +516,6 @@
 }
 
 @media (max-width: 780px) {
-  .grammar-learning-tabs-section {
-    padding: 16px 14px;
-  }
-
-  .grammar-learning-tabs {
-    width: 100%;
-  }
-
-  .grammar-learning-tab {
-    min-width: 0;
-    padding-inline: 14px;
-  }
-
   .grammar-lessons-section {
     padding: 64px 14px 78px;
   }
@@ -580,6 +559,21 @@
     width: 100%;
   }
 
+  .grammar-lesson-navigation {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .grammar-lesson-navigation-pager {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grammar-lesson-navigation .button {
+    width: 100%;
+    min-width: 0;
+  }
+
   .grammar-theory-table :is(th, td) {
     padding: 13px 11px;
     font-size: .9rem;
@@ -587,11 +581,6 @@
 }
 
 @media (max-width: 390px) {
-  .grammar-learning-tab {
-    min-height: 46px;
-    font-size: .92rem;
-  }
-
   .grammar-lesson-header h2 {
     font-size: clamp(2.35rem, 13vw, 3.4rem);
   }
@@ -606,7 +595,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .grammar-learning-tab,
   .grammar-lesson-card {
     transition: none;
   }

@@ -178,6 +178,7 @@ check(communityLinks.every((link) => link.url !== '#'), 'Community contains no h
 const routePaths = [
   '/',
   '/work-english-test',
+  '/lessons',
   '/work-english-test/general-test',
   '/work-english-test/work-test',
   '/work-english-test/grammar-practice',

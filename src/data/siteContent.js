@@ -1,6 +1,7 @@
 export const navigation = [
   { path: '/', label: 'Inicio' },
   { path: '/work-english-test', label: 'Work English Test' },
+  { path: '/lessons', label: 'Lessons' },
   { path: '/recursos', label: 'Recursos' },
   { path: '/calculadoras', label: 'Calculadoras' },
   { path: '/comunidad', label: 'Comunidad' },

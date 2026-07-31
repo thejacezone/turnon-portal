@@ -13,6 +13,7 @@ const ReadingPractice = lazy(() => import('./pages/ReadingPractice.jsx'))
 const ListeningPractice = lazy(() => import('./pages/ListeningPractice.jsx'))
 const WritingPractice = lazy(() => import('./pages/WritingPractice.jsx'))
 const TypingTestPage = lazy(() => import('./pages/TypingTestPage.jsx'))
+const Lessons = lazy(() => import('./pages/Lessons.jsx'))
 const Resources = lazy(() => import('./pages/Resources.jsx'))
 const Calculators = lazy(() => import('./pages/Calculators.jsx'))
 const Community = lazy(() => import('./pages/Community.jsx'))
@@ -57,6 +58,7 @@ export default function App() {
             <Route path="/work-english-test/writing-practice/:promptSlug" element={<WritingPractice />} />
             <Route path="/work-english-test/typing-test" element={<TypingTestPage />} />
             <Route path="/typing-test" element={<TypingTestPage />} />
+            <Route path="/lessons" element={<Lessons />} />
             <Route path="/recursos" element={<Resources />} />
             <Route path="/recursos/:id" element={<ResourceDetail />} />
             <Route path="/calculadoras" element={<Calculators />} />
