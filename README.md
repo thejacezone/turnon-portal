@@ -68,6 +68,7 @@ Los contenidos reutilizables están separados de los componentes en `src/data/`:
 - `workEnglishTestQuestions.js`: export del test laboral secundario.
 - `englishQuestions.js`: banco del test laboral existente.
 - `grammarPracticeQuestions.js`: 400 preguntas de Grammar Practice convertidas desde `fase_3_5_grammar_practice_questions.docx`.
+- `grammarLessons.js`: 38 lecciones teóricas convertidas desde `fase_3_5_grammar_lessons_theory.docx`.
 - `readingPracticeScenarios.js`: escenarios de Reading Practice convertidos desde `fase_3_5_reading_practice_scenarios.docx`.
 - `listeningPracticeItems.js`: audios, transcripciones, vocabulario y preguntas de Listening Practice convertidas desde documentos Word y archivos de audio reales.
 - `writingPracticePrompts.js`: prompts locales de Writing Practice para entrevistas, customer service, correos profesionales, experiencia laboral y training.
@@ -130,6 +131,23 @@ Esta actualización es exclusiva del Work English Test. El General English Level
 El documento se procesa únicamente durante desarrollo con `scripts/import_grammar_practice_questions.py`. React utiliza el banco estático almacenado dentro del proyecto y no consulta el Word durante cada intento. La práctica permite elegir un tema, responder sus preguntas en orden aleatorio, revisar cada respuesta, ver explicaciones y consultar el resultado final. Grammar Level Check continúa generando intentos de 20 preguntas desde el banco ampliado.
 
 Grammar Practice no usa `localStorage`; todo el estado del intento vive únicamente en memoria de React. Esta actualización no modifica el banco ni el funcionamiento del General English Level Test.
+
+### Grammar Lessons
+
+Grammar Practice ahora incorpora las pestañas `Lessons` y `Practice` dentro de la misma ruta:
+
+- Ruta: `#/work-english-test/grammar-practice`
+- Fuente: `fase_3_5_grammar_lessons_theory.docx`
+- Datos locales: `src/data/grammarLessons.js`
+- Lecciones: 38, organizadas en Foundation, Intermediate y Advanced
+
+El documento Word se procesa únicamente durante desarrollo. La aplicación publicada no consulta el DOCX ni contiene su ruta local; React utiliza el archivo estático `src/data/grammarLessons.js`.
+
+Cada lección conserva la explicación, estructuras, listas, ejemplos, comparaciones, errores comunes y recapitulación del documento. Las relaciones con Grammar Practice usan IDs normalizados derivados de los diez temas activos, no textos visuales sueltos.
+
+El botón `Practicar este tema` cambia a la pestaña `Practice`, selecciona el tema relacionado, limpia el intento anterior y genera una nueva práctica sin recargar la página. La pestaña inicial es `Lessons`.
+
+El estado de pestaña, lección y práctica vive únicamente en memoria de React. Grammar Lessons no usa `localStorage`, `sessionStorage`, cookies, backend, Supabase ni Firebase.
 
 ## FASE 3.5 — Vocabulary Practice: Work Vocabulary Modules
 

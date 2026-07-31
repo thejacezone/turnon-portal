@@ -1,0 +1,613 @@
+.grammar-learning-tabs-section {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding: 22px max(20px, calc((100vw - var(--container-width)) / 2));
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.grammar-learning-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: min(100%, 560px);
+  margin: 0 auto;
+  padding: 7px;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+}
+
+.grammar-learning-tab {
+  min-height: 48px;
+  padding: 10px 22px;
+  color: var(--color-primary);
+  font: 800 1rem/1 var(--font-body);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.grammar-learning-tab:hover {
+  border-color: rgba(47, 158, 104, .35);
+}
+
+.grammar-learning-tab[aria-selected='true'] {
+  color: #fff;
+  background: var(--color-grammar);
+  border-color: var(--color-grammar);
+  box-shadow: 0 10px 24px rgba(47, 158, 104, .2);
+}
+
+.grammar-tab-panel[hidden] {
+  display: none;
+}
+
+.grammar-tab-panel:focus {
+  outline: none;
+}
+
+.grammar-lessons-section {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding: clamp(64px, 8vw, 112px) max(20px, calc((100vw - var(--container-width)) / 2));
+  background:
+    radial-gradient(circle at 88% 5%, rgba(190, 255, 53, .18), transparent 28rem),
+    var(--color-background);
+}
+
+.grammar-lessons-inner {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.grammar-lessons-intro {
+  max-width: 760px;
+  margin-bottom: clamp(36px, 5vw, 58px);
+}
+
+.grammar-lessons-intro .eyebrow {
+  color: var(--color-grammar);
+}
+
+.grammar-lessons-intro h2 {
+  margin: 12px 0 16px;
+  color: var(--color-primary);
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  line-height: .96;
+}
+
+.grammar-lessons-intro p {
+  max-width: 620px;
+  margin: 0;
+  font-size: clamp(1rem, 1.5vw, 1.16rem);
+  line-height: 1.7;
+}
+
+.grammar-lessons-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, .72fr) minmax(0, 2fr);
+  align-items: start;
+  gap: clamp(26px, 3vw, 42px);
+}
+
+.grammar-lesson-sidebar {
+  position: sticky;
+  top: 92px;
+  max-height: calc(100vh - 118px);
+  padding: 18px;
+  overflow-y: auto;
+  scrollbar-color: var(--color-grammar) transparent;
+  background: rgba(255, 255, 255, .78);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.grammar-lesson-sidebar-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 4px 4px 16px;
+  color: var(--color-primary);
+}
+
+.grammar-lesson-sidebar-heading span {
+  color: var(--color-text-muted);
+  font-size: .84rem;
+}
+
+.grammar-lesson-list {
+  display: grid;
+  gap: 12px;
+}
+
+.grammar-lesson-card {
+  display: flex;
+  min-height: 184px;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px;
+  color: var(--color-primary);
+  text-align: left;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.grammar-lesson-card:hover,
+.grammar-lesson-card.is-active {
+  border-color: var(--color-grammar);
+  box-shadow: 0 14px 30px rgba(13, 33, 27, .11);
+  transform: translateY(-2px);
+}
+
+.grammar-lesson-card.is-active {
+  background: rgba(47, 158, 104, .08);
+}
+
+.grammar-lesson-card-meta,
+.grammar-lesson-card-stats {
+  color: var(--color-text-muted);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.grammar-lesson-card > strong {
+  margin: 9px 0;
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.grammar-lesson-card-description {
+  display: -webkit-box;
+  margin-bottom: 14px;
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font-size: .86rem;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.grammar-lesson-card-stats {
+  margin-top: auto;
+}
+
+.grammar-lesson-card-action {
+  margin-top: 13px;
+  color: #24784e;
+  font-size: .86rem;
+  font-weight: 800;
+}
+
+.grammar-lesson-mobile-select {
+  display: none;
+}
+
+.grammar-lesson-article {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: clamp(22px, 3vw, 32px);
+  box-shadow: var(--shadow-md);
+}
+
+.grammar-lesson-header {
+  padding: clamp(30px, 5vw, 60px);
+  background:
+    linear-gradient(135deg, rgba(47, 158, 104, .13), rgba(190, 255, 53, .11)),
+    var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.grammar-lesson-meta,
+.grammar-related-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.grammar-lesson-meta span,
+.grammar-related-topics span {
+  padding: 7px 11px;
+  color: var(--color-primary);
+  font-size: .75rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, .8);
+  border: 1px solid rgba(47, 158, 104, .24);
+  border-radius: 999px;
+}
+
+.grammar-lesson-header h2 {
+  max-width: 780px;
+  margin: 24px 0 16px;
+  color: var(--color-primary);
+  font-size: clamp(2.6rem, 5vw, 5.2rem);
+  line-height: .95;
+}
+
+.grammar-lesson-header > p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.grammar-related-topics {
+  margin-top: 24px;
+}
+
+.grammar-related-topics span {
+  color: #1d6d45;
+  background: rgba(47, 158, 104, .08);
+}
+
+.grammar-lesson-reading-layout {
+  display: grid;
+  grid-template-columns: minmax(150px, 180px) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(24px, 4vw, 48px);
+  padding: clamp(30px, 5vw, 60px);
+}
+
+.grammar-lesson-index {
+  color: var(--color-primary);
+}
+
+.grammar-lesson-index--desktop {
+  position: sticky;
+  top: 104px;
+}
+
+.grammar-lesson-index strong,
+.grammar-lesson-index summary {
+  font-weight: 800;
+}
+
+.grammar-lesson-index ul {
+  display: grid;
+  gap: 9px;
+  margin: 15px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grammar-lesson-index a {
+  color: var(--color-text-muted);
+  font-size: .86rem;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.grammar-lesson-index a:hover {
+  color: var(--color-grammar);
+}
+
+.grammar-lesson-index--mobile {
+  display: none;
+}
+
+.grammar-lesson-copy {
+  min-width: 0;
+  max-width: 760px;
+}
+
+.grammar-lesson-copy > section {
+  scroll-margin-top: 104px;
+}
+
+.grammar-lesson-copy > section + section {
+  margin-top: clamp(46px, 7vw, 72px);
+  padding-top: clamp(34px, 5vw, 52px);
+  border-top: 1px solid var(--color-border);
+}
+
+.grammar-lesson-copy h3 {
+  margin: 0 0 22px;
+  color: var(--color-primary);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.08;
+}
+
+.grammar-lesson-copy p,
+.grammar-lesson-copy li {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.grammar-lesson-copy ul {
+  padding-left: 1.25rem;
+}
+
+.grammar-theory-table-wrap {
+  width: 100%;
+  margin-top: 22px;
+}
+
+.grammar-theory-table {
+  width: 100%;
+  table-layout: fixed;
+  overflow-wrap: anywhere;
+  border-spacing: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.grammar-theory-table :is(th, td) {
+  padding: 16px;
+  vertical-align: top;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.grammar-theory-table :is(th, td) + :is(th, td) {
+  border-left: 1px solid var(--color-border);
+}
+
+.grammar-theory-table th {
+  color: var(--color-primary);
+  background: rgba(47, 158, 104, .09);
+}
+
+.grammar-theory-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.grammar-theory-table td:first-child {
+  color: var(--color-primary);
+  font-weight: 750;
+}
+
+.grammar-theory-callout,
+.grammar-quick-recap {
+  padding: 24px;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-grammar);
+  border-radius: var(--radius-md);
+}
+
+.grammar-theory-callout strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--color-primary);
+}
+
+.grammar-theory-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.grammar-example-list,
+.grammar-mistake-list {
+  display: grid;
+  gap: 16px;
+}
+
+.grammar-example,
+.grammar-mistake {
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.grammar-example-sentence {
+  color: var(--color-primary) !important;
+  font-size: 1.08rem !important;
+  font-weight: 800;
+}
+
+.grammar-block-label {
+  display: inline-flex;
+  margin-bottom: 8px;
+  padding: 6px 9px;
+  color: var(--color-primary);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: rgba(190, 255, 53, .5);
+  border-radius: 999px;
+}
+
+.grammar-mistake {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.grammar-mistake > div {
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.grammar-block-label--incorrect {
+  background: #f9dedb;
+  border: 1px solid #d98a83;
+}
+
+.grammar-block-label--correct {
+  background: #dff3e8;
+  border: 1px solid #76bd95;
+}
+
+.grammar-mistake p {
+  margin-bottom: 0;
+  color: var(--color-primary);
+}
+
+.grammar-quick-recap {
+  background: rgba(190, 255, 53, .12);
+}
+
+.grammar-quick-recap .eyebrow {
+  color: #1d6d45;
+}
+
+.grammar-lesson-action {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  margin-top: clamp(50px, 7vw, 82px);
+  padding: clamp(26px, 4vw, 40px);
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: var(--radius-lg);
+}
+
+.grammar-lesson-action h3 {
+  margin: 8px 0 10px;
+  color: #fff;
+}
+
+.grammar-lesson-action p {
+  max-width: 520px;
+  margin: 0;
+  color: #d7dfdb;
+}
+
+.grammar-lesson-action .eyebrow {
+  color: var(--color-accent);
+}
+
+.grammar-lesson-action .button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.grammar-lessons-empty {
+  margin-block: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .grammar-lessons-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .grammar-lesson-sidebar {
+    position: static;
+    max-height: none;
+  }
+
+  .grammar-lesson-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grammar-lesson-reading-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .grammar-lesson-index--desktop {
+    display: none;
+  }
+
+  .grammar-lesson-index--mobile {
+    display: block;
+    margin: 26px clamp(30px, 5vw, 60px) 0;
+    padding: 18px 20px;
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+}
+
+@media (max-width: 780px) {
+  .grammar-learning-tabs-section {
+    padding: 16px 14px;
+  }
+
+  .grammar-learning-tabs {
+    width: 100%;
+  }
+
+  .grammar-learning-tab {
+    min-width: 0;
+    padding-inline: 14px;
+  }
+
+  .grammar-lessons-section {
+    padding: 64px 14px 78px;
+  }
+
+  .grammar-lessons-intro {
+    padding-inline: 6px;
+  }
+
+  .grammar-lesson-mobile-select {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 22px;
+    color: var(--color-primary);
+    font-weight: 800;
+  }
+
+  .grammar-lesson-mobile-select select {
+    width: 100%;
+    min-height: 52px;
+  }
+
+  .grammar-lesson-sidebar {
+    display: none;
+  }
+
+  .grammar-lesson-header,
+  .grammar-lesson-reading-layout {
+    padding: 28px 22px;
+  }
+
+  .grammar-lesson-index--mobile {
+    margin: 22px 22px 0;
+  }
+
+  .grammar-mistake,
+  .grammar-lesson-action {
+    grid-template-columns: 1fr;
+  }
+
+  .grammar-lesson-action .button {
+    width: 100%;
+  }
+
+  .grammar-theory-table :is(th, td) {
+    padding: 13px 11px;
+    font-size: .9rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .grammar-learning-tab {
+    min-height: 46px;
+    font-size: .92rem;
+  }
+
+  .grammar-lesson-header h2 {
+    font-size: clamp(2.35rem, 13vw, 3.4rem);
+  }
+
+  .grammar-theory-table {
+    table-layout: auto;
+  }
+
+  .grammar-theory-table :is(th, td) {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grammar-learning-tab,
+  .grammar-lesson-card {
+    transition: none;
+  }
+}
