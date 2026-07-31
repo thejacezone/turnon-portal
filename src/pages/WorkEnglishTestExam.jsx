@@ -76,8 +76,8 @@ export default function WorkEnglishTestExam({ intro }) {
       )}
       {phase === 'results' && (
         <>
-          <TestResults actions={resultActions} result={result} onRestart={start} />
-          <AnswerReview questions={attemptQuestions} answers={answers} />
+          <TestResults actions={resultActions} result={result} onRestart={start} variant="work" />
+          <AnswerReview answers={answers} exposeExpandedState questions={attemptQuestions} />
         </>
       )}
     </div>

@@ -79,8 +79,8 @@ export default function GeneralEnglishTest({ intro }) {
       )}
       {phase === 'results' && (
         <>
-          <TestResults actions={resultActions} result={result} onRestart={start} />
-          <AnswerReview questions={attemptQuestions} answers={answers} />
+          <TestResults actions={resultActions} result={result} onRestart={start} variant="general" />
+          <AnswerReview answers={answers} exposeExpandedState questions={attemptQuestions} />
         </>
       )}
     </div>
