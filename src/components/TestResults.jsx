@@ -1,6 +1,13 @@
+import { Link } from 'react-router-dom'
+
 const skillNames = { grammar: 'Grammar', vocabulary: 'Vocabulary', reading: 'Reading' }
 
-export default function TestResults({ result, onRestart }) {
+export default function TestResults({
+  result,
+  onRestart,
+  restartLabel = 'Repetir test',
+  actions = [],
+}) {
   return (
     <section className="test-results">
       <span className="eyebrow">Resultado orientativo</span>
@@ -11,7 +18,14 @@ export default function TestResults({ result, onRestart }) {
       </div>
       <div className="topic-grid"><section><h2>Temas fuertes</h2>{result.strongTopics.length ? <ul>{result.strongTopics.map((item) => <li key={item.topic}>{item.topic}</li>)}</ul> : <p>Seguí practicando para consolidar tus primeras fortalezas.</p>}</section><section><h2>Temas a mejorar</h2>{result.improvementTopics.length ? <ul>{result.improvementTopics.map((item) => <li key={item.topic}>{item.topic}</li>)}</ul> : <p>Buen equilibrio general. Mantené la práctica constante.</p>}</section></div>
       <section className="work-recommendation"><span className="eyebrow">Recomendación</span><p>{result.recommendation}</p></section>
-      <button className="button ghost dark-ghost" type="button" onClick={onRestart}>Realizar el test de nuevo</button>
+      <div className="test-result-actions">
+        <button className="button" type="button" onClick={onRestart}>{restartLabel}</button>
+        {actions.map((action) => (
+          <Link className="button ghost dark-ghost" key={`${action.to}-${action.label}`} to={action.to}>
+            {action.label}
+          </Link>
+        ))}
+      </div>
     </section>
   )
 }

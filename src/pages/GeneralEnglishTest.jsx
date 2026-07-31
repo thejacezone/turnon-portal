@@ -9,6 +9,13 @@ import { scoreEnglishTest } from '../utils/englishScoring.js'
 import { createGeneralEnglishTestAttempt, getGeneralEnglishTestSection } from '../utils/generalEnglishTestRandomizer.js'
 import { validateQuestionBank } from '../utils/questionValidation.js'
 
+const resultActions = [
+  { label: 'Volver a Work English Test', to: '/work-english-test' },
+  { label: 'Practicar Grammar', to: '/work-english-test/grammar-practice' },
+  { label: 'Practicar Vocabulary', to: '/work-english-test/vocabulary-practice' },
+  { label: 'Practicar Reading', to: '/work-english-test/reading-practice' },
+]
+
 export default function GeneralEnglishTest({ intro }) {
   const [phase, setPhase] = useState('intro')
   const [attemptQuestions, setAttemptQuestions] = useState([])
@@ -53,7 +60,7 @@ export default function GeneralEnglishTest({ intro }) {
   }
 
   return (
-    <div className="test-page">
+    <div className={`test-page main-english-test-page main-english-test-page--general main-english-test-page--${phase}`}>
       {phase === 'intro' && <><TestIntro {...intro} onStart={start} />{attemptError && <p className="field-error" role="alert">{attemptError}</p>}</>}
       {phase === 'questions' && question && (
         <section className="test-runner">
@@ -72,7 +79,7 @@ export default function GeneralEnglishTest({ intro }) {
       )}
       {phase === 'results' && (
         <>
-          <TestResults result={result} onRestart={start} />
+          <TestResults actions={resultActions} result={result} onRestart={start} />
           <AnswerReview questions={attemptQuestions} answers={answers} />
         </>
       )}

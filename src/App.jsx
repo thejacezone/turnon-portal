@@ -26,15 +26,17 @@ const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 
 export default function App() {
   const generalIntro = {
-    title: 'General English Level Test',
-    description: 'Medí tu nivel aproximado de inglés general con preguntas balanceadas de grammar, vocabulary y reading.',
-    facts: ['20 Grammar', '15 Vocabulary', '15 Reading'],
-    buttonLabel: 'Comenzar test general',
+    eyebrow: 'GENERAL ENGLISH LEVEL TEST',
+    title: 'Medí tu nivel de inglés',
+    description: 'Completá una prueba de Grammar, Vocabulary y Reading para obtener un resultado orientativo de tu nivel actual.',
+    facts: ['50 preguntas', '20 Grammar · 15 Vocabulary · 15 Reading', '15–20 min aprox.', 'Resultado orientativo'],
+    buttonLabel: 'Comenzar test',
   }
   const workIntro = {
-    title: 'Work English Test',
-    description: 'Ponete a prueba con situaciones de entrevista, customer service, training y ambientes bilingües.',
-    facts: ['30 Grammar', '10 Vocabulary', '10 Reading'],
+    eyebrow: 'WORK ENGLISH TEST',
+    title: 'Inglés para trabajar',
+    description: 'Poné a prueba tu inglés en situaciones de entrevistas, customer service, soporte, ventas, training y ambientes laborales bilingües.',
+    facts: ['50 preguntas por intento', '30 Grammar · 10 Vocabulary · 10 Reading', 'Preguntas aleatorias', '20–25 min aprox.'],
     buttonLabel: 'Hacer test de inglés para trabajo',
   }
 

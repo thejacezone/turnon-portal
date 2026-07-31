@@ -8,6 +8,11 @@ import { workEnglishTestQuestions } from '../data/workEnglishTestQuestions.js'
 import { scoreEnglishTest } from '../utils/englishScoring.js'
 import { createWorkEnglishTestAttempt, getWorkEnglishTestSection, validateWorkEnglishTestBank } from '../utils/workEnglishTestRandomizer.js'
 
+const resultActions = [
+  { label: 'Volver a Work English Test', to: '/work-english-test' },
+  { label: 'Practicar por habilidad', to: '/work-english-test/grammar-practice' },
+]
+
 export default function WorkEnglishTestExam({ intro }) {
   const [phase, setPhase] = useState('intro')
   const [attemptQuestions, setAttemptQuestions] = useState([])
@@ -52,7 +57,7 @@ export default function WorkEnglishTestExam({ intro }) {
   }
 
   return (
-    <div className="test-page">
+    <div className={`test-page main-english-test-page main-english-test-page--work main-english-test-page--${phase}`}>
       {phase === 'intro' && <><TestIntro {...intro} onStart={start} />{attemptError && <p className="field-error" role="alert">{attemptError}</p>}</>}
       {phase === 'questions' && question && (
         <section className="test-runner">
@@ -71,7 +76,7 @@ export default function WorkEnglishTestExam({ intro }) {
       )}
       {phase === 'results' && (
         <>
-          <TestResults result={result} onRestart={start} />
+          <TestResults actions={resultActions} result={result} onRestart={start} />
           <AnswerReview questions={attemptQuestions} answers={answers} />
         </>
       )}
