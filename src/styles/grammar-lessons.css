@@ -10,6 +10,10 @@
   background: #fff;
 }
 
+.lessons-map-page {
+  overflow-x: visible;
+}
+
 .lessons-eyebrow {
   display: inline-flex;
   color: var(--lessons-blue);
