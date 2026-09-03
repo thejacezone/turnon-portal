@@ -5,11 +5,11 @@ body { margin: 0; min-width: 320px; min-height: 100vh; }
 a { color: inherit; }
 button, input { font: inherit; }
 .app-shell { min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; background: var(--page-background); }
-.site-header { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 18px max(24px, calc((100vw - 1160px) / 2)); background: rgba(255,255,255,.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(17,32,27,.12); }
+.site-header { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: clamp(12px, 1vw, 18px); padding: 18px max(24px, calc((100vw - 1160px) / 2)); background: rgba(255,255,255,.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(17,32,27,.12); }
 .brand { display: flex; align-items: center; gap: 10px; font-family: Manrope, sans-serif; font-weight: 800; text-decoration: none; letter-spacing: -.04em; }
 .brand > span:last-child > span { color: var(--green); }
 .brand-mark { display: grid; place-items: center; width: 34px; aspect-ratio: 1; border-radius: 50%; background: var(--ink); color: var(--lime); }
-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+nav { display: flex; min-width: 0; flex: 1 1 auto; flex-wrap: nowrap; align-items: center; justify-content: flex-end; gap: 4px; }
 nav a { padding: 8px 11px; border-radius: 999px; text-decoration: none; font-size: .9rem; }
 nav a:hover, nav a.active { background: var(--ink); color: white; }
 .menu-toggle { display: none; width: 42px; height: 42px; padding: 10px; border: 1px solid var(--line); border-radius: 6px; background: transparent; }
@@ -201,7 +201,7 @@ p { line-height: 1.65; }
 .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 16px; max-width: 560px; }
 .footer-brand { font: 800 1.6rem Manrope; }
 .site-footer small { grid-column: 1 / -1; }
-@media (max-width: 1120px) { .menu-toggle { display: block; margin-left: auto; } .site-header { flex-direction: row; } nav { position: absolute; inset: 79px 18px auto; display: none; padding: 14px; background: #fffdf7; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 16px 40px rgba(17,32,27,.14); } nav.open { display: grid; } nav a { padding: 11px 13px; } }
+@media (max-width: 1180px) { .menu-toggle { display: block; margin-left: auto; } .site-header { flex-direction: row; } nav { position: absolute; inset: 79px 18px auto; display: none; padding: 14px; background: #fffdf7; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 16px 40px rgba(17,32,27,.14); } nav.open { display: grid; } nav a { padding: 11px 13px; } }
 @media (max-width: 780px) { main { width: min(100% - 32px, 1160px); } .hero { min-height: auto; grid-template-columns: 1fr; padding: 70px 0; } .hero-dashboard { min-height: 250px; transform: none; box-shadow: 9px 9px 0 var(--lime); } .hero-orbit { display: none; } .card-grid, .offer-grid { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr; } .stats div { border-right: 0; border-bottom: 1px solid var(--line); } .offer, .principles, .calculator, .calculator-card, .about-grid, .community-rules, .home-actions { grid-template-columns: 1fr; flex-direction: column; } .calculator-card { padding: 20px; } .calculator-summary, .compact-filters, .detail-sections, .offer-detail-facts { grid-template-columns: 1fr; } .offer-detail-facts div { border-right: 0; border-bottom: 1px solid var(--line); } .labor-table-header { display: none; } .labor-line { grid-template-columns: 1fr 1fr; min-width: 0; padding: 18px 0; } .labor-line > span, .labor-line > strong { align-self: center; } .labor-line .remove-line { justify-self: end; } .mobile-label { display: block; margin-bottom: 5px; color: #68736f; font-size: .75rem; } .form-grid { grid-template-columns: 1fr; } .form-grid .full-field { grid-column: auto; } .offer-side { align-items: flex-start; } .site-footer { grid-template-columns: 1fr; } .footer-links { justify-content: flex-start; } .result-hero, .score-sections, .topic-grid { grid-template-columns: 1fr; } .score-ring { width: 120px; } .review-heading { flex-direction: column; gap: 5px; } }
 
 /* FASE 3.5 — Grammar Practice */

@@ -6,9 +6,8 @@ const baseResources = [
   make('cv-guia', 'Guía para hacer CV', 'CV y aplicación', 'Organizá tu experiencia y presentá la información que una persona reclutadora necesita encontrar.'),
   make('cv-es', 'Plantilla de CV en español', 'CV y aplicación', 'Una estructura limpia para editar con tus datos y logros.', 'plantilla'),
   make('cv-en', 'Plantilla de CV en inglés', 'CV y aplicación', 'Base práctica para presentar tu perfil en procesos bilingües.', 'plantilla'),
-  make('aplicar-checklist', 'Checklist antes de aplicar', 'CV y aplicación', 'Revisá vacante, CV, contacto y documentos antes de enviar.', 'checklist'),
+  make('checklist-antes-de-aplicar', 'Checklist antes de aplicar', 'CV y aplicación', 'Revisá vacante, CV, contacto y documentos antes de enviar.', 'checklist'),
   make('tell-me', 'Cómo responder “Tell me about yourself”', 'Entrevistas', 'Construí una respuesta breve, ordenada y relevante para el puesto.'),
-  make('why-hire', 'Cómo responder “Why should we hire you?”', 'Entrevistas', 'Conectá tus capacidades con lo que el equipo necesita.'),
   make('fortalezas', 'Fortalezas y habilidades en entrevista', 'Entrevistas', 'Presentá tus capacidades con ejemplos claros y conectalas con lo que necesita el puesto.'),
   make('boleta', 'Cómo leer una boleta de pago', 'Vida laboral', 'Ubicá ingresos, descuentos y total recibido en tu comprobante.', 'guía', 'proximamente'),
   make('renunciar', 'Cómo renunciar correctamente', 'Vida laboral', 'Pasos para comunicar, documentar y cerrar tu relación laboral.', 'guía', 'proximamente'),
@@ -17,6 +16,79 @@ const baseResources = [
   make('entrevista-en', 'Guía para entrevista en inglés', 'Entrevistas', 'Frases y estructuras para comprender y responder con más seguridad.', 'guía', 'proximamente'),
   make('renuncia', 'Carta de renuncia', 'Cartas laborales', 'Modelo claro y respetuoso para comunicar tu salida.', 'plantilla', 'proximamente'),
 ]
+
+const templateDownloadUrl = 'https://drive.google.com/drive/folders/11a2EwQ9WG2SHynV0hmNHSf_hli4MzbFa?usp=sharing'
+
+const cvTemplateArticles = {
+  'cv-es': {
+    articleType: 'cv-template',
+    introduction: 'Lo prometido es deuda. Acá tenés una plantilla de CV lista para editar y adaptar con tu información.',
+    paragraphs: [
+      'La estructura ya está preparada para que podás organizar tu experiencia, estudios, habilidades y datos de contacto sin comenzar desde cero.',
+      'Eso sí: es una plantilla, no un CV terminado. No la llenés solo por llenar espacios. Adaptá el contenido al puesto al que querés aplicar, eliminá lo que no necesités y procurá que cada sección aporte información útil sobre vos.',
+    ],
+    guideParagraph: {
+      before: 'Si tenés dudas sobre qué escribir, qué información quitar o cómo organizar mejor tu experiencia, revisá primero nuestra ',
+      linkLabel: 'Guía para hacer tu CV',
+      after: '. Ahí explicamos paso a paso cómo aprovechar esta plantilla y evitar varios de los errores más comunes.',
+    },
+    callout: {
+      title: 'Es una plantilla, no un CV terminado.',
+      text: 'Usala como punto de partida. Cambiá los textos, eliminá lo que no te sirva y adaptala al trabajo al que vas a aplicar.',
+    },
+    beforeSending: [
+      'Reemplazá todos los textos de ejemplo.',
+      'Revisá ortografía, fechas y datos de contacto.',
+      'Adaptá tu experiencia al puesto.',
+      'Mantené el documento claro y fácil de leer.',
+      'Guardá una versión final en PDF.',
+    ],
+    downloadLabel: 'Descargar plantilla',
+    downloadUrl: templateDownloadUrl,
+    downloadEnabled: true,
+    guidePath: '/recursos/cv-guia',
+  },
+  'cv-en': {
+    articleType: 'cv-template',
+    introduction: 'Lo prometido es deuda. También preparamos una plantilla para que podás construir tu CV en inglés sin tener que empezar desde una página en blanco.',
+    paragraphs: [
+      'Está pensada como una base sencilla para organizar tu experiencia, educación, skills y perfil profesional cuando vas a aplicar a posiciones bilingües o procesos donde te solicitan el CV en inglés.',
+      'Pero recordá: esto sigue siendo una plantilla. No significa que debás mantener todas las secciones ni traducir literalmente tu CV en español. Adaptá cada parte a tu experiencia real y al tipo de trabajo que estás buscando.',
+    ],
+    guideParagraph: {
+      before: 'Si no sabés qué información incluir, primero revisá nuestra ',
+      linkLabel: 'Guía para hacer tu CV',
+      after: '. La estructura y los consejos de esa guía también te sirven para preparar esta versión.',
+    },
+    callout: {
+      title: 'Es una plantilla, no un CV terminado.',
+      text: 'Adaptá cada sección a tu experiencia y evitá traducir palabra por palabra frases que no suenen naturales en inglés.',
+    },
+    beforeSending: [
+      'Cambiá completamente los textos de ejemplo.',
+      'No traduzcás frases palabra por palabra si suenan poco naturales.',
+      'Utilizá términos laborales claros y sencillos.',
+      'Revisá nombres de puestos, fechas y datos personales.',
+      'Exportá la versión terminada en PDF.',
+    ],
+    downloadLabel: 'Descargar plantilla',
+    downloadUrl: templateDownloadUrl,
+    downloadEnabled: true,
+    guidePath: '/recursos/cv-guia',
+  },
+}
+
+const specializedArticles = {
+  'checklist-antes-de-aplicar': {
+    articleType: 'application-checklist',
+  },
+  'tell-me': {
+    articleType: 'interview-guide',
+  },
+  fortalezas: {
+    articleType: 'interview-guide',
+  },
+}
 
 const detailedContent = {
   'cv-guia': {
@@ -49,18 +121,6 @@ const detailedContent = {
     commonErrors: ['Renunciar sólo por mensaje informal', 'Usar la carta para discutir conflictos', 'No guardar una copia recibida'],
     recommendation: 'Confirmá el proceso interno y pedí constancia de recepción de tu carta.',
   },
-  'tell-me': {
-    content: 'Una respuesta simple puede seguir tres pasos: quién sos profesionalmente, qué experiencia o habilidades aportás y por qué te interesa el puesto.',
-    sections: [{ title: 'Estructura simple', items: ['Presente: perfil y fortaleza principal', 'Pasado: experiencia o preparación relevante', 'Futuro: conexión con la oportunidad'] }, { title: 'Ejemplo en inglés', items: ["I’m a customer service professional with two years of experience assisting clients. I’ve developed strong communication and problem-solving skills, and I’m interested in this role because I want to grow in a bilingual team."] }, { title: 'Con experiencia', items: ['Mencioná el área, años relevantes, un logro y el siguiente paso que buscás'] }, { title: 'Primer empleo', items: ['Usá estudios, proyectos, voluntariado, inglés y disposición para aprender'] }],
-    commonErrors: ['Contar información personal irrelevante', 'Repetir todo el CV', 'No conectar la respuesta con la vacante'],
-    recommendation: 'Prepará una versión de 60 segundos y otra más corta para entrevistas telefónicas.',
-  },
-  'why-hire': {
-    content: 'La respuesta debe unir tres cosas: lo que el puesto necesita, evidencia de que podés hacerlo y la actitud con la que vas a contribuir.',
-    sections: [{ title: 'Estructura recomendada', items: ['Nombrá dos capacidades relevantes', 'Respaldalas con un ejemplo', 'Cerrá mostrando interés por aportar y aprender'] }, { title: 'Ejemplo en inglés', items: ["You should hire me because I communicate clearly, learn processes quickly and stay calm when solving problems. In my previous role, I handled customer requests and followed up until each case was resolved."] }, { title: 'Versión customer service', items: ['Destacá escucha, empatía, documentación, resolución y seguimiento'] }],
-    commonErrors: ['Decir sólo “porque necesito el trabajo”', 'Prometer habilidades que no podés demostrar', 'Compararte negativamente con otras personas'],
-    recommendation: 'Usá palabras de la vacante y prepará una evidencia breve para cada fortaleza.',
-  },
   renunciar: {
     content: 'Renunciar correctamente protege tu reputación profesional y facilita recibir documentos o referencias después.',
     sections: [{ title: 'Pasos recomendados', items: ['Avisá con el tiempo indicado por contrato o política', 'Mantené un tono profesional', 'Entregá pendientes, accesos y equipo', 'Pedí constancia laboral si aplica', 'Guardá copias de comunicaciones y documentos'] }, { title: 'Cierre profesional', items: ['Acordá quién recibirá tus tareas', 'Confirmá último día y pagos pendientes', 'Evitá discusiones innecesarias'] }],
@@ -75,4 +135,6 @@ export const resources = baseResources.map((resource) => ({
   sections: detailedContent[resource.id]?.sections || [{ title: 'Resumen', items: [resource.description] }],
   commonErrors: detailedContent[resource.id]?.commonErrors || [],
   recommendation: detailedContent[resource.id]?.recommendation || 'Revisá este material junto con los requisitos específicos de tu situación o vacante.',
+  ...cvTemplateArticles[resource.id],
+  ...specializedArticles[resource.id],
 }))

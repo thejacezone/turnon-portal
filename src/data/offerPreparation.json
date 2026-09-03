@@ -1,0 +1,2455 @@
+{
+  "banking-and-online-services-support": {
+    "slug": "banking-and-online-services-support",
+    "title": "Banking and Online Services Support",
+    "eyebrow": "CUSTOMER SERVICE · BANKING",
+    "introduction": "Atención de consultas sobre cuentas, tarjetas, transacciones y acceso a banca en línea. La prioridad es verificar la identidad, proteger la información y explicar los siguientes pasos con precisión.",
+    "skills": "Atención al detalle, confidencialidad, paciencia, comunicación clara y seguimiento de procesos.",
+    "vocabulary": [
+      {
+        "term": "Account balance",
+        "meaning": "Saldo de la cuenta",
+        "example": "Your available account balance is $420."
+      },
+      {
+        "term": "Account holder",
+        "meaning": "Titular de la cuenta",
+        "example": "I need to verify the account holder first."
+      },
+      {
+        "term": "Available balance",
+        "meaning": "Saldo disponible",
+        "example": "The available balance may exclude pending charges."
+      },
+      {
+        "term": "Bank statement",
+        "meaning": "Estado de cuenta",
+        "example": "You can download your bank statement online."
+      },
+      {
+        "term": "Billing address",
+        "meaning": "Dirección de facturación",
+        "example": "Please confirm the billing address on file."
+      },
+      {
+        "term": "Card declined",
+        "meaning": "Tarjeta rechazada",
+        "example": "Your card was declined at the store."
+      },
+      {
+        "term": "Card replacement",
+        "meaning": "Reemplazo de tarjeta",
+        "example": "I can explain the card replacement process."
+      },
+      {
+        "term": "Credentials",
+        "meaning": "Credenciales",
+        "example": "Never share your login credentials."
+      },
+      {
+        "term": "Debit card",
+        "meaning": "Tarjeta de débito",
+        "example": "Is the issue related to your debit card?"
+      },
+      {
+        "term": "Deposit",
+        "meaning": "Depósito",
+        "example": "The deposit is still being processed."
+      },
+      {
+        "term": "Dispute",
+        "meaning": "Disputa o reclamo",
+        "example": "We can open a dispute for the charge."
+      },
+      {
+        "term": "Fraud alert",
+        "meaning": "Alerta de fraude",
+        "example": "A fraud alert was placed on the account."
+      },
+      {
+        "term": "Fraud department",
+        "meaning": "Departamento de fraude",
+        "example": "I need to transfer this case to the fraud department."
+      },
+      {
+        "term": "Freeze the card",
+        "meaning": "Bloquear temporalmente la tarjeta",
+        "example": "We can freeze the card while we investigate."
+      },
+      {
+        "term": "Insufficient funds",
+        "meaning": "Fondos insuficientes",
+        "example": "The payment failed due to insufficient funds."
+      },
+      {
+        "term": "Online banking",
+        "meaning": "Banca en línea",
+        "example": "The customer cannot access online banking."
+      },
+      {
+        "term": "One-time code",
+        "meaning": "Código de un solo uso",
+        "example": "We sent a one-time code to your phone."
+      },
+      {
+        "term": "Pending transaction",
+        "meaning": "Transacción pendiente",
+        "example": "The transaction is still pending."
+      },
+      {
+        "term": "Routing number",
+        "meaning": "Número de ruta bancaria",
+        "example": "The routing number identifies the bank."
+      },
+      {
+        "term": "Security question",
+        "meaning": "Pregunta de seguridad",
+        "example": "Please answer the security question."
+      },
+      {
+        "term": "Transaction",
+        "meaning": "Transacción",
+        "example": "Which transaction are you calling about?"
+      },
+      {
+        "term": "Transfer",
+        "meaning": "Transferencia",
+        "example": "The transfer may take two business days."
+      },
+      {
+        "term": "Unauthorized charge",
+        "meaning": "Cargo no reconocido",
+        "example": "The customer reported an unauthorized charge."
+      },
+      {
+        "term": "Verification",
+        "meaning": "Verificación",
+        "example": "We must complete verification before continuing."
+      },
+      {
+        "term": "Withdrawal",
+        "meaning": "Retiro",
+        "example": "When did you make the withdrawal?"
+      }
+    ],
+    "usefulPhrases": [
+      "Thank you for calling. How may I assist you with your account today?",
+      "Before we continue, I need to verify your identity.",
+      "May I have the last four digits of the card?",
+      "For your security, please do not share your full password.",
+      "Let me review the transaction history.",
+      "I understand why this charge is concerning.",
+      "Just to confirm, you do not recognize this transaction, correct?",
+      "The charge is currently showing as pending.",
+      "I can explain the next steps in the dispute process.",
+      "I recommend freezing the card while the case is reviewed.",
+      "I cannot guarantee the outcome, but I can document the report.",
+      "I will connect you with our fraud department.",
+      "Your reference number is [number].",
+      "Is there another banking issue I can help you with?",
+      "Thank you for your patience and for helping us protect your account."
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in banking customer service?",
+        "demonstrates": "Relacioná tu interés con precisión, servicio, confidencialidad y aprendizaje de procesos."
+      },
+      {
+        "question": "How would you assist a customer who reports an unauthorized charge?",
+        "demonstrates": "Priorizá verificación, protección de la cuenta, documentación y escalamiento sin prometer reembolso."
+      },
+      {
+        "question": "How do you make sure you handle sensitive information correctly?",
+        "demonstrates": "Justificá atención al detalle y respeto por procedimientos con un ejemplo real."
+      },
+      {
+        "question": "Tell me about a time you noticed an important detail others missed.",
+        "demonstrates": "Podés usar estudios, documentos, pagos o proyectos; explicá cómo verificaste y actuaste."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "ACCESO BLOQUEADO",
+        "situation": "El cliente olvidó su contraseña y no puede entrar a la banca en línea.",
+        "agentObjective": "Verify identity; identify the login error; guide the password reset; confirm access.",
+        "dialogue": [
+          "Customer: I forgot my password and I cannot access my account.",
+          "Agent: I can help you with the reset. Before we continue, I need to verify your identity.",
+          "Customer: Sure.",
+          "Agent: Thank you. I will send a one-time code to the phone number on file. Please let me know when you receive it.",
+          "Customer: I received it.",
+          "Agent: Great. Enter the code and create a new password. Were you able to sign in?",
+          "Customer: Yes, I am in now.",
+          "Agent: Perfect. Is there anything else I can help you with today?"
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "TARJETA RECHAZADA",
+        "situation": "La tarjeta fue rechazada durante una compra y el cliente necesita entender por qué.",
+        "agentObjective": "Verify; check card status and available balance; explain without blaming; offer the authorized next step.",
+        "dialogue": [
+          "Customer: My debit card was declined, but I have money in my account.",
+          "Agent: I understand how inconvenient that is. Let me review the card status and recent activity.",
+          "Customer: Okay.",
+          "Agent: The card is active, but the purchase triggered a security review. Do you recognize the attempted transaction at Green Market?",
+          "Customer: Yes, that was me.",
+          "Agent: Thank you for confirming. I can mark it as recognized. Please wait a few minutes before trying again.",
+          "Customer: Will it definitely work?",
+          "Agent: I cannot guarantee the approval, but the security restriction has been reviewed and you may try again."
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "CARGO NO RECONOCIDO",
+        "situation": "El cliente ve un cargo que no reconoce y exige que el dinero sea devuelto inmediatamente.",
+        "agentObjective": "Protect the account; document the charge; avoid promising reimbursement; explain dispute and escalation.",
+        "dialogue": [
+          "Customer: Someone used my card. I want my money back right now.",
+          "Agent: I am sorry this happened. I will help you protect the account and report the charge. First, do you still have the card with you?",
+          "Customer: Yes.",
+          "Agent: Thank you. I recommend freezing it now. I also need to confirm which transaction you do not recognize.",
+          "Customer: The $185 charge from yesterday.",
+          "Agent: I have documented it and will open a dispute. The investigation team will review the transaction and contact you with the outcome.",
+          "Customer: So you will refund it today?",
+          "Agent: I cannot guarantee an immediate refund, but I can make sure the report is submitted correctly and give you the case number."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  },
+  "hotel-guest-relocation-support": {
+    "slug": "hotel-guest-relocation-support",
+    "title": "Hotel Guest Relocation Support",
+    "eyebrow": "CUSTOMER SERVICE · TRAVEL",
+    "introduction": "Asistencia a huéspedes cuando una propiedad no puede respetar una reservación. El agente confirma la situación, busca alojamiento alternativo y coordina con hoteles sin prometer beneficios no autorizados.",
+    "skills": "Empatía, organización, rapidez para investigar, comunicación entre varias partes y manejo de presión.",
+    "vocabulary": [
+      {
+        "term": "Accommodation",
+        "meaning": "Alojamiento",
+        "example": "We are looking for alternative accommodation."
+      },
+      {
+        "term": "Additional charge",
+        "meaning": "Cargo adicional",
+        "example": "There should be no additional charge without confirmation."
+      },
+      {
+        "term": "Alternative property",
+        "meaning": "Propiedad alternativa",
+        "example": "I found an alternative property nearby."
+      },
+      {
+        "term": "Availability",
+        "meaning": "Disponibilidad",
+        "example": "I need to confirm room availability."
+      },
+      {
+        "term": "Booking confirmation",
+        "meaning": "Confirmación de reservación",
+        "example": "Please provide the booking confirmation."
+      },
+      {
+        "term": "Booking reference",
+        "meaning": "Referencia de reservación",
+        "example": "What is your booking reference?"
+      },
+      {
+        "term": "Cancellation",
+        "meaning": "Cancelación",
+        "example": "The hotel reported a cancellation."
+      },
+      {
+        "term": "Check-in",
+        "meaning": "Registro de entrada",
+        "example": "What time is your check-in?"
+      },
+      {
+        "term": "Check-out",
+        "meaning": "Registro de salida",
+        "example": "Your check-out date remains the same."
+      },
+      {
+        "term": "Comparable property",
+        "meaning": "Propiedad comparable",
+        "example": "We will search for a comparable property."
+      },
+      {
+        "term": "Confirmation number",
+        "meaning": "Número de confirmación",
+        "example": "Write down the new confirmation number."
+      },
+      {
+        "term": "Guest",
+        "meaning": "Huésped",
+        "example": "The guest is traveling with two children."
+      },
+      {
+        "term": "Hotel capacity",
+        "meaning": "Capacidad del hotel",
+        "example": "The hotel has reached full capacity."
+      },
+      {
+        "term": "Nightly rate",
+        "meaning": "Tarifa por noche",
+        "example": "The nightly rate is slightly higher."
+      },
+      {
+        "term": "No-show",
+        "meaning": "No presentación",
+        "example": "The reservation was marked as a no-show."
+      },
+      {
+        "term": "Overbooking",
+        "meaning": "Sobreventa",
+        "example": "The property cannot honor the booking due to overbooking."
+      },
+      {
+        "term": "Property",
+        "meaning": "Propiedad o alojamiento",
+        "example": "I am contacting the property now."
+      },
+      {
+        "term": "Refund request",
+        "meaning": "Solicitud de reembolso",
+        "example": "The refund request must be reviewed."
+      },
+      {
+        "term": "Relocation",
+        "meaning": "Reubicación",
+        "example": "We will assist with the relocation."
+      },
+      {
+        "term": "Reservation",
+        "meaning": "Reservación",
+        "example": "I found the original reservation."
+      },
+      {
+        "term": "Room type",
+        "meaning": "Tipo de habitación",
+        "example": "The alternative has the same room type."
+      },
+      {
+        "term": "Special request",
+        "meaning": "Solicitud especial",
+        "example": "The guest has a special accessibility request."
+      },
+      {
+        "term": "Transportation assistance",
+        "meaning": "Asistencia de transporte",
+        "example": "Transportation assistance depends on policy."
+      },
+      {
+        "term": "Travel dates",
+        "meaning": "Fechas del viaje",
+        "example": "Please confirm your travel dates."
+      },
+      {
+        "term": "Vacancy",
+        "meaning": "Habitación disponible",
+        "example": "The nearby hotel has one vacancy."
+      }
+    ],
+    "usefulPhrases": [
+      "I am sorry the property cannot honor your reservation.",
+      "Let me confirm the booking details first.",
+      "May I have your confirmation number and travel dates?",
+      "How many guests are included in the reservation?",
+      "Do you have any accessibility or room requirements?",
+      "I am contacting nearby properties to check availability.",
+      "Thank you for waiting; I am still working on your case.",
+      "I found an alternative property approximately ten minutes away.",
+      "The room type is comparable to your original reservation.",
+      "I need to confirm whether there is any rate difference.",
+      "Please do not travel to the new property until we confirm the booking.",
+      "I cannot guarantee a refund, but I can submit the request for review.",
+      "Your new confirmation number is [number].",
+      "Would you like me to repeat the address and check-in instructions?",
+      "I will follow up once the property confirms the reservation."
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in travel customer support?",
+        "demonstrates": "Conectá comunicación, empatía y capacidad de coordinar soluciones bajo presión."
+      },
+      {
+        "question": "How would you help a guest whose hotel cannot honor the reservation?",
+        "demonstrates": "Explicá cómo confirmarías datos, necesidades y disponibilidad antes de mover al huésped."
+      },
+      {
+        "question": "How do you communicate when a solution takes time?",
+        "demonstrates": "Demostrá seguimiento, actualizaciones y expectativas realistas."
+      },
+      {
+        "question": "Tell me about a time you had to organize several details quickly.",
+        "demonstrates": "Usá una experiencia real y explicá cómo priorizaste sin perder información."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "RESERVACIÓN NO LOCALIZADA",
+        "situation": "El hotel no encuentra la reservación del huésped.",
+        "agentObjective": "Collect booking details; contact property; confirm status; explain next step.",
+        "dialogue": [
+          "Customer: The hotel says they cannot find my reservation.",
+          "Agent: I am sorry about the confusion. May I have your booking reference and the name on the reservation?",
+          "Customer: It is RZ2048 under Maria Lopez.",
+          "Agent: Thank you. I found the booking in our system. I will contact the property to confirm it.",
+          "Customer: Should I wait in the lobby?",
+          "Agent: Yes, please. I will update you as soon as the hotel responds.",
+          "Customer: Okay.",
+          "Agent: Thank you for your patience. I am still working on your case."
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "HOTEL LLENO",
+        "situation": "La propiedad confirma que está llena y no puede recibir al huésped.",
+        "agentObjective": "Acknowledge; ask needs; search comparable room; confirm before directing guest.",
+        "dialogue": [
+          "Customer: They told me the hotel is full even though I paid.",
+          "Agent: I understand how frustrating that is. I will help you look for another property. How many guests are traveling?",
+          "Customer: Two adults.",
+          "Agent: Do you need the same room type or any special accommodation?",
+          "Customer: We need one queen bed.",
+          "Agent: I found a comparable hotel eight minutes away. I am calling to confirm the room before asking you to travel there.",
+          "Customer: Will I pay more?",
+          "Agent: I am checking the rate difference and will explain any authorized option before confirming."
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "FAMILIA VARADA",
+        "situation": "Una familia llega de noche; el hotel está lleno y las primeras alternativas están lejos.",
+        "agentObjective": "De-escalate; identify children/accessibility; search safely; communicate updates; avoid unapproved promises.",
+        "dialogue": [
+          "Customer: We have two children and nowhere to sleep. This is unacceptable.",
+          "Agent: I am very sorry. I understand that finding a safe room tonight is the priority. Let me confirm the number of guests and any special needs.",
+          "Customer: Two adults and two children. We need two beds.",
+          "Agent: Thank you. The closest property is full, so I am expanding the search while keeping the same room requirement.",
+          "Customer: Are you paying for transportation?",
+          "Agent: I need to review the relocation policy before confirming transportation. I will not ask you to move until the room is secured.",
+          "Customer: How long will this take?",
+          "Agent: I am contacting two properties now and will update you as soon as each one responds."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  },
+  "medical-authorization-support": {
+    "slug": "medical-authorization-support",
+    "title": "Medical Authorization Support",
+    "eyebrow": "CUSTOMER SERVICE · HEALTH INSURANCE",
+    "introduction": "Procesamiento y seguimiento de autorizaciones médicas o de medicamentos. El agente verifica información, explica estados y solicita documentación, pero no diagnostica ni decide tratamientos.",
+    "skills": "Precisión, confidencialidad, atención al detalle, organización y comunicación profesional.",
+    "vocabulary": [
+      {
+        "term": "Additional information required",
+        "meaning": "Información adicional requerida",
+        "example": "Additional information is required before review."
+      },
+      {
+        "term": "Approval",
+        "meaning": "Aprobación",
+        "example": "The request is pending approval."
+      },
+      {
+        "term": "Authorization number",
+        "meaning": "Número de autorización",
+        "example": "Please write down the authorization number."
+      },
+      {
+        "term": "Authorization request",
+        "meaning": "Solicitud de autorización",
+        "example": "We received the authorization request yesterday."
+      },
+      {
+        "term": "Clinical notes",
+        "meaning": "Notas clínicas",
+        "example": "The provider must submit the clinical notes."
+      },
+      {
+        "term": "Coverage",
+        "meaning": "Cobertura",
+        "example": "Authorization does not guarantee final coverage."
+      },
+      {
+        "term": "Date of service",
+        "meaning": "Fecha del servicio",
+        "example": "Please confirm the date of service."
+      },
+      {
+        "term": "Denied",
+        "meaning": "Rechazado",
+        "example": "The request was denied after clinical review."
+      },
+      {
+        "term": "Diagnosis code",
+        "meaning": "Código de diagnóstico",
+        "example": "The diagnosis code is missing."
+      },
+      {
+        "term": "Dosage",
+        "meaning": "Dosis indicada",
+        "example": "The request includes the prescribed dosage."
+      },
+      {
+        "term": "Eligibility",
+        "meaning": "Elegibilidad",
+        "example": "We need to verify the member's eligibility."
+      },
+      {
+        "term": "Expedited review",
+        "meaning": "Revisión acelerada",
+        "example": "The provider requested an expedited review."
+      },
+      {
+        "term": "Healthcare provider",
+        "meaning": "Proveedor de salud",
+        "example": "The healthcare provider sent the form."
+      },
+      {
+        "term": "Member",
+        "meaning": "Miembro o asegurado",
+        "example": "May I have the member ID?"
+      },
+      {
+        "term": "Member ID",
+        "meaning": "Identificación del miembro",
+        "example": "The member ID is on the insurance card."
+      },
+      {
+        "term": "Medication",
+        "meaning": "Medicamento",
+        "example": "Which medication requires authorization?"
+      },
+      {
+        "term": "Medical records",
+        "meaning": "Registros médicos",
+        "example": "The reviewer needs supporting medical records."
+      },
+      {
+        "term": "Pending review",
+        "meaning": "Pendiente de revisión",
+        "example": "The case is currently pending review."
+      },
+      {
+        "term": "Pharmacy",
+        "meaning": "Farmacia",
+        "example": "The pharmacy is checking the authorization status."
+      },
+      {
+        "term": "Prior authorization",
+        "meaning": "Autorización previa",
+        "example": "This medication requires prior authorization."
+      },
+      {
+        "term": "Provider office",
+        "meaning": "Consultorio del proveedor",
+        "example": "We contacted the provider office."
+      },
+      {
+        "term": "Request status",
+        "meaning": "Estado de la solicitud",
+        "example": "I can check the request status."
+      },
+      {
+        "term": "Supporting documentation",
+        "meaning": "Documentación de respaldo",
+        "example": "The supporting documentation was incomplete."
+      },
+      {
+        "term": "Urgent request",
+        "meaning": "Solicitud urgente",
+        "example": "Urgent requests follow a specific process."
+      },
+      {
+        "term": "Valid through",
+        "meaning": "Válido hasta",
+        "example": "The authorization is valid through June 30."
+      }
+    ],
+    "usefulPhrases": [
+      "Thank you for calling the authorization department.",
+      "May I have the member ID and date of birth?",
+      "Which medication or service are you calling about?",
+      "Let me check whether the request has been received.",
+      "The request is currently pending clinical review.",
+      "The reviewer needs additional information from the provider.",
+      "The provider may submit the missing documentation through the approved channel.",
+      "I can explain the status, but I cannot make a clinical decision.",
+      "An authorization does not guarantee final payment or coverage.",
+      "I cannot recommend a medication or treatment.",
+      "Would you like the authorization reference number?",
+      "The request was marked as urgent and will follow the expedited process.",
+      "I will document that you contacted us today.",
+      "Please contact your provider if your medical condition changes.",
+      "Is there another authorization status I can help you check?"
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in medical authorization support?",
+        "demonstrates": "Relacioná precisión, servicio y disposición para aprender procesos de seguros de salud."
+      },
+      {
+        "question": "What would you do if a member asks you to approve a medication?",
+        "demonstrates": "Marcá los límites del rol y explicá cómo revisarías el estado o proceso sin decidir clínicamente."
+      },
+      {
+        "question": "How do you avoid mistakes when reviewing documents?",
+        "demonstrates": "Justificá tus hábitos de revisión, notas, listas o confirmación de datos."
+      },
+      {
+        "question": "How would you respond to an urgent and emotional caller?",
+        "demonstrates": "Demostrá empatía, control, verificación y seguimiento del procedimiento urgente."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "ESTADO DE AUTORIZACIÓN",
+        "situation": "Una farmacia llama para verificar si la autorización de un medicamento fue recibida.",
+        "agentObjective": "Verify member and medication; locate request; state status; provide reference.",
+        "dialogue": [
+          "Caller: I am calling from a pharmacy to check a prior authorization.",
+          "Agent: I can check the status. May I have the member ID and the name of the medication?",
+          "Caller: The member ID is M45821 and the medication is Med-X.",
+          "Agent: Thank you. The request was received this morning and is pending review.",
+          "Caller: Do you know when it will be approved?",
+          "Agent: I cannot guarantee the decision or exact completion time, but I can provide the reference number and current status.",
+          "Caller: Yes, please.",
+          "Agent: The reference number is PA-7304."
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "DOCUMENTACIÓN FALTANTE",
+        "situation": "La autorización está detenida porque el proveedor no envió las notas clínicas.",
+        "agentObjective": "Explain missing item; avoid blaming; tell approved submission process; document contact.",
+        "dialogue": [
+          "Member: Why is my medication still not approved?",
+          "Agent: I understand the delay is concerning. I reviewed the request and it is waiting for additional clinical notes from the provider.",
+          "Member: Can I send them myself?",
+          "Agent: The documentation must come from the provider through the approved channel. I can give you the reference number to share with the office.",
+          "Member: Does that mean it will be approved after they send it?",
+          "Agent: The information will allow the review to continue, but I cannot guarantee the final decision.",
+          "Member: Please give me the number.",
+          "Agent: Certainly. It is PA-8491, and I will document our conversation."
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "SOLICITUD URGENTE",
+        "situation": "El miembro afirma que necesita el medicamento hoy y exige que el agente lo apruebe.",
+        "agentObjective": "Show empathy; verify status; explain role limits; follow urgent procedure; avoid medical advice.",
+        "dialogue": [
+          "Member: I need this medication today. Approve it now.",
+          "Agent: I am sorry you are dealing with this. I will check the status and see whether the urgent review process applies.",
+          "Member: My doctor already said I need it.",
+          "Agent: I understand. The clinical reviewer makes the authorization decision; I cannot approve medication myself. May I confirm the member ID and provider name?",
+          "Member: Yes, it is M77820 and Dr. Adams.",
+          "Agent: Thank you. The provider marked the request as urgent, and it is in expedited review.",
+          "Member: What should I take while I wait?",
+          "Agent: I cannot recommend treatment. Please contact your provider for medical guidance while the review is pending."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  },
+  "medical-and-dental-chat-support": {
+    "slug": "medical-and-dental-chat-support",
+    "title": "Medical and Dental Chat Support",
+    "eyebrow": "CUSTOMER SERVICE · HEALTH INSURANCE",
+    "introduction": "Atención escrita sobre elegibilidad, cobertura, beneficios, redes de proveedores y estado de reclamos. Se evalúan redacción, precisión, empatía y capacidad para mantener informado al miembro.",
+    "skills": "Comunicación escrita, gramática, atención al detalle, empatía, typing y explicación de términos.",
+    "vocabulary": [
+      {
+        "term": "Annual limit",
+        "meaning": "Límite anual",
+        "example": "The dental plan has an annual limit."
+      },
+      {
+        "term": "Benefit",
+        "meaning": "Beneficio",
+        "example": "I can review the benefit details."
+      },
+      {
+        "term": "Claim",
+        "meaning": "Reclamo",
+        "example": "The claim is still processing."
+      },
+      {
+        "term": "Claim status",
+        "meaning": "Estado del reclamo",
+        "example": "Let me check the claim status."
+      },
+      {
+        "term": "Coinsurance",
+        "meaning": "Coseguro",
+        "example": "Your coinsurance is twenty percent."
+      },
+      {
+        "term": "Copayment",
+        "meaning": "Copago",
+        "example": "A copayment may apply to the visit."
+      },
+      {
+        "term": "Covered service",
+        "meaning": "Servicio cubierto",
+        "example": "Preventive care is a covered service."
+      },
+      {
+        "term": "Coverage",
+        "meaning": "Cobertura",
+        "example": "Coverage depends on the plan terms."
+      },
+      {
+        "term": "Deductible",
+        "meaning": "Deducible",
+        "example": "The deductible has not been met."
+      },
+      {
+        "term": "Dental coverage",
+        "meaning": "Cobertura dental",
+        "example": "Your dental coverage is active."
+      },
+      {
+        "term": "Effective date",
+        "meaning": "Fecha de vigencia",
+        "example": "The effective date is January 1."
+      },
+      {
+        "term": "Eligibility",
+        "meaning": "Elegibilidad",
+        "example": "I will verify your eligibility."
+      },
+      {
+        "term": "Explanation of benefits",
+        "meaning": "Explicación de beneficios",
+        "example": "The EOB explains how the claim was processed."
+      },
+      {
+        "term": "In-network provider",
+        "meaning": "Proveedor dentro de la red",
+        "example": "This dentist is an in-network provider."
+      },
+      {
+        "term": "Medical coverage",
+        "meaning": "Cobertura médica",
+        "example": "The member has active medical coverage."
+      },
+      {
+        "term": "Member ID",
+        "meaning": "Identificación del miembro",
+        "example": "Please provide the member ID."
+      },
+      {
+        "term": "Non-covered service",
+        "meaning": "Servicio no cubierto",
+        "example": "The procedure appears as a non-covered service."
+      },
+      {
+        "term": "Out-of-network provider",
+        "meaning": "Proveedor fuera de la red",
+        "example": "Out-of-network costs may be higher."
+      },
+      {
+        "term": "Out-of-pocket cost",
+        "meaning": "Gasto de bolsillo",
+        "example": "The final out-of-pocket cost depends on the claim."
+      },
+      {
+        "term": "Plan document",
+        "meaning": "Documento del plan",
+        "example": "The plan document contains the full terms."
+      },
+      {
+        "term": "Preauthorization",
+        "meaning": "Autorización previa",
+        "example": "The procedure may require preauthorization."
+      },
+      {
+        "term": "Preventive care",
+        "meaning": "Atención preventiva",
+        "example": "The plan includes preventive care."
+      },
+      {
+        "term": "Provider directory",
+        "meaning": "Directorio de proveedores",
+        "example": "You can search the provider directory."
+      },
+      {
+        "term": "Service date",
+        "meaning": "Fecha del servicio",
+        "example": "What was the service date?"
+      },
+      {
+        "term": "Waiting period",
+        "meaning": "Periodo de espera",
+        "example": "A waiting period applies to this benefit."
+      }
+    ],
+    "usefulPhrases": [
+      "Hello! Thank you for contacting Member Support.",
+      "I will be happy to review your benefits.",
+      "May I have your member ID and date of birth?",
+      "Which medical or dental service are you asking about?",
+      "Please allow me a moment while I review the plan.",
+      "Thank you for waiting; I am still checking the details.",
+      "Your coverage became effective on [date].",
+      "This provider appears as in network in our current directory.",
+      "A deductible or coinsurance may apply.",
+      "The final amount is determined after the claim is processed.",
+      "Your explanation of benefits shows how the claim was handled.",
+      "I cannot diagnose a condition or recommend treatment.",
+      "I can help you understand the benefit information available.",
+      "Would you like me to explain the next step?",
+      "Is there anything else I can review for you today?"
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in written health insurance support?",
+        "demonstrates": "Relacioná redacción, inglés, precisión y capacidad para explicar información."
+      },
+      {
+        "question": "How would you explain a deductible to a confused member?",
+        "demonstrates": "Usá lenguaje sencillo sin cambiar la política ni garantizar costos."
+      },
+      {
+        "question": "How do you maintain quality while handling more than one chat?",
+        "demonstrates": "Explicá organización, lectura completa, revisión antes de enviar y actualizaciones."
+      },
+      {
+        "question": "Tell me about a time you explained something complicated in a simple way.",
+        "demonstrates": "Podés usar estudios, tecnología o un trámite; describí el resultado."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "LIMPIEZA DENTAL",
+        "situation": "El miembro pregunta por chat si una limpieza dental está cubierta.",
+        "agentObjective": "Verify; check dental benefit; explain frequency/conditions; avoid guaranteeing provider charge.",
+        "dialogue": [
+          "Member: Is a dental cleaning covered?",
+          "Agent: I will be happy to check. May I have your member ID and date of birth?",
+          "Member: M10294, May 8, 1998.",
+          "Agent: Thank you. Your plan includes preventive dental cleanings twice per benefit year when you use an in-network provider.",
+          "Member: So it will be completely free?",
+          "Agent: The plan shows no copayment for the covered cleaning, but the final amount depends on the service billed and claim processing.",
+          "Member: Okay.",
+          "Agent: Would you like help checking whether your dentist is in network?"
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "FACTURA INESPERADA",
+        "situation": "El miembro recibió una factura y no entiende el EOB.",
+        "agentObjective": "Separate bill from EOB; check claim; explain deductible/coinsurance in plain language.",
+        "dialogue": [
+          "Member: I received a $240 bill. I thought I had insurance.",
+          "Agent: I understand why that is confusing. Let me review the claim and explanation of benefits.",
+          "Member: The visit was last month.",
+          "Agent: Thank you. The claim was processed, and part of the amount was applied to your deductible.",
+          "Member: What does that mean?",
+          "Agent: The deductible is the amount you pay for certain services before the plan begins sharing the cost. The EOB is not a bill, but it explains the allowed amount and your responsibility.",
+          "Member: Should I pay the provider?",
+          "Agent: Please compare the provider bill with the member responsibility shown on the EOB. I can help review both amounts."
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "RECLAMO DENEGADO",
+        "situation": "El miembro está molesto porque un procedimiento dental aparece como no cubierto.",
+        "agentObjective": "Acknowledge; review code/status; explain available reason; provide appeal/review path without changing decision.",
+        "dialogue": [
+          "Member: You denied my dental procedure. This is unfair.",
+          "Agent: I am sorry this has been frustrating. I will review the claim status and the reason listed.",
+          "Member: I already paid for insurance.",
+          "Agent: I understand. The claim shows the procedure was processed as a non-covered service under the current plan.",
+          "Member: Then change it.",
+          "Agent: I cannot change the claim decision in chat, but I can explain the review or appeal process and confirm which documents are needed.",
+          "Member: What do I need?",
+          "Agent: The notice requests the procedure details and supporting information from the dental provider. I can provide the submission instructions and claim number."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  },
+  "home-and-auto-claims-intake": {
+    "slug": "home-and-auto-claims-intake",
+    "title": "Home and Auto Claims Intake",
+    "eyebrow": "CUSTOMER SERVICE · INSURANCE",
+    "introduction": "Recepción y documentación inicial de accidentes, daños de vivienda y otras pérdidas aseguradas. El agente recopila hechos y explica el proceso; no determina responsabilidad ni garantiza cobertura.",
+    "skills": "Escucha activa, precisión, empatía, preguntas de seguimiento y documentación objetiva.",
+    "vocabulary": [
+      {
+        "term": "Accident",
+        "meaning": "Accidente",
+        "example": "When did the accident occur?"
+      },
+      {
+        "term": "Actual cash value",
+        "meaning": "Valor real en efectivo",
+        "example": "The adjuster may review the actual cash value."
+      },
+      {
+        "term": "Claim",
+        "meaning": "Reclamo",
+        "example": "I will open a new claim."
+      },
+      {
+        "term": "Claim number",
+        "meaning": "Número de reclamo",
+        "example": "Your claim number is CL-2048."
+      },
+      {
+        "term": "Claims adjuster",
+        "meaning": "Ajustador de reclamos",
+        "example": "An adjuster will contact you."
+      },
+      {
+        "term": "Collision",
+        "meaning": "Colisión",
+        "example": "The vehicle was damaged in a collision."
+      },
+      {
+        "term": "Comprehensive coverage",
+        "meaning": "Cobertura amplia",
+        "example": "Comprehensive coverage may apply to theft or storm damage."
+      },
+      {
+        "term": "Coverage limit",
+        "meaning": "Límite de cobertura",
+        "example": "The policy includes a coverage limit."
+      },
+      {
+        "term": "Damage description",
+        "meaning": "Descripción del daño",
+        "example": "Please provide a damage description."
+      },
+      {
+        "term": "Date of loss",
+        "meaning": "Fecha de la pérdida",
+        "example": "What is the date of loss?"
+      },
+      {
+        "term": "Deductible",
+        "meaning": "Deducible",
+        "example": "The adjuster will confirm the applicable deductible."
+      },
+      {
+        "term": "Dwelling coverage",
+        "meaning": "Cobertura de la vivienda",
+        "example": "Dwelling coverage applies to the home structure."
+      },
+      {
+        "term": "Emergency repairs",
+        "meaning": "Reparaciones de emergencia",
+        "example": "Keep receipts for emergency repairs."
+      },
+      {
+        "term": "Incident report",
+        "meaning": "Reporte del incidente",
+        "example": "I am documenting the incident report."
+      },
+      {
+        "term": "Injury",
+        "meaning": "Lesión",
+        "example": "Was anyone injured?"
+      },
+      {
+        "term": "Liability",
+        "meaning": "Responsabilidad civil",
+        "example": "The investigation will review liability."
+      },
+      {
+        "term": "Loss assessment",
+        "meaning": "Evaluación de daños",
+        "example": "A loss assessment may be scheduled."
+      },
+      {
+        "term": "Loss of use",
+        "meaning": "Pérdida de uso",
+        "example": "Loss of use may help with temporary accommodation."
+      },
+      {
+        "term": "Police report",
+        "meaning": "Reporte policial",
+        "example": "Do you have a police report number?"
+      },
+      {
+        "term": "Policyholder",
+        "meaning": "Titular de la póliza",
+        "example": "I need to verify the policyholder."
+      },
+      {
+        "term": "Property damage",
+        "meaning": "Daño a la propiedad",
+        "example": "Was there damage to another property?"
+      },
+      {
+        "term": "Replacement cost",
+        "meaning": "Costo de reemplazo",
+        "example": "The policy may use replacement cost."
+      },
+      {
+        "term": "Supporting evidence",
+        "meaning": "Evidencia de respaldo",
+        "example": "Photos can be supporting evidence."
+      },
+      {
+        "term": "Third party",
+        "meaning": "Tercero involucrado",
+        "example": "Please provide the third party's information."
+      },
+      {
+        "term": "Witness",
+        "meaning": "Testigo",
+        "example": "Was there a witness to the accident?"
+      }
+    ],
+    "usefulPhrases": [
+      "I am sorry this happened. I will help you report the incident.",
+      "First, are you and everyone involved in a safe location?",
+      "Was anyone injured?",
+      "May I have the policy number and date of loss?",
+      "Please describe what happened in your own words.",
+      "Where did the incident occur?",
+      "Was another person or vehicle involved?",
+      "Do you have photos, receipts or a police report?",
+      "I am documenting the information exactly as you provided it.",
+      "I cannot determine fault during this initial report.",
+      "Coverage will be reviewed according to the policy and investigation.",
+      "I cannot guarantee payment or reimbursement.",
+      "An adjuster will contact you to continue the process.",
+      "Your claim number is [number].",
+      "Is there any additional damage or information you need to report?"
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in insurance claims intake?",
+        "demonstrates": "Relacioná escucha, documentación, empatía y trabajo con procesos."
+      },
+      {
+        "question": "What information would you collect after a vehicle accident?",
+        "demonstrates": "Mencioná seguridad, lesiones, fecha, lugar, involucrados, daños y evidencia."
+      },
+      {
+        "question": "How would you respond if a customer demands confirmation of coverage?",
+        "demonstrates": "Explicá que documentarías y aclararías el proceso sin garantizar una decisión."
+      },
+      {
+        "question": "Tell me about a time you stayed calm during an unexpected problem.",
+        "demonstrates": "Justificá la fortaleza con acciones y aprendizaje, no solo con una palabra."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "VEHÍCULO ESTACIONADO",
+        "situation": "El cliente reporta que encontró un golpe en su vehículo estacionado.",
+        "agentObjective": "Check safety; collect time/location/damage; ask evidence; create claim.",
+        "dialogue": [
+          "Customer: I found a large dent on my car in the parking lot.",
+          "Agent: I am sorry to hear that. Are you in a safe location now?",
+          "Customer: Yes.",
+          "Agent: When and where did you notice the damage?",
+          "Customer: This morning outside my apartment.",
+          "Agent: Do you have photos or information about another vehicle?",
+          "Customer: I have photos, but no information.",
+          "Agent: Thank you. I will document the damage and open the claim. An adjuster will review the next steps."
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "DAÑO POR TORMENTA",
+        "situation": "Una tormenta dañó el techo y dos ventanas de la vivienda.",
+        "agentObjective": "Verify safety; document cause/time/areas; advise evidence; explain adjuster follow-up without confirming coverage.",
+        "dialogue": [
+          "Customer: A storm damaged my roof and two windows last night.",
+          "Agent: I am sorry this happened. Is everyone safe, and is the home currently habitable?",
+          "Customer: Yes, but water is entering one room.",
+          "Agent: Thank you. Please describe the damaged areas and any emergency steps already taken.",
+          "Customer: We covered the window and called a contractor.",
+          "Agent: Please keep photos and receipts for the claim review. I will document the loss and assign a claim number.",
+          "Customer: Is the roof definitely covered?",
+          "Agent: Coverage will be reviewed according to the policy and damage assessment. I cannot guarantee it during intake."
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "ACCIDENTE CON LESIONES",
+        "situation": "El cliente reporta un choque con otro vehículo y una posible lesión.",
+        "agentObjective": "Prioritize safety/emergency services; collect facts objectively; avoid fault determination; escalate appropriately.",
+        "dialogue": [
+          "Customer: Another driver hit me, and my passenger says her neck hurts.",
+          "Agent: I am sorry. Are you in a safe location, and have emergency services been contacted?",
+          "Customer: We are on the side of the road. The police are coming.",
+          "Agent: Please prioritize medical assistance. I can begin the report while you wait if it is safe to continue.",
+          "Customer: The other driver caused everything.",
+          "Agent: I will document your description, but I cannot determine fault during this call. What time and location did the collision occur?",
+          "Customer: At 6:20 p.m. on Pine Avenue.",
+          "Agent: Thank you. I will record that and note the reported injury for urgent follow-up."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  },
+  "smart-wellness-device-support": {
+    "slug": "smart-wellness-device-support",
+    "title": "Smart Wellness Device Support",
+    "eyebrow": "TECH SUPPORT · DEVICES",
+    "introduction": "Soporte para configuración, conectividad, sincronización y fallas de dispositivos de bienestar. El agente soluciona el equipo, pero no interpreta resultados ni ofrece consejo médico.",
+    "skills": "Pensamiento lógico, paciencia, instrucciones paso a paso, documentación y límites claros.",
+    "vocabulary": [
+      {
+        "term": "App integration",
+        "meaning": "Integración con la aplicación",
+        "example": "The device supports app integration."
+      },
+      {
+        "term": "Battery compartment",
+        "meaning": "Compartimiento de batería",
+        "example": "Open the battery compartment carefully."
+      },
+      {
+        "term": "Bluetooth connection",
+        "meaning": "Conexión Bluetooth",
+        "example": "The Bluetooth connection was interrupted."
+      },
+      {
+        "term": "Calibration",
+        "meaning": "Calibración",
+        "example": "The device may require calibration."
+      },
+      {
+        "term": "Compatible device",
+        "meaning": "Dispositivo compatible",
+        "example": "Confirm that the phone is compatible."
+      },
+      {
+        "term": "Control solution",
+        "meaning": "Solución de control",
+        "example": "Use the control solution as instructed by the manufacturer."
+      },
+      {
+        "term": "Data sync",
+        "meaning": "Sincronización de datos",
+        "example": "The data sync is incomplete."
+      },
+      {
+        "term": "Data upload",
+        "meaning": "Carga de datos",
+        "example": "The data upload may require Wi-Fi."
+      },
+      {
+        "term": "Device pairing",
+        "meaning": "Emparejamiento",
+        "example": "Put the device in pairing mode."
+      },
+      {
+        "term": "Device reset",
+        "meaning": "Reinicio del dispositivo",
+        "example": "Try a device reset after saving the data."
+      },
+      {
+        "term": "Error code",
+        "meaning": "Código de error",
+        "example": "What error code appears on the screen?"
+      },
+      {
+        "term": "Error reading",
+        "meaning": "Lectura con error",
+        "example": "The customer reported an error reading."
+      },
+      {
+        "term": "Firmware",
+        "meaning": "Firmware del dispositivo",
+        "example": "Check the current firmware version."
+      },
+      {
+        "term": "Indicator light",
+        "meaning": "Luz indicadora",
+        "example": "Is the indicator light blinking?"
+      },
+      {
+        "term": "Low battery",
+        "meaning": "Batería baja",
+        "example": "The low-battery symbol is displayed."
+      },
+      {
+        "term": "Memory recall",
+        "meaning": "Consulta del historial",
+        "example": "Use memory recall to view previous entries."
+      },
+      {
+        "term": "Meter malfunction",
+        "meaning": "Mal funcionamiento del medidor",
+        "example": "The symptoms may indicate a meter malfunction."
+      },
+      {
+        "term": "Mobile app",
+        "meaning": "Aplicación móvil",
+        "example": "Open the mobile app settings."
+      },
+      {
+        "term": "Pairing mode",
+        "meaning": "Modo de emparejamiento",
+        "example": "Activate pairing mode before searching."
+      },
+      {
+        "term": "Reading accuracy",
+        "meaning": "Precisión de lectura",
+        "example": "Support cannot interpret reading accuracy medically."
+      },
+      {
+        "term": "Replace battery",
+        "meaning": "Cambiar batería",
+        "example": "Please replace the battery with a compatible one."
+      },
+      {
+        "term": "Serial number",
+        "meaning": "Número de serie",
+        "example": "The serial number is on the back label."
+      },
+      {
+        "term": "Test strip",
+        "meaning": "Tira reactiva",
+        "example": "Confirm that the test strip is compatible."
+      },
+      {
+        "term": "Troubleshoot",
+        "meaning": "Solucionar paso a paso",
+        "example": "Let us troubleshoot the issue together."
+      },
+      {
+        "term": "Warranty replacement",
+        "meaning": "Reemplazo por garantía",
+        "example": "The device may qualify for a warranty replacement."
+      }
+    ],
+    "usefulPhrases": [
+      "Thank you for contacting Device Support. How may I help?",
+      "What model and serial number are you using?",
+      "When did the issue begin?",
+      "What do you see on the screen?",
+      "Have you recently changed the battery?",
+      "Let us try one step at a time.",
+      "Please confirm that Bluetooth is enabled on your phone.",
+      "Open the app and select Pair Device.",
+      "Did the indicator light begin to blink?",
+      "Thank you for trying that. What happened next?",
+      "Before a reset, let us check whether your data is synchronized.",
+      "I can troubleshoot the device, but I cannot interpret medical results.",
+      "Please contact a healthcare professional for medical guidance.",
+      "The device may qualify for replacement under warranty.",
+      "Is the device working correctly now?"
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in supporting wellness devices?",
+        "demonstrates": "Relacioná interés tecnológico con programas o dispositivos que realmente hayas aprendido."
+      },
+      {
+        "question": "What would you do if a customer asks you to interpret a health reading?",
+        "demonstrates": "Separá soporte técnico de consejo médico y dirigí al cliente al profesional adecuado."
+      },
+      {
+        "question": "How would you troubleshoot a device that does not turn on?",
+        "demonstrates": "Explicá una secuencia lógica: modelo, energía, batería, señales, prueba y escalamiento."
+      },
+      {
+        "question": "Tell me about a device or application you learned to use by yourself.",
+        "demonstrates": "Indicá qué aprendiste, cómo investigaste y cómo comprobaste que funcionaba."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "NO ENCIENDE",
+        "situation": "El dispositivo no enciende y muestra señales de batería agotada.",
+        "agentObjective": "Identify model; inspect battery; guide replacement; reset date/time; confirm.",
+        "dialogue": [
+          "Customer: My wellness device is not turning on.",
+          "Agent: I can help you check it. Have you recently replaced the battery?",
+          "Customer: No.",
+          "Agent: Please open the battery compartment and confirm the battery type.",
+          "Customer: It uses a coin battery.",
+          "Agent: Replace it with a compatible new battery and check the screen.",
+          "Customer: It turned on.",
+          "Agent: Great. Let us also confirm the date and time settings before you use it."
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "NO SINCRONIZA",
+        "situation": "El dispositivo registra información, pero la aplicación no recibe los datos.",
+        "agentObjective": "Check compatibility/Bluetooth/app permissions; re-pair; confirm sync.",
+        "dialogue": [
+          "Customer: The device works, but my readings do not appear in the app.",
+          "Agent: Let us check the connection. Is Bluetooth enabled, and is the device listed in the app?",
+          "Customer: Bluetooth is on, but it says disconnected.",
+          "Agent: Please open the app, remove the old connection and select Pair Device.",
+          "Customer: The indicator light is blinking now.",
+          "Agent: Good. Select the device name and approve the connection request.",
+          "Customer: It connected, but the old data is missing.",
+          "Agent: Please select Sync Data and keep both devices close until the upload finishes."
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "LECTURAS INCONSISTENTES",
+        "situation": "El dispositivo se congela y muestra resultados inconsistentes después de cambiar la batería.",
+        "agentObjective": "Gather technical facts; check compatible supplies; avoid medical interpretation; review warranty replacement.",
+        "dialogue": [
+          "Customer: The device freezes and the numbers look wrong. Is my health getting worse?",
+          "Agent: I am sorry this is concerning. I can troubleshoot the device, but I cannot interpret the readings medically. Please contact a healthcare professional for medical guidance.",
+          "Customer: I already changed the battery.",
+          "Agent: Thank you. Are you using compatible supplies, and do you see an error code?",
+          "Customer: The supplies are correct, but it freezes without a code.",
+          "Agent: Since the issue continues after the battery change, I will check the warranty. May I have the serial number and purchase date?",
+          "Customer: It is SW-4589, purchased eight months ago.",
+          "Agent: The device appears eligible for technical replacement review. I will document the troubleshooting completed."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  },
+  "audio-device-technical-support": {
+    "slug": "audio-device-technical-support",
+    "title": "Audio Device Technical Support",
+    "eyebrow": "TECH SUPPORT · ELECTRONICS",
+    "introduction": "Soporte para Bluetooth, aplicaciones, audífonos, bocinas y barras de sonido. La conversación debe avanzar paso a paso, confirmando el resultado antes de aplicar cambios mayores.",
+    "skills": "Diagnóstico, instrucciones sencillas, escucha activa, paciencia y conocimiento básico de conexiones.",
+    "vocabulary": [
+      {
+        "term": "Audio cable",
+        "meaning": "Cable de audio",
+        "example": "Check whether the audio cable is secure."
+      },
+      {
+        "term": "Audio lag",
+        "meaning": "Retraso de audio",
+        "example": "The customer reports audio lag."
+      },
+      {
+        "term": "Audio output",
+        "meaning": "Salida de audio",
+        "example": "Select the correct audio output."
+      },
+      {
+        "term": "Bluetooth connectivity",
+        "meaning": "Conectividad Bluetooth",
+        "example": "We need to test Bluetooth connectivity."
+      },
+      {
+        "term": "Device not powering on",
+        "meaning": "El dispositivo no enciende",
+        "example": "The device is not powering on."
+      },
+      {
+        "term": "Factory reset",
+        "meaning": "Restablecimiento de fábrica",
+        "example": "Use a factory reset only when necessary."
+      },
+      {
+        "term": "Firmware update",
+        "meaning": "Actualización de firmware",
+        "example": "A firmware update may fix the issue."
+      },
+      {
+        "term": "HDMI ARC",
+        "meaning": "Canal de retorno de audio HDMI",
+        "example": "Connect the soundbar to the HDMI ARC port."
+      },
+      {
+        "term": "Headphones",
+        "meaning": "Audífonos",
+        "example": "The headphones are not detected."
+      },
+      {
+        "term": "Input source",
+        "meaning": "Fuente de entrada",
+        "example": "Choose the correct input source."
+      },
+      {
+        "term": "Optical cable",
+        "meaning": "Cable óptico",
+        "example": "The optical cable carries digital audio."
+      },
+      {
+        "term": "Pairing mode",
+        "meaning": "Modo de emparejamiento",
+        "example": "Place the speaker in pairing mode."
+      },
+      {
+        "term": "Power cycle",
+        "meaning": "Ciclo de energía",
+        "example": "Let us perform a power cycle."
+      },
+      {
+        "term": "Remote control",
+        "meaning": "Control remoto",
+        "example": "The remote control is not responding."
+      },
+      {
+        "term": "Signal interference",
+        "meaning": "Interferencia de señal",
+        "example": "Other devices may cause signal interference."
+      },
+      {
+        "term": "Soundbar",
+        "meaning": "Barra de sonido",
+        "example": "The soundbar has no audio."
+      },
+      {
+        "term": "Speaker calibration",
+        "meaning": "Calibración de altavoces",
+        "example": "Run speaker calibration from the menu."
+      },
+      {
+        "term": "Subwoofer",
+        "meaning": "Subwoofer",
+        "example": "The subwoofer is not detected."
+      },
+      {
+        "term": "Surround sound",
+        "meaning": "Sonido envolvente",
+        "example": "Enable surround sound in settings."
+      },
+      {
+        "term": "Volume level",
+        "meaning": "Nivel de volumen",
+        "example": "Confirm the volume level on both devices."
+      },
+      {
+        "term": "Default device",
+        "meaning": "Dispositivo predeterminado",
+        "example": "Set the headphones as the default device."
+      },
+      {
+        "term": "Mute setting",
+        "meaning": "Configuración de silencio",
+        "example": "Check whether mute is enabled."
+      },
+      {
+        "term": "Charging port",
+        "meaning": "Puerto de carga",
+        "example": "Inspect the charging port for debris."
+      },
+      {
+        "term": "Connection timeout",
+        "meaning": "Tiempo de conexión agotado",
+        "example": "The pairing attempt ended in a connection timeout."
+      },
+      {
+        "term": "Troubleshooting step",
+        "meaning": "Paso de diagnóstico",
+        "example": "Complete one troubleshooting step at a time."
+      }
+    ],
+    "usefulPhrases": [
+      "Thank you for contacting Audio Device Support.",
+      "Which device model are you using?",
+      "What device are you trying to connect it to?",
+      "When did the audio issue begin?",
+      "Is the power or charging indicator on?",
+      "Please confirm that the device is not muted.",
+      "Make sure Bluetooth is enabled on both devices.",
+      "Place the audio device in pairing mode.",
+      "Do you see the device name in the Bluetooth list?",
+      "Please select the correct audio output.",
+      "Let us perform a power cycle before resetting the device.",
+      "What happened after you completed that step?",
+      "A factory reset will remove saved connections.",
+      "The issue may require a firmware update.",
+      "Is the audio playing correctly now?"
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in audio device support?",
+        "demonstrates": "Respaldá tu interés con conexiones, programas, audio, Bluetooth u otros ejemplos reales."
+      },
+      {
+        "question": "How would you help a customer who cannot pair headphones?",
+        "demonstrates": "Describí preguntas y pasos simples, confirmando el resultado después de cada uno."
+      },
+      {
+        "question": "Why should a factory reset not be the first solution?",
+        "demonstrates": "Demostrá que entendés el impacto de borrar configuraciones y la importancia de diagnosticar."
+      },
+      {
+        "question": "Tell me about a technical problem you solved for yourself or another person.",
+        "demonstrates": "Explicá síntoma, pruebas, solución y lo que aprendiste."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "AUDÍFONOS NO APARECEN",
+        "situation": "Los audífonos no aparecen en la lista Bluetooth del teléfono.",
+        "agentObjective": "Check power/charge; pairing mode; old connections; connect and confirm sound.",
+        "dialogue": [
+          "Customer: My headphones do not appear on my phone.",
+          "Agent: Let us check the pairing mode. Are the headphones charged and turned on?",
+          "Customer: Yes.",
+          "Agent: Press and hold the Bluetooth button until the light begins flashing.",
+          "Customer: It is flashing now.",
+          "Agent: Open the Bluetooth list on your phone. Do you see the device name?",
+          "Customer: Yes, it appeared.",
+          "Agent: Select it and play a short audio clip to confirm the connection."
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "SOUNDBAR SIN SONIDO",
+        "situation": "La soundbar enciende, pero el audio continúa saliendo del televisor.",
+        "agentObjective": "Check cable/input/output; test; avoid reset until basic checks complete.",
+        "dialogue": [
+          "Customer: My soundbar is on, but sound still comes from the TV.",
+          "Agent: I understand. Is the soundbar connected through HDMI ARC or an optical cable?",
+          "Customer: HDMI.",
+          "Agent: Please confirm it is connected to the HDMI port labeled ARC, then open the TV audio settings.",
+          "Customer: It is in ARC.",
+          "Agent: Select External Speaker or Audio System as the audio output.",
+          "Customer: Now the soundbar is playing.",
+          "Agent: Great. Let us save that option as the default audio output."
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "AUDIO INTERMITENTE",
+        "situation": "El audio se corta y queda desincronizado después de una actualización.",
+        "agentObjective": "Gather setup; test interference/cables; power cycle; check firmware; escalate if unresolved.",
+        "dialogue": [
+          "Customer: Since the update, the sound cuts out and is delayed.",
+          "Agent: I am sorry about the trouble. Does this happen with every source or only Bluetooth?",
+          "Customer: It happens with the TV and Bluetooth.",
+          "Agent: Thank you. Let us first perform a power cycle on the soundbar and TV, then test the HDMI cable.",
+          "Customer: The delay improved, but the audio still cuts out.",
+          "Agent: Please check the firmware version in the mobile app and tell me the number shown.",
+          "Customer: It says 4.1.2.",
+          "Agent: That version is current. I will document the tests and create a support ticket for advanced review."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  },
+  "gaming-platform-support": {
+    "slug": "gaming-platform-support",
+    "title": "Gaming Platform Support",
+    "eyebrow": "TECH SUPPORT · GAMING",
+    "introduction": "Soporte para cuentas, acceso, compras digitales, descargas, suscripciones y conectividad. Aunque el título ya no diga Chat, los ejercicios pueden utilizar comunicación escrita si ese continúa siendo el canal de la plaza.",
+    "skills": "Redacción clara, seguridad de cuenta, diagnóstico, conocimiento de plataformas y control de expectativas.",
+    "vocabulary": [
+      {
+        "term": "Account recovery",
+        "meaning": "Recuperación de cuenta",
+        "example": "Start the account recovery process."
+      },
+      {
+        "term": "Account suspension",
+        "meaning": "Suspensión de cuenta",
+        "example": "Support cannot remove a suspension without review."
+      },
+      {
+        "term": "Backward compatibility",
+        "meaning": "Compatibilidad con juegos anteriores",
+        "example": "The console supports backward compatibility."
+      },
+      {
+        "term": "Connectivity issue",
+        "meaning": "Problema de conectividad",
+        "example": "The download stopped due to a connectivity issue."
+      },
+      {
+        "term": "Digital content",
+        "meaning": "Contenido digital",
+        "example": "The customer cannot access digital content."
+      },
+      {
+        "term": "Download queue",
+        "meaning": "Cola de descargas",
+        "example": "Check the download queue."
+      },
+      {
+        "term": "Error code",
+        "meaning": "Código de error",
+        "example": "Please provide the error code."
+      },
+      {
+        "term": "Game library",
+        "meaning": "Biblioteca de juegos",
+        "example": "The title appears in the game library."
+      },
+      {
+        "term": "Gift card",
+        "meaning": "Tarjeta de regalo",
+        "example": "The customer purchased a gift card."
+      },
+      {
+        "term": "Login credentials",
+        "meaning": "Credenciales de acceso",
+        "example": "Never request the customer's password."
+      },
+      {
+        "term": "Multiplayer",
+        "meaning": "Multijugador",
+        "example": "A subscription may be required for multiplayer."
+      },
+      {
+        "term": "Network test",
+        "meaning": "Prueba de red",
+        "example": "Run a network test from settings."
+      },
+      {
+        "term": "Online ID",
+        "meaning": "Identificador en línea",
+        "example": "Confirm the online ID on the account."
+      },
+      {
+        "term": "Parental controls",
+        "meaning": "Controles parentales",
+        "example": "The purchase is restricted by parental controls."
+      },
+      {
+        "term": "Password reset",
+        "meaning": "Restablecimiento de contraseña",
+        "example": "Send the password reset email."
+      },
+      {
+        "term": "Purchase history",
+        "meaning": "Historial de compras",
+        "example": "Review the purchase history."
+      },
+      {
+        "term": "Redeem code",
+        "meaning": "Canjear código",
+        "example": "Enter the redeem code exactly as printed."
+      },
+      {
+        "term": "Refund request",
+        "meaning": "Solicitud de reembolso",
+        "example": "The refund request requires review."
+      },
+      {
+        "term": "Region restriction",
+        "meaning": "Restricción regional",
+        "example": "The code has a region restriction."
+      },
+      {
+        "term": "Storage space",
+        "meaning": "Espacio de almacenamiento",
+        "example": "Free storage space before downloading."
+      },
+      {
+        "term": "Subscription",
+        "meaning": "Suscripción",
+        "example": "Check the subscription expiration date."
+      },
+      {
+        "term": "System update",
+        "meaning": "Actualización del sistema",
+        "example": "Install the latest system update."
+      },
+      {
+        "term": "Two-step verification",
+        "meaning": "Verificación en dos pasos",
+        "example": "Two-step verification protects the account."
+      },
+      {
+        "term": "Unauthorized purchase",
+        "meaning": "Compra no autorizada",
+        "example": "Report an unauthorized purchase immediately."
+      },
+      {
+        "term": "Wallet balance",
+        "meaning": "Saldo de la billetera",
+        "example": "The wallet balance cannot be transferred."
+      }
+    ],
+    "usefulPhrases": [
+      "Thank you for contacting Gaming Platform Support.",
+      "What online ID or email is associated with the account?",
+      "For security, please do not send your password.",
+      "What error message or code do you see?",
+      "Let me confirm whether the issue affects the account, console or game.",
+      "Please check your internet connection and run a network test.",
+      "Pause and resume the download before restarting the console.",
+      "Make sure there is enough storage space.",
+      "Check the game library and purchase history.",
+      "The code must match the region of the account.",
+      "I can submit a refund request, but I cannot guarantee approval.",
+      "Account suspensions must follow the review process.",
+      "I recommend changing the password and enabling two-step verification.",
+      "Your support ticket number is [number].",
+      "Is there another account or platform issue I can help you with?"
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in gaming platform support?",
+        "demonstrates": "Relacioná conocimiento de cuentas, juegos o plataformas con servicio y solución de problemas."
+      },
+      {
+        "question": "How would you handle an unauthorized digital purchase?",
+        "demonstrates": "Priorizá seguridad, verificación, documentación y expectativas correctas sobre reembolso."
+      },
+      {
+        "question": "What would you check if a game download is stuck?",
+        "demonstrates": "Mencioná error, almacenamiento, red, cola de descarga, reinicio y actualización."
+      },
+      {
+        "question": "How would you respond to an angry player in chat?",
+        "demonstrates": "Demostrá redacción calmada, reconocimiento del problema y límites claros."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "RECUPERACIÓN DE CONTRASEÑA",
+        "situation": "El usuario olvidó la contraseña y no recibe el correo de recuperación.",
+        "agentObjective": "Verify account identifier; check spam/email accuracy; resend; protect credentials.",
+        "dialogue": [
+          "Player: I forgot my password and the reset email is not arriving.",
+          "Agent: I can help you check the recovery process. What email or online ID is associated with the account?",
+          "Player: gamer@email.com.",
+          "Agent: Thank you. Please check the spam folder and confirm the email was entered correctly.",
+          "Player: It is correct, but there is nothing in spam.",
+          "Agent: I will resend the recovery message. Please do not share the reset code or your password.",
+          "Player: I received it now.",
+          "Agent: Great. Create a new password and enable two-step verification after signing in."
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "DESCARGA DETENIDA",
+        "situation": "Un juego quedó atascado durante la descarga.",
+        "agentObjective": "Check error/storage/network; pause/resume; restart; preserve data.",
+        "dialogue": [
+          "Player: My game has been stuck at 62 percent for an hour.",
+          "Agent: I can help troubleshoot it. Do you see an error code, and how much storage space is available?",
+          "Player: No error. I have 90 GB free.",
+          "Agent: Please pause the download, wait ten seconds and resume it.",
+          "Player: It is still stuck.",
+          "Agent: Run a network test and tell me whether the console is connected.",
+          "Player: The connection test failed.",
+          "Agent: Restart the router and console, then resume the download. Your purchased game will remain in the library."
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "COMPRA NO AUTORIZADA",
+        "situation": "El usuario reporta una compra desconocida y exige reembolso y desbloqueo inmediato.",
+        "agentObjective": "Secure account; review purchase; submit case; avoid refund/suspension promises.",
+        "dialogue": [
+          "Player: Someone bought a game on my account. Refund it now.",
+          "Agent: I am sorry this happened. I will help secure the account and document the purchase. Do you still have access to the email?",
+          "Player: Yes, but the account is temporarily locked.",
+          "Agent: First, change the email password and begin account recovery. I will not ask for your password.",
+          "Player: Will you refund the game today?",
+          "Agent: I can submit the unauthorized purchase report, but I cannot guarantee approval or timing.",
+          "Player: Remove the lock too.",
+          "Agent: The security restriction must follow the review process. I will provide a ticket number and the next verification steps."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  },
+  "internet-tv-and-phone-sales": {
+    "slug": "internet-tv-and-phone-sales",
+    "title": "Internet, TV and Phone Sales",
+    "eyebrow": "SALES · TELECOMMUNICATIONS",
+    "introduction": "Venta inbound de servicios de internet, televisión, teléfono y seguridad para el hogar. El agente descubre necesidades, compara opciones, explica condiciones y busca cerrar la venta.",
+    "skills": "Comunicación, escucha, preguntas de descubrimiento, manejo de objeciones y orientación a metas.",
+    "vocabulary": [
+      {
+        "term": "Activation",
+        "meaning": "Activación",
+        "example": "Activation may take up to one hour."
+      },
+      {
+        "term": "Activation fee",
+        "meaning": "Cargo de activación",
+        "example": "The activation fee appears on the first bill."
+      },
+      {
+        "term": "Bundle",
+        "meaning": "Paquete de servicios",
+        "example": "A bundle can combine internet and TV."
+      },
+      {
+        "term": "Contract term",
+        "meaning": "Duración del contrato",
+        "example": "The contract term is twelve months."
+      },
+      {
+        "term": "Coverage area",
+        "meaning": "Área de cobertura",
+        "example": "Let me check the coverage area."
+      },
+      {
+        "term": "Data limit",
+        "meaning": "Límite de datos",
+        "example": "This plan has no monthly data limit."
+      },
+      {
+        "term": "Download speed",
+        "meaning": "Velocidad de descarga",
+        "example": "The plan includes 300 Mbps download speed."
+      },
+      {
+        "term": "Equipment rental",
+        "meaning": "Alquiler de equipo",
+        "example": "The router has a monthly equipment rental fee."
+      },
+      {
+        "term": "Home security",
+        "meaning": "Seguridad para el hogar",
+        "example": "The bundle includes home security options."
+      },
+      {
+        "term": "Installation appointment",
+        "meaning": "Cita de instalación",
+        "example": "We can schedule the installation appointment."
+      },
+      {
+        "term": "Installation fee",
+        "meaning": "Tarifa de instalación",
+        "example": "The installation fee may be waived."
+      },
+      {
+        "term": "Internet plan",
+        "meaning": "Plan de internet",
+        "example": "Which internet plan fits the household?"
+      },
+      {
+        "term": "Mobile line",
+        "meaning": "Línea móvil",
+        "example": "How many mobile lines do you need?"
+      },
+      {
+        "term": "Monthly rate",
+        "meaning": "Tarifa mensual",
+        "example": "The regular monthly rate begins after the promotion."
+      },
+      {
+        "term": "Promotional price",
+        "meaning": "Precio promocional",
+        "example": "The promotional price lasts twelve months."
+      },
+      {
+        "term": "Router",
+        "meaning": "Enrutador",
+        "example": "The router supports Wi-Fi 6."
+      },
+      {
+        "term": "Service address",
+        "meaning": "Dirección del servicio",
+        "example": "I need the service address to check availability."
+      },
+      {
+        "term": "Streaming",
+        "meaning": "Transmisión de contenido",
+        "example": "How many people stream at the same time?"
+      },
+      {
+        "term": "Unlimited data",
+        "meaning": "Datos ilimitados",
+        "example": "This option includes unlimited data."
+      },
+      {
+        "term": "Upload speed",
+        "meaning": "Velocidad de subida",
+        "example": "Upload speed matters for video calls."
+      },
+      {
+        "term": "Upgrade",
+        "meaning": "Mejora de plan",
+        "example": "You can upgrade the plan later."
+      },
+      {
+        "term": "Wi-Fi coverage",
+        "meaning": "Cobertura Wi-Fi",
+        "example": "A mesh system can improve Wi-Fi coverage."
+      },
+      {
+        "term": "Early termination fee",
+        "meaning": "Cargo por cancelación anticipada",
+        "example": "Review the early termination fee before accepting."
+      },
+      {
+        "term": "Channel package",
+        "meaning": "Paquete de canales",
+        "example": "Which channel package do you prefer?"
+      },
+      {
+        "term": "Order confirmation",
+        "meaning": "Confirmación del pedido",
+        "example": "I will send the order confirmation by email."
+      }
+    ],
+    "usefulPhrases": [
+      "Thank you for your interest. What service are you looking for today?",
+      "May I have the service address to check availability?",
+      "How many people use the internet in your home?",
+      "What activities do you use the internet for most often?",
+      "How many devices are normally connected?",
+      "Based on your needs, I recommend the [plan name].",
+      "This option includes [benefit] and [benefit].",
+      "The promotional price applies for [period].",
+      "After the promotion, the regular monthly rate will be [amount].",
+      "There is also an equipment or installation fee of [amount].",
+      "I understand that price is an important consideration.",
+      "Which feature is most important to you: speed, price or flexibility?",
+      "Would this plan meet the needs you described?",
+      "Would you like to continue with the order?",
+      "Let me review the complete order before submitting it."
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in telecommunications sales?",
+        "demonstrates": "Conectá comunicación, identificación de necesidades, productos y orientación a objetivos."
+      },
+      {
+        "question": "What questions would you ask before recommending an internet plan?",
+        "demonstrates": "Incluí usuarios, dispositivos, actividades, velocidad, presupuesto y dirección."
+      },
+      {
+        "question": "How would you respond if a competitor offers a lower price?",
+        "demonstrates": "Preguntá qué incluye la oferta y compará valor y condiciones sin atacar al competidor."
+      },
+      {
+        "question": "Tell me about a time you persuaded someone or presented an idea.",
+        "demonstrates": "Explicá cómo escuchaste, adaptaste el mensaje y lograste una decisión."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "INTERNET PARA ESTUDIAR",
+        "situation": "El cliente busca un plan para clases virtuales y streaming ocasional.",
+        "agentObjective": "Ask household/devices; recommend appropriate plan; disclose price; close.",
+        "dialogue": [
+          "Customer: I need internet for online classes and Netflix.",
+          "Agent: I can help you compare plans. How many people and devices will use the connection?",
+          "Customer: Two people and about five devices.",
+          "Agent: Based on that use, the 300 Mbps plan should support classes and streaming comfortably.",
+          "Customer: How much is it?",
+          "Agent: The promotional price is $45 for twelve months, plus the equipment fee. After the promotion, the regular rate is $60.",
+          "Customer: That sounds fine.",
+          "Agent: Great. May I check availability at your service address and schedule installation?"
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "COMPARACIÓN DE PRECIO",
+        "situation": "El cliente compara la oferta con un competidor más barato.",
+        "agentObjective": "Acknowledge; discover what competitor includes; compare value honestly; ask for decision.",
+        "dialogue": [
+          "Customer: Another company offers internet for ten dollars less.",
+          "Agent: I understand price matters. May I ask what speed, equipment and contract terms their offer includes?",
+          "Customer: It says 200 Mbps, but I am not sure about equipment.",
+          "Agent: Our plan includes 300 Mbps and a Wi-Fi 6 router. The total monthly price includes the equipment fee during the promotion.",
+          "Customer: I mostly care about reliable video calls.",
+          "Agent: Then the additional speed and router may provide better value for your use. Would you like me to confirm installation availability before you decide?"
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "OBJECIONES MÚLTIPLES",
+        "situation": "El cliente quiere varias líneas y TV, pero rechaza contrato, instalación y precio final.",
+        "agentObjective": "Prioritize needs; separate objections; offer authorized configuration; disclose all terms; avoid pressure.",
+        "dialogue": [
+          "Customer: I need internet, TV and three phone lines, but I will not sign a long contract or pay installation.",
+          "Agent: I understand. Let us identify which services are essential and review the available no-contract options.",
+          "Customer: Internet and phone are essential. TV is optional.",
+          "Agent: We can begin with internet and three lines. The no-contract option has a higher monthly rate, while the promotional plan has a twelve-month term.",
+          "Customer: And installation?",
+          "Agent: Standard installation is $50. I can check whether a current authorized waiver applies to your address, but I cannot promise it.",
+          "Customer: I also do not want the price to increase later.",
+          "Agent: I will show you both the promotional and regular rates before you make a decision."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  },
+  "vacation-property-optimization-sales": {
+    "slug": "vacation-property-optimization-sales",
+    "title": "Vacation Property Optimization Sales",
+    "eyebrow": "SALES · TRAVEL INDUSTRY",
+    "introduction": "Venta outbound B2B dirigida a propietarios de alojamientos vacacionales. El objetivo es descubrir necesidades y presentar herramientas que mejoren visibilidad, reservaciones o rendimiento.",
+    "skills": "Apertura de llamada, curiosidad comercial, escucha, presentación de valor, manejo de objeciones y seguimiento.",
+    "vocabulary": [
+      {
+        "term": "Booking conversion",
+        "meaning": "Conversión de reservaciones",
+        "example": "Better photos may improve booking conversion."
+      },
+      {
+        "term": "Booking performance",
+        "meaning": "Rendimiento de reservaciones",
+        "example": "Let us review your booking performance."
+      },
+      {
+        "term": "Call to action",
+        "meaning": "Llamado a la acción",
+        "example": "The listing needs a clear call to action."
+      },
+      {
+        "term": "Competitive rate",
+        "meaning": "Tarifa competitiva",
+        "example": "A competitive rate may attract more guests."
+      },
+      {
+        "term": "Demo",
+        "meaning": "Demostración",
+        "example": "I can schedule a product demo."
+      },
+      {
+        "term": "Guest experience",
+        "meaning": "Experiencia del huésped",
+        "example": "Guest experience affects reviews."
+      },
+      {
+        "term": "Guest reviews",
+        "meaning": "Reseñas de huéspedes",
+        "example": "Recent guest reviews build trust."
+      },
+      {
+        "term": "Lead",
+        "meaning": "Cliente potencial",
+        "example": "The property owner is a qualified lead."
+      },
+      {
+        "term": "Listing description",
+        "meaning": "Descripción del anuncio",
+        "example": "The listing description should highlight benefits."
+      },
+      {
+        "term": "Listing optimization",
+        "meaning": "Optimización del anuncio",
+        "example": "We provide listing optimization tools."
+      },
+      {
+        "term": "Low season",
+        "meaning": "Temporada baja",
+        "example": "Occupancy drops during the low season."
+      },
+      {
+        "term": "Occupancy rate",
+        "meaning": "Tasa de ocupación",
+        "example": "The owner wants to increase occupancy rate."
+      },
+      {
+        "term": "Online visibility",
+        "meaning": "Visibilidad en línea",
+        "example": "The service can improve online visibility."
+      },
+      {
+        "term": "Owner",
+        "meaning": "Propietario",
+        "example": "I am calling to speak with the property owner."
+      },
+      {
+        "term": "Performance report",
+        "meaning": "Reporte de rendimiento",
+        "example": "The dashboard includes a performance report."
+      },
+      {
+        "term": "Property listing",
+        "meaning": "Anuncio de la propiedad",
+        "example": "Your property listing is active."
+      },
+      {
+        "term": "Property management",
+        "meaning": "Administración de propiedades",
+        "example": "The tool supports property management."
+      },
+      {
+        "term": "Qualified lead",
+        "meaning": "Prospecto calificado",
+        "example": "The owner became a qualified lead."
+      },
+      {
+        "term": "Seasonal pricing",
+        "meaning": "Precios por temporada",
+        "example": "Seasonal pricing adjusts rates by demand."
+      },
+      {
+        "term": "Target audience",
+        "meaning": "Público objetivo",
+        "example": "Who is your target audience?"
+      },
+      {
+        "term": "Vacation rental",
+        "meaning": "Alquiler vacacional",
+        "example": "How long have you managed the vacation rental?"
+      },
+      {
+        "term": "Value proposition",
+        "meaning": "Propuesta de valor",
+        "example": "The value proposition must match the owner's needs."
+      },
+      {
+        "term": "Follow-up call",
+        "meaning": "Llamada de seguimiento",
+        "example": "We scheduled a follow-up call."
+      },
+      {
+        "term": "Objection",
+        "meaning": "Objeción",
+        "example": "The agent acknowledged the price objection."
+      },
+      {
+        "term": "Return on investment",
+        "meaning": "Retorno de inversión",
+        "example": "The owner asked about return on investment."
+      }
+    ],
+    "usefulPhrases": [
+      "Hello, may I speak with the property owner or manager?",
+      "Is this a good time for a brief conversation?",
+      "I am calling to learn how you currently manage your vacation rental.",
+      "Which months are most difficult for your occupancy?",
+      "How do guests usually discover your property?",
+      "What would you most like to improve about the listing?",
+      "Based on what you described, our tool may help with [need].",
+      "The platform provides [feature] so you can [benefit].",
+      "Would improving visibility be valuable for your property?",
+      "I understand that you already use another platform.",
+      "This service can complement your current process by [benefit].",
+      "What concern would prevent you from considering it?",
+      "Would you be open to a short demonstration?",
+      "What day would be convenient for a follow-up?",
+      "I will send a summary of what we discussed."
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in B2B travel sales?",
+        "demonstrates": "Relacioná comunicación, análisis de necesidades y trabajo con propietarios y objetivos."
+      },
+      {
+        "question": "How would you open a cold call with a property owner?",
+        "demonstrates": "Pedí permiso, explicá el motivo brevemente y hacé una pregunta de descubrimiento."
+      },
+      {
+        "question": "What would you say if the owner already uses another platform?",
+        "demonstrates": "Reconocé la objeción, investigá brechas y presentá un complemento sin desacreditar."
+      },
+      {
+        "question": "How would you discuss results without guaranteeing bookings?",
+        "demonstrates": "Enfocate en herramientas, datos y posibles beneficios, aclarando los factores variables."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "MEJORAR VISIBILIDAD",
+        "situation": "El propietario acepta escuchar y quiere atraer más reservaciones.",
+        "agentObjective": "Ask current challenge; connect tool to visibility; schedule demo.",
+        "dialogue": [
+          "Agent: Hello, may I speak with the property owner?",
+          "Owner: This is the owner.",
+          "Agent: I am calling to learn how you currently promote your vacation rental. Is this a good time for a brief conversation?",
+          "Owner: Yes. We need more bookings during weekdays.",
+          "Agent: How do guests usually find your property?",
+          "Owner: Mostly through one booking site.",
+          "Agent: Our tools help optimize listing visibility and seasonal pricing. Would you be open to a short demonstration focused on weekday occupancy?",
+          "Owner: Yes, send me the information.",
+          "Agent: Great. Let us schedule a twenty-minute demo for tomorrow."
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "YA USA OTRA PLATAFORMA",
+        "situation": "El propietario cree que su plataforma actual es suficiente.",
+        "agentObjective": "Acknowledge; discover gap; position complement; avoid attacking competitor.",
+        "dialogue": [
+          "Owner: I already use another platform, so I am not interested.",
+          "Agent: I understand. Many owners use more than one tool. What works well for you, and what would you still like to improve?",
+          "Owner: Visibility is fine, but occupancy drops in low season.",
+          "Agent: That makes sense. Our service can complement your current platform with seasonal pricing insights and performance reports.",
+          "Owner: I do not want to replace my system.",
+          "Agent: You would not need to replace it to explore the tools. Would a short demo focused only on low-season performance be useful?",
+          "Owner: Maybe next week.",
+          "Agent: I can schedule a brief follow-up on Tuesday."
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "COSTO Y RESULTADOS",
+        "situation": "El propietario exige una garantía de reservaciones antes de pagar.",
+        "agentObjective": "Clarify goal; explain value/evidence; never guarantee results; seek low-risk next step.",
+        "dialogue": [
+          "Owner: I will only pay if you guarantee ten new bookings this month.",
+          "Agent: I understand you want a clear return. What occupancy goal are you trying to reach?",
+          "Owner: At least eighty percent.",
+          "Agent: Our tools can support listing optimization and pricing decisions, but I cannot guarantee a specific number of bookings because results depend on demand and property factors.",
+          "Owner: Then why should I pay?",
+          "Agent: The value is in the performance data, recommendations and time saved. I can show you how similar property types use the dashboard without promising a result.",
+          "Owner: I do not want a long presentation.",
+          "Agent: We can schedule a fifteen-minute demo focused only on occupancy and pricing."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  },
+  "hotel-platform-registration-sales": {
+    "slug": "hotel-platform-registration-sales",
+    "title": "Hotel Platform Registration Sales",
+    "eyebrow": "SALES · HOSPITALITY",
+    "introduction": "Venta outbound B2B para registrar hoteles, hostales y otros alojamientos en una plataforma de viajes. El agente explica beneficios, condiciones y onboarding para obtener un registro o seguimiento.",
+    "skills": "Comunicación B2B, descubrimiento, explicación de beneficios, manejo de comisiones y cierre.",
+    "vocabulary": [
+      {
+        "term": "Accommodation provider",
+        "meaning": "Proveedor de alojamiento",
+        "example": "We work with accommodation providers."
+      },
+      {
+        "term": "Account activation",
+        "meaning": "Activación de cuenta",
+        "example": "Account activation follows document review."
+      },
+      {
+        "term": "Availability calendar",
+        "meaning": "Calendario de disponibilidad",
+        "example": "Update the availability calendar regularly."
+      },
+      {
+        "term": "Booking platform",
+        "meaning": "Plataforma de reservaciones",
+        "example": "The hotel wants to join the booking platform."
+      },
+      {
+        "term": "Commission rate",
+        "meaning": "Tasa de comisión",
+        "example": "Let me explain the commission rate."
+      },
+      {
+        "term": "Contract terms",
+        "meaning": "Condiciones del contrato",
+        "example": "Review the contract terms carefully."
+      },
+      {
+        "term": "Direct booking",
+        "meaning": "Reservación directa",
+        "example": "The platform complements direct booking channels."
+      },
+      {
+        "term": "Guest reach",
+        "meaning": "Alcance de huéspedes",
+        "example": "The service may increase guest reach."
+      },
+      {
+        "term": "Hotel profile",
+        "meaning": "Perfil del hotel",
+        "example": "Complete the hotel profile before activation."
+      },
+      {
+        "term": "Inventory",
+        "meaning": "Inventario de habitaciones",
+        "example": "The platform synchronizes room inventory."
+      },
+      {
+        "term": "Listing",
+        "meaning": "Anuncio",
+        "example": "The listing includes photos and amenities."
+      },
+      {
+        "term": "Onboarding",
+        "meaning": "Proceso de incorporación",
+        "example": "Our onboarding team will guide the setup."
+      },
+      {
+        "term": "Online visibility",
+        "meaning": "Visibilidad en línea",
+        "example": "The platform improves online visibility."
+      },
+      {
+        "term": "Partner",
+        "meaning": "Socio comercial",
+        "example": "The hotel becomes a platform partner."
+      },
+      {
+        "term": "Payment terms",
+        "meaning": "Condiciones de pago",
+        "example": "The agreement explains payment terms."
+      },
+      {
+        "term": "Potential guest",
+        "meaning": "Huésped potencial",
+        "example": "The listing reaches potential guests."
+      },
+      {
+        "term": "Property manager",
+        "meaning": "Administrador de la propiedad",
+        "example": "May I speak with the property manager?"
+      },
+      {
+        "term": "Property registration",
+        "meaning": "Registro de propiedad",
+        "example": "Property registration begins online."
+      },
+      {
+        "term": "Required documents",
+        "meaning": "Documentos requeridos",
+        "example": "We will send the required document list."
+      },
+      {
+        "term": "Room availability",
+        "meaning": "Disponibilidad de habitaciones",
+        "example": "Keep room availability accurate."
+      },
+      {
+        "term": "Room inventory",
+        "meaning": "Inventario de habitaciones",
+        "example": "How many rooms are in your inventory?"
+      },
+      {
+        "term": "Service agreement",
+        "meaning": "Acuerdo de servicio",
+        "example": "The manager must review the service agreement."
+      },
+      {
+        "term": "Setup process",
+        "meaning": "Proceso de configuración",
+        "example": "The setup process has three steps."
+      },
+      {
+        "term": "Terms and conditions",
+        "meaning": "Términos y condiciones",
+        "example": "Please review the terms and conditions."
+      },
+      {
+        "term": "Welcome bonus",
+        "meaning": "Bono de bienvenida",
+        "example": "The welcome bonus depends on current eligibility."
+      }
+    ],
+    "usefulPhrases": [
+      "May I speak with the hotel manager or person responsible for online distribution?",
+      "Is this a convenient time for a brief introduction?",
+      "How do guests currently book rooms with your property?",
+      "Which platforms do you currently use?",
+      "How many rooms or units do you manage?",
+      "What would you like to improve about your online bookings?",
+      "Our platform can help your property reach [audience].",
+      "The registration process includes [steps].",
+      "The commission rate and payment terms are explained before activation.",
+      "You can continue using your existing booking channels.",
+      "I understand that commission is an important concern.",
+      "Let us compare the potential benefits with the service conditions.",
+      "Would you like to begin the registration process?",
+      "Would a follow-up with our onboarding specialist be helpful?",
+      "I will send the required documents and a summary of the terms."
+    ],
+    "interviewQuestions": [
+      {
+        "question": "Why are you interested in hotel registration sales?",
+        "demonstrates": "Conectá comunicación B2B, onboarding, hospitalidad y cumplimiento de objetivos."
+      },
+      {
+        "question": "What would you ask before inviting a hotel to register?",
+        "demonstrates": "Incluí canales actuales, habitaciones, responsable, necesidades y proceso de reservación."
+      },
+      {
+        "question": "How would you handle a concern about commission?",
+        "demonstrates": "Reconocé el impacto, explicá términos completos y conectá valor sin ocultar costos."
+      },
+      {
+        "question": "How would you respond if the hotel fears overbooking?",
+        "demonstrates": "Investigá su proceso y ofrecé revisión técnica sin prometer compatibilidad no confirmada."
+      }
+    ],
+    "rolePlays": [
+      {
+        "level": "easy",
+        "label": "Fácil",
+        "title": "INTERÉS EN REGISTRARSE",
+        "situation": "El administrador quiere conocer los beneficios y el proceso.",
+        "agentObjective": "Discover current channels; explain reach/onboarding; confirm next step.",
+        "dialogue": [
+          "Agent: Hello, may I speak with the hotel manager?",
+          "Manager: This is the manager.",
+          "Agent: I am calling to introduce our booking platform. How do guests currently reserve rooms with you?",
+          "Manager: Mostly by phone and social media.",
+          "Agent: Our platform can provide an online listing and help potential guests find available rooms. The onboarding team also guides the setup.",
+          "Manager: What do you need to register?",
+          "Agent: Basic property information, photos, banking details and the required business documents. Would you like me to send the checklist and schedule onboarding?",
+          "Manager: Yes.",
+          "Agent: Great. I will send the summary and confirm a follow-up time."
+        ]
+      },
+      {
+        "level": "intermediate",
+        "label": "Intermedio",
+        "title": "PREOCUPACIÓN POR COMISIÓN",
+        "situation": "El hotel está interesado, pero considera alta la comisión.",
+        "agentObjective": "Acknowledge; understand current costs; explain value/terms transparently; offer review.",
+        "dialogue": [
+          "Manager: Your commission sounds high.",
+          "Agent: I understand that commission directly affects your margins. May I ask how you currently attract online bookings?",
+          "Manager: We pay for ads and use another platform.",
+          "Agent: Thank you. Our service includes guest reach, listing tools and onboarding support. I can explain the exact commission and payment terms so you can compare the complete cost.",
+          "Manager: I do not want hidden fees.",
+          "Agent: Absolutely. We will review the service agreement and all applicable charges before activation. Would you like a written summary and a follow-up call?",
+          "Manager: Send the summary first.",
+          "Agent: I will send it today and contact you after you review it."
+        ]
+      },
+      {
+        "level": "difficult",
+        "label": "Difícil",
+        "title": "VARIAS PLATAFORMAS",
+        "situation": "El hotel teme sobreventas y no quiere reemplazar sus canales actuales.",
+        "agentObjective": "Explore operations; explain inventory options without unsupported claims; propose specialist follow-up.",
+        "dialogue": [
+          "Manager: We already use two platforms. Adding another one will create overbookings.",
+          "Agent: That is a valid concern. How do you currently update room availability across channels?",
+          "Manager: Our staff updates each calendar manually.",
+          "Agent: I understand. Our onboarding specialist can review the available inventory options and determine how the platform would fit your process. I do not want to promise synchronization before checking compatibility.",
+          "Manager: I also will not remove my existing platforms.",
+          "Agent: You do not need to agree to replace them during this conversation. The next step can be a technical onboarding review focused on availability management.",
+          "Manager: Only if it is brief.",
+          "Agent: I can schedule a twenty-minute session and send the questions in advance."
+        ]
+      }
+    ],
+    "selfAssessment": "¿Utilicé vocabulario relevante? ¿Hice preguntas antes de asumir? ¿Expliqué el siguiente paso? ¿Evité prometer algo que no puedo garantizar? ¿Mi inglés fue claro y coherente?"
+  }
+}

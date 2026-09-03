@@ -77,11 +77,27 @@ p { color: var(--color-text-muted); }
   border-color: rgba(13, 33, 27, .1);
   box-shadow: 0 4px 18px rgba(13, 33, 27, .04);
 }
-.brand { color: var(--color-primary); letter-spacing: -.035em; }
+.brand {
+  width: clamp(154px, 15vw, 190px);
+  height: 46px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  color: var(--color-primary);
+  letter-spacing: -.035em;
+}
+.brand-logo {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  aspect-ratio: 190 / 46;
+  display: block;
+  object-fit: cover;
+  object-position: center 50%;
+}
 .brand-mark { width: 38px; background: var(--color-primary); color: var(--color-accent); }
-nav a { min-height: 40px; display: inline-flex; align-items: center; padding: 8px 12px; font-weight: 600; }
+nav a { min-height: 40px; display: inline-flex; flex: 0 0 auto; align-items: center; padding: 8px 10px; font-weight: 600; white-space: nowrap; }
 nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
-.site-header nav .nav-test-cta { padding-inline: 18px; border: 1px solid #155cff; background: #155cff; color: #fff; box-shadow: 0 8px 20px rgba(21, 92, 255, .18); }
+.site-header nav .nav-test-cta { flex-shrink: 0; padding-inline: 18px; border: 1px solid #155cff; background: #155cff; color: #fff; white-space: nowrap; box-shadow: 0 8px 20px rgba(21, 92, 255, .18); }
 .site-header nav .nav-test-cta:hover, .site-header nav .nav-test-cta.active { border-color: #0d48d4; background: #0d48d4; color: #fff; transform: translateY(-1px); }
 .menu-toggle { border-color: var(--color-border); border-radius: var(--radius-sm); }
 .menu-toggle:hover { background: rgba(13, 33, 27, .06); }
@@ -147,6 +163,20 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 .card-top > div { display: flex; align-items: center; gap: 12px; }
 .card-top > div .eyebrow { display: inline-block; }
 .card h3, .offer-card h2, .vocab-module-card h2, .reading-scenario-card h2, .listening-card h2, .writing-card h2 { margin: 14px 0 8px; }
+.listening-practice-page .reading-filters { grid-template-columns: minmax(0, 1.4fr) minmax(180px, .6fr); }
+.listening-result-context {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 6px 14px;
+  max-width: 660px;
+  margin: 18px 0;
+  padding: 16px 18px;
+  background: #f3f6ed;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+.listening-result-context span { color: var(--color-text-muted); font-size: .78rem; font-weight: 800; text-transform: uppercase; }
+.listening-result-context strong { min-width: 0; overflow-wrap: anywhere; }
 .card[data-accent] { border-top: 4px solid var(--skill-accent, var(--color-primary)); }
 .card[data-accent='grammar'] { --skill-accent: var(--color-grammar); }
 .card[data-accent='vocabulary'] { --skill-accent: var(--color-vocabulary); }
@@ -1847,6 +1877,44 @@ body:has(.test-practice-detail),
 .community-page .community-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.resources-page .resource-grid {
+  align-items: stretch;
+}
+.resources-page .resource-grid > .resource-card {
+  height: 100%;
+}
+.resources-page .resource-card .card-copy {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+.resources-page .resource-card__body {
+  display: flex;
+  flex-direction: column;
+}
+.resources-page .resource-card__description {
+  overflow-wrap: anywhere;
+}
+.resources-page .resource-card__footer {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: auto;
+  padding-top: 22px;
+}
+.resources-page .resource-card__meta {
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+.resources-page .resource-card__meta > span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.resources-page .resource-card__action {
+  align-self: flex-start;
+  margin-top: 0;
+}
 .portal-page :is(.resource-grid .card, .community-card, .offer-card) {
   position: relative;
   min-height: 320px;
@@ -1969,6 +2037,47 @@ body:has(.test-practice-detail),
 .community-page .community-rules li {
   color: rgba(255, 255, 255, .9);
   border-color: rgba(255, 255, 255, .24);
+}
+.community-page .about-turnon-section {
+  margin-top: clamp(88px, 10vw, 136px);
+  padding-top: clamp(72px, 8vw, 108px);
+  border-top: 1px solid rgba(7, 21, 47, .14);
+  scroll-margin-top: 90px;
+}
+.community-page .about-turnon-header {
+  max-width: 920px;
+  margin-inline: auto;
+  text-align: center;
+}
+.community-page .about-turnon-header > .eyebrow {
+  color: var(--turnon-blue);
+  text-transform: uppercase;
+}
+.community-page .about-turnon-header > h2 {
+  margin: 14px 0 18px;
+  color: var(--turnon-navy);
+  font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.8rem);
+  font-weight: 400;
+  line-height: .95;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.community-page .about-turnon-header > p {
+  max-width: 780px;
+  margin: 0 auto;
+  color: var(--turnon-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.community-page .about-turnon-header > .about-turnon-statement {
+  margin-bottom: 12px;
+  color: var(--turnon-navy);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  font-weight: 900;
+}
+.community-page .about-turnon-section .about-grid {
+  margin-block: clamp(42px, 6vw, 72px) 0;
 }
 .offers-page .offer-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2265,6 +2374,205 @@ body:has(.test-practice-detail),
   border-left: 6px solid var(--turnon-orange);
   border-radius: 0 18px 18px 0;
 }
+.calculators-page .calculator-primary-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.calculators-page .calculator-primary-fields > label,
+.calculators-page .calculator-primary-fields .salary-field {
+  min-width: 0;
+  align-content: start;
+  margin: 0;
+}
+.calculators-page .calculator-primary-fields label > small {
+  color: rgba(255, 255, 255, .78);
+  font-size: .78rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.calculators-page .calculator-panel .field-error {
+  width: fit-content;
+  padding: 5px 8px;
+  color: #fff;
+  background: rgba(126, 20, 20, .78);
+  border-radius: 7px;
+}
+.calculators-page .calculator-panel :where(input, select)[aria-invalid="true"] {
+  border-color: var(--turnon-orange);
+}
+.calculators-page .journey-context-note {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, .88);
+  font-size: .86rem;
+  line-height: 1.55;
+}
+.calculators-page .calculator-summary {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.calculators-page .labor-lines {
+  overflow: visible;
+}
+.calculators-page .labor-breakdown {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
+.calculators-page .labor-breakdown > h3 {
+  margin: 0 0 2px;
+  color: #fff;
+  font-size: 1.15rem;
+}
+.calculators-page .labor-breakdown-card,
+.calculators-page .labor-breakdown-empty {
+  margin: 0;
+  padding: 18px;
+  color: var(--turnon-navy);
+  background: #fff;
+  border-radius: 16px;
+}
+.calculators-page .labor-breakdown-card h4 {
+  margin: 0 0 14px;
+  color: var(--turnon-navy);
+  font-size: 1rem;
+}
+.calculators-page .labor-breakdown-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+.calculators-page .labor-breakdown-card dl > div {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid rgba(7, 21, 47, .1);
+  border-radius: 12px;
+}
+.calculators-page .labor-breakdown-card dt {
+  color: var(--turnon-muted);
+  font-size: .76rem;
+  font-weight: 800;
+}
+.calculators-page .labor-breakdown-card dd {
+  margin: 0;
+  color: var(--turnon-navy);
+  font-weight: 900;
+}
+.calculators-page .labor-breakdown-card .is-total {
+  background: rgba(200, 255, 61, .32);
+  border-color: rgba(151, 198, 32, .34);
+}
+.calculators-page .additional-hours-note {
+  margin-top: 20px;
+  padding: 16px 18px;
+  color: var(--turnon-navy);
+  background: #fff8ed;
+  border-left: 5px solid var(--turnon-orange);
+  border-radius: 0 14px 14px 0;
+}
+.calculators-page .additional-hours-note p {
+  margin: 6px 0 0;
+  font-size: .9rem;
+  line-height: 1.55;
+}
+.calculators-page .calculator-review-message {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  color: #fff;
+  background: rgba(126, 20, 20, .72);
+  border-radius: 12px;
+  font-weight: 800;
+}
+.calculators-page .calculator-review-message.is-valid {
+  color: var(--turnon-navy);
+  background: var(--turnon-lime);
+}
+.calculators-page .estimated-values-section,
+.calculators-page .labor-method-section {
+  margin-top: 28px;
+  padding: clamp(26px, 5vw, 48px);
+  color: var(--turnon-navy);
+  background: #fff;
+  border: 1px solid rgba(21, 92, 255, .14);
+  border-radius: 28px;
+  box-shadow: 0 22px 54px rgba(7, 21, 47, .09);
+}
+.calculators-page :is(.estimated-values-heading, .labor-method-section) > .eyebrow {
+  color: var(--turnon-blue);
+}
+.calculators-page :is(.estimated-values-heading, .labor-method-section) > h2 {
+  margin: 12px 0 10px;
+  color: var(--turnon-navy);
+  font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: .98;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.calculators-page .estimated-values-heading > p {
+  margin: 0 0 24px;
+  color: var(--turnon-muted);
+}
+.calculators-page .estimated-values-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.calculators-page .estimated-values-table th,
+.calculators-page .estimated-values-table td {
+  padding: 15px 14px;
+  color: var(--turnon-navy);
+  border-bottom: 1px solid rgba(7, 21, 47, .12);
+  text-align: left;
+}
+.calculators-page .estimated-values-table thead th {
+  color: #fff;
+  background: var(--turnon-blue);
+  font-size: .78rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.calculators-page .estimated-values-table thead th:first-child { border-radius: 12px 0 0 0; }
+.calculators-page .estimated-values-table thead th:last-child { border-radius: 0 12px 0 0; }
+.calculators-page .estimated-values-table tbody tr:last-child > * { border-bottom: 0; }
+.calculators-page .estimated-values-table tbody tr:nth-child(even) { background: rgba(21, 92, 255, .035); }
+.calculators-page .estimated-values-table td:last-child { font-weight: 900; }
+.calculators-page .labor-method-section > p {
+  max-width: 900px;
+  color: var(--turnon-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.calculators-page .labor-method-section .labor-method-legal-reference {
+  padding: 12px 14px;
+  color: var(--turnon-navy);
+  background: rgba(21, 92, 255, .06);
+  border-radius: 12px;
+  font-size: .88rem;
+}
+.calculators-page .labor-method-callout {
+  max-width: 900px;
+  margin: 24px 0;
+  padding: 20px 22px;
+  color: var(--turnon-navy);
+  background: rgba(200, 255, 61, .25);
+  border-left: 6px solid var(--turnon-lime);
+  border-radius: 0 16px 16px 0;
+}
+.calculators-page .labor-method-callout p {
+  margin: 8px 0 0;
+  line-height: 1.65;
+}
+.calculators-page .labor-method-disclaimer {
+  margin: 26px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(7, 21, 47, .12);
+  font-size: .9rem !important;
+}
 .about-page .about-grid {
   gap: clamp(20px, 3vw, 30px);
 }
@@ -2366,13 +2674,14 @@ body:has(.test-practice-detail),
   .listening-player, .writing-stats { position: static; }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1180px) {
   nav { background: var(--color-surface); border-color: var(--color-border); }
 }
 
 @media (max-width: 780px) {
   main { width: calc(100% - 28px); }
   .site-header { min-height: 64px; }
+  .site-header .brand { width: 140px; height: 40px; }
   nav { inset: 68px 14px auto; border-radius: var(--radius-md); }
   nav a { min-height: 46px; }
   .test-hero { padding: 72px 20px 48px; }
@@ -2482,6 +2791,7 @@ body:has(.test-practice-detail),
   .home-closing { align-items: start; }
   .card-grid, .portal-grid, .offer-grid, .writing-grid, .vocab-module-grid, .reading-scenario-grid, .listening-grid { grid-template-columns: 1fr; }
   .card, .offer-card, .vocab-module-card, .reading-scenario-card, .listening-card, .writing-card { min-height: auto; }
+  .resources-page .resource-grid > .resource-card { height: auto; }
   .page-intro { padding-top: var(--space-5); }
   .section-block { margin: var(--space-6) 0; }
   .resource-tools, .practice-filters, .reading-filters { grid-template-columns: 1fr; }
@@ -2635,9 +2945,16 @@ body:has(.test-practice-detail),
     padding: 18px;
     border-radius: 20px;
   }
+  .calculators-page .calculator-primary-fields {
+    grid-template-columns: 1fr;
+  }
   .calculators-page .labor-line {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     background: rgba(7, 21, 47, .2);
     border-color: rgba(255, 255, 255, .24);
+  }
+  .calculators-page .labor-line > label:first-child {
+    grid-column: 1 / -1;
   }
   .calculators-page .mobile-label {
     color: rgba(255, 255, 255, .86);
@@ -2651,6 +2968,66 @@ body:has(.test-practice-detail),
   }
   .calculators-page .calculator-actions .button {
     width: 100%;
+  }
+  .calculators-page .labor-breakdown-card dl {
+    grid-template-columns: 1fr;
+  }
+  .calculators-page .estimated-values-section,
+  .calculators-page .labor-method-section {
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+  .calculators-page .estimated-values-table,
+  .calculators-page .estimated-values-table tbody,
+  .calculators-page .estimated-values-table tr,
+  .calculators-page .estimated-values-table th,
+  .calculators-page .estimated-values-table td {
+    display: block;
+    width: 100%;
+  }
+  .calculators-page .estimated-values-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .calculators-page .estimated-values-table tbody {
+    display: grid;
+    gap: 12px;
+  }
+  .calculators-page .estimated-values-table tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 16px;
+    background: #fff !important;
+    border: 1px solid rgba(7, 21, 47, .12);
+    border-radius: 14px;
+  }
+  .calculators-page .estimated-values-table tbody th {
+    grid-column: 1 / -1;
+    padding: 0 0 12px;
+    border: 0;
+    font-size: 1rem;
+  }
+  .calculators-page .estimated-values-table td {
+    display: grid;
+    gap: 4px;
+    padding: 0;
+    border: 0;
+  }
+  .calculators-page .estimated-values-table td::before {
+    content: attr(data-label);
+    color: var(--turnon-muted);
+    font-size: .7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .calculators-page .estimated-values-table td:last-child {
+    text-align: right;
   }
   .calculators-page .official-note {
     align-items: flex-start;

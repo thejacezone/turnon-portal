@@ -1,0 +1,889 @@
+{
+  "tell-me": {
+    "title": "Cómo responder “Tell me about yourself” si no tenés experiencia",
+    "sections": [
+      {
+        "id": "introduccion",
+        "navLabel": "Introducción",
+        "title": "Introducción",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "“Tell me about yourself” suele ser una de las primeras preguntas en una entrevista para call center. Aunque parece una invitación para hablar de tu vida, el reclutador normalmente quiere escuchar tu nivel de inglés, conocer tu preparación y descubrir si tenés habilidades relacionadas con la plaza."
+          },
+          {
+            "type": "paragraph",
+            "text": "No necesitás inventar experiencia para dar una buena respuesta. Lo importante es presentar de manera coherente lo que ya sabés hacer y relacionarlo con el trabajo al que estás aplicando."
+          }
+        ]
+      },
+      {
+        "id": "que-esta-evaluando-el-entrevistador",
+        "navLabel": "¿Qué está evaluando el entrevistador?",
+        "title": "¿Qué está evaluando el entrevistador?",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "En una entrevista para call center, tu respuesta ayuda al reclutador a evaluar:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Tu nivel de inglés.",
+              "Tu pronunciación y fluidez.",
+              "Cómo organizás y comunicás tus ideas.",
+              "Si comprendés las preguntas.",
+              "Tu seguridad al hablar.",
+              "Tu experiencia o preparación relevante.",
+              "Si tus habilidades encajan con la plaza."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "No esperan necesariamente un inglés perfecto, pero sí una respuesta que tenga sentido y que puedan comprender. Hablar muy rápido o utilizar palabras complicadas no demuestra automáticamente un mejor nivel. Es preferible utilizar un inglés que realmente dominés."
+          }
+        ]
+      },
+      {
+        "id": "como-podes-comenzar",
+        "navLabel": "¿Cómo podés comenzar?",
+        "title": "¿Cómo podés comenzar?",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Evitá utilizar toda la introducción para decir únicamente tu nombre, edad y lugar de residencia. Estos datos no explican qué podés aportar a la empresa."
+          },
+          {
+            "type": "paragraph",
+            "text": "Podés comenzar hablando de tu situación actual, tus estudios o el tipo de oportunidad que estás buscando."
+          },
+          {
+            "type": "heading",
+            "text": "Si sos estudiante"
+          },
+          {
+            "type": "quote",
+            "text": "“I’m currently a university student, and I’m interested in starting my professional career in customer service.”"
+          },
+          {
+            "type": "heading",
+            "text": "Si recientemente terminaste tus estudios"
+          },
+          {
+            "type": "quote",
+            "text": "“I recently completed my studies, and I’m looking for an opportunity to gain professional experience and develop my communication skills.”"
+          },
+          {
+            "type": "heading",
+            "text": "Si estás aprendiendo inglés"
+          },
+          {
+            "type": "quote",
+            "text": "“I have been working on improving my English and communication skills because I’m interested in starting a career in customer service.”"
+          },
+          {
+            "type": "paragraph",
+            "text": "La introducción debe conectarse con el resto de la respuesta. No mencionés información que después no podás explicar o relacionar con la plaza."
+          }
+        ]
+      },
+      {
+        "id": "que-podes-decir-si-no-tenes-experiencia",
+        "navLabel": "¿Qué podés decir si no tenés experiencia?",
+        "title": "¿Qué podés decir si no tenés experiencia?",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "No tener experiencia formal no significa que no tengás nada relevante que mencionar. Podés hablar de:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Tus estudios o capacitaciones.",
+              "Proyectos académicos o personales.",
+              "Experiencias atendiendo personas.",
+              "Ventas o trabajos informales.",
+              "Conocimiento de computadoras y herramientas digitales.",
+              "Actividades en las que resolviste problemas.",
+              "Situaciones en las que trabajaste en equipo.",
+              "Tu proceso de aprendizaje del inglés."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "La clave está en identificar qué aprendiste y cómo podría ayudarte en un call center."
+          },
+          {
+            "type": "paragraph",
+            "text": "Por ejemplo, si realizaste exposiciones en la universidad, podés hablar de tus habilidades de comunicación. Si participaste en proyectos grupales, podés mencionar organización y trabajo en equipo. Si ayudaste en un negocio familiar, probablemente tuviste contacto con clientes, manejaste pagos o respondiste preguntas."
+          },
+          {
+            "type": "paragraph",
+            "text": "No inventés puestos ni responsabilidades. Presentá tu experiencia real de una forma profesional y relevante."
+          }
+        ]
+      },
+      {
+        "id": "elegi-fortalezas-relacionadas-con-la-plaza",
+        "navLabel": "Elegí fortalezas relacionadas con la plaza",
+        "title": "Elegí fortalezas relacionadas con la plaza",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "No es necesario mencionar muchas cualidades. Elegí dos o tres que realmente tengás y que sean útiles para el puesto."
+          },
+          {
+            "type": "paragraph",
+            "text": "Algunas fortalezas relevantes para un call center son:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Comunicación clara.",
+              "Escucha activa.",
+              "Paciencia.",
+              "Resolución de problemas.",
+              "Adaptabilidad.",
+              "Organización.",
+              "Trabajo en equipo.",
+              "Facilidad para aprender.",
+              "Manejo básico de computadoras.",
+              "Capacidad para mantener la calma."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "En lugar de limitarte a decir “I’m responsible and patient”, explicá brevemente cómo lo has demostrado."
+          },
+          {
+            "type": "quote",
+            "text": "“I’m a patient person, and I try to listen carefully before giving an answer or making a decision.”"
+          },
+          {
+            "type": "quote",
+            "text": "“I learn new processes quickly, especially when I can practice them and receive feedback.”"
+          },
+          {
+            "type": "paragraph",
+            "text": "Una explicación sencilla hace que la fortaleza resulte más creíble."
+          }
+        ]
+      },
+      {
+        "id": "relaciona-tu-respuesta-con-la-plaza",
+        "navLabel": "Relacioná tu respuesta con la plaza",
+        "title": "Relacioná tu respuesta con la plaza",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "La última parte debe explicar por qué te interesa la oportunidad y qué esperás desarrollar. Esto permite que toda la respuesta tenga una dirección clara."
+          },
+          {
+            "type": "paragraph",
+            "text": "Podés cerrar diciendo:"
+          },
+          {
+            "type": "quote",
+            "text": "“I’m looking for an opportunity where I can use my English, develop my customer service skills and gain professional experience.”"
+          },
+          {
+            "type": "paragraph",
+            "text": "Si conocés el tipo de plaza, podés hacer el cierre más específico."
+          },
+          {
+            "type": "heading",
+            "text": "Para servicio al cliente"
+          },
+          {
+            "type": "quote",
+            "text": "“I’m interested in this position because I enjoy helping people, and I want to develop my customer service and problem-solving skills.”"
+          },
+          {
+            "type": "heading",
+            "text": "Para soporte técnico"
+          },
+          {
+            "type": "quote",
+            "text": "“I’m interested in technical support because I’m comfortable using computers, and I enjoy understanding problems and finding solutions.”"
+          },
+          {
+            "type": "heading",
+            "text": "Para ventas"
+          },
+          {
+            "type": "quote",
+            "text": "“I’m interested in sales because I like communicating with people, understanding their needs and helping them choose the right option.”"
+          }
+        ]
+      },
+      {
+        "id": "ejemplos-completos-segun-tu-perfil",
+        "navLabel": "Ejemplos completos según tu perfil",
+        "title": "Ejemplos completos según tu perfil",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Estos ejemplos son una referencia. Adaptalos a tu experiencia, nivel de inglés y a la plaza. No los memoricés como si fueran un guion."
+          },
+          {
+            "type": "heading",
+            "text": "Estudiante sin experiencia laboral"
+          },
+          {
+            "type": "quote",
+            "text": "“I’m currently a university student, and I’m interested in starting my professional career in customer service. Through my studies, I have developed communication, organization and teamwork skills. I’m comfortable using computers, and I learn new processes quickly. I have also been working on improving my English because I want to use it in a professional environment. I’m looking for an opportunity where I can gain experience, contribute to a team and continue developing my skills.”"
+          },
+          {
+            "type": "heading",
+            "text": "Persona con experiencia informal"
+          },
+          {
+            "type": "quote",
+            "text": "“I don’t have formal call center experience yet, but I have helped customers in a family business. I answered questions, assisted with purchases and tried to solve problems in a respectful way. That experience helped me become more patient and communicate clearly with different people. I’m now looking for an opportunity where I can use my English, receive professional training and develop a career in customer service.”"
+          },
+          {
+            "type": "heading",
+            "text": "Persona que viene de otra área"
+          },
+          {
+            "type": "quote",
+            "text": "“My previous experience has mainly been in retail, where I assisted customers, handled payments and worked in a fast-paced environment. Although I haven’t worked in a call center before, that experience helped me develop patience, attention to detail and customer service skills. I’m now interested in using those abilities in an English-speaking position with more opportunities for professional growth.”"
+          },
+          {
+            "type": "paragraph",
+            "text": "Los tres ejemplos siguen una secuencia similar:"
+          },
+          {
+            "type": "ordered-list",
+            "items": [
+              "Situación actual o experiencia.",
+              "Habilidades desarrolladas.",
+              "Relación con la plaza.",
+              "Razón para aplicar."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "No importa si tu experiencia es diferente. Lo importante es mantener esa conexión entre las ideas."
+          }
+        ]
+      },
+      {
+        "id": "errores-comunes",
+        "navLabel": "Errores comunes",
+        "title": "Errores comunes",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Evitá estos errores al preparar tu respuesta:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Contar toda tu vida personal.",
+              "Inventar experiencia laboral.",
+              "Repetir exactamente lo que dice tu currículum.",
+              "Mencionar habilidades sin poder explicarlas.",
+              "Utilizar palabras en inglés que no comprendés.",
+              "Memorizar cada palabra y bloquearte si olvidás una frase.",
+              "Hablar demasiado rápido para aparentar fluidez.",
+              "Dar información que no tiene relación con la plaza.",
+              "Hablar negativamente de trabajos o empleadores anteriores.",
+              "Decir solamente que necesitás el trabajo.",
+              "Utilizar la misma respuesta para servicio al cliente, ventas y soporte técnico.",
+              "Terminar sin explicar por qué te interesa la oportunidad."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "como-practicar-sin-sonar-memorizado",
+        "navLabel": "Cómo practicar sin sonar memorizado",
+        "title": "Cómo practicar sin sonar memorizado",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Primero escribí las ideas que querés comunicar en español. Después organizalas y expresalas utilizando un inglés que realmente podás manejar."
+          },
+          {
+            "type": "paragraph",
+            "text": "No memoricés la respuesta palabra por palabra. Recordá únicamente sus partes principales:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Tu situación actual.",
+              "Tu preparación o experiencia relevante.",
+              "Tus fortalezas.",
+              "Tu interés en la plaza."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Practicá grabándote y escuchá si tus ideas tienen sentido. Revisá si hablás con claridad, si repetís demasiado una palabra y si podés explicar cualquier información que mencionaste."
+          },
+          {
+            "type": "paragraph",
+            "text": "Después intentá responder nuevamente utilizando palabras diferentes. Si podés comunicar la misma idea de varias formas, tu respuesta sonará más natural y estarás mejor preparado para continuar la conversación."
+          },
+          {
+            "type": "paragraph",
+            "text": "El objetivo no es repetir un discurso perfecto. Es demostrar que podés comprender una pregunta, organizar una respuesta y comunicarte en inglés de manera clara y profesional."
+          }
+        ]
+      }
+    ],
+    "related": {
+      "heading": "También puede interesarte",
+      "before": "¿Ya sabés cómo presentarte, pero no tenés claro qué fortalezas mencionar? Complementá esta guía con ",
+      "label": "“Fortalezas y habilidades en una entrevista: cómo elegirlas y explicarlas”",
+      "after": " y aprendé a responder sin recurrir a cualidades genéricas o inventadas.",
+      "to": "/recursos/fortalezas"
+    }
+  },
+  "fortalezas": {
+    "title": "Fortalezas y habilidades en una entrevista: cómo elegirlas y explicarlas",
+    "sections": [
+      {
+        "id": "introduccion",
+        "navLabel": "Introducción",
+        "title": "Introducción",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Cuando un reclutador pregunta **“What are your strengths?”**, no espera solamente una lista de palabras positivas. Quiere conocer qué podés aportar a la plaza y comprobar si realmente poseés las cualidades que mencionás."
+          },
+          {
+            "type": "paragraph",
+            "text": "En una entrevista para call center también evaluará si podés organizar tus ideas y explicarlas claramente en inglés. Por eso, no basta con decir:"
+          },
+          {
+            "type": "quote",
+            "text": "“I’m responsible, extroverted and good with technology.”"
+          },
+          {
+            "type": "paragraph",
+            "text": "Cada afirmación abre la posibilidad de una nueva pregunta:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "¿Por qué decís que sos responsable?",
+              "¿Cómo demostrás que sos una persona extrovertida?",
+              "¿Qué programas o herramientas tecnológicas sabés utilizar?",
+              "¿Cuándo has utilizado esa habilidad?"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "La regla principal es sencilla:"
+          },
+          {
+            "type": "quote",
+            "text": "**No mencionés una fortaleza o habilidad que no podás explicar, justificar o demostrar con una experiencia real.**"
+          },
+          {
+            "type": "paragraph",
+            "text": "No necesitás tener experiencia laboral formal. Podés utilizar situaciones de tus estudios, proyectos, cursos, actividades personales, trabajos informales o responsabilidades de tu vida cotidiana."
+          }
+        ]
+      },
+      {
+        "id": "que-quiere-saber-el-entrevistador",
+        "navLabel": "¿Qué quiere saber el entrevistador?",
+        "title": "¿Qué quiere saber el entrevistador?",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Cuando te preguntan por tus fortalezas y habilidades, quieren descubrir:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Qué podés aportar al puesto.",
+              "Si conocés tus propias capacidades.",
+              "Si tus características encajan con la plaza.",
+              "Cómo has demostrado esas cualidades.",
+              "Si podés respaldar lo que decís.",
+              "Cómo organizás y comunicás una respuesta en inglés."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "El reclutador puede hacer preguntas adicionales basándose en cualquier información que mencionés. Si decís que sos bueno con la tecnología, podría preguntarte qué programas utilizás. Si decís que sos responsable, podría pedirte un ejemplo."
+          },
+          {
+            "type": "paragraph",
+            "text": "No dejés afirmaciones incompletas. Prepará una explicación para cada cualidad que decidás mencionar."
+          }
+        ]
+      },
+      {
+        "id": "diferencia-entre-una-fortaleza-y-una-habilidad",
+        "navLabel": "Diferencia entre una fortaleza y una habilidad",
+        "title": "Diferencia entre una fortaleza y una habilidad",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Aunque suelen utilizarse juntas, no significan exactamente lo mismo."
+          },
+          {
+            "type": "paragraph",
+            "text": "Una **fortaleza** es una característica positiva que influye en tu manera de actuar. Por ejemplo:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Paciencia.",
+              "Responsabilidad.",
+              "Adaptabilidad.",
+              "Empatía.",
+              "Perseverancia.",
+              "Facilidad para relacionarte con otras personas."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Una **habilidad** es algo que aprendiste o desarrollaste y que podés utilizar para realizar una tarea. Por ejemplo:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Hablar inglés.",
+              "Utilizar Microsoft Office.",
+              "Resolver problemas técnicos básicos.",
+              "Atender clientes.",
+              "Organizar información.",
+              "Utilizar diferentes programas y plataformas."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Las dos pueden relacionarse. Por ejemplo, tu fortaleza puede ser la paciencia y tu habilidad puede ser escuchar a una persona y explicarle una solución paso a paso."
+          }
+        ]
+      },
+      {
+        "id": "toda-fortaleza-necesita-una-explicacion",
+        "navLabel": "Toda fortaleza necesita una explicación",
+        "title": "Toda fortaleza necesita una explicación",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Decir una cualidad no demuestra que realmente la tengás. Después de mencionarla, explicá cómo se manifiesta en tu comportamiento."
+          },
+          {
+            "type": "paragraph",
+            "text": "Podés utilizar esta estructura:"
+          },
+          {
+            "type": "paragraph",
+            "text": "**Fortaleza o habilidad → razón → ejemplo o conducta → relación con el puesto**"
+          },
+          {
+            "type": "paragraph",
+            "text": "No siempre necesitás contar una historia larga. Una conducta frecuente también puede servir como evidencia."
+          },
+          {
+            "type": "heading",
+            "text": "“I’m extroverted”"
+          },
+          {
+            "type": "paragraph",
+            "text": "Decir que sos una persona extrovertida queda incompleto si no explicás cómo se nota."
+          },
+          {
+            "type": "paragraph",
+            "text": "Podrías decir:"
+          },
+          {
+            "type": "quote",
+            "text": "“I’m an extroverted person because I enjoy meeting new people, and I usually make a lot of friends wherever I go. I feel comfortable starting conversations and communicating with different personalities. I believe this would help me interact naturally with customers.”"
+          },
+          {
+            "type": "paragraph",
+            "text": "La explicación demuestra que no elegiste la palabra solamente porque suena bien. También establece una relación con la comunicación y la atención al cliente."
+          },
+          {
+            "type": "heading",
+            "text": "“I’m a techy person”"
+          },
+          {
+            "type": "paragraph",
+            "text": "“Techy” puede expresar que te interesan y se te facilitan las herramientas tecnológicas, pero tenés que mencionar qué has aprendido o utilizado."
+          },
+          {
+            "type": "quote",
+            "text": "“I consider myself a techy person because I enjoy learning how to use new programs and digital tools. For example, I learned to use Microsoft Office for my studies, and I’m comfortable working with computers and solving basic technical problems. I believe this would help me adapt to the systems used by the company.”"
+          },
+          {
+            "type": "paragraph",
+            "text": "No afirmés que sos una persona tecnológica si tu única explicación es que utilizás redes sociales. Mencioná programas, herramientas, cursos, proyectos o problemas que hayas aprendido a resolver."
+          },
+          {
+            "type": "heading",
+            "text": "“I’m responsible”"
+          },
+          {
+            "type": "paragraph",
+            "text": "La responsabilidad se demuestra con acciones, no solamente diciendo que siempre cumplís con todo."
+          },
+          {
+            "type": "quote",
+            "text": "“One of my main strengths is responsibility. In the past, I had a situation where poor time management affected an important assignment. That experience helped me understand the value of time, preparation and commitment. Since then, I organize my responsibilities in advance and try to complete my work on time.”"
+          },
+          {
+            "type": "paragraph",
+            "text": "También podés utilizar responsabilidades familiares, académicas o personales, siempre que la explicación sea apropiada para una entrevista."
+          },
+          {
+            "type": "paragraph",
+            "text": "Reconocer que aprendiste de una experiencia puede hacer que la respuesta resulte más honesta. Sin embargo, no necesitás revelar información demasiado personal. Enfocate en lo que ocurrió, lo que aprendiste y cómo cambió tu comportamiento."
+          }
+        ]
+      },
+      {
+        "id": "fortalezas-utiles-para-un-call-center",
+        "navLabel": "Fortalezas útiles para un call center",
+        "title": "Fortalezas útiles para un call center",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "No existe una lista que funcione para todas las personas. Elegí las fortalezas que realmente poseás y que sean relevantes para la plaza."
+          },
+          {
+            "type": "heading",
+            "text": "Paciencia"
+          },
+          {
+            "type": "paragraph",
+            "text": "Es útil cuando una persona necesita más tiempo, repite una pregunta o se encuentra molesta."
+          },
+          {
+            "type": "quote",
+            "text": "“One of my strengths is patience. I try to listen carefully and understand the complete situation before responding. I don’t like interrupting people, especially when they are explaining a problem.”"
+          },
+          {
+            "type": "heading",
+            "text": "Adaptabilidad"
+          },
+          {
+            "type": "paragraph",
+            "text": "Es importante porque los procesos, horarios, herramientas y necesidades de los clientes pueden cambiar."
+          },
+          {
+            "type": "quote",
+            "text": "“I’m adaptable because I can adjust when plans or instructions change. During group projects, I have had to take on different responsibilities depending on what the team needed.”"
+          },
+          {
+            "type": "heading",
+            "text": "Facilidad para aprender"
+          },
+          {
+            "type": "paragraph",
+            "text": "No digás únicamente “I’m a fast learner”. Explicá cómo aprendés."
+          },
+          {
+            "type": "quote",
+            "text": "“I learn new processes quickly because I take notes, practice the steps and ask questions when something is not clear. This method has helped me learn new programs and complete assignments more independently.”"
+          },
+          {
+            "type": "heading",
+            "text": "Atención al detalle"
+          },
+          {
+            "type": "paragraph",
+            "text": "Puede ser relevante para ingresar datos, verificar información y seguir procesos."
+          },
+          {
+            "type": "quote",
+            "text": "“I pay attention to details. When I work on an assignment, I usually review the instructions and check my work before submitting it. I believe this would help me avoid mistakes when handling customer information.”"
+          },
+          {
+            "type": "heading",
+            "text": "Capacidad para mantener la calma"
+          },
+          {
+            "type": "paragraph",
+            "text": "Es útil para tratar con clientes frustrados o resolver situaciones bajo presión."
+          },
+          {
+            "type": "quote",
+            "text": "“I try to remain calm when a problem occurs. Instead of reacting immediately, I focus on understanding the situation and identifying what I can do to solve it.”"
+          }
+        ]
+      },
+      {
+        "id": "habilidades-relevantes-segun-la-plaza",
+        "navLabel": "Habilidades relevantes según la plaza",
+        "title": "Habilidades relevantes según la plaza",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Antes de la entrevista, revisá la descripción del puesto. Una plaza de servicio al cliente no necesariamente busca exactamente las mismas habilidades que una de ventas o soporte técnico."
+          },
+          {
+            "type": "heading",
+            "text": "Servicio al cliente"
+          },
+          {
+            "type": "paragraph",
+            "text": "Las habilidades más relevantes pueden incluir:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Escucha activa.",
+              "Comunicación clara.",
+              "Empatía.",
+              "Resolución de problemas.",
+              "Capacidad para tratar con diferentes personalidades."
+            ]
+          },
+          {
+            "type": "heading",
+            "text": "Soporte técnico"
+          },
+          {
+            "type": "paragraph",
+            "text": "Podés hablar de:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Manejo de computadoras.",
+              "Uso de programas y herramientas digitales.",
+              "Capacidad para seguir procesos.",
+              "Análisis de problemas.",
+              "Explicación de instrucciones paso a paso."
+            ]
+          },
+          {
+            "type": "heading",
+            "text": "Ventas"
+          },
+          {
+            "type": "paragraph",
+            "text": "Pueden ser importantes:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Comunicación segura.",
+              "Facilidad para conversar.",
+              "Identificación de necesidades.",
+              "Persuasión.",
+              "Manejo de objeciones.",
+              "Orientación a resultados."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "No intentés mencionar todas las habilidades de la descripción. Elegí las que realmente tengás y prepará una explicación para cada una."
+          }
+        ]
+      },
+      {
+        "id": "como-identificar-tus-fortalezas-si-no-tenes-experiencia",
+        "navLabel": "¿Cómo identificar tus fortalezas si no tenés experiencia?",
+        "title": "¿Cómo identificar tus fortalezas si no tenés experiencia?",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "No tener experiencia en un call center no significa que no tengás fortalezas o habilidades relevantes."
+          },
+          {
+            "type": "paragraph",
+            "text": "Pensá en situaciones reales de tu vida:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "¿Para qué suelen pedirte ayuda otras personas?",
+              "¿Hacés amigos con facilidad?",
+              "¿Te resulta natural comenzar conversaciones?",
+              "¿Has aprendido a utilizar algún programa por tu cuenta?",
+              "¿Cómo reaccionás cuando una actividad no sale como esperabas?",
+              "¿Has ayudado en un negocio familiar?",
+              "¿Has participado en proyectos grupales?",
+              "¿Sos quien organiza las tareas dentro del grupo?",
+              "¿Has tenido que explicar un tema o proceso?",
+              "¿Cómo administrás tus estudios y otras responsabilidades?",
+              "¿Qué error te enseñó a actuar de manera diferente?",
+              "¿Qué comentarios positivos recibís frecuentemente?"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Las respuestas pueden revelar capacidades que ya poseés."
+          },
+          {
+            "type": "paragraph",
+            "text": "Por ejemplo:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Si tus compañeros te piden ayuda con programas, podrías tener facilidad tecnológica.",
+              "Si acostumbrás conocer personas y hacer amigos en lugares nuevos, podrías tener facilidad para comunicarte.",
+              "Si organizás proyectos grupales, podrías tener habilidades de planificación.",
+              "Si aprendiste de una entrega tardía y ahora planificás con anticipación, podés explicar cómo desarrollaste responsabilidad.",
+              "Si ayudás a otras personas a entender temas complicados, podrías tener paciencia y comunicación clara."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Lo importante no es solamente identificar la palabra. Debés encontrar la experiencia o conducta que la respalda."
+          }
+        ]
+      },
+      {
+        "id": "ejemplo-de-una-respuesta-completa",
+        "navLabel": "Ejemplo de una respuesta completa",
+        "title": "Ejemplo de una respuesta completa",
+        "blocks": [
+          {
+            "type": "quote",
+            "text": "“One of my main strengths is communication. I consider myself an extroverted person because I enjoy meeting new people, and I usually make friends wherever I go. I feel comfortable starting conversations and listening to different points of view. I’m also comfortable with technology. I have learned to use Microsoft Office and different online platforms for my studies, and I usually adapt quickly to new programs. I believe these strengths would help me communicate with customers and learn the systems used by the company.”"
+          },
+          {
+            "type": "paragraph",
+            "text": "Esta respuesta funciona porque cada afirmación tiene una explicación:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Dice que tiene facilidad para comunicarse.",
+              "Explica cómo se manifiesta esa cualidad.",
+              "Menciona herramientas tecnológicas concretas.",
+              "Relaciona todo con la plaza."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "no-menciones-cualidades-solo-porque-suenan-bien",
+        "navLabel": "No mencionés cualidades solo porque suenan bien",
+        "title": "No mencionés cualidades solo porque suenan bien",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Algunas palabras aparecen constantemente en ejemplos de internet, pero eso no significa que debás utilizarlas."
+          },
+          {
+            "type": "paragraph",
+            "text": "No digás que tenés:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "**Leadership**, si no podés explicar cuándo guiaste u organizaste a otras personas.",
+              "**Multitasking**, si no podés describir cómo manejás varias actividades.",
+              "**Advanced English**, si todavía no podés mantener una conversación.",
+              "**Technical skills**, si no podés mencionar herramientas o conocimientos concretos.",
+              "**Problem-solving skills**, si no podés explicar cómo analizás y resolvés un problema.",
+              "**Ability to work under pressure**, si no tenés una situación que demuestre cómo reaccionás.",
+              "**Responsibility**, si no podés hablar de hábitos o experiencias que la respalden."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "No inventés una respuesta. Es mejor explicar correctamente una fortaleza sencilla y real que mencionar una cualidad impresionante que no podás defender."
+          }
+        ]
+      },
+      {
+        "id": "errores-comunes",
+        "navLabel": "Errores comunes",
+        "title": "Errores comunes",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Evitá los siguientes errores:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Dar una lista de fortalezas sin explicarlas.",
+              "Mencionar demasiadas cualidades.",
+              "Utilizar palabras en inglés que no comprendés completamente.",
+              "Inventar experiencias.",
+              "Exagerar tu nivel de inglés o conocimientos tecnológicos.",
+              "Contar una experiencia que no tiene relación con la cualidad.",
+              "Utilizar un ejemplo demasiado personal o inapropiado.",
+              "Repetir una respuesta memorizada de internet.",
+              "Elegir exactamente las mismas fortalezas para todas las plazas.",
+              "Decir que no tenés ninguna fortaleza.",
+              "Afirmar algo sin estar preparado para responder una pregunta adicional."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Antes de la entrevista, revisá cada oración de tu respuesta y preguntate:"
+          },
+          {
+            "type": "quote",
+            "text": "**“Si el reclutador me pregunta por qué, ¿tengo algo real que responder?”**"
+          },
+          {
+            "type": "paragraph",
+            "text": "Si la respuesta es no, necesitás buscar una experiencia que la justifique, explicar mejor la idea o elegir otra fortaleza."
+          }
+        ]
+      },
+      {
+        "id": "como-practicar-tu-respuesta",
+        "navLabel": "Cómo practicar tu respuesta",
+        "title": "Cómo practicar tu respuesta",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Elegí dos fortalezas y una habilidad relacionadas con la plaza. Para cada una, escribí:"
+          },
+          {
+            "type": "ordered-list",
+            "items": [
+              "Qué cualidad o habilidad poseés.",
+              "Por qué considerás que la tenés.",
+              "Una experiencia o conducta que la demuestre.",
+              "Cómo puede ayudarte en el puesto."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Después prepará la respuesta en inglés utilizando palabras que realmente dominés."
+          },
+          {
+            "type": "paragraph",
+            "text": "Practicá posibles preguntas adicionales:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "“Why do you consider yourself responsible?”",
+              "“Can you give me an example?”",
+              "“What programs have you used?”",
+              "“How would that help you in customer service?”",
+              "“Tell me about a situation where you demonstrated that skill.”"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "No memoricés únicamente la respuesta principal. Prepará también las razones que sostienen lo que estás diciendo."
+          },
+          {
+            "type": "paragraph",
+            "text": "El objetivo no es parecer una persona perfecta. Es demostrar que conocés tus capacidades, que podés aprender de tus experiencias y que tenés una razón real para afirmar cada cosa que decís."
+          }
+        ]
+      }
+    ],
+    "related": {
+      "heading": "Complementá este artículo",
+      "before": "¿Ya identificaste tus fortalezas y habilidades? Aprendé a integrarlas en una presentación profesional con ",
+      "label": "“Cómo responder ‘Tell me about yourself’ si no tenés experiencia”",
+      "after": ".",
+      "to": "/recursos/tell-me"
+    }
+  }
+}

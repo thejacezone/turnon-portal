@@ -6,7 +6,6 @@ export const navigation = [
   { path: '/calculadoras', label: 'Calculadoras' },
   { path: '/comunidad', label: 'Comunidad' },
   { path: '/ofertas', label: 'Ofertas' },
-  { path: '/sobre-turnon', label: 'Sobre TurnOn' },
 ]
 
 export const homeNeeds = [

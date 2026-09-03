@@ -16,7 +16,7 @@ export const practicePageHeroes = {
   },
   listening: {
     title: 'Listening Practice',
-    description: 'Train your listening skills with workplace audio, customer interactions, support cases, orders, and interviews.',
+    description: 'Listen carefully and answer each question based only on what you hear.',
     meta: ['Audio practice', '10 min. approx.', 'Workplace situations', 'Orientative result'],
   },
   writing: {

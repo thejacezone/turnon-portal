@@ -1,12 +1,21 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import PracticeTestHero from '../components/PracticeTestHero.jsx'
-import { listeningPracticeCategories, listeningPracticeContexts, listeningPracticeItems } from '../data/listeningPracticeItems.js'
+import { listeningPracticeItems } from '../data/listeningPracticeItems.js'
 import { practicePageHeroes } from '../data/practicePageHeroes.js'
-import { calculateListeningResult, filterListeningItems, generateListeningGeneralTest, scoreListeningGeneralTest } from '../utils/listeningPractice.js'
+import { calculateListeningResult, generateListeningGeneralTest, scoreListeningGeneralTest } from '../utils/listeningPractice.js'
 import { validateListeningPracticeItems } from '../utils/questionValidation.js'
 
-const initialFilters = { query: '', level: 'Todos', category: 'Todos', context: 'Todos' }
+const initialFilters = { query: '', level: 'Todos' }
+const neutralListeningDescription = 'Listen carefully to the audio and answer the questions based only on what you hear.'
+
+function getListeningPublicTitle(item) {
+  const numericId = Number(item.id.match(/\d+$/)?.[0])
+
+  return Number.isFinite(numericId)
+    ? `Listening Practice ${String(numericId).padStart(2, '0')}`
+    : 'Listening Practice'
+}
 
 function formatType(type) {
   return type.replaceAll('_', ' ')
@@ -34,10 +43,10 @@ function ListeningAudioPlayer({ item }) {
 function ListeningItemCard({ item }) {
   return (
     <article className="listening-card">
-      <div className="card-top"><span className="eyebrow">{item.category}</span><span className="status available">{item.level}</span></div>
-      <h2>{item.title}</h2>
-      <p>{item.summary}</p>
-      <div className="reading-card-meta"><span>{item.context}</span><span>{item.estimatedTime}</span><span>{item.questions.length} preguntas</span></div>
+      <div className="card-top"><span className="eyebrow">LISTENING PRACTICE</span><span className="status available">{item.level}</span></div>
+      <h2>{getListeningPublicTitle(item)}</h2>
+      <p>{neutralListeningDescription}</p>
+      <div className="reading-card-meta"><span>{item.level}</span><span>{item.estimatedTime}</span><span>{item.questions.length} preguntas</span></div>
       <Link className="button" to={`/work-english-test/listening-practice/${item.slug}`}>Practicar audio</Link>
     </article>
   )
@@ -76,7 +85,8 @@ function ListeningResults({ result, item, onRetry }) {
   return (
     <section className="reading-results">
       <span className="eyebrow">Resultado de listening</span>
-      <h2>Resultado: {result.correct}/{result.total}</h2>
+      <h2>{getListeningPublicTitle(item)} completed</h2>
+      <div className="listening-result-context"><span>Scenario</span><strong>{item.title}</strong><span>Score</span><strong>{result.correct}/{result.total}</strong></div>
       <p>{result.percentage}% · Nivel {result.level}</p>
       <div className="practice-result-grid">
         <div><span>Tipos a reforzar</span><strong>{result.missedQuestionTypes.length ? result.missedQuestionTypes.map(formatType).join(', ') : 'Sin tipos críticos'}</strong></div>
@@ -228,10 +238,10 @@ function ListeningGeneralTest({ items }) {
           <div className="progress-track"><span style={{ width: `${progress}%` }} /></div>
         </div>
         <header className="listening-block-header">
-          <span className="eyebrow">{currentItem.category}</span>
-          <h2>{currentItem.title}</h2>
-          <p>{currentItem.summary}</p>
-          <div className="reading-card-meta"><span>{currentItem.level}</span><span>{currentItem.context}</span><span>{currentItem.questions.length} preguntas</span></div>
+          <span className="eyebrow">LISTENING PRACTICE</span>
+          <h2>{getListeningPublicTitle(currentItem)}</h2>
+          <p>{neutralListeningDescription}</p>
+          <div className="reading-card-meta"><span>{currentItem.level}</span><span>{currentItem.estimatedTime}</span><span>{currentItem.questions.length} preguntas</span></div>
         </header>
         <section className="listening-player">
           <span className="eyebrow">Audio actual</span>
@@ -242,7 +252,6 @@ function ListeningGeneralTest({ items }) {
           <span className="eyebrow">Preguntas de este audio</span>
           {currentItem.questions.map((question) => <ListeningQuestion key={question.id} question={question} selectedAnswer={answers[question.id]} submitted={currentSubmitted} onSelect={selectAnswer} />)}
         </section>
-        {currentSubmitted && <ListeningTranscriptBox transcript={currentItem.transcript} />}
         <div className="test-navigation">
           <button className="button ghost dark-ghost" type="button" disabled={currentAudioIndex === 0} onClick={() => setCurrentAudioIndex((index) => Math.max(0, index - 1))}>Anterior audio</button>
           {!currentSubmitted
@@ -270,23 +279,22 @@ function ListeningDetail({ item }) {
       <Link className="back-link" to="/work-english-test/listening-practice">← Volver a Listening Practice</Link>
       <article className="reading-scenario-detail">
         <header className="reading-hero">
-          <span className="eyebrow">{item.category}</span>
-          <h1>{item.title}</h1>
-          <p>{item.summary}</p>
-          <div className="reading-card-meta"><span>{item.level}</span><span>{item.context}</span><span>{item.estimatedTime}</span></div>
+          <span className="eyebrow">LISTENING PRACTICE</span>
+          <h1>{getListeningPublicTitle(item)}</h1>
+          <p>{neutralListeningDescription}</p>
+          <div className="reading-card-meta"><span>{item.level}</span><span>{item.estimatedTime}</span><span>{item.questions.length} preguntas</span></div>
         </header>
         <section className="listening-player">
           <span className="eyebrow">Audio</span>
           <p>Escuchá el audio y respondé las preguntas. La transcripción se muestra después de enviar respuestas.</p>
           <ListeningAudioPlayer key={item.audioUrl} item={item} />
         </section>
-        <ListeningVocabularyBox vocabulary={item.vocabulary} />
         <section className="reading-question-list">
           <span className="eyebrow">Preguntas de este audio</span>
           {item.questions.map((question) => <ListeningQuestion key={question.id} question={question} selectedAnswer={answers[question.id]} submitted={submitted} onSelect={(id, answer) => setAnswers((current) => ({ ...current, [id]: answer }))} />)}
         </section>
         {!submitted && <div className="test-navigation"><Link className="button ghost dark-ghost" to="/work-english-test/listening-practice">Volver al listado</Link><button className="button" type="button" disabled={!allAnswered} onClick={() => setSubmitted(true)}>Enviar respuestas</button></div>}
-        {submitted && <ListeningResults result={result} item={item} onRetry={retry} />}
+        {submitted && <><ListeningResults result={result} item={item} onRetry={retry} /><ListeningVocabularyBox vocabulary={item.vocabulary} /></>}
       </article>
     </div>
   )
@@ -297,7 +305,11 @@ export default function ListeningPractice() {
   const [filters, setFilters] = useState(initialFilters)
   const levels = useMemo(() => [...new Set(listeningPracticeItems.map((item) => item.level))], [])
   const item = listeningPracticeItems.find((entry) => entry.slug === listeningSlug)
-  const filteredItems = useMemo(() => filterListeningItems(listeningPracticeItems, filters), [filters])
+  const filteredItems = useMemo(() => listeningPracticeItems.filter((entry) => {
+    const matchesQuery = getListeningPublicTitle(entry).toLowerCase().includes(filters.query.toLowerCase())
+    const matchesLevel = filters.level === 'Todos' || entry.level === filters.level
+    return matchesQuery && matchesLevel
+  }), [filters])
 
   useEffect(() => {
     if (!import.meta.env.DEV) return
@@ -313,12 +325,10 @@ export default function ListeningPractice() {
   return (
     <div className="listening-practice-page internal-test-page test-practice-page">
       <ListeningGeneralTest items={listeningPracticeItems} />
-      <section className="practice-section-heading"><span className="eyebrow">Práctica por audio</span><h2>Filtros y audios específicos</h2></section>
+      <section className="practice-section-heading"><span className="eyebrow">Práctica por audio</span><h2>Elegí una práctica</h2></section>
       <section className="reading-filters" aria-label="Filtros de Listening Practice">
-        <label>Buscar<input type="search" value={filters.query} onChange={(event) => updateFilter('query', event.target.value)} placeholder="Ej. order, sales, billing..." /></label>
+        <label>Buscar<input type="search" value={filters.query} onChange={(event) => updateFilter('query', event.target.value)} placeholder="Ej. Listening Practice 01" /></label>
         <label>Nivel<select value={filters.level} onChange={(event) => updateFilter('level', event.target.value)}><option>Todos</option>{levels.map((level) => <option key={level}>{level}</option>)}</select></label>
-        <label>Categoría<select value={filters.category} onChange={(event) => updateFilter('category', event.target.value)}><option>Todos</option>{listeningPracticeCategories.map((category) => <option key={category}>{category}</option>)}</select></label>
-        <label>Contexto<select value={filters.context} onChange={(event) => updateFilter('context', event.target.value)}><option>Todos</option>{listeningPracticeContexts.map((context) => <option key={context}>{context}</option>)}</select></label>
       </section>
       <p className="results-count">{filteredItems.length} audios encontrados</p>
       <section className="listening-grid">

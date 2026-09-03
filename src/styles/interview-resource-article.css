@@ -1,0 +1,86 @@
+.interview-resource-page .page-hero-inner {
+  width: min(1120px, 100%);
+}
+
+.interview-resource-page .page-hero-title {
+  max-width: 1120px;
+  font-size: clamp(3.4rem, 7vw, 7.4rem);
+}
+
+.interview-resource-page .cv-guide-layout {
+  grid-template-columns: 260px minmax(0, 780px);
+}
+
+.interview-resource-page .cv-guide-copy strong {
+  color: var(--cv-navy);
+  font-weight: 900;
+}
+
+.interview-resource-page .interview-guide-quote p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  line-height: 1.55;
+  letter-spacing: -.015em;
+  text-transform: none;
+}
+
+.interview-guide-ordered-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 30px;
+}
+
+.interview-guide-ordered-list li {
+  padding-left: 6px;
+  color: var(--cv-muted);
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.82;
+}
+
+.interview-guide-ordered-list li::marker {
+  color: var(--cv-blue);
+  font-weight: 900;
+}
+
+.interview-related > p {
+  max-width: 760px;
+  margin: 0 0 28px;
+  color: rgba(255, 255, 255, .9);
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  line-height: 1.72;
+}
+
+.interview-related > p a {
+  color: var(--cv-lime);
+  font-weight: 900;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.interview-related > p a:hover,
+.interview-related > p a:focus-visible {
+  color: var(--cv-orange);
+}
+
+.interview-related > .button {
+  margin-right: 10px;
+}
+
+@media (max-width: 960px) {
+  .interview-resource-page .cv-guide-layout {
+    grid-template-columns: minmax(0, 780px);
+  }
+}
+
+@media (max-width: 640px) {
+  .interview-resource-page .page-hero-title {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+  }
+
+  .interview-related > .button {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+}

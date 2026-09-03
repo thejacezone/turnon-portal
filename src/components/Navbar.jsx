@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <header className="site-header">
       <NavLink className="brand" to="/" onClick={closeMenu} aria-label="TurnOn, inicio">
-        <span className="brand-mark">T</span><span>TURN<span>ON</span></span>
+        <img className="brand-logo" src="/assets/brand/logo-horizontal.png" alt="TurnOn" />
       </NavLink>
       <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen((value) => !value)}>
         <span className="sr-only">{open ? 'Cerrar navegación' : 'Abrir navegación'}</span><span></span><span></span><span></span>

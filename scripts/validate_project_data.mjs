@@ -184,10 +184,22 @@ check(typingTexts.every((item) => item.text.length > 3000), 'Typing reference te
 const typingSample = calculateMetrics('clear work message', 'clear work message', 60)
 check(typingSample.accuracy === 100 && typingSample.errors === 0 && typingSample.wpm > 0, 'Typing metrics return correct values for an exact sample')
 
-check(resources.length === 13, 'Resources contains the approved 13 cards')
-check(resources.filter((resource) => resource.status === 'disponible').length === 7, 'Resources contains seven available cards')
+check(resources.length === 12, 'Resources contains the approved 12 cards')
+check(resources.filter((resource) => resource.status === 'disponible').length === 6, 'Resources contains six available cards')
 check(resources.filter((resource) => resource.status === 'proximamente').length === 6, 'Resources contains six coming-soon cards')
+check(!resources.some((resource) => resource.id === 'why-hire'), 'Resources no longer contains the removed Why should we hire you article')
 check(resources.every((resource) => resource.url !== '#'), 'Resources contains no hash placeholders')
+check(offers.length === 11, 'Offers contains exactly 11 roles')
+check(offers.filter((offer) => offer.category === 'Customer Service').length === 5, 'Offers contains five Customer Service roles')
+check(offers.filter((offer) => offer.category === 'Tech Support').length === 3, 'Offers contains three Tech Support roles')
+check(offers.filter((offer) => offer.category === 'Sales').length === 3, 'Offers contains three Sales roles')
+check(unique(offers.map((offer) => offer.slug)), 'Offer slugs are unique')
+check(offers.every((offer) => offer.preparation), 'Every offer is linked to preparation data by slug')
+check(offers.every((offer) => offer.preparation?.vocabulary.length === 25), 'Every offer contains 25 vocabulary terms')
+check(offers.every((offer) => offer.preparation?.usefulPhrases.length === 15), 'Every offer contains 15 useful phrases')
+check(offers.every((offer) => offer.preparation?.interviewQuestions.length === 4), 'Every offer contains four interview questions')
+check(offers.every((offer) => offer.preparation?.rolePlays.length === 3), 'Every offer contains three role plays')
+check(!/sony/i.test(JSON.stringify(offers.find((offer) => offer.slug === 'gaming-platform-support')?.preparation)), 'Gaming preparation contains no Sony content')
 check(offers.every((offer) => offer.applyUrl !== '#'), 'Offers contains no hash placeholders')
 check(communityLinks.every((link) => link.url !== '#'), 'Community contains no hash placeholders')
 
@@ -212,7 +224,12 @@ const routePaths = [
 const dataLinks = [...navigation, ...homeNeeds, ...featuredTests, ...englishPractice].map((item) => item.path)
 check(dataLinks.every((route) => routePaths.includes(route)), 'Navigation and card data use registered canonical routes')
 
-const laborSample = calculateLaborLines(240, [{ id: 'sample', conditionId: 'extra-day', hours: 2 }])
+const laborSample = calculateLaborLines({
+  salary: 180,
+  weeklyHours: 30,
+  dailyHours: 6,
+  lines: [{ id: 'sample', conditionId: 'extra-day', hours: 2 }],
+})
 check(laborSample.hourlyRate === 1 && laborSample.grandTotal === 4, 'Labor calculator sample returns the expected USD result')
 
 console.log(`TurnOn data validation: ${checks.filter((item) => item.passed).length}/${checks.length} checks passed.`)
