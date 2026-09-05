@@ -1,0 +1,139 @@
+.experience-page .page-hero-title {
+  max-width: 1040px;
+}
+
+.experience-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.experience-comparison > div {
+  padding: 22px;
+  border-radius: 18px;
+}
+
+.experience-comparison .is-weak {
+  background: rgba(255, 159, 28, .12);
+  border: 1px solid rgba(255, 159, 28, .36);
+}
+
+.experience-comparison .is-better {
+  background: rgba(200, 255, 61, .25);
+  border: 1px solid rgba(96, 130, 5, .24);
+}
+
+.experience-comparison strong {
+  display: inline-flex;
+  padding: 6px 11px;
+  color: var(--cv-navy);
+  background: var(--cv-orange);
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.experience-comparison .is-better strong {
+  background: var(--cv-lime);
+}
+
+.experience-comparison p {
+  margin: 15px 0 0;
+  color: var(--cv-navy);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.experience-strategy__label {
+  display: block;
+  margin-top: 28px;
+  color: var(--cv-lime);
+  font-size: .74rem;
+  font-weight: 900;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.experience-strategy ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-strategy ul li {
+  padding: 13px 14px;
+  color: var(--cv-navy);
+  background: #fff;
+  border-radius: 14px;
+  font-size: .92rem;
+  font-weight: 760;
+  line-height: 1.45;
+}
+
+.experience-question summary > span,
+.experience-page .cv-guide-section-number,
+.experience-page .no-experience-levels strong,
+.experience-page .no-experience-answer > span {
+  background: var(--cv-lime);
+}
+
+.experience-metrics-lead {
+  margin-bottom: 28px;
+}
+
+.experience-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.experience-metrics-grid blockquote {
+  margin: 0;
+  padding: 22px;
+  background: #f5f8ff;
+  border: 1px solid rgba(21, 92, 255, .18);
+  border-left: 6px solid var(--cv-blue);
+  border-radius: 18px;
+}
+
+.experience-metrics-grid blockquote:nth-child(odd) {
+  background: rgba(200, 255, 61, .18);
+  border-color: rgba(96, 130, 5, .22);
+  border-left-color: var(--cv-lime);
+}
+
+.experience-metrics-grid strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--cv-blue);
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.experience-metrics-grid p {
+  margin: 0;
+  color: var(--cv-navy);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+  .experience-page .page-hero-title {
+    font-size: clamp(3rem, 14vw, 4.6rem);
+  }
+
+  .experience-comparison,
+  .experience-strategy ul,
+  .experience-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

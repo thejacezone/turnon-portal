@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import AboutTurnOnSection from '../components/AboutTurnOnSection.jsx'
+import CommunityWhatsAppSection from '../components/CommunityWhatsAppSection.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import Card from '../components/Card.jsx'
 import SectionTitle from '../components/SectionTitle.jsx'
@@ -28,6 +29,7 @@ export default function Community() {
         title="Avanzá acompañado"
         description="Encontrá espacios, canales y recursos para seguir practicando, resolver dudas y conectar con personas que también están mejorando."
       />
+      <CommunityWhatsAppSection />
       {groups.map((group) => (
         <section className="community-section page-section" key={group}>
           <SectionTitle eyebrow="Comunidad" title={group} />

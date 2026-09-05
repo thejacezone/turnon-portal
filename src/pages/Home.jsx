@@ -15,16 +15,29 @@ export default function Home() {
           <p className="objectives-subtitle">Elegí una ruta y entrá directo a la herramienta que puede ayudarte.</p>
         </header>
         <div className="objectives-grid">
-          {homeNeeds.map((item) => (
-            <Link className="objective-card" to={item.path} key={item.title}>
-              <span className="objective-card-icon"><SkillIcon skill={item.skill} /></span>
-              <span className="objective-card-copy">
-                <strong className="objective-card-title">{item.title}</strong>
-                <span className="objective-card-description">{item.description}</span>
-              </span>
-              <span className="objective-card-arrow" aria-hidden="true">↗</span>
-            </Link>
-          ))}
+          {homeNeeds.map((item) => {
+            const isSpeakingCard = item.variant === 'speaking'
+
+            return (
+              <Link className={`objective-card${isSpeakingCard ? ' objective-card--speaking' : ''}`} to={item.path} key={item.title}>
+                {isSpeakingCard && [1, 2, 3, 4].map((featherNumber) => (
+                  <img
+                    className={`objective-card-feather objective-card-feather--${featherNumber}`}
+                    src={`/assets/feathers/feather${featherNumber}.png`}
+                    alt=""
+                    aria-hidden="true"
+                    key={featherNumber}
+                  />
+                ))}
+                <span className="objective-card-icon"><SkillIcon skill={item.skill} /></span>
+                <span className="objective-card-copy">
+                  <strong className="objective-card-title">{item.title}</strong>
+                  <span className="objective-card-description">{item.description}</span>
+                </span>
+                <span className="objective-card-arrow" aria-hidden="true">↗</span>
+              </Link>
+            )
+          })}
         </div>
       </section>
       <section className="skills-tests-section" aria-labelledby="skills-tests-title">

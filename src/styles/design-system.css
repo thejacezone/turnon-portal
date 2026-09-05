@@ -391,6 +391,7 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   padding: clamp(80px, 9vw, 128px) max(24px, calc((100vw - var(--container-width)) / 2));
+  overflow-x: clip;
   background:
     radial-gradient(circle at 12% 18%, rgba(190, 255, 53, .18), transparent 24rem),
     var(--page-background);
@@ -509,6 +510,66 @@ nav a:hover, nav a.active { background: var(--color-primary); color: #fff; }
 .objective-card:focus-visible {
   outline: 4px solid #155cff;
   outline-offset: 4px;
+}
+.objective-card--speaking {
+  isolation: isolate;
+  overflow: visible;
+}
+.objective-card--speaking::after {
+  right: -24px;
+  bottom: -34px;
+}
+.objective-card--speaking > :not(.objective-card-feather) {
+  z-index: 2;
+}
+.objective-card-feather {
+  position: absolute;
+  z-index: 1;
+  width: var(--objective-feather-size, 66px);
+  height: auto;
+  pointer-events: none;
+  opacity: 0;
+  filter: drop-shadow(0 10px 12px rgba(7, 21, 47, .16));
+  transition: opacity 220ms ease, transform 320ms cubic-bezier(.2, .8, .2, 1);
+}
+.objective-card-feather--1 {
+  --objective-feather-size: 64px;
+  top: 7%;
+  left: -10px;
+  transform: translate3d(20px, 18px, 0) rotate(-34deg) scale(.72);
+}
+.objective-card-feather--2 {
+  --objective-feather-size: 54px;
+  top: 22%;
+  right: -12px;
+  transform: translate3d(-18px, 12px, 0) rotate(31deg) scale(.72);
+}
+.objective-card-feather--3 {
+  --objective-feather-size: 58px;
+  bottom: 17%;
+  left: -12px;
+  transform: translate3d(20px, -10px, 0) rotate(-18deg) scale(.72);
+}
+.objective-card-feather--4 {
+  --objective-feather-size: 52px;
+  right: -10px;
+  bottom: 7%;
+  transform: translate3d(-16px, -12px, 0) rotate(38deg) scale(.72);
+}
+.objective-card--speaking:is(:hover, :focus-visible) .objective-card-feather {
+  opacity: .9;
+}
+.objective-card--speaking:is(:hover, :focus-visible) .objective-card-feather--1 {
+  transform: translate3d(-22px, -18px, 0) rotate(-48deg) scale(1);
+}
+.objective-card--speaking:is(:hover, :focus-visible) .objective-card-feather--2 {
+  transform: translate3d(24px, -16px, 0) rotate(46deg) scale(1);
+}
+.objective-card--speaking:is(:hover, :focus-visible) .objective-card-feather--3 {
+  transform: translate3d(-22px, 18px, 0) rotate(-30deg) scale(1);
+}
+.objective-card--speaking:is(:hover, :focus-visible) .objective-card-feather--4 {
+  transform: translate3d(22px, 18px, 0) rotate(54deg) scale(1);
 }
 .skills-tests-section {
   width: 100vw;
@@ -2006,6 +2067,139 @@ body:has(.test-practice-detail),
 .community-page .community-section {
   margin-block: clamp(72px, 8vw, 108px);
 }
+.community-whatsapp-section {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(520px, 54vw, 680px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+  align-items: center;
+  gap: clamp(30px, 5vw, 76px);
+  margin-block: clamp(58px, 7vw, 94px);
+  padding: clamp(38px, 6vw, 82px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 24%, rgba(200, 255, 61, .34), transparent 19rem),
+    linear-gradient(135deg, #fff 0%, #f7faff 100%);
+  border: 1px solid rgba(7, 21, 47, .1);
+  border-radius: 34px;
+  box-shadow: 0 26px 64px rgba(7, 21, 47, .11);
+}
+.community-whatsapp-content {
+  position: relative;
+  z-index: 3;
+  max-width: 680px;
+}
+.community-whatsapp-eyebrow {
+  display: inline-flex;
+  color: var(--turnon-blue);
+  font-size: .84rem;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.community-whatsapp-title {
+  max-width: 720px;
+  margin: 16px 0 24px;
+  color: var(--turnon-navy);
+  font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: clamp(3.25rem, 6vw, 6.6rem);
+  font-weight: 400;
+  line-height: .94;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+.community-whatsapp-description,
+.community-whatsapp-note {
+  max-width: 650px;
+  color: var(--turnon-muted);
+  font-size: clamp(1rem, 1.25vw, 1.14rem);
+  line-height: 1.72;
+}
+.community-whatsapp-note {
+  margin-top: 14px;
+  color: var(--turnon-navy);
+  font-weight: 800;
+}
+.community-whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  margin-top: 30px;
+  padding: 16px 28px;
+  color: var(--turnon-navy);
+  background: var(--turnon-lime);
+  border-radius: 999px;
+  box-shadow: 0 16px 30px rgba(91, 126, 0, .2);
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+.community-whatsapp-button:is(:hover, :focus-visible) {
+  color: var(--turnon-navy);
+  background: var(--turnon-orange);
+  box-shadow: 0 22px 38px rgba(173, 91, 0, .22);
+  transform: translateY(-4px);
+}
+.community-whatsapp-button:focus-visible {
+  outline: 4px solid var(--turnon-blue);
+  outline-offset: 4px;
+}
+.community-whatsapp-visual {
+  position: relative;
+  z-index: 2;
+  align-self: end;
+  display: grid;
+  place-items: end center;
+  min-height: 430px;
+}
+.community-whatsapp-character {
+  width: min(100%, 540px);
+  height: auto;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 28px 28px rgba(7, 21, 47, .16));
+  animation: madtogoFloat 5.8s ease-in-out infinite;
+}
+.community-whatsapp-feather {
+  position: absolute;
+  z-index: 1;
+  width: var(--community-feather-size, 92px);
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 16px rgba(7, 21, 47, .13));
+  animation: workPageFeatherFloat var(--community-feather-speed, 5s) ease-in-out infinite;
+}
+.community-whatsapp-feather--1 {
+  --community-feather-size: 88px;
+  --community-feather-speed: 5.4s;
+  top: 10%;
+  left: 47%;
+  transform: rotate(-25deg);
+}
+.community-whatsapp-feather--2 {
+  --community-feather-size: 70px;
+  --community-feather-speed: 4.8s;
+  bottom: 13%;
+  left: 44%;
+  transform: rotate(27deg);
+}
+.community-whatsapp-feather--3 {
+  --community-feather-size: 96px;
+  --community-feather-speed: 6s;
+  top: 9%;
+  right: 4%;
+  transform: rotate(34deg);
+}
+.community-whatsapp-feather--4 {
+  --community-feather-size: 76px;
+  --community-feather-speed: 5.2s;
+  right: 5%;
+  bottom: 8%;
+  transform: rotate(-30deg);
+}
 .community-page .community-card .skill-icon {
   color: var(--turnon-blue);
   background: #eef3ff;
@@ -2666,6 +2860,12 @@ body:has(.test-practice-detail),
   .feather-4 { top: 10%; right: -2%; }
   .objectives-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .objective-card:last-child { width: calc(50% - 10px); grid-column: 1 / -1; justify-self: center; }
+  .community-whatsapp-section {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, .72fr);
+    padding: 44px;
+  }
+  .community-whatsapp-title { font-size: clamp(3rem, 7vw, 5.25rem); }
+  .community-whatsapp-visual { min-height: 360px; }
   .skills-test-card { grid-template-columns: 68px minmax(0, 1fr) 58px; gap: 24px; }
   .skills-test-content { grid-template-columns: minmax(210px, .8fr) minmax(260px, 1.2fr); gap: 30px; }
   .skills-test-action { width: 54px; height: 54px; }
@@ -2771,6 +2971,27 @@ body:has(.test-practice-detail),
   .objectives-grid, .home-closing, .test-choice-grid { grid-template-columns: 1fr; }
   .objective-card, .objective-card:last-child { width: 100%; min-height: 270px; grid-column: auto; padding: 30px; border-radius: 24px; }
   .objective-card-arrow { top: 30px; right: 30px; }
+  .objective-card-feather { --objective-feather-size: 48px; }
+  .objective-card-feather--1 { --objective-feather-size: 54px; }
+  .community-whatsapp-section {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-block: 56px 64px;
+    padding: 34px 24px 0;
+    border-radius: 26px;
+  }
+  .community-whatsapp-title {
+    margin-block: 14px 20px;
+    font-size: clamp(3rem, 14vw, 4.8rem);
+  }
+  .community-whatsapp-button { width: 100%; }
+  .community-whatsapp-visual { min-height: 320px; }
+  .community-whatsapp-character { width: min(88%, 410px); }
+  .community-whatsapp-feather--1 { top: 4%; left: auto; right: 2%; }
+  .community-whatsapp-feather--2 { bottom: 24%; left: 2%; }
+  .community-whatsapp-feather--3 { top: auto; right: -2%; bottom: 31%; }
+  .community-whatsapp-feather--4 { display: none; }
   .skills-tests-section { padding: 72px 20px 84px; }
   .skills-tests-header { margin-bottom: 38px; }
   .skills-tests-title { font-size: clamp(3.2rem, 15vw, 5.2rem); }

@@ -1,4 +1,4 @@
-export const resourceCategories = ['CV y aplicación', 'Cartas laborales', 'Entrevistas', 'Vida laboral']
+export const resourceCategories = ['CV y aplicación', 'Cartas laborales', 'Entrevistas', 'Inglés laboral', 'Vida laboral']
 
 const make = (id, title, category, description, type = 'guía', status = 'disponible') => ({ id, title, category, description, type, status })
 
@@ -9,6 +9,9 @@ const baseResources = [
   make('checklist-antes-de-aplicar', 'Checklist antes de aplicar', 'CV y aplicación', 'Revisá vacante, CV, contacto y documentos antes de enviar.', 'checklist'),
   make('tell-me', 'Cómo responder “Tell me about yourself”', 'Entrevistas', 'Construí una respuesta breve, ordenada y relevante para el puesto.'),
   make('fortalezas', 'Fortalezas y habilidades en entrevista', 'Entrevistas', 'Presentá tus capacidades con ejemplos claros y conectalas con lo que necesita el puesto.'),
+  { ...make('preguntas-entrevista-sin-experiencia', 'Preguntas de entrevista sin experiencia', 'Entrevistas', 'Respuestas modelo en inglés para entrevistas cuando todavía no tenés experiencia laboral formal.'), actionLabel: 'Leer artículo' },
+  { ...make('preguntas-entrevista-con-experiencia', 'Preguntas de entrevista con experiencia', 'Entrevistas', 'Respuestas modelo en inglés para explicar tu experiencia, logros, errores, presión, clientes difíciles y crecimiento profesional.'), actionLabel: 'Leer artículo' },
+  { ...make('caja-de-herramientas-ingles', 'Caja de herramientas para hablar inglés', 'Inglés laboral', 'Técnicas prácticas para responder, aclarar, corregirte y continuar hablando aunque no tengas inglés perfecto.'), actionLabel: 'Leer artículo' },
   make('boleta', 'Cómo leer una boleta de pago', 'Vida laboral', 'Ubicá ingresos, descuentos y total recibido en tu comprobante.', 'guía', 'proximamente'),
   make('renunciar', 'Cómo renunciar correctamente', 'Vida laboral', 'Pasos para comunicar, documentar y cerrar tu relación laboral.', 'guía', 'proximamente'),
   make('alertas', 'Señales de alerta en una oferta laboral', 'Vida laboral', 'Detectá solicitudes, promesas o condiciones que merecen una revisión adicional.', 'checklist', 'proximamente'),
@@ -87,6 +90,15 @@ const specializedArticles = {
   },
   fortalezas: {
     articleType: 'interview-guide',
+  },
+  'preguntas-entrevista-sin-experiencia': {
+    articleType: 'interview-no-experience',
+  },
+  'preguntas-entrevista-con-experiencia': {
+    articleType: 'interview-with-experience',
+  },
+  'caja-de-herramientas-ingles': {
+    articleType: 'speaking-toolkit',
   },
 }
 

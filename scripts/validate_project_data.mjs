@@ -10,6 +10,9 @@ import { listeningPracticeItems } from '../src/data/listeningPracticeItems.js'
 import { offers } from '../src/data/offers.js'
 import { readingPracticeScenarios } from '../src/data/readingPracticeScenarios.js'
 import { resources } from '../src/data/resources.js'
+import { interviewWithoutExperienceArticle } from '../src/data/interviewWithoutExperienceArticle.js'
+import { interviewWithExperienceArticle } from '../src/data/interviewWithExperienceArticle.js'
+import { speakingToolkitArticle } from '../src/data/speakingToolkitArticle.js'
 import { featuredTests, homeNeeds, navigation } from '../src/data/siteContent.js'
 import { workEnglishTestQuestions } from '../src/data/workEnglishTestQuestions.js'
 import { workVocabularyModules } from '../src/data/workVocabularyModules.js'
@@ -184,11 +187,25 @@ check(typingTexts.every((item) => item.text.length > 3000), 'Typing reference te
 const typingSample = calculateMetrics('clear work message', 'clear work message', 60)
 check(typingSample.accuracy === 100 && typingSample.errors === 0 && typingSample.wpm > 0, 'Typing metrics return correct values for an exact sample')
 
-check(resources.length === 12, 'Resources contains the approved 12 cards')
-check(resources.filter((resource) => resource.status === 'disponible').length === 6, 'Resources contains six available cards')
+check(resources.length === 15, 'Resources contains the approved 15 cards')
+check(resources.filter((resource) => resource.status === 'disponible').length === 9, 'Resources contains nine available cards')
 check(resources.filter((resource) => resource.status === 'proximamente').length === 6, 'Resources contains six coming-soon cards')
 check(!resources.some((resource) => resource.id === 'why-hire'), 'Resources no longer contains the removed Why should we hire you article')
 check(resources.every((resource) => resource.url !== '#'), 'Resources contains no hash placeholders')
+check(resources.some((resource) => resource.id === 'caja-de-herramientas-ingles' && resource.status === 'disponible'), 'Resources contains the available speaking toolkit article')
+check(resources.some((resource) => resource.id === 'preguntas-entrevista-sin-experiencia' && resource.status === 'disponible'), 'Resources contains the available no-experience interview article')
+check(resources.some((resource) => resource.id === 'preguntas-entrevista-con-experiencia' && resource.status === 'disponible'), 'Resources contains the available experienced-candidate interview article')
+check(interviewWithoutExperienceArticle.questions.length === 15, 'No-experience interview article contains its 15 requested questions')
+check(unique(interviewWithoutExperienceArticle.questions.map((question) => question.id)), 'No-experience interview question IDs are unique')
+check(interviewWithoutExperienceArticle.questions.every((question) => question.tip && question.b1 && question.b2 && question.note), 'Every no-experience interview question contains tip, B1, B2-C1, and adaptation note')
+check(interviewWithoutExperienceArticle.cta.links.length === 3, 'No-experience interview article contains three final CTA links')
+check(interviewWithExperienceArticle.questions.length === 18, 'Experienced-candidate interview article contains its 18 requested questions')
+check(unique(interviewWithExperienceArticle.questions.map((question) => question.id)), 'Experienced-candidate interview question IDs are unique')
+check(interviewWithExperienceArticle.questions.every((question) => question.tip && question.b1 && question.b2 && question.note), 'Every experienced-candidate interview question contains tip, B1, B2-C1, and adaptation note')
+check(interviewWithExperienceArticle.cta.links.length === 3, 'Experienced-candidate interview article contains three final CTA links')
+check(speakingToolkitArticle.sections.length === 21, 'Speaking toolkit contains its 21 requested sections')
+check(unique(speakingToolkitArticle.sections.map((section) => section.id)), 'Speaking toolkit section IDs are unique')
+check(speakingToolkitArticle.cta.links.length === 3, 'Speaking toolkit contains three final CTA links')
 check(offers.length === 11, 'Offers contains exactly 11 roles')
 check(offers.filter((offer) => offer.category === 'Customer Service').length === 5, 'Offers contains five Customer Service roles')
 check(offers.filter((offer) => offer.category === 'Tech Support').length === 3, 'Offers contains three Tech Support roles')
@@ -223,6 +240,9 @@ const routePaths = [
 ]
 const dataLinks = [...navigation, ...homeNeeds, ...featuredTests, ...englishPractice].map((item) => item.path)
 check(dataLinks.every((route) => routePaths.includes(route)), 'Navigation and card data use registered canonical routes')
+check(interviewWithoutExperienceArticle.cta.links.every((link) => routePaths.includes(link.to)), 'No-experience interview CTA links use registered canonical routes')
+check(interviewWithExperienceArticle.cta.links.every((link) => routePaths.includes(link.to)), 'Experienced-candidate interview CTA links use registered canonical routes')
+check(speakingToolkitArticle.cta.links.every((link) => routePaths.includes(link.to)), 'Speaking toolkit CTA links use registered canonical routes')
 
 const laborSample = calculateLaborLines({
   salary: 180,

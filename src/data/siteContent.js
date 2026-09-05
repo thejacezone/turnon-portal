@@ -11,7 +11,7 @@ export const navigation = [
 export const homeNeeds = [
   { skill: 'general', title: 'Medir nivel de inglés', description: 'Descubrí tu punto de partida y recibí un resultado orientativo.', path: '/work-english-test/general-test' },
   { skill: 'offers', title: 'Buscar oportunidades', description: 'Revisá ofertas, requisitos y rutas para aplicar mejor.', path: '/ofertas' },
-  { skill: 'resources', title: 'Recursos', description: 'Encontrá guías, práctica y herramientas para prepararte mejor.', path: '/recursos' },
+  { skill: 'community', title: 'Practicar speaking en grupo', description: 'Unite a personas que también están practicando inglés para entrevistas, trabajo y conversación real.', path: '/comunidad', variant: 'speaking' },
 ]
 
 export const featuredTests = [
